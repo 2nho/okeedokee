@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<h1>안녕하세요 Spring MVC</h1>
@@ -21,6 +22,10 @@
 	<h1>추가</h1>
 	<h3>커밋테스트</h3>
 	<h3>커밋테스트2</h3>
+	<h1>커밋테스트11</h1>
+	<br />
+	<hr />
+	<a href="api">유기견API TEST</a>
 
 </body>
 </html>

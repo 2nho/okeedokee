@@ -1,27 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+<beans:beans
+	xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc
 						http://www.springframework.org/schema/mvc/spring-mvc.xsd
 						http://www.springframework.org/schema/beans
-						http://www.springframework.org/schema/beans/spring-beans.xsd
-						http://www.springframework.org/schema/context
-						http://www.springframework.org/schema/context/spring-context.xsd">
-						
-	<!-- 스캔한 패키지 내부의 클래스 중 Controller 어노테이션을 가지고 있는 클래스들을 Controller로 로딩하도록 한다.-->
-	<annotation-driven/>
-	
-	<!-- 스캔할 bean 들이 모여있는 패키지를 지정한다. -->
-	<context:component-scan base-package="kr.co.goodee39.controller"/>
-	
-	<!-- Controller의 메서드에서 반환하는 문자열 앞 뒤에 붙일 경로 정보를 세팅 -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/"/>
-		<beans:property name="suffix" value=".jsp"/>
+                 		http://www.springframework.org/schema/beans/spring-beans.xsd
+                 		http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+                 		http://www.springframework.org/schema/tx
+						http://www.springframework.org/schema/tx/spring-tx.xsd
+                 		http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<!-- 스캔한 패키지 내부 클래스 중 @Controller 있는 클래스 controller로써 로딩하도록 설정 -->
+	<annotation-driven />
+
+	<!-- 스캔할 bean들이 모여있는 패키지 지정 -->
+	<context:component-scan base-package="kr.co.goodee39.controller" />
+	<!-- MyBatis와 트랜잭션 제어를 위한 service 패키지 지정 -->
+	<context:component-scan base-package="kr.co.goodee39.service" />
+
+	<!-- Controller의 메서드에서 반환하는 문자열 앞, 뒤에 붙일 경로 정보 셋팅 -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+
+
+	<!-- 정적파일(img, video, audio) 로드 설정 -->
+	<resources mapping="/**" location="/resources/" />
 	
-	<!-- 정적 파일 경로 세팅 -->
-	<resources mapping="/**" location="/resources/"/>
+		
+	
+	<!-- 트랜잭션 제어 객체 bean 3 -->
+	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			txData로 시작하는 모든 메서드에 대한
+			<tx:method name="txData*" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut expression="execution( * kr.co.goodee39..*.*(..))" id="transactionMethod1"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="transactionMethod1"/>
+	</aop:config> -->
+	
+	
+	<!-- 트랜잭션 제어 객체 bean 4 : 多사용 -->
+	<tx:annotation-driven/>
+	
 </beans:beans>
