@@ -8,7 +8,5 @@
 </head>
 <body>
 	<h1>안녕하세요 Spring MVC</h1>
-	<img src="img/icon-spring-framework.svg">
-	<h2>main</h2>
 </body>
 </html>
