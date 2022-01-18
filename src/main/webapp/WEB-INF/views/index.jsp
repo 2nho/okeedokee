@@ -31,5 +31,6 @@
 	
 	<a href="graph">그래프</a>
 
+	<a href="Map_api">카카오맵API TEST</a>
 </body>
 </html>

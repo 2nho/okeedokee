@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div id="map" style="width:100%;height:350px;"></div>
+	<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d038fe03dc6e4e500c465865653e5635&libraries=services"></script>
 	<script type="text/javascript">
 	// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
@@ -42,7 +43,8 @@
 
 	// 장소 검색 객체를 생성합니다
 	var ps = new kakao.maps.services.Places(map); 
-
+	
+	// 보호소api 주소 입력
 	// 키워드로 장소를 검색합니다
 	ps.keywordSearch('천안 카페', placesSearchCB); 
 
