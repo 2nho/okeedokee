@@ -28,11 +28,15 @@ public class TestController {
 	@GetMapping("/api")
 	public String xmlToObject(HttpServletRequest request, Model model) {
 
+		//최종 산출물을 담기 위한 변수 설정
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 
 		try {
+			//constroller에서 받아온 xmlFile 
 			String xmlFile = service.getXml();
 			
+			//String타입 xmlFile을 JSON화 하기
+			//String타입이지만 XML구조로 되어있기 때문에 XML.tojosn~
 			JSONObject xmlToJsonObj = XML.toJSONObject(xmlFile);
 			String xmlToJsonString = xmlToJsonObj.toString();
 			/*
@@ -40,10 +44,14 @@ public class TestController {
 			 * ;
 			 */
 			
+			//String을 JSON화 하기
+			//pom에 추가한 Jackson에서 제공되는 객체로 내용물 파싱에 필요한 커스터마이징 가능
 			ObjectMapper objMapper = new ObjectMapper();
-			
+			//objectMapper로 파싱해올 내용 담을 map 변수 선언
 			Map<String, Object> map = new HashMap<>();
+			//map에 xmlToJsonString 파싱해 담기
             map = objMapper.readValue(xmlToJsonString, new TypeReference<Map<String, Object>>(){});
+            //XML각 블럭 뽑아오기
             Map<String, Object> dataResponse = (Map<String, Object>) map.get("response");
             Map<String, Object> body = (Map<String, Object>) dataResponse.get("body");
             Map<String, Object> items = null;
@@ -59,12 +67,14 @@ public class TestController {
 			 * System.out.println("### item="+item);
 			 */
  
+            //뽑아온 내용 최종 산출물 변수에 담아주기
             resultMap.put("Result", "0000");
             resultMap.put("numOfRows", body.get("numOfRows"));
             resultMap.put("pageNo", body.get("pageNo"));
             resultMap.put("totalCount", body.get("totalCount"));
             resultMap.put("item", item);
             
+            //view로 가져가기
             model.addAttribute("result", resultMap);
 
 			
