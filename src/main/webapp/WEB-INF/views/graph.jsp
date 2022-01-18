@@ -8,10 +8,12 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body><script>
+// svg 박스를 설정하기 위한 높이 넓이 마진 설정 값
 const width = 400;
 const height = 400;
 const margin = {top: 40, left: 40, bottom: 40, right: 40};
 
+// svg 에 위에 설정한 값들을 넣고 body태그에 삽입
 const svg = d3.select('body').append('svg').style('width', width).style('height', height);
 
 // data를 db에서 뽑아와야함
@@ -24,11 +26,21 @@ const data = [
     {name: 'f', value: 15}
   ];
  
+/* dataset = [1, 2, 3, 4, 5] 값을 가지는 데이터가 있고
+
+출력하고자 하는 차트 SVG 너비가 100px이라고 하면,
+
+    .domain([1,5])
+
+    .range([1,100])
+
+이 된다. */
 const x = d3.scaleBand()
   .domain(data.map(d => d.name))
   .range([margin.left, width - margin.right])
   .padding(0.2);
  
+ //d3.scale.linear - 정량적 선형 스케일(축척)을 생성한다
 const y = d3.scaleLinear()
   .domain([0, d3.max(data, d => d.value)]).nice()
     .range([height - margin.bottom, margin.top]);
