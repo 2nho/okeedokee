@@ -29,7 +29,7 @@
 	<br/>
 	<a href="textEditor">텍스트 에디터 TEST</a>
 	
-	<a href="graph"></a>
+	<a href="graph">그래프</a>
 
 </body>
 </html>
