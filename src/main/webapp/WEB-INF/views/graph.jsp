@@ -14,6 +14,7 @@ const margin = {top: 40, left: 40, bottom: 40, right: 40};
 
 const svg = d3.select('body').append('svg').style('width', width).style('height', height);
 
+// data를 db에서 뽑아와야함
 const data = [
     {name: 'a', value: 10},
     {name: 'b', value: 29},
