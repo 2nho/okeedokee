@@ -35,8 +35,15 @@ const data = [
     .range([1,100])
 
 이 된다. */
+
+//시각화할 데이터의 값 domain 
+// 반영할 값 range
+
+
 const x = d3.scaleBand()
+//.domain(data.map(function(d){return d.name}); 
   .domain(data.map(d => d.name))
+  // marin left와 margin right을 뺀 길이
   .range([margin.left, width - margin.right])
   .padding(0.2);
  
