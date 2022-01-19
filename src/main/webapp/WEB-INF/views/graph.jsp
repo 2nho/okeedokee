@@ -9,8 +9,8 @@
 </head>
 <body><script>
 // svg 박스를 설정하기 위한 높이 넓이 마진 설정 값
-const width = 400;
-const height = 400;
+const width = 800;
+const height = 300;
 const margin = {top: 40, left: 40, bottom: 40, right: 40};
 
 // svg 에 위에 설정한 값들을 넣고 body태그에 삽입
@@ -18,12 +18,18 @@ const svg = d3.select('body').append('svg').style('width', width).style('height'
 
 // data를 db에서 뽑아와야함
 const data = [
-    {name: 'a', value: 10},
-    {name: 'b', value: 29},
-    {name: 'c', value: 32},
-    {name: 'd', value: 25},
-    {name: 'e', value: 23},
-    {name: 'f', value: 15}
+    {name: '1월', value: 10},
+    {name: '2월', value: 29},
+    {name: '3월', value: 32},
+    {name: '4월', value: 25},
+    {name: '5월', value: 23},
+    {name: '6월', value: 15},
+    {name: '7월', value: 10},
+    {name: '8월', value: 29},
+    {name: '9월', value: 32},
+    {name: '10월', value: 25},
+    {name: '11월', value: 23},
+    {name: '12월', value: 15}
   ];
  
 /* data = [1, 2, 3, 4, 5] 값을 가지는 데이터가 있고
@@ -45,7 +51,7 @@ const x = d3.scaleBand()
   .domain(data.map(d => d.name))
   // marin left와 margin right을 뺀 길이
   .range([margin.left, width - margin.right])
-  .padding(0.2);
+  .padding(0.3);
  
  //d3.scale.linear - 정량적 선형 스케일(축척)을 생성한다
 const y = d3.scaleLinear()
@@ -66,7 +72,7 @@ const y = d3.scaleLinear()
 const xAxis = g => g
 // transform: translate(0,높이에서마진바텀값을뺀값)
 //                      x축 y축
-  .attr('transform', `translate(0, 360)`)
+  .attr('transform', `translate(0, 260)`)
   // bottom x축을 아래
   .call(d3.axisBottom(x)
 		  //시작테두리 끝 테두리 길이 
@@ -75,7 +81,7 @@ const xAxis = g => g
 const yAxis = g => g
   .attr('transform', `translate(40, 0)`)
   // left y축을 왼쪽에
-  .call(d3.axisLeft(y))
+  .call(d3.axisLeft(y));
   //.call(g => g.select('.domain').remove()); 선제거 
  
 
