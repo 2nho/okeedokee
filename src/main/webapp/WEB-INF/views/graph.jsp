@@ -86,6 +86,7 @@ svg.append('g')
   .attr('y', d => y(d.value))
   .attr('height', d => y(0) - y(d.value))
   .attr('width', x.bandwidth());
+  
 // selection.node() function in D3.js is used to return the first element in the selection.
 svg.node();
 </script>
