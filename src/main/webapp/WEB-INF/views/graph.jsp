@@ -59,9 +59,10 @@ const y = d3.scaleLinear()
  	선택된 변수의 내용을 불러옴
  */   
  
- 
  //axis 단위값
 const xAxis = g => g
+// transform: translate(0,높이에서마진바텀값을뺀값)
+//                      x축 y축
   .attr('transform', `translate(0, ${height - margin.bottom})`)
   // bottom x축을 아래
   .call(d3.axisBottom(x)
@@ -78,13 +79,14 @@ const yAxis = g => g
 svg.append('g').call(xAxis);
 svg.append('g').call(yAxis);
 svg.append('g')
+//svg 에서 fill은 채울색상
   .attr('fill', 'steelblue')
   .selectAll('rect').data(data).enter().append('rect')
   .attr('x', d => x(d.name))
   .attr('y', d => y(d.value))
   .attr('height', d => y(0) - y(d.value))
   .attr('width', x.bandwidth());
-
+// selection.node() function in D3.js is used to return the first element in the selection.
 svg.node();
 </script>
 </body>
