@@ -83,9 +83,10 @@ const yAxis = g => g
 svg.append('g').call(xAxis);
 svg.append('g').call(yAxis);
 svg.append('g')
-//svg 에서 fill은 채울색상
-  .attr('fill', 'steelblue')
+  // rect 에 date 바인딩 없으면 rect생성
   .selectAll('rect').data(data).enter().append('rect')
+  //svg 에서 fill 채울 색
+  .attr('fill', 'steelblue')
   // x position
   .attr('x', d => x(d.name))
   // y position
