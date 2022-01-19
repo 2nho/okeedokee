@@ -51,7 +51,14 @@ const x = d3.scaleBand()
 const y = d3.scaleLinear()
   .domain([0, d3.max(data, d => d.value)]).nice()
     .range([height - margin.bottom, margin.top]);
- 
+ //g 문서요소 
+ /* 그룹을 뜻
+    다른 문서 요소를 담는 역할
+    트랜스폼 요소 적용가능 
+    */
+ /* call 
+ 	선택된 변수의 내용을 불러옴
+ */   
 const xAxis = g => g
   .attr('transform', `translate(0, ${height - margin.bottom})`)
   .call(d3.axisBottom(x)
