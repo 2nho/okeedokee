@@ -97,7 +97,7 @@ svg.append('g')
   .attr('width', x.bandwidth());
   
 // selection.node() function in D3.js is used to return the first element in the selection.
-svg.node();
+//svg.node();
 </script>
 </body>
 </html>
