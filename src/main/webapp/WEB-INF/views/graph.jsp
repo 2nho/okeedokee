@@ -9,8 +9,8 @@
 </head>
 <body><script>
 // svg 박스를 설정하기 위한 높이 넓이 마진 설정 값
-const width = 600;
-const height = 300;
+const width = 400;
+const height = 400;
 const margin = {top: 40, left: 40, bottom: 40, right: 40};
 
 // svg 에 위에 설정한 값들을 넣고 body태그에 삽입
@@ -38,8 +38,10 @@ const data = [
 // 반영할 값 range
 
 // scaleband = x축 , scaleLinear = y축
+// 고정된 문자열에는 scaleBand, 일반 숫자값은 scaleLinear을 사용한다.
 const x = d3.scaleBand()
-//.domain(data.map(function(d){return d.name}); 
+//.domain(data.map(function(d){return d.name}); 배열
+//scaleband.domain(배열)
   .domain(data.map(d => d.name))
   // marin left와 margin right을 뺀 길이
   .range([margin.left, width - margin.right])
@@ -48,6 +50,7 @@ const x = d3.scaleBand()
  //d3.scale.linear - 정량적 선형 스케일(축척)을 생성한다
 const y = d3.scaleLinear()
 // nice() 반올림을 통해 축을 이쁘게
+// .domain(0,max)
   .domain([0, d3.max(data, d => d.value)]).nice()
     .range([height - margin.bottom, margin.top]);
  //g 문서요소 
@@ -63,16 +66,17 @@ const y = d3.scaleLinear()
 const xAxis = g => g
 // transform: translate(0,높이에서마진바텀값을뺀값)
 //                      x축 y축
-  .attr('transform', `translate(0, ${height - margin.bottom})`)
+  .attr('transform', `translate(0, 360)`)
   // bottom x축을 아래
   .call(d3.axisBottom(x)
+		  //시작테두리 끝 테두리 길이 
     .tickSizeOuter(0));
  
 const yAxis = g => g
-  .attr('transform', `translate(${margin.left}, 0)`)
+  .attr('transform', `translate(40, 0)`)
   // left y축을 왼쪽에
   .call(d3.axisLeft(y))
-  .call(g => g.select('.domain').remove());
+  //.call(g => g.select('.domain').remove()); 선제거 
  
 
  
@@ -82,9 +86,13 @@ svg.append('g')
 //svg 에서 fill은 채울색상
   .attr('fill', 'steelblue')
   .selectAll('rect').data(data).enter().append('rect')
+  // x position
   .attr('x', d => x(d.name))
+  // y position
   .attr('y', d => y(d.value))
+  // 높이 설정
   .attr('height', d => y(0) - y(d.value))
+  // 넓이
   .attr('width', x.bandwidth());
   
 // selection.node() function in D3.js is used to return the first element in the selection.
