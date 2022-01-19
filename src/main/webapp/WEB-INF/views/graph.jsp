@@ -9,8 +9,8 @@
 </head>
 <body><script>
 // svg 박스를 설정하기 위한 높이 넓이 마진 설정 값
-const width = 400;
-const height = 400;
+const width = 600;
+const height = 300;
 const margin = {top: 40, left: 40, bottom: 40, right: 40};
 
 // svg 에 위에 설정한 값들을 넣고 body태그에 삽입
@@ -26,20 +26,18 @@ const data = [
     {name: 'f', value: 15}
   ];
  
-/* dataset = [1, 2, 3, 4, 5] 값을 가지는 데이터가 있고
+/* data = [1, 2, 3, 4, 5] 값을 가지는 데이터가 있고
 
 출력하고자 하는 차트 SVG 너비가 100px이라고 하면,
 
     .domain([1,5])
 
-    .range([1,100])
-
-이 된다. */
+    .range([1,100]) 이 된다. */
 
 //시각화할 데이터의 값 domain 
 // 반영할 값 range
 
-
+// scaleband = x축 , scaleLinear = y축
 const x = d3.scaleBand()
 //.domain(data.map(function(d){return d.name}); 
   .domain(data.map(d => d.name))
@@ -49,6 +47,7 @@ const x = d3.scaleBand()
  
  //d3.scale.linear - 정량적 선형 스케일(축척)을 생성한다
 const y = d3.scaleLinear()
+// nice() 반올림을 통해 축을 이쁘게
   .domain([0, d3.max(data, d => d.value)]).nice()
     .range([height - margin.bottom, margin.top]);
  //g 문서요소 
@@ -59,13 +58,18 @@ const y = d3.scaleLinear()
  /* call 
  	선택된 변수의 내용을 불러옴
  */   
+ 
+ 
+ //axis 단위값
 const xAxis = g => g
   .attr('transform', `translate(0, ${height - margin.bottom})`)
+  // bottom x축을 아래
   .call(d3.axisBottom(x)
     .tickSizeOuter(0));
  
 const yAxis = g => g
   .attr('transform', `translate(${margin.left}, 0)`)
+  // left y축을 왼쪽에
   .call(d3.axisLeft(y))
   .call(g => g.select('.domain').remove());
  
