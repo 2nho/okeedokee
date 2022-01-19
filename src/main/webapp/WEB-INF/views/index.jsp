@@ -33,6 +33,6 @@
 	<br/>
 	<a href="main">main</a>
 	<br/>
-	<a href="layout">layout</a>
+	<a href="mnw">유기견 목격 / 실종 게시판</a>
 </body>
 </html>

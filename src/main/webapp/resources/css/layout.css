@@ -74,17 +74,6 @@ main {
 	/* 내부 */
 	width: 100%;
 	height: 100%;
-	display: flex;
-	flex-direction: column;
-}
-
-main nav {
-	flex: 3;
-}
-
-main section {
-	flex: 9;
-	width: 100%;
 }
 
 /* 푸터 */
