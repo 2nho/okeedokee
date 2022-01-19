@@ -8,8 +8,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-	<h1>안녕하세요 Spring MVC</h1>
-	<img src="img/icon-spring-framework.svg">
 	<h2>main</h2>
 	<hr />
 	<h1>이제승입니다.</h1>
@@ -28,11 +26,11 @@
 	<a href="api">유기견API TEST</a>
 	<br/>
 	<a href="textEditor">텍스트 에디터 TEST</a>
-	
+	<br/>
 	<a href="graph">그래프</a>
-
+	<br/>
 	<a href="Map_api">카카오맵API TEST</a>
+	<br/>
 	
-	<a href="main">main</a>
 </body>
 </html>
