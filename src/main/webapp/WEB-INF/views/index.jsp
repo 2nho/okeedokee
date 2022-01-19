@@ -26,9 +26,11 @@
 	<a href="api">유기견API TEST</a>
 	<br/>
 	<a href="textEditor">텍스트 에디터 TEST</a>
-	
+	<br/>
 	<a href="graph">그래프</a>
-
+	<br/>
 	<a href="Map_api">카카오맵API TEST</a>
+	<br/>
+	
 </body>
 </html>
