@@ -32,5 +32,7 @@
 	<a href="Map_api">카카오맵API TEST</a>
 	<br/>
 	<a href="main">main</a>
+	<br/>
+	<a href="layout">layout</a>
 </body>
 </html>

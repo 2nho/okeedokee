@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="header-logo">
-                <img src="images/main_logo.png" alt="">
+                <img src="media/logo/mainLogo.png" alt="">
             </div>
             <div class="nav2">
                 <div class="nav2-pagelink">

@@ -13,4 +13,9 @@ public class TextEditorController {
 		return "textEditor";
 	}
 
+	//레이아웃 확인용 : 나중에 지우기!
+	@GetMapping("/layout")
+	public String layout() {
+		return "layout";
+	}
 }
