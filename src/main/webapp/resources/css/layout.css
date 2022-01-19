@@ -15,7 +15,7 @@ a {
 	color: black;
 }
 /* 헤더/메인/푸터 비율설정 */
-.totalContainer {
+.container {
 	width: 100%;
 	height: 100vh;
 	display: flex;

@@ -6,8 +6,36 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/layout.css" />
+
+<style type="text/css">
+/* 메인 */
+main {
+	/* 전체 비율 */
+	flex: 10;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+main nav {
+	flex: 3;
+}
+
+main nav #missingNav {
+	width: 90%;
+	height: 350px;
+	background-color: #f9f1c0;
+}
+
+main section {
+	flex: 9;
+	width: 100%;
+}
+</style>
 </head>
 <body>
+
 <div class="totalContainer">
 
 	<header>
@@ -37,10 +65,31 @@
 	</header>
 	<main>
 		<nav>
-			
+			<!-- missing and sighting 줄여서 mns -->
+			<div id="mnsNav">
+				<div id="mnsTitle">
+					<h4>유기견 실종 / 목격 신고</h4>
+				</div>
+				<div id="mnsSubTitle">
+					<h5>유기견 실종 신고</h5>
+					<h5>유기견 목격 신고</h5>
+					<h5>셀프 전단지</h5>
+				</div>
+			</div>
 		</nav>
 		<section>
-			
+			<article id="arti1">
+				<div id="slideBox">
+					<div class="slides" id="slide1"></div>
+				</div>
+			</article>
+
+			<article id="arti2">
+				<div id="missingBoard">
+					<h1>유기견 실종 신고 게시판</h1>
+					<div id="board"></div>
+				</div>
+			</article>
 		</section>
 	</main>
 	<footer>
@@ -64,6 +113,5 @@
 		</div>
 	</footer>
 </div>
-
 </body>
 </html>
