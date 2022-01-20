@@ -177,6 +177,7 @@ main section #arti2 #missingBoard #board  {
 main section #arti2 #missingBoard #board #writeBox {
 	width: 100%;
 	text-align: right;
+	margin-bottom: 20px;
 }
 main section #arti2 #missingBoard #board #writeBox #writeBtn {
 	padding: 10px;

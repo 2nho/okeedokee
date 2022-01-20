@@ -84,7 +84,7 @@
 						<h1>유기견 목격 신고 게시판</h1>
 						<div id="board">
 							<div id="writeBox">
-								<button id="writeBtn">글쓰기</button>
+								<a href="write" id="writeBtn">글쓰기</a>
 							</div>
 							<table>
 								<colgroup>
