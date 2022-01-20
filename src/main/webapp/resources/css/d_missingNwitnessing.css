@@ -42,7 +42,7 @@ main nav #mnwSubTitle a:first-child h4 {
 	margin-top: 10px;
 	background-color: RGB(251, 209, 87, .5);
 	border-radius: 10px 10px;
-	font-weight: 550;
+	font-weight: 500;
 }
 main nav #mnwSubTitle a h4 {
 	padding-left: 5px;
@@ -51,6 +51,7 @@ main nav #mnwSubTitle a h4 {
 main nav #mnwSubTitle a:hover > h4 {
 	background-color: RGB(251, 209, 87, .5);
 	border-radius: 10px 10px;
+	font-weight: 500;
 }
 /* 게시판 영역 */
 main section {
@@ -119,6 +120,7 @@ main section .buttonBox {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	padding: 10px;
 }
 main section .buttonBox #prev {
 	margin-right: 20px;
@@ -136,5 +138,35 @@ main section .buttonBox #next {
 
 /* 게시판 */
 main section #arti2 {
-	
+	width: 1550px;
+	background-color: #f9f1c0;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px 15px;
+}
+main section #arti2 #missingBoard {
+	width: 90%;
+	height: 80%;
+	margin: 20px;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 15px 15px;
+}
+main section #arti2 #missingBoard h1 {
+	font-size: 25px;
+}
+main section #arti2 #missingBoard h1::after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+	margin-top: 10px;
+}
+main section #arti2 #missingBoard #board table {
+	width: 100%;
+}
+main section #arti2 #missingBoard table tbody tr td {
+	text-align: center;
 }

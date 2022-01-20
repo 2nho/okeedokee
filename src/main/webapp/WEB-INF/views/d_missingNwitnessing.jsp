@@ -80,32 +80,114 @@
 			</div>
 			<!-- 게시판 -->
 			<article id="arti2">
-				<div id="missingBoard">
-					<h1>유기견 실종 신고 게시판</h1>
-					<div id="board">
-						<table>
-							<thead>
-								<tr>
-									<th>No.</th>
-									<th>제목</th>
-									<th>작성자</th>
-									<th>작성일</th>
-									<th>조회수</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
+					<div id="missingBoard">
+						<h1>유기견 실종 신고 게시판</h1>
+						<div id="board">
+							<table>
+								<colgroup>
+									<col width="1%">
+									<col width="40%">
+									<col width="25%">
+									<col width="8%">
+									<col width="10%">
+									<col width="auto">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>No.</th>
+										<th>사진</th>
+										<th>제목</th>
+										<th>작성자</th>
+										<th>작성일</th>
+										<th>조회수</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
+										<td>1테스트제목</td>
+										<td>테스트</td>
+										<td>2022-01-20</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
+										<td>1테스트제목</td>
+										<td>테스트</td>
+										<td>2022-01-20</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
+										<td>1테스트제목</td>
+										<td>테스트</td>
+										<td>2022-01-20</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
+										<td>1테스트제목</td>
+										<td>테스트</td>
+										<td>2022-01-20</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
+										<td>1테스트제목</td>
+										<td>테스트</td>
+										<td>2022-01-20</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
+										<td>1테스트제목</td>
+										<td>테스트</td>
+										<td>2022-01-20</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>7</td>
+										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
+										<td>1테스트제목</td>
+										<td>테스트</td>
+										<td>2022-01-20</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>8</td>
+										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
+										<td>1테스트제목</td>
+										<td>테스트</td>
+										<td>2022-01-20</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>9</td>
+										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
+										<td>1테스트제목</td>
+										<td>테스트</td>
+										<td>2022-01-20</td>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>10</td>
+										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
+										<td>1테스트제목</td>
+										<td>테스트</td>
+										<td>2022-01-20</td>
+										<td>3</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
-				</div>
-			</article>
+				</article>
 			
 		</section>
 	</main>
