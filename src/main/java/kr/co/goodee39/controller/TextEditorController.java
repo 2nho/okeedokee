@@ -13,14 +13,5 @@ public class TextEditorController {
 		return "textEditor";
 	}
 
-	//레이아웃 확인용 : 나중에 지우기!
-	@GetMapping("/layout")
-	public String layout() {
-		return "layout";
-	}
-	//레이아웃 확인용 : 나중에 지우기!
-	@GetMapping("/mnw")
-	public String mnw() {
-		return "d_missingNwitnessing";
-	}
+	
 }

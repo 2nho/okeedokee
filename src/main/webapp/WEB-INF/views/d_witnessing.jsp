@@ -21,10 +21,10 @@
 				<div id="mnwTitle">
 					<h3>유기견 실종 / 목격 신고</h3>
 				</div>
-				<div id="mnwSubTitle">
-					<a href=""><h4>유기견 실종 신고</h4></a>
-					<a href=""><h4>유기견 목격 신고</h4></a>
-					<a href=""><h4>셀프 전단지</h4></a>
+					<div id="mnwSubTitle">
+					<a href="missing"><h4>유기견 실종 신고</h4></a>
+					<a href="witnessing" id="focus"><h4>유기견 목격 신고</h4></a>
+					<a href="selfFlyer"><h4>셀프 전단지</h4></a>
 				</div>
 			</div>
 		</nav>
@@ -81,11 +81,14 @@
 			<!-- 게시판 -->
 			<article id="arti2">
 					<div id="missingBoard">
-						<h1>유기견 실종 신고 게시판</h1>
+						<h1>유기견 목격 신고 게시판</h1>
 						<div id="board">
+							<div id="writeBox">
+								<button id="writeBtn">글쓰기</button>
+							</div>
 							<table>
 								<colgroup>
-									<col width="1%">
+									<col width="5%">
 									<col width="40%">
 									<col width="25%">
 									<col width="8%">
@@ -96,7 +99,7 @@
 									<tr>
 										<th>No.</th>
 										<th>사진</th>
-										<th>제목</th>
+										<th>내용</th>
 										<th>작성자</th>
 										<th>작성일</th>
 										<th>조회수</th>
@@ -105,86 +108,121 @@
 								<tbody>
 									<tr>
 										<td>1</td>
-										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
-										<td>1테스트제목</td>
+										<td>
+											<a href="">
+												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
+											</a>
+										</td>
+										<td>
+											<h3>1테스트제목</h3>
+											<p>견종 : </p>
+											<p>성별 :</p>
+											<p>특징 :</p>
+											<p>실종일 :</p>
+											<p>실종 장소 :</p>
+											<p>사례금 :</p>
+										</td>
 										<td>테스트</td>
 										<td>2022-01-20</td>
 										<td>3</td>
 									</tr>
 									<tr>
 										<td>2</td>
-										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
-										<td>1테스트제목</td>
+										<td>
+											<a href="">
+												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
+											</a>
+										</td>
+										<td>
+											<h3>2테스트제목</h3>
+											<p>견종 : </p>
+											<p>성별 :</p>
+											<p>특징 :</p>
+											<p>실종일 :</p>
+											<p>실종 장소 :</p>
+											<p>사례금 :</p>
+										</td>
 										<td>테스트</td>
 										<td>2022-01-20</td>
 										<td>3</td>
 									</tr>
 									<tr>
 										<td>3</td>
-										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
-										<td>1테스트제목</td>
+										<td>
+											<a href="">
+												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
+											</a>
+										</td>
+										<td>
+											<h3>3테스트제목</h3>
+											<p>견종 : </p>
+											<p>성별 :</p>
+											<p>특징 :</p>
+											<p>실종일 :</p>
+											<p>실종 장소 :</p>
+											<p>사례금 :</p>
+										</td>
 										<td>테스트</td>
 										<td>2022-01-20</td>
 										<td>3</td>
 									</tr>
 									<tr>
 										<td>4</td>
-										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
-										<td>1테스트제목</td>
+										<td>
+											<a href="">
+												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
+											</a>
+										</td>
+										<td>
+											<h3>4테스트제목</h3>
+											<p>견종 : </p>
+											<p>성별 :</p>
+											<p>특징 :</p>
+											<p>실종일 :</p>
+											<p>실종 장소 :</p>
+											<p>사례금 :</p>
+										</td>
 										<td>테스트</td>
 										<td>2022-01-20</td>
 										<td>3</td>
 									</tr>
 									<tr>
 										<td>5</td>
-										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
-										<td>1테스트제목</td>
-										<td>테스트</td>
-										<td>2022-01-20</td>
-										<td>3</td>
-									</tr>
-									<tr>
-										<td>6</td>
-										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
-										<td>1테스트제목</td>
-										<td>테스트</td>
-										<td>2022-01-20</td>
-										<td>3</td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
-										<td>1테스트제목</td>
-										<td>테스트</td>
-										<td>2022-01-20</td>
-										<td>3</td>
-									</tr>
-									<tr>
-										<td>8</td>
-										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
-										<td>1테스트제목</td>
-										<td>테스트</td>
-										<td>2022-01-20</td>
-										<td>3</td>
-									</tr>
-									<tr>
-										<td>9</td>
-										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
-										<td>1테스트제목</td>
-										<td>테스트</td>
-										<td>2022-01-20</td>
-										<td>3</td>
-									</tr>
-									<tr>
-										<td>10</td>
-										<td><img src="media/logo/mainLogo.png" alt="" style="width: 50px; height: 50px;"/></td>
-										<td>1테스트제목</td>
+										<td>
+											<a href="">
+												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
+											</a>
+										</td>
+										<td>
+											<h3>5테스트제목</h3>
+											<p>견종 : </p>
+											<p>성별 :</p>
+											<p>특징 :</p>
+											<p>실종일 :</p>
+											<p>실종 장소 :</p>
+											<p>사례금 :</p>
+										</td>
 										<td>테스트</td>
 										<td>2022-01-20</td>
 										<td>3</td>
 									</tr>
 								</tbody>
 							</table>
+							<div id="pagingBox">
+								<!-- 임시 페이징 표시 -->
+								<span><< < 1 2 3 4 5 > >></span>
+							</div>
+							<!-- form으로 수정 필요 -->
+							<div class="searchBox">
+								<select name="searchType" id="searchType">
+									<option value="">작성자</option>
+									<option value="">제목</option>
+									<option value="">내용</option>
+									<option value="">제목+내용</option>
+								</select>
+								<input type="text" id="search" name="search" placeholder="검색어를 입력해주세요"/>
+								<button type="button" id="searchBtn">검색</button>
+							</div>
 						</div>
 					</div>
 				</article>
