@@ -1,9 +1,16 @@
 @charset "UTF-8";
 /* 기본 세팅 */
+
+/* 글꼴 */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600&family=Righteous&display=swap');
+/* font-family: 'IBM Plex Sans KR', sans-serif;
+font-family: 'Righteous', cursive; */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 ul, li {
@@ -54,6 +61,15 @@ header {
 .nav1-pagelink ul li,
 .nav2-pagelink ul li {
 	flex: 1;
+}
+.nav1-pagelink ul li a,
+.nav2-pagelink ul li a {
+	transition: 1s ease;
+	font-weight: 400;
+}
+.nav1-pagelink ul li a:hover,
+.nav2-pagelink ul li a:hover {
+	font-weight: 900;
 }
 
 .nav1-pagelink ul li:first-child,

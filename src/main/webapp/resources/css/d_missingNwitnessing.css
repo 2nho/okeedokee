@@ -1,0 +1,133 @@
+@charset "UTF-8";
+/* 메인 */
+main {
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+}
+/* 네비 */
+main nav {
+	flex: 2;
+}
+
+/* 네비게이션 */
+main nav #mnwNav {
+	width: 250px;
+	height: 200px;
+	background-color: #f9f1c0;
+	padding: 10px;
+	border-radius: 15px 15px;
+}
+main nav #mnwNav #mnwTitle::after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+	padding-bottom: 5px;
+}
+main nav #mnwSubTitle {
+	padding: 0 10px;
+}
+main nav #mnwSubTitle a {
+	line-height: 40px;
+}
+main nav #mnwSubTitle a:not(:last-child):after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid black;
+	margin-bottom: 5px;
+}
+main nav #mnwSubTitle a:first-child h4 {
+	margin-top: 10px;
+	background-color: RGB(251, 209, 87, .5);
+	border-radius: 10px 10px;
+}
+main nav #mnwSubTitle a h4 {
+	padding-left: 5px;
+}
+main nav #mnwSubTitle a:hover > h4 {
+	background-color: RGB(251, 209, 87, .5);
+	border-radius: 10px 10px;
+}
+/* 게시판 영역 */
+main section {
+	flex: 9;
+	width: 100%;
+	height: 100%;
+	padding: 0 30px;
+}
+/* 게시판 슬라이더 영역 */
+main section #arti1{
+	width: 1550px;
+	height: 200px;
+	background-color: #f9f1c0;
+	border-radius: 15px 15px;
+	/* 슬라이드 설정 */
+	position: relative;
+	overflow: hidden;
+}
+main section #arti1 #slideBox {
+	display: flex;
+	flex-direction: row;
+	padding: 20px 50px;
+	/* 슬라이드 설정 */
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+main section #arti1 #slideBox.animated {
+	transition: .5s ease-out;
+}
+main section #arti1 #slideBox .slides {
+	width: 250px;
+	height: 150px;
+	background-color: #fbd157;
+}
+main section #arti1 #slideBox .slides:not(:last-child) {
+	margin-right: 50px;
+}
+main section #arti1 #slideBox .slides .slideContent{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 10px;
+}
+main section #arti1 #slideBox .slides .slideContent img {
+	width: 230px;
+	height: 100px;
+	padding: 10px;
+	margin: 0 10px;
+	/* 실제 사진 추가 후 지우기 */
+	background-color: #fff;
+}
+main section #arti1 #slideBox .slides .slideContent .text {
+	width: 200px;
+}
+main section #arti1 #slideBox .slides .slideContent .text h3 {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-weight: normal;
+	font-size: 15px;
+}
+/* 슬라이드 버튼 */
+main section .buttonBox {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+main section .buttonBox #prev {
+	margin-right: 20px;
+}
+main section .buttonBox #prev,
+main section .buttonBox #next {
+	width: 80px;
+	padding: 5px;
+	background-color: #f9f1c0;
+	border: 2px solid #fbd157;
+	outline: none;
+	border-radius: 15px 15px;
+	color: #fbd157;
+}
