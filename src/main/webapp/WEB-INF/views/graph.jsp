@@ -99,7 +99,7 @@ svg.append('g')
   .attr('y', d => y(d.value))
   // 높이 설정
   .attr('height', d => y(0) - y(d.value))
-  // 넓이
+  // 넓이   banwidth() 각각의 bar 넓이 반환
   .attr('width', x.bandwidth());
   
 // selection.node() function in D3.js is used to return the first element in the selection.
