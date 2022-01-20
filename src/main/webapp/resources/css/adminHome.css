@@ -31,6 +31,7 @@ section {
 .box {
 	display: flex;
 	justify-content: space-evenly;
+	align-items: center;
 }
 .box > div {
 	background-color: #C4C4C4;
@@ -39,9 +40,15 @@ section {
 	margin-top: 50px;
 	margin-bottom: 50px; 
 	margin-left : 10px;
+	padding-top: 50px;
 	text-align: center;
+	display: flex;
 	flex-direction: column;
-	;
+	justify-content: space-around;
+}
+
+div>h1 {
+	font-size: 40px;
 }
 .chart {
 	margin-left: 100px;
