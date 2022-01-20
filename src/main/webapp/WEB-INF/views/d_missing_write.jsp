@@ -22,56 +22,16 @@
 					<h3>유기견 실종 / 목격 신고</h3>
 				</div>
 				<div id="mnwSubTitle">
-					<a href="missing"><h4>유기견 실종 신고</h4></a>
-					<a href="witnessing" id="focus"><h4>유기견 목격 신고</h4></a>
+					<a href="missing" id="focus"><h4>유기견 실종 신고</h4></a>
+					<a href="witnessing"><h4>유기견 목격 신고</h4></a>
 					<a href="selfFlyer"><h4>셀프 전단지</h4></a>
 				</div>
 			</div>
 		</nav>
 		<section>
 			<article id="arti1">
-			<!-- 게시글 내용 슬라이드 -->
-				<div id="slideBox">
-					<div class="slides" id="slide1">
-						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
-							<div class="text">
-								<h3>1제목제목제목제목제목제목제목제목제목</h3>
-							</div>
-						</div>
-					</div>
-					<div class="slides" id="slide2">
-						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
-							<div class="text">
-								<h3>2제목제목제목제목제목제목제목제목제목</h3>
-							</div>
-						</div>
-					</div>
-					<div class="slides" id="slide3">
-						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
-							<div class="text">
-								<h3>3제목제목제목제목제목제목제목제목제목</h3>
-							</div>
-						</div>
-					</div>
-					<div class="slides" id="slide4">
-						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
-							<div class="text">
-								<h3>4제목제목제목제목제목제목제목제목제목</h3>
-							</div>
-						</div>
-					</div>
-					<div class="slides" id="slide5">
-						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
-							<div class="text">
-								<h3>5제목제목제목제목제목제목제목제목제목</h3>
-							</div>
-						</div>
-					</div>
+				<div id="menuText">
+					유기견 실종 신고 게시판
 				</div>
 			</article>
 			<div class="buttonBox">
@@ -81,7 +41,7 @@
 			<!-- 게시판 -->
 			<article id="arti2">
 					<div id="boardBox">
-						<h1>유기견 목격 신고 게시판</h1>
+						<h1>유기견 실종 신고 게시판</h1>
 						<div id="board">
 							<div id="writeBox">
 								<a href="write" id="writeBtn">글쓰기</a>

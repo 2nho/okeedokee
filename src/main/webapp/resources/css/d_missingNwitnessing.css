@@ -149,7 +149,7 @@ main section #arti2 {
 	align-items: center;
 	border-radius: 15px 15px;
 }
-main section #arti2 #missingBoard {
+main section #arti2 #boardBox {
 	width: 90%;
 	height: 90%;
 	margin: 20px;
@@ -157,29 +157,29 @@ main section #arti2 #missingBoard {
 	background-color: #fff;
 	border-radius: 15px 15px;
 }
-main section #arti2 #missingBoard h1 {
+main section #arti2 #boardBox h1 {
 	font-size: 30px;
 	margin-bottom: 80px;
 	padding: 10px;
 }
-main section #arti2 #missingBoard h1::after {
+main section #arti2 #boardBox h1::after {
 	content: "";
 	display: block;
 	width: 100%;
 	border-bottom: 2px solid black;
 	margin-top: 10px;
 }
-main section #arti2 #missingBoard #board  {
+main section #arti2 #boardBox #board  {
 	width: 100%;
 	padding: 30px;
 }
 /* 게시판 글쓰기 버튼 */
-main section #arti2 #missingBoard #board #writeBox {
+main section #arti2 #boardBox #board #writeBox {
 	width: 100%;
 	text-align: right;
 	margin-bottom: 20px;
 }
-main section #arti2 #missingBoard #board #writeBox #writeBtn {
+main section #arti2 #boardBox #board #writeBox #writeBtn {
 	padding: 10px;
 	background-color: #fbd157;
 	border: none;
@@ -187,48 +187,48 @@ main section #arti2 #missingBoard #board #writeBox #writeBtn {
 	font-weight: bold;
 	cursor: pointer;
 }
-main section #arti2 #missingBoard #board #writeBox #writeBtn:hover {
+main section #arti2 #boardBox #board #writeBox #writeBtn:hover {
 	background-color: #f9f1c0;
 	padding: 8px;
 	border: 2px solid #fbd157;
 }
-main section #arti2 #missingBoard #board table:not(:first-child) {
+main section #arti2 #boardBox #board table:not(:first-child) {
 	width: 100%;
 	border-collapse: separate;
 	border-spacing: 0 10px;
 }
-main section #arti2 #missingBoard #board table thead tr th {
+main section #arti2 #boardBox #board table thead tr th {
 	border-bottom: 1.2px solid #323232;
 }
-main section #arti2 #missingBoard #board table tbody tr td:not(:nth-child(3)){
+main section #arti2 #boardBox #board table tbody tr td:not(:nth-child(3)){
 	text-align: center;
 	height: 200px;
 }
 
-main section #arti2 #missingBoard #board table tbody tr td:first-child {
+main section #arti2 #boardBox #board table tbody tr td:first-child {
 	border-right: 1px solid black;
 	font-weight: bold;
 }
-main section #arti2 #missingBoard #board table tbody tr td:not(:first-child) {
+main section #arti2 #boardBox #board table tbody tr td:not(:first-child) {
 	border-bottom: 1px solid black;
 }
 
 /* 게시판 페이징 버튼 */
 /*게시글 검색*/
-main section #arti2 #missingBoard #board #pagingBox,
-main section #arti2 #missingBoard #board .searchBox  {
+main section #arti2 #boardBox #board #pagingBox,
+main section #arti2 #boardBox #board .searchBox  {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	padding-top: 20px;
 }
 
-main section #arti2 #missingBoard #board .searchBox #searchType,
-main section #arti2 #missingBoard #board .searchBox #search {
+main section #arti2 #boardBox #board .searchBox #searchType,
+main section #arti2 #boardBox #board .searchBox #search {
 	margin-right: 10px;
 	
 }
-main section #arti2 #missingBoard #board .searchBox #searchBtn {
+main section #arti2 #boardBox #board .searchBox #searchBtn {
 	border: none;
 	outline: none;
 	background-color: #fbd157;
@@ -236,7 +236,7 @@ main section #arti2 #missingBoard #board .searchBox #searchBtn {
 	font-weight: bold;
 	cursor: pointer;
 }
-main section #arti2 #missingBoard #board .searchBox #searchBtn:hover {
+main section #arti2 #boardBox #board .searchBox #searchBtn:hover {
 	background-color: #f9f1c0;
 	padding: 8px;
 	border: 2px solid #fbd157;

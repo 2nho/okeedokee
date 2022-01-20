@@ -80,7 +80,7 @@
 			</div>
 			<!-- 게시판 -->
 			<article id="arti2">
-					<div id="missingBoard">
+					<div id="boardBox">
 						<h1>유기견 실종 신고 게시판</h1>
 						<div id="board">
 							<div id="writeBox">
