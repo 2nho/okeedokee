@@ -1,0 +1,19 @@
+@charset "EUC-KR";
+
+header {
+	height: 10%;
+	width: 100%;
+}
+
+main {
+	height: 90%;
+	display: flex;
+}
+
+aside {
+	flex-basis: 1
+}
+
+section {
+	flex-basis: 9
+}

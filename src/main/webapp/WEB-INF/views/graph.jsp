@@ -52,6 +52,7 @@ const x = d3.scaleBand()
   // marin left와 margin right을 뺀 길이
   .range([margin.left, width - margin.right])
   .padding(0.3);
+
  
  //d3.scale.linear - 정량적 선형 스케일(축척)을 생성한다
 const y = d3.scaleLinear()
@@ -79,6 +80,8 @@ const xAxis = g => g
     .tickSizeOuter(0));
  
 const yAxis = g => g
+/*달러 ``(백틱)  el과 jstl 과 겹치기때문에 jsp상에서는 달러{height - margin-left} 등 불가  */
+ // 쓰고싶다면 $ 앞에 \ 붙이기
   .attr('transform', `translate(40, 0)`)
   // left y축을 왼쪽에
   .call(d3.axisLeft(y));
@@ -93,11 +96,11 @@ svg.append('g')
   .selectAll('rect').data(data).enter().append('rect')
   //svg 에서 fill 채울 색
   .attr('fill', 'steelblue')
-  // x position 왼쪽 위 x 좌표  name?
+  // x position 왼쪽 위 x 좌표   질문 1 name?
   .attr('x', d => x(d.name))
   // y position 왼쪽 위 y좌표
   .attr('y', d => y(d.value))
-  // 높이 설정  y(0) 값?
+  // 높이 설정  질문2 y(0) 값?
   .attr('height', d => y(0) - y(d.value))
   // 넓이   banwidth() 각각의 bar 넓이 반환
   .attr('width', x.bandwidth());
