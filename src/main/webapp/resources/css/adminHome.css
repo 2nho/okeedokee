@@ -17,6 +17,7 @@ aside {
 	background-color: #C4C4C4;
 	/* flex-basis는 크기 flex-grow 여백 조정 */
 	flex-grow: 1;
+	padding: 15px;
 }
 
 aside > ul > li {
@@ -37,10 +38,14 @@ section {
 	height: 200px;
 	margin-top: 50px;
 	margin-bottom: 50px; 
+	margin-left : 10px;
 	text-align: center;
 	flex-direction: column;
 	;
 }
 .chart {
-	margin-left: 55px;
+	margin-left: 100px;
+}
+.red {
+	color: red;
 }
