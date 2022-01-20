@@ -93,15 +93,14 @@ svg.append('g')
   .selectAll('rect').data(data).enter().append('rect')
   //svg 에서 fill 채울 색
   .attr('fill', 'steelblue')
-  // x position
+  // x position 왼쪽 위 x 좌표  name?
   .attr('x', d => x(d.name))
-  // y position
+  // y position 왼쪽 위 y좌표
   .attr('y', d => y(d.value))
-  // 높이 설정
+  // 높이 설정  y(0) 값?
   .attr('height', d => y(0) - y(d.value))
   // 넓이   banwidth() 각각의 bar 넓이 반환
   .attr('width', x.bandwidth());
-  
 // selection.node() function in D3.js is used to return the first element in the selection.
 //svg.node();
 </script>
