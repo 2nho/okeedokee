@@ -83,7 +83,26 @@
 				<div id="missingBoard">
 					<h1>유기견 실종 신고 게시판</h1>
 					<div id="board">
-						
+						<table>
+							<thead>
+								<tr>
+									<th>No.</th>
+									<th>제목</th>
+									<th>작성자</th>
+									<th>작성일</th>
+									<th>조회수</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</article>

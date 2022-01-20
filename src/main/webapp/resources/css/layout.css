@@ -2,8 +2,8 @@
 /* 기본 세팅 */
 
 /* 글꼴 */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600&family=Righteous&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 /* font-family: 'IBM Plex Sans KR', sans-serif;
 font-family: 'Righteous', cursive; */
 * {
@@ -61,15 +61,22 @@ header {
 .nav1-pagelink ul li,
 .nav2-pagelink ul li {
 	flex: 1;
+	font-weight: 500;
 }
-.nav1-pagelink ul li a,
-.nav2-pagelink ul li a {
-	transition: 1s ease;
-	font-weight: 400;
+/* 각 메뉴 호버시 밑줄 나타나도록 설정
+검정 밑줄이 나을지, 서브컬러가 나을지 고민 : 소현 */
+.nav1-pagelink ul li a::after,
+.nav2-pagelink ul li a::after {
+	content: "";
+	display: block;
+	width: 0px;
+	border-bottom: 2px solid black;
+	margin-top: 1px;
+	transition: .5s ease;
 }
-.nav1-pagelink ul li a:hover,
-.nav2-pagelink ul li a:hover {
-	font-weight: 900;
+.nav1-pagelink ul li a:hover::after,
+.nav2-pagelink ul li a:hover::after {
+	width: 15px;
 }
 
 .nav1-pagelink ul li:first-child,
@@ -78,9 +85,14 @@ header {
 }
 
 /* 가운데 로고 */
-.header-logo img {
-	width: 150px;
+.header-logo {
 	height: 150px;
+	display: flex;
+	align-items: center;
+}
+.header-logo img {
+	width: 140px;
+	height: 140px;
 }
 
 /* 메인 */

@@ -42,9 +42,11 @@ main nav #mnwSubTitle a:first-child h4 {
 	margin-top: 10px;
 	background-color: RGB(251, 209, 87, .5);
 	border-radius: 10px 10px;
+	font-weight: 550;
 }
 main nav #mnwSubTitle a h4 {
 	padding-left: 5px;
+	font-weight: 400;
 }
 main nav #mnwSubTitle a:hover > h4 {
 	background-color: RGB(251, 209, 87, .5);
@@ -57,7 +59,7 @@ main section {
 	height: 100%;
 	padding: 0 30px;
 }
-/* 게시판 슬라이더 영역 */
+/* 게시판 상단 슬라이더 영역 */
 main section #arti1{
 	width: 1550px;
 	height: 200px;
@@ -130,4 +132,9 @@ main section .buttonBox #next {
 	outline: none;
 	border-radius: 15px 15px;
 	color: #fbd157;
+}
+
+/* 게시판 */
+main section #arti2 {
+	
 }
