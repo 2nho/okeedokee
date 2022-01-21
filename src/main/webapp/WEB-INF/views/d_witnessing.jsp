@@ -22,8 +22,8 @@
 					<h3>유기견 실종 / 목격 신고</h3>
 				</div>
 				<div id="mnwSubTitle">
-					<a href="missing"><h4>유기견 실종 신고</h4></a>
-					<a href="witnessing" id="focus"><h4>유기견 목격 신고</h4></a>
+					<a href="missing" id="focus"><h4>유기견 실종 신고</h4></a>
+					<a href="witnessing"><h4>유기견 목격 신고</h4></a>
 					<a href="selfFlyer"><h4>셀프 전단지</h4></a>
 				</div>
 			</div>
