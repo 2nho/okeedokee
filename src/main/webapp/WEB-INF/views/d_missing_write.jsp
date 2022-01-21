@@ -36,71 +36,82 @@
 				<!-- 글쓰기 -->
 				<article id="arti2">
 					<div id="boardBox">
-						<input type="text" id="title" name="title" placeholder="제목을 입력해주세요" />
 						<div id="board">
-							<form action="">
+						
+							<!-- 숨겨진 파일 업로드 버튼 -->
+							<input type="file" name="image" id="image" style="display: none;" multiple="multiple"/>
+							<form:form modelAttribute="mnwVO" method="post" action="createResult" id="boardContent">
+								<form:input path="title" type="text" id="title" name="title" placeholder="제목을 입력해주세요" />
 								<label for="id">작성자</label>
-								<input type="text" name="id" id="id" readonly="readonly" value="sessionId"/>
+								<form:input path="id" type="text" name="id" id="id" readonly="readonly" value="sessionId"/>
 							
 								<div id="informBox">
 									<div id="informTitle"><span>기본정보</span></div>
 									<div id="inform">
 										<table id="informTable">
 											<tr>
+												<td>사진</td>										
+												<td><button type="button" id="callUpload">사진 추가</button></td>
+												<form:hidden path="fileList" id="fileList"/>
+																							
+											</tr>
+											<tr>
 												<td>견종</td>
 												<td>
-													<select name="species" id="species">
-														<option value="">푸들</option>
-														<option value="">말티즈</option>
-														<option value="">시츄</option>
-														<option value="">치와와</option>
-														<option value="">불독</option>
-														<option value="">비숑프리제</option>
-														<option value="">아프간하운드</option>
-														<option value="">진도</option>
-														<option value="">기타</option>
-													</select>
+													<form:select path="species" name="species" id="species">
+														<option value="푸들">푸들</option>
+														<option value="말티즈">말티즈</option>
+														<option value="시츄">시츄</option>
+														<option value="치와와">치와와</option>
+														<option value="불독">불독</option>
+														<option value="비숑프리제">비숑프리제</option>
+														<option value="아프간하운드">아프간하운드</option>
+														<option value="진도">진도</option>
+														<option value="기타">기타</option>
+													</form:select>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>성별</td>
 												 <td>
-													<select name="sex" id="sex">
+													<form:select path="sex" name="sex" id="sex">
 														<option value="F">여</option>
 														<option value="M">남</option>
 														<option value="X">미상</option>
-													</select>
+													</form:select>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>특징</td>
 												<td>
-													<input type="text" name="character" id="character" placeholder="특징을 적어주세요 (* 30자 내외)"/>
+													<form:input path="character" type="text" name="character" id="character" placeholder="특징을 적어주세요 (* 30자 내외)"/>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>실종일</td>
 												<td>
-													<input type="date" name="date" id="date" />
+													<form:input path="date" type="date" name="date" id="date" />
 												</td>
 											</tr>
 											
 											<tr>
 												<td>실종 장소</td>
 												<td>
-													<input type="text" name="location" id="location" placeholder="마지막으로 함께 있던 장소, 추측되는 장소"/>
+													<form:input path="location" type="text" name="location" id="location" placeholder="마지막으로 함께 있던 장소, 추측되는 장소"/>
 												</td>
 											</tr>
 										</table>
-										<textarea path="content" name="content" id="content" rows="20" cols="100"></textarea><br/>
-										<button onclick="submitPost()">등록</button>
-									
+										
+										<form:textarea path="content" name="content" id="content" rows="20" cols="100"></form:textarea><br/>
 									</div>
 								</div>
-							</form>
+								<form:hidden path="btype" value="M"/>
+								<form:hidden path="bdiv" value="3"/>
+							</form:form>
+							<button type="button" onclick="submitPost()" id="submit">등록</button>
 						</div>
 					</div>
 				</article>
@@ -112,6 +123,16 @@
 	</div>
 
 
+	<!-- 숨겨진 파일 업로드 input 클릭하기 -->
+	<script type="text/javascript">
+		const callUpload = document.querySelector("#callUpload");
+		const file = document.querySelector("#image");
+		
+		callUpload.addEventListener("click", function(){
+			file.click();
+		});
+	</script>
+	<!-- 텍스트 에디터 -->
 	<script type="text/javascript">
 		var oEditors = [];
 		smartEditor = function() {
@@ -142,8 +163,7 @@
 
 			//UPDATE_CONTENTS_FIELD 메세지 호출
 			oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
-			//title & content 변수 설정
-			let title = document.getElementById("title").value;
+			// content 변수 설정
 			let content = document.getElementById("content").value;
 
 			//content 미입력시 
@@ -166,6 +186,43 @@
 				//일단 콘솔창으로 전달
 				console.log("내용 : " + content);
 				
+				<!-- 파일 업로드 -->
+				//formData객체 불러오기
+				const formData = new FormData();
+
+				//input에 넣어둔 파일 위치
+				const $images = $("#image");
+
+				//파일 받아오기
+				let files = $images[0].files;
+
+				//파일 갯수만큼 순회
+				for (var i = 0; i < files.length; i++) {
+
+					formData.append("uploadFile", files[i])
+					console.log(formData);
+				}
+
+				$.ajax({
+					url : '${pageContext.request.contextPath}/uploadImage',
+					processData : false,
+					contentType : false,
+					data : formData,
+					type : "post",
+					dataType : "json",
+					success : function(result) {
+						//직렬화된 데이터 잘 오는지 찍어보기
+						console.log(JSON.stringify(result));
+
+						$("#fileList").val(JSON.stringify(result));
+						
+						console.log($("#fileList").val(JSON.stringify(result)));
+
+						//input에 작성한 내용 전송하기
+						$("#boardContent").submit();
+					}
+				});
+
 			}
 		};
 	</script>

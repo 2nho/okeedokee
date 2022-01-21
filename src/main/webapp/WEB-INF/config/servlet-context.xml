@@ -38,6 +38,16 @@
 	<!-- 정적파일(img, video, audio) 로드 설정 -->
 	<resources mapping="/**" location="/resources/" />
 	
+	<!-- 파일 업로드를 위한 multipartResolver 설정 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 파일 업로드 용량 설정 -->
+		<!-- 토탈 업로드 용량 -->
+		<beans:property name="maxUploadSize" value="52428800"/>
+		<!-- 파일당 업로드 용량 : 보통 토탈 업로드 용량과 같게 설정함 -->
+		<beans:property name="maxUploadSizePerFile" value="52428800"/>
+		<!-- DirectAcessMemory를 사용할 예정이나 memory를 거쳐갈 것을 대비해서 미리 0으로 설정해 방지한다  -->
+		<beans:property name="maxInMemorySize" value="0"/>
+	</beans:bean>
 		
 	
 	<!-- 트랜잭션 제어 객체 bean 3 -->

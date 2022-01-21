@@ -4,12 +4,17 @@ public class mnwVO {
 
 	private int num;
 	private String id;
+	private String title;
 	private String species; 
 	private String sex;
 	private String character;
 	private String date;
 	private String location;
 	private String content;
+	private String createdate;
+	private String btype;
+	private int bdiv;
+	private String fileList;
 	
 	public mnwVO() {
 		// TODO Auto-generated constructor stub
@@ -29,6 +34,14 @@ public class mnwVO {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getSpecies() {
@@ -78,7 +91,38 @@ public class mnwVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
-	
+
+	public String getCreatedate() {
+		return createdate;
+	}
+
+	public void setCreatedate(String createdate) {
+		this.createdate = createdate;
+	}
+
+	public String getBtype() {
+		return btype;
+	}
+
+	public void setBtype(String btype) {
+		this.btype = btype;
+	}
+
+	public int getBdiv() {
+		return bdiv;
+	}
+
+	public void setBdiv(int bdiv) {
+		this.bdiv = bdiv;
+	}
+
+	public String getFileList() {
+		return fileList;
+	}
+
+	public void setFileList(String fileList) {
+		this.fileList = fileList;
+	}
+
 	
 }
