@@ -37,6 +37,6 @@
 	<br />
 	<a href="adminHome">관리자페이지</a>
 	<a href="adminMember">관리자 회원관리</a>
-	<a href="Announcement">유기견 공고</a>
+	<a href="Announcement">유기견공고</a>
 </body>
 </html>

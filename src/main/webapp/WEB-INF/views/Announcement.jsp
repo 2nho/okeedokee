@@ -99,7 +99,7 @@
 			                             <li>나이 :${dog.age}</li>
 			                             <li>성별 : ${dog.sexCd}</li>
 			                             <li>등록일 : ${dog.noticeSdt}</li>
-			                             <li>보호소 : ${dog.orgNm}</li>
+			                             <li>보호소 : ${dog.careNm}</li>
 			                             <li>구조지역 :${dog.happenPlace}</li>
 			                         </ul>
 			                    </div>
