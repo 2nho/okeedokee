@@ -84,16 +84,16 @@
 						<h1>유기견 목격 신고 게시판</h1>
 						<div id="board">
 							<div id="writeBox">
-								<a href="write" id="writeBtn">글쓰기</a>
+								<a href="writeWitnessing" id="writeBtn">글쓰기</a>
 							</div>
-							<table>
+							<table id="boardTable">
 								<colgroup>
 									<col width="5%">
-									<col width="40%">
-									<col width="25%">
+									<col width="15%">
+									<col width="auto">
 									<col width="8%">
 									<col width="10%">
-									<col width="auto">
+									<col width="5%">
 								</colgroup>
 								<thead>
 									<tr>
@@ -110,11 +110,11 @@
 										<td>1</td>
 										<td>
 											<a href="">
-												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
+												<img src="media/logo/mainLogo.png" alt="" />
 											</a>
 										</td>
 										<td>
-											<h3>1테스트제목</h3>
+											<h4>1테스트제목</h4>
 											<p>견종 : </p>
 											<p>성별 :</p>
 											<p>특징 :</p>
@@ -134,7 +134,7 @@
 											</a>
 										</td>
 										<td>
-											<h3>2테스트제목</h3>
+											<h4>2테스트제목</h4>
 											<p>견종 : </p>
 											<p>성별 :</p>
 											<p>특징 :</p>
@@ -154,7 +154,7 @@
 											</a>
 										</td>
 										<td>
-											<h3>3테스트제목</h3>
+											<h4>3테스트제목</h4>
 											<p>견종 : </p>
 											<p>성별 :</p>
 											<p>특징 :</p>
@@ -174,7 +174,7 @@
 											</a>
 										</td>
 										<td>
-											<h3>4테스트제목</h3>
+											<h4>4테스트제목</h4>
 											<p>견종 : </p>
 											<p>성별 :</p>
 											<p>특징 :</p>
@@ -194,7 +194,7 @@
 											</a>
 										</td>
 										<td>
-											<h3>5테스트제목</h3>
+											<h4>5테스트제목</h4>
 											<p>견종 : </p>
 											<p>성별 :</p>
 											<p>특징 :</p>
