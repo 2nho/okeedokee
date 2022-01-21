@@ -66,7 +66,7 @@ function slideShow() {
 			//slideCount는 초기 설정한 5개
 			//하지만 이동방향 왼쪽으로 -방향
 			let initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
-			console.log(initialTranslateValue);
+			//console.log(initialTranslateValue);
 
 			//slideBox {transform:translateX(-px)}
 			slideBox.style.transform = `translateX(${initialTranslateValue}px)`;
@@ -84,7 +84,7 @@ function slideShow() {
 			slideBox.style.left = -n * (slideWidth + slideMargin) + "px";
 			//최초 숫자 변경
 			num = n;
-			console.log(num, slideCount);
+			//console.log(num, slideCount);
 
 			//최초숫자가 클론 제외한 slideCount랑 같으면
 			if (num == slideCount || num == -slideCount) {
@@ -139,3 +139,4 @@ function slideShow() {
 	}
 
 } slideShow();
+

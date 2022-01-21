@@ -85,7 +85,7 @@ public class MnwController {
 			System.out.println("fileList : "+vo.getFileList());
 			System.out.println("작성일 : "+vo.getCreatedate());
 			*/
-
+			
 			System.out.println("date : "+vo.getDate());
 			service.insertMNW(vo);
 			

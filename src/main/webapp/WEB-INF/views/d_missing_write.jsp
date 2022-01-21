@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/d_missingNwitnessing.css" />
+<link rel="stylesheet" href="css/mnw.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
@@ -46,7 +46,7 @@
 								<form:input path="id" type="text" name="id" id="id" readonly="readonly" value="sessionId"/>
 							
 								<div id="informBox">
-									<div id="informTitle"><span>기본정보</span></div>
+									<div id="informTitle"><span>* 기본정보</span></div>
 									<div id="inform">
 										<table id="informTable">
 											<tr>
@@ -59,7 +59,7 @@
 											<tr>
 												<td>성별</td>
 												 <td>
-													<form:select path="sex" name="sex" id="sex">
+													<form:select path="sex" name="sex" id="sex" required="required">
 														<option value="" disabled="disabled" selected="selected">선택</option>
 														<option value="F">여</option>
 														<option value="M">남</option>
@@ -71,7 +71,7 @@
 											<tr>
 												<td>견종</td>
 												<td>
-													<form:select path="species" name="species" id="species">
+													<form:select path="species" name="species" id="species" required="required">
 														<option value="" disabled="disabled" selected="selected">선택</option>
 														<option value="푸들">푸들</option>
 														<option value="말티즈">말티즈</option>
@@ -86,26 +86,24 @@
 												</td>
 											</tr>
 											
-											
-											
 											<tr>
 												<td>특징</td>
 												<td>
-													<form:input path="characters" type="text" name="characters" id="characters" placeholder="특징을 적어주세요 (* 30자 내외)"/>
-												</td>
-											</tr>
-											
-											<tr>
-												<td>실종일</td>
-												<td>
-													<form:input path="date" type="date" name="date" id="date" />
+													<form:input path="characters" type="text" name="characters" id="characters" placeholder="특징을 적어주세요 (30자 내외)" required="required"/>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>실종 장소</td>
 												<td>
-													<form:input path="location" type="text" name="location" id="location" placeholder="마지막으로 함께 있던 장소, 추측되는 장소"/>
+													<form:input path="location" type="text" name="location" id="location" placeholder="마지막으로 함께 있던 장소, 추측되는 장소 (30자 내외)" required="required"/>
+												</td>
+											</tr>
+											
+											<tr>
+												<td>실종일</td>
+												<td>
+													<form:input path="date" type="date" name="date" id="date" required="required"/>
 												</td>
 											</tr>
 										</table>
@@ -128,110 +126,6 @@
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
 
-
-	<!-- 숨겨진 파일 업로드 input 클릭하기 -->
-	<script type="text/javascript">
-		const callUpload = document.querySelector("#callUpload");
-		const file = document.querySelector("#image");
-		
-		callUpload.addEventListener("click", function(){
-			file.click();
-		});
-	</script>
-	<!-- 텍스트 에디터 -->
-	<script type="text/javascript">
-		var oEditors = [];
-		smartEditor = function() {
-			nhn.husky.EZCreator.createInIFrame({
-				oAppRef : oEditors,
-				elPlaceHolder : "content",
-				sSkinURI : "smartEditor/SmartEditor2Skin.html",
-				fCreator : "createSEditor2",
-				htParams : {
-					// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-					bUseToolbar : true,
-					// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-					bUseVerticalResizer : false,
-					// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-					bUseModeChanger : false,
-				}
-			});
-		}
-
-		//a태그로 이동 구현했으나 없을시엔 해당 로직 작동하도록!
-		$(document).ready(function() {
-			smartEditor()
-		});
-
-		submitPost = function() {
-			//작성된 에디터 내용 textarea로 즉시 적용 불가능
-			//서버 측 URL통해 value적용 (미구현시 공백 추출)
-
-			//UPDATE_CONTENTS_FIELD 메세지 호출
-			oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
-			// content 변수 설정
-			let content = document.getElementById("content").value;
-
-			//content 미입력시 
-			//'<p><br></p>' 추출되므로 해당 내용을 공백으로 간주
-			if (content == "<p><br></p>") {
-
-				//공백은 alert 호출 후 에디터로 재포커스
-				alert("내용을 입력해주세요.");
-				oEditors.getById["content"].exec("FOCUS");
-				return;
-			}
-			//title 미입력시
-			else if (title == "") {
-				alert("제목을 입력해주세요.");
-				title.focus();
-			}
-
-			else {
-				//에디터 작성 후 등록 버튼 클릭시 실행될 로직
-				//일단 콘솔창으로 전달
-				console.log("내용 : " + content);
-				
-				<!-- 파일 업로드 -->
-				//formData객체 불러오기
-				const formData = new FormData();
-
-				//input에 넣어둔 파일 위치
-				const $images = $("#image");
-
-				//파일 받아오기
-				let files = $images[0].files;
-
-				//파일 갯수만큼 순회
-				for (var i = 0; i < files.length; i++) {
-
-					formData.append("uploadFile", files[i])
-					console.log(formData);
-				}
-
-				$.ajax({
-					url : '${pageContext.request.contextPath}/uploadImage',
-					processData : false,
-					contentType : false,
-					data : formData,
-					type : "post",
-					dataType : "json",
-					success : function(result) {
-						//직렬화된 데이터 잘 오는지 찍어보기
-						console.log(JSON.stringify(result));
-
-						$("#fileList").val(JSON.stringify(result));
-						
-						console.log($("#fileList").val(JSON.stringify(result)));
-
-						//input에 작성한 내용 전송하기
-						$("#boardContent").submit();
-					}
-				});
-
-			}
-		};
-	</script>
-	<script type="text/javascript" src="js/d_missingNwitnessing.js"></script>
+	<script type="text/javascript" src="js/mnwWrite.js"></script>
 </body>
 </html>

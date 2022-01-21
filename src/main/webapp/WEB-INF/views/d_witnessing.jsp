@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/d_missingNwitnessing.css" />
+<link rel="stylesheet" href="css/mnw.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
@@ -22,8 +22,8 @@
 					<h3>유기견 실종 / 목격 신고</h3>
 				</div>
 				<div id="mnwSubTitle">
-					<a href="missing" id="focus"><h4>유기견 실종 신고</h4></a>
-					<a href="witnessing"><h4>유기견 목격 신고</h4></a>
+					<a href="missing"><h4>유기견 실종 신고</h4></a>
+					<a href="witnessing" id="focus"><h4>유기견 목격 신고</h4></a>
 					<a href="selfFlyer"><h4>셀프 전단지</h4></a>
 				</div>
 			</div>
@@ -234,6 +234,6 @@
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
 
-<script type="text/javascript" src="js/d_missingNwitnessing.js"></script>
+<script type="text/javascript" src="js/mnw.js"></script>
 </body>
 </html>

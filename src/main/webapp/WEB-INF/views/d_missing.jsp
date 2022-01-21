@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/d_missingNwitnessing.css" />
+<link rel="stylesheet" href="css/mnw.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
@@ -234,6 +234,6 @@
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
 
-<script type="text/javascript" src="js/d_missingNwitnessing.js"></script>
+<script type="text/javascript" src="js/mnw.js"></script>
 </body>
 </html>
