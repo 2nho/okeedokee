@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,11 +18,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import kr.co.goodee39.service.MnwService;
 import kr.co.goodee39.vo.ImageVO;
 import kr.co.goodee39.vo.mnwVO;
 
 @Controller
 public class MnwController {
+	
+		@Autowired
+		MnwService service;
 	
 		//실종, 목격 메뉴 이동
 		@GetMapping("/mnw")
@@ -59,11 +64,11 @@ public class MnwController {
 			return "d_witnessing_write";
 		}
 		
-		//실종 게시판 글쓰기v
+		//실종 게시판 글쓰기
 		//게시글 등록
 		//얘는 지금 form 데이터 통해서 값 받아가는 거니까 커맨드 객체 필요!
 		@PostMapping("/createResult")
-		private String setBBSCreate(mnwVO vo) {
+		private String setMNWCreate(mnwVO vo) {
 			//작성일 추가하기
 			vo.setCreatedate(new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(new Date()));
 			
@@ -73,22 +78,29 @@ public class MnwController {
 			System.out.println("id : "+vo.getId());
 			System.out.println("sp : "+vo.getSpecies());
 			System.out.println("se : "+vo.getSex());
-			System.out.println("cha : "+vo.getCharacter());
-			System.out.println("date : "+vo.getDate());
+			System.out.println("cha : "+vo.getCharacters());
 			System.out.println("loca : "+vo.getLocation());
 			System.out.println("cont : "+vo.getContent());
-			System.out.println("게시판타입 : "+vo.getBtype());
 			System.out.println("게시판구분 : "+vo.getBdiv());
 			System.out.println("fileList : "+vo.getFileList());
 			System.out.println("작성일 : "+vo.getCreatedate());
 			*/
-			
-			//service.insertBBS(vo);
 
+			System.out.println("date : "+vo.getDate());
+			service.insertMNW(vo);
+			
+			
 			String path = "";
 			
+			if(vo.getBdiv() == 3) {
+				path = "missing";
+			}
+			else if(vo.getBdiv() == 4) {
+				path = "witnessing";
+			}
+			
 			//작성완료시 다시 게시판 리스트 페이지로 이동
-			return "redirect:/";
+			return "redirect:/"+path;
 		}
 		
 		

@@ -53,15 +53,15 @@
 	
 	
 	<!-- 트랜잭션 제어 객체 bean 1 -->
-	<!-- <beans:bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+	<beans:bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
 		<beans:property name="dataSource" ref="basicDataSource"/>
-	</beans:bean> -->
+	</beans:bean>
 	
 	
 	<!-- 트랜잭션 제어 객체 bean 2 -->
-	<!-- <beans:bean class="org.springframework.transaction.support.TransactionTemplate" id="transactionTemplate">
+	<beans:bean class="org.springframework.transaction.support.TransactionTemplate" id="transactionTemplate">
 		<beans:property name="transactionManager" ref="transactionManager"/>
-	</beans:bean> -->
+	</beans:bean>
 	
 
 	

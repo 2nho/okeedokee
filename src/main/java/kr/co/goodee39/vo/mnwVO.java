@@ -7,12 +7,11 @@ public class mnwVO {
 	private String title;
 	private String species; 
 	private String sex;
-	private String character;
+	private String characters;
 	private String date;
 	private String location;
 	private String content;
 	private String createdate;
-	private String btype;
 	private int bdiv;
 	private String fileList;
 	
@@ -60,12 +59,12 @@ public class mnwVO {
 		this.sex = sex;
 	}
 
-	public String getCharacter() {
-		return character;
+	public String getCharacters() {
+		return characters;
 	}
 
-	public void setCharacter(String character) {
-		this.character = character;
+	public void setCharacters(String characters) {
+		this.characters = characters;
 	}
 
 	public String getDate() {
@@ -98,14 +97,6 @@ public class mnwVO {
 
 	public void setCreatedate(String createdate) {
 		this.createdate = createdate;
-	}
-
-	public String getBtype() {
-		return btype;
-	}
-
-	public void setBtype(String btype) {
-		this.btype = btype;
 	}
 
 	public int getBdiv() {

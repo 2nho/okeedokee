@@ -6,5 +6,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="kr.co.goodee39.vo.mnwVO" alias="mnwVO"/>
+		<typeAlias type="kr.co.goodee39.vo.ImageVO" alias="imgVO"/>
 	</typeAliases>
 </configuration>

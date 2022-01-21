@@ -31,7 +31,7 @@
 			</nav>
 			<section>
 				<article id="arti1">
-					<div id="menuText">유기견 실종 신고 게시판</div>
+					<div id="menuText"><span>유기견 실종 신고 게시판</span></div>
 				</article>
 				<!-- 글쓰기 -->
 				<article id="arti2">
@@ -42,7 +42,7 @@
 							<input type="file" name="image" id="image" style="display: none;" multiple="multiple"/>
 							<form:form modelAttribute="mnwVO" method="post" action="createResult" id="boardContent">
 								<form:input path="title" type="text" id="title" name="title" placeholder="제목을 입력해주세요" />
-								<label for="id">작성자</label>
+								<label for="id">작성자&nbsp; |</label>
 								<form:input path="id" type="text" name="id" id="id" readonly="readonly" value="sessionId"/>
 							
 								<div id="informBox">
@@ -51,14 +51,28 @@
 										<table id="informTable">
 											<tr>
 												<td>사진</td>										
-												<td><button type="button" id="callUpload">사진 추가</button></td>
+												<td><button type="button" id="callUpload">사진선택</button></td>
 												<form:hidden path="fileList" id="fileList"/>
 																							
 											</tr>
+											
+											<tr>
+												<td>성별</td>
+												 <td>
+													<form:select path="sex" name="sex" id="sex">
+														<option value="" disabled="disabled" selected="selected">선택</option>
+														<option value="F">여</option>
+														<option value="M">남</option>
+														<option value="X">미상</option>
+													</form:select>
+												</td>
+											</tr>
+											
 											<tr>
 												<td>견종</td>
 												<td>
 													<form:select path="species" name="species" id="species">
+														<option value="" disabled="disabled" selected="selected">선택</option>
 														<option value="푸들">푸들</option>
 														<option value="말티즈">말티즈</option>
 														<option value="시츄">시츄</option>
@@ -72,21 +86,12 @@
 												</td>
 											</tr>
 											
-											<tr>
-												<td>성별</td>
-												 <td>
-													<form:select path="sex" name="sex" id="sex">
-														<option value="F">여</option>
-														<option value="M">남</option>
-														<option value="X">미상</option>
-													</form:select>
-												</td>
-											</tr>
+											
 											
 											<tr>
 												<td>특징</td>
 												<td>
-													<form:input path="character" type="text" name="character" id="character" placeholder="특징을 적어주세요 (* 30자 내외)"/>
+													<form:input path="characters" type="text" name="characters" id="characters" placeholder="특징을 적어주세요 (* 30자 내외)"/>
 												</td>
 											</tr>
 											
@@ -105,13 +110,14 @@
 											</tr>
 										</table>
 										
-										<form:textarea path="content" name="content" id="content" rows="20" cols="100"></form:textarea><br/>
+										<form:textarea path="content" name="content" id="content" rows="15" cols="100"></form:textarea><br/>
 									</div>
 								</div>
-								<form:hidden path="btype" value="M"/>
 								<form:hidden path="bdiv" value="3"/>
 							</form:form>
-							<button type="button" onclick="submitPost()" id="submit">등록</button>
+							<div class="submitBtnBox">
+								<button type="button" onclick="submitPost()" id="submit">등록</button>
+							</div>
 						</div>
 					</div>
 				</article>

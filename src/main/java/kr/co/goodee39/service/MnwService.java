@@ -21,7 +21,7 @@ public class MnwService {
 
 	// 게시글 등록하기
 	@Transactional
-	public void insertBBS(mnwVO vo) {
+	public void insertMNW(mnwVO vo) {
 
 		// JSON 객체에 대한 핸들링
 		Gson gson = new Gson();
@@ -29,13 +29,13 @@ public class MnwService {
 		List<ImageVO> fileList = Arrays.asList(fileArray);
 
 		// 게시글 삽입
-		sqlSessionTemplate.insert("bbs.insertBBS", vo);
+		sqlSessionTemplate.insert("mnw.insertMnw", vo);
 
+		// 이미지 이름 삽입 with 조회가능하게 num이름과 함께
 		for (ImageVO img : fileList) {
-			// 파일 이름 삽입 with 조회가능하게 num이름과 함께
 			img.setBnum(vo.getNum());
 			img.setBdiv(vo.getBdiv());
-			sqlSessionTemplate.insert("img.insertImage", img);
+			sqlSessionTemplate.insert("img.insertImg", img);
 		}
 	}
 }

@@ -7,4 +7,32 @@
 <!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
 <mapper namespace="mnw">
 
+	<!-- 게시글 쿼리 -->
+	<select id="selectMnw" parameterType="mnwVO" resultType="mnwVO">
+		SELECT num, id, title, species, sex, character, date, location, content, createdate, bdiv
+		FROM mnw
+		<where>
+			<if test="num!=null">num = #{num}</if>
+			<if test="id!=null">id = #{id}</if>
+			<if test="id!=null">bdiv = #{bdiv}</if>
+		</where>
+	</select>
+	
+	<insert id="insertMnw" parameterType="mnwVO" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO mnw(id, title, species, sex, characters, date, location, content, createdate, bdiv)
+		VALUES(#{id}, #{title}, #{species}, #{sex}, #{characters}, #{date}, #{location}, #{content}, #{createdate}, #{bdiv})
+	</insert>
+	
+	<delete id="deleteMnw" parameterType="mnwVO">
+		DELETE FROM mnw
+		WHERE id = #{id} 
+		AND num = #{num} 
+		AND bdiv = #{bdiv}
+	</delete>
+	
+	<update id="updateMnw" parameterType="mnwVO">
+		UPDATE mnw
+		SET title = #{title}, species =#{species}, sex = #{sex}, character = #{character}, date = #{date}, location = #{location}, content = #{content}  
+	</update>
+	
 </mapper>

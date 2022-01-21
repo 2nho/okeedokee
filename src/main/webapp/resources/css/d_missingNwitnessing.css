@@ -255,10 +255,23 @@ main section #arti2 #boardBox #board .searchBox #searchBtn:hover {
 }
 
 /* 글쓰기 페이지 */
-
+/* 상단 게시판 제목 */
+main section #arti1 #menuText {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: right;
+	align-items: flex-end;
+} 
+main section #arti1 #menuText span {
+	padding: 20px;
+	font-size: 50px;
+	font-weight: bold;
+}
 main section #arti2 #boardBox #board #boardContent {
 	width: 100%;
 }
+/* 게시글 제목 */
 main section #arti2 #boardBox #boardContent #title {
 	background-color: transparent;
     border: none;
@@ -269,13 +282,20 @@ main section #arti2 #boardBox #boardContent #title {
 }
 main section #arti2 #boardBox #boardContent #title::placeholder {
 	color: #ddd;
-	font-size: 35px;
+	font-size: 40px;
+}
+/* 작성자 아이디 */
+main section #arti2 #boardBox #board #boardContent label[for=id] {
+	font-size: 20px;
+	font-weight: 500;
 }
 main section #arti2 #boardBox #board #boardContent #id {
 	border: none;
 	outline: none;
 	margin-left: 10px;
+	font-size: 20px;
 }
+/* 기본정보 */
 main section #arti2 #boardBox #board #boardContent #informBox {
 	width: 90%;
 	margin: 30px auto;
@@ -286,6 +306,7 @@ main section #arti2 #boardBox #board #boardContent #informBox {
 main section #arti2 #boardBox #board #boardContent #informBox #informTitle {
 	width: 90%;
 	color: red;
+	font-weight: bold;
 }
 main section #arti2 #boardBox #board #boardContent #informBox #inform {
 	width: 90%;
@@ -294,13 +315,30 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #informTab
 	width: 100%;
 	height: 100%;
 	border-collapse: separate;
-	border: 1px solid black;
-	border-spacing: 30px;
+	border: 2px solid #aa8104;
+	border-spacing: 20px;
 }
-
-main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #character {
+/* 특징란 input확장 */
+main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #characters {
 	width: 80%;
 }
+/* 실종장소란 input확장 */
 main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #location {
 	width: 80%;
+}
+
+/* content 작성란 (텍스트 에디터) */
+main section #arti2 #boardBox #board #boardContent #informBox #inform #content {
+	width: 99.8%;
+	height: 100%;
+}
+/* 등록 버튼 */
+main section #arti2 #boardBox #board .submitBtnBox {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+main section #arti2 #boardBox #board .submitBtnBox #submit {
+	outline: none;
 }
