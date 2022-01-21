@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+header {
+	height: 10vh;
+	width: 100vw;
+	background-color: #27303F;
+}
+
+main {
+	height: 90%;
+	width: 100vw;
+	display: flex;
+}
+
+aside {
+	height: 90vh;
+	min-width: 108px;
+	background-color: #C4C4C4;
+	/* flex-basis는 크기 flex-grow 여백 조정 */
+	flex-grow: 1;
+	padding: 15px;
+}
+
+section {
+	flex-grow: 9;
+}
+
+section>h1 {
+	margin-top: 50px;
+	margin-left: 50px;
+}
+table {
+	margin-left: 50px;
+}
+table, th, tr, td {
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+table {
+	width: 90%;
+}
+th {
+	background-color: #778899;
+	min-width: 29.5px;
+}
+
+
+.red {
+	color: red;
+}
