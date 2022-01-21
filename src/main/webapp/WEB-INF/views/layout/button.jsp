@@ -9,7 +9,7 @@
 	.button {
   width: 180px;
   height: 60px;
-  position: absolute;
+  position: relative;
 }
 
 .btn {
