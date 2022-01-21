@@ -5,6 +5,6 @@
 <!-- alias 설정 -->
 <configuration>
 	<typeAliases>
-		<typeAlias type="kr.co.goodee39.mnwVO" alias="mnwVO"/>
+		<typeAlias type="kr.co.goodee39.vo.mnwVO" alias="mnwVO"/>
 	</typeAliases>
 </configuration>

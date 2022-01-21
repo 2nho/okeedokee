@@ -1,6 +1,6 @@
 package kr.co.goodee39.vo;
 
-public class mnvVO {
+public class mnwVO {
 
 	private int num;
 	private String id;
@@ -11,7 +11,7 @@ public class mnvVO {
 	private String location;
 	private String content;
 	
-	public mnvVO() {
+	public mnwVO() {
 		// TODO Auto-generated constructor stub
 	}
 

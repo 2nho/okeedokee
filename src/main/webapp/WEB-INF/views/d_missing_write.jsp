@@ -38,7 +38,7 @@
 					<div id="boardBox">
 						<input type="text" id="title" name="title" placeholder="제목을 입력해주세요" />
 						<div id="board">
-							<form:form modelAttribute="" action="" method="">
+							<form action="">
 								<label for="id">작성자</label>
 								<input type="text" name="id" id="id" readonly="readonly" value="sessionId"/>
 							
@@ -95,12 +95,12 @@
 												</td>
 											</tr>
 										</table>
-										<form:textarea path="content" name="content" id="content" rows="20" cols="100"></form:textarea><br/>
+										<textarea path="content" name="content" id="content" rows="20" cols="100"></textarea><br/>
 										<button onclick="submitPost()">등록</button>
 									
 									</div>
 								</div>
-							</form:form>
+							</form>
 						</div>
 					</div>
 				</article>
