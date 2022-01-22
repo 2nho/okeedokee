@@ -16,7 +16,6 @@ aside {
 	height: 90vh;
 	min-width: 108px;
 	background-color: #C4C4C4;
-	/* flex-basis는 크기 flex-grow 여백 조정 */
 	flex-grow: 1;
 	padding: 15px;
 }
@@ -24,13 +23,23 @@ aside {
 section {
 	flex-grow: 9;
 }
-
+section > .article1 {
+	width: 90%;
+	height: 50px;
+	background-color: #D3D3D3;
+	margin: 0 auto;
+}
+.article1 {
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+}
 section>h1 {
 	margin-top: 50px;
 	margin-left: 50px;
 }
 table {
-	margin-left: 50px;
+	margin: 0 auto;
 }
 table, th, tr, td {
 	border-collapse: collapse;
@@ -45,7 +54,9 @@ th {
 	min-width: 29.5px;
 }
 
-
+tr {
+	height: 30px;
+}
 .red {
 	color: red;
 }

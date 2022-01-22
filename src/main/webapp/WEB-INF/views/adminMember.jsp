@@ -13,10 +13,12 @@
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/70977de212.js"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 	<div id="container">
-		<header></header>
+		<header> </header>
 		<main>
 			<aside>
 				<ul>
@@ -29,34 +31,46 @@
 				</ul>
 			</aside>
 			<section>
-				<h1>회원리스트</h1>
-				<table>
-					<thead>
-						<tr>
-							<th><input type="checkbox" /></th>
-							<th>번호</th>
-							<th>이름</th>
-							<th>아이디</th>
-							<th>비밀번호</th>
-							<th>이메일</th>
-							<th>구분</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="item" items="${list}">
+				<h1>회원관리</h1>
+				<article class="article1">
+					<h3>회원리스트</h3>
+				</article>
+				<!--  검색  -->
+				<article class="article2">
+					<form action="">
+						<label for="search"><i class="fas fa-search"></i></label><input
+							type="text" />
+						<button type="submit">검색</button>
+					</form>
+				</article>
+				<article class="article3">
+					<table>
+						<thead>
 							<tr>
-								<th><th><input type="checkbox" /></th></th>
-
-								<td>${item.num}</td>
-								<td>${item.name}</td>
-								<td>${item.id}</td>
-								<td>${item.password}</td>
-								<td>${item.email}</td>
-								<td>${item.level}</td>
+								<th><input type="checkbox" /></th>
+								<th>번호</th>
+								<th>이름</th>
+								<th>아이디</th>
+								<th>비밀번호</th>
+								<th>이메일</th>
+								<th>구분</th>
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<c:forEach var="item" items="${list}">
+								<tr>
+									<td><input type="checkbox" /></td>
+									<td>${item.num}</td>
+									<td>${item.name}</td>
+									<td>${item.id}</td>
+									<td>${item.password}</td>
+									<td>${item.email}</td>
+									<td>${item.level}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</article>
 			</section>
 		</main>
 	</div>
