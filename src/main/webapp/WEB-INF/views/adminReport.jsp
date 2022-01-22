@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>adminMember</title>
+<title>adminReport</title>
 <link href="css/layout.css" rel="stylesheet" />
 <link href="css/adminBBS.css" rel="stylesheet" />
 <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -22,9 +21,9 @@
 				<ul>
 					<li><h2>관리자모드</h2></li>
 					<li><h3>Home</h3></li>
-					<li><h3 class="red">회원관리</h3></li>
+					<li><h3>회원관리</h3></li>
 					<li><h3>게시글관리</h3></li>
-					<li><h3>신고관리</h3></li>
+					<li><h3 class="red">신고관리</h3></li>
 					<li><h3>문의사항 답변</h3></li>
 				</ul>
 			</aside>
@@ -48,11 +47,11 @@
 								<tr>
 									<th><input type="checkbox" /></th>
 									<th>번호</th>
-									<th>이름</th>
-									<th>아이디</th>
-									<th>비밀번호</th>
-									<th>이메일</th>
-									<th>구분</th>
+									<th>제목</th>
+									<th>신고내용</th>
+									<th>신고자아이디</th>
+									<th>신고일</th>
+									<th>처리상태</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -60,11 +59,11 @@
 									<tr>
 										<td><input type="checkbox" /></td>
 										<td>${item.num}</td>
-										<td>${item.name}</td>
+										<td>${item.title}</td>
+										<td>${item.content}</td>
 										<td>${item.id}</td>
-										<td>${item.password}</td>
-										<td>${item.email}</td>
-										<td>${item.level}</td>
+										<td>${item.date}</td>
+										<td>${item.state}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
