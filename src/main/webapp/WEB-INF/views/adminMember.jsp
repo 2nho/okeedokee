@@ -33,8 +33,12 @@
 					<h1>회원관리</h1>
 					<article class="article3">
 						<form action="#">
-							<label for="search"><i class="fas fa-search"></i></label><input
-								type="text" />
+							<label for="search"><i class="fas fa-search"></i></label>
+							 <select name="choice">
+								<option value="id">아이디</option>
+								<option value="email">이메일</option>
+								<option value="level">구분</option>
+							</select> <input type="text" />
 							<button type="submit" id="search">검색</button>
 						</form>
 					</article>

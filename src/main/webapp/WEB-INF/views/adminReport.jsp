@@ -32,8 +32,13 @@
 					<h1>회원관리</h1>
 					<article class="article3">
 						<form action="#">
-							<label for="search"><i class="fas fa-search"></i></label><input
-								type="text" />
+							<label for="search"><i class="fas fa-search"></i></label> 
+							<select	name="choice">
+								<option value="title">제목</option>
+								<option value="id">아이디</option>
+								<option value="class">신고구분</option>
+								<option value="state">처리상태</option>
+							</select> <input type="text" /><input type="text" />
 							<button type="submit" id="search">검색</button>
 						</form>
 					</article>
