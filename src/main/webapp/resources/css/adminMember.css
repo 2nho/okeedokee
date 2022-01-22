@@ -23,7 +23,7 @@ aside {
 section {
 	flex-grow: 9;
 }
-section > .article1 {
+section > .article2 {
 	width: 90%;
 	height: 50px;
 	background-color: #D3D3D3;

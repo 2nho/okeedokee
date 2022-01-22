@@ -33,16 +33,16 @@
 			<section>
 				<h1>회원관리</h1>
 				<article class="article1">
-					<h3>회원리스트</h3>
-				</article>
-				<!--  검색  -->
-				<article class="article2">
 					<form action="">
 						<label for="search"><i class="fas fa-search"></i></label><input
 							type="text" />
 						<button type="submit">검색</button>
 					</form>
 				</article>
+				<article class="article2">
+					<h3>회원리스트</h3>
+				</article>
+				<!--  검색  -->
 				<article class="article3">
 					<table>
 						<thead>
