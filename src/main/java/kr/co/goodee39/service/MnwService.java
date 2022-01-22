@@ -140,7 +140,7 @@ public class MnwService {
 		}
 	}
 	
-	//이미지 가져오기
+	//게시판 리스트 이미지 가져오기
 	public void selectImg(mnwVO vo, Model model) {
 		//uploadfile 테이블에 저장한 게시글 num 가져와서 추가
 		ImageVO ivo = new ImageVO();
@@ -159,5 +159,10 @@ public class MnwService {
 			//view로 가져가자
 			model.addAttribute("filelist", filelist);
 		}
+	}
+	
+	//게시글 자세히보기
+	public void selectMissOne(mnwVO vo, Model model) {
+		model.addAttribute("getMnw", sqlSessionTemplate.selectOne("miss.selectMissOne", vo));
 	}
 }

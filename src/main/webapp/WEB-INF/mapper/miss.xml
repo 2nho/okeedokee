@@ -23,6 +23,13 @@
 		WHERE isdelete = "N"
 	</select>
 	
+	<!-- 게시글 자세히보기 -->
+	<select id="selectMissOne" parameterType="mnwVO" resultType="mnwVO">
+		SELECT num, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg
+		FROM misstbl
+		WHERE isdelete = "N" AND num = #{num}
+	</select>
+	
 	<!-- 게시글 추가 -->
 	<insert id="insertMiss" parameterType="mnwVO" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO misstbl(id, title, species, sex, characters, date, location, content, createdate, bdiv, hasimg)
