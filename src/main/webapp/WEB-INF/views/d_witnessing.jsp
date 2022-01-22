@@ -117,33 +117,33 @@
 								<!-- 왼쪽 페이지 블럭 이동 -->
 		                        <c:choose>
 		                        	<c:when test="${(minBlock - 1 ) < 1}"></c:when>
-		                        	<c:otherwise><a href="${pageContext.request.contextPath}/missing?num=${minBlock-1}">◀◀</a></c:otherwise>
+		                        	<c:otherwise><a href="${pageContext.request.contextPath}/witnessing?num=${minBlock-1}" class="paging">◀◀</a></c:otherwise>
 		                        </c:choose>
 								&nbsp;&nbsp;&nbsp;
 								<!-- 왼쪽 페이지 이동 -->
 								<c:choose>
 									<c:when test="${num == 1}"></c:when>
-									<c:otherwise><a href="${pageContext.request.contextPath }/missing?num=${num-1}">◀</a></c:otherwise>
+									<c:otherwise><a href="${pageContext.request.contextPath }/witnessingnum=${num-1}" class="paging">◀</a></c:otherwise>
 								</c:choose>
 								&nbsp;&nbsp;
 								<!-- 페이지별 선택 이동 -->
 								<c:forEach begin="${minBlock}" end="${(total < maxBlock)? total:maxBlock }" step="1" var="i">
 									<c:choose>
-										<c:when test="${num == i}"><span style="color: #22c7a9;">${i}</span></c:when>
-										<c:otherwise><a href="${pageContext.request.contextPath}/missing?num=${i}">${i}</a></c:otherwise>
+										<c:when test="${num == i}"><span  class="paging"><strong>&nbsp;${i}&nbsp;</strong></span></c:when>
+										<c:otherwise><a href="${pageContext.request.contextPath}/witnessing?num=${i}">&nbsp;${i}&nbsp;</a></c:otherwise>
 									</c:choose>
 								</c:forEach>
 								&nbsp;&nbsp;
 								<!-- 오른쪽 페이지 이동 -->
 								<c:choose>
 									<c:when test="${num == total}"></c:when>
-									<c:otherwise><a href="${pageContext.request.contextPath }/missing?num=${num+1}">▶</a></c:otherwise>
+									<c:otherwise><a href="${pageContext.request.contextPath }/witnessing?num=${num+1}" class="paging">▶</a></c:otherwise>
 								</c:choose>
 								&nbsp;&nbsp;&nbsp;
 								<!-- 오른쪽 페이지 블럭 이동 -->
 								<c:choose>
 									<c:when test="${maxBlock >= total }"></c:when>
-									<c:otherwise><a href="${pageContext.request.contextPath}/missing?num=${maxBlock+1}">▶▶</a></c:otherwise>
+									<c:otherwise><a href="${pageContext.request.contextPath}/witnessing?num=${maxBlock+1}" class="paging">▶▶</a></c:otherwise>
 								</c:choose>
 							</div>
 							<!-- form으로 수정 필요 -->

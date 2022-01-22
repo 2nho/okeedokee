@@ -233,7 +233,9 @@ main section #arti2 #boardBox #board .searchBox  {
 	justify-content: center;
 	padding-top: 20px;
 }
-
+main section #arti2 #boardBox #board #pagingBox .paging {
+	color: #fbd157;
+}
 main section #arti2 #boardBox #board .searchBox #searchType,
 main section #arti2 #boardBox #board .searchBox #search {
 	margin-right: 10px;
