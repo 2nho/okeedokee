@@ -31,19 +31,20 @@
 				</ul>
 			</aside>
 			<section>
+			<div>
 				<h1>회원관리</h1>
-				<article class="article1">
-					<form action="">
+				<article class="article3">
+					<form action="#">
 						<label for="search"><i class="fas fa-search"></i></label><input
 							type="text" />
-						<button type="submit">검색</button>
+						<button type="submit" id="search">검색</button>
 					</form>
 				</article>
-				<article class="article2">
+				<article class="article1">
 					<h3>회원리스트</h3>
 				</article>
 				<!--  검색  -->
-				<article class="article3">
+				<article class="article2">
 					<table>
 						<thead>
 							<tr>
@@ -71,6 +72,7 @@
 						</tbody>
 					</table>
 				</article>
+			</div>
 			</section>
 		</main>
 	</div>
