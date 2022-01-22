@@ -15,7 +15,7 @@
 					<ul>
 						<li><a href="">소개</a></li>
 						<li><a href="">유기견공고</a></li>
-						<li><a href="mnw">실종/목격 게시판</a></li>
+						<li><a href="missing">실종/목격 게시판</a></li>
 					</ul>
 				</div>
 			</div>

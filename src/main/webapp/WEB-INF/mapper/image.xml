@@ -7,12 +7,14 @@
 <!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
 <mapper namespace="img">
 	
-	<select id="selectImg">
-		
+	<select id="selectImg" parameterType="imgVO" resultType="imgVO">
+		SELECT num, bdiv, bnum, localName, serverName
+		FROM imagetbl
+		WHERE bdiv = #{bdiv}
 	</select>
 	
 	<insert id="insertImg" parameterType="imgVO">
-		INSERT INTO image(bnum, bdiv, localName, serverName)
+		INSERT INTO imagetbl(bnum, bdiv, localName, serverName)
 		VALUES(#{bnum}, #{bdiv}, #{localName}, #{serverName})
 	</insert>
 	

@@ -13,11 +13,19 @@ public class mnwVO {
 	private String content;
 	private String createdate;
 	private int bdiv;
+	private String hasimg;
 	private String fileList;
-	
+	private int start;
+	private int count;
+
+
+	//start = first index number
+	//count = total count of list on page
 	public mnwVO() {
-		// TODO Auto-generated constructor stub
+		this.start = 0;
+		this.count = 5;
 	}
+
 
 	public int getNum() {
 		return num;
@@ -106,6 +114,17 @@ public class mnwVO {
 	public void setBdiv(int bdiv) {
 		this.bdiv = bdiv;
 	}
+	
+
+	public String getHasimg() {
+		return hasimg;
+	}
+
+
+	public void setHasimg(String hasimg) {
+		this.hasimg = hasimg;
+	}
+
 
 	public String getFileList() {
 		return fileList;
@@ -115,5 +134,26 @@ public class mnwVO {
 		this.fileList = fileList;
 	}
 
+
+	public int getStart() {
+		return start;
+	}
+
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+
+	public int getCount() {
+		return count;
+	}
+
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	
 	
 }

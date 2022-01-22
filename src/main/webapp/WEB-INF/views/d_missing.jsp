@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,46 +33,29 @@
 			<article id="arti1">
 			<!-- 게시글 내용 슬라이드 -->
 				<div id="slideBox">
+				<c:forEach var="list" items="${list}">
 					<div class="slides" id="slide1">
 						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
+							 <!-- 저장된 파일 가져오기 -->
+							<c:set var="loop_flag" value="false" />
+							<c:forEach var="file" items="${filelist}">
+							<c:if test="${not loop_flag }">
+							<c:if test="${(list.hasimg eq 'Y') and (file.bnum == list.num)}">
+								<img src="media/img/${file.localName}" alt=""/>
+								  <c:set var="loop_flag" value="true" />
+							</c:if>
+							<c:if test="${list.hasimg ne 'Y'}">
+								<img src="media/logo/mainLogo.png" alt=""/>
+								 <c:set var="loop_flag" value="true" />
+							</c:if>
+							 </c:if>
+						</c:forEach>
 							<div class="text">
-								<h3>1제목제목제목제목제목제목제목제목제목</h3>
+								<h3>${list.title}</h3>
 							</div>
 						</div>
 					</div>
-					<div class="slides" id="slide2">
-						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
-							<div class="text">
-								<h3>2제목제목제목제목제목제목제목제목제목</h3>
-							</div>
-						</div>
-					</div>
-					<div class="slides" id="slide3">
-						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
-							<div class="text">
-								<h3>3제목제목제목제목제목제목제목제목제목</h3>
-							</div>
-						</div>
-					</div>
-					<div class="slides" id="slide4">
-						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
-							<div class="text">
-								<h3>4제목제목제목제목제목제목제목제목제목</h3>
-							</div>
-						</div>
-					</div>
-					<div class="slides" id="slide5">
-						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
-							<div class="text">
-								<h3>5제목제목제목제목제목제목제목제목제목</h3>
-							</div>
-						</div>
-					</div>
+				</c:forEach>
 				</div>
 			</article>
 			<div class="buttonBox">
@@ -106,111 +90,75 @@
 									</tr>
 								</thead>
 								<tbody>
+								<c:forEach var="list" items="${list}">
 									<tr>
-										<td>1</td>
+										<td>${list.num}</td>
 										<td>
-											<a href="">
-												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
+											<a href="${pageContext.request.contextPath}/mnw/detail?num=${list.num}">
+											<!-- 저장된 파일 가져오기 -->
+											<c:set var="loop_flag" value="false" />
+											<c:forEach var="file" items="${filelist}">
+												<c:if test="${not loop_flag }">
+												<c:if test="${(list.hasimg eq 'Y') and (file.bnum == list.num)}">
+													<img src="media/img/${file.localName}" alt="" style="width: 180px; height: 120px;"/>
+													  <c:set var="loop_flag" value="true" />
+												</c:if>
+												<c:if test="${list.hasimg ne 'Y'}">
+													<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
+													  <c:set var="loop_flag" value="true" />
+												</c:if>
+												 </c:if>
+											</c:forEach>
 											</a>
 										</td>
+										
 										<td>
-											<h4>1테스트제목</h4>
-											<p>견종 : </p>
-											<p>성별 :</p>
-											<p>특징 :</p>
-											<p>실종일 :</p>
-											<p>실종 장소 :</p>
-											<p>사례금 :</p>
+											<h4>${list.title }</h4>
+											<p><strong>성별</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${(list.sex == 'F')? "여":(list.sex == 'M')? "남":"미상"}</p>
+											<p><strong>견종</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.species }</p>
+											<p><strong>특징</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.characters}</p>
+											<p><strong>실종일</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.date}</p>
+											<p><strong>실종장소</strong>&nbsp;&nbsp;&nbsp;:&nbsp;${list.location}</p>
 										</td>
-										<td>테스트</td>
-										<td>2022-01-20</td>
+										<td>${list.id }</td>
+										<td>${list.createdate }</td>
 										<td>3</td>
 									</tr>
-									<tr>
-										<td>2</td>
-										<td>
-											<a href="">
-												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
-											</a>
-										</td>
-										<td>
-											<h4>2테스트제목</h4>
-											<p>견종 : </p>
-											<p>성별 :</p>
-											<p>특징 :</p>
-											<p>실종일 :</p>
-											<p>실종 장소 :</p>
-											<p>사례금 :</p>
-										</td>
-										<td>테스트</td>
-										<td>2022-01-20</td>
-										<td>3</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>
-											<a href="">
-												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
-											</a>
-										</td>
-										<td>
-											<h4>3테스트제목</h4>
-											<p>견종 : </p>
-											<p>성별 :</p>
-											<p>특징 :</p>
-											<p>실종일 :</p>
-											<p>실종 장소 :</p>
-											<p>사례금 :</p>
-										</td>
-										<td>테스트</td>
-										<td>2022-01-20</td>
-										<td>3</td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td>
-											<a href="">
-												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
-											</a>
-										</td>
-										<td>
-											<h4>4테스트제목</h4>
-											<p>견종 : </p>
-											<p>성별 :</p>
-											<p>특징 :</p>
-											<p>실종일 :</p>
-											<p>실종 장소 :</p>
-											<p>사례금 :</p>
-										</td>
-										<td>테스트</td>
-										<td>2022-01-20</td>
-										<td>3</td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td>
-											<a href="">
-												<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
-											</a>
-										</td>
-										<td>
-											<h4>5테스트제목</h4>
-											<p>견종 : </p>
-											<p>성별 :</p>
-											<p>특징 :</p>
-											<p>실종일 :</p>
-											<p>실종 장소 :</p>
-											<p>사례금 :</p>
-										</td>
-										<td>테스트</td>
-										<td>2022-01-20</td>
-										<td>3</td>
-									</tr>
+								</c:forEach>
 								</tbody>
 							</table>
 							<div id="pagingBox">
-								<!-- 임시 페이징 표시 -->
-								<span><< < 1 2 3 4 5 > >></span>
+								<!-- 왼쪽 페이지 블럭 이동 -->
+		                        <c:choose>
+		                        	<c:when test="${(minBlock - 1 ) < 1}"></c:when>
+		                        	<c:otherwise><a href="${pageContext.request.contextPath}/missing?num=${minBlock-1}">◀◀</a></c:otherwise>
+		                        </c:choose>
+								&nbsp;&nbsp;&nbsp;
+								<!-- 왼쪽 페이지 이동 -->
+								<c:choose>
+									<c:when test="${num == 1}"></c:when>
+									<c:otherwise><a href="${pageContext.request.contextPath }/missing?num=${num-1}">◀</a></c:otherwise>
+								</c:choose>
+								&nbsp;&nbsp;
+								<!-- 페이지별 선택 이동 -->
+								<c:forEach begin="${minBlock}" end="${(total < maxBlock)? total:maxBlock }" step="1" var="i">
+									<c:choose>
+										<c:when test="${num == i}"><span style="color: #22c7a9;">${i}</span></c:when>
+										<c:otherwise><a href="${pageContext.request.contextPath}/missing?num=${i}">${i}</a></c:otherwise>
+									</c:choose>
+								</c:forEach>
+								&nbsp;&nbsp;
+								<!-- 오른쪽 페이지 이동 -->
+								<c:choose>
+									<c:when test="${num == total}"></c:when>
+									<c:otherwise><a href="${pageContext.request.contextPath }/missing?num=${num+1}">▶</a></c:otherwise>
+								</c:choose>
+								&nbsp;&nbsp;&nbsp;
+								<!-- 오른쪽 페이지 블럭 이동 -->
+								<c:choose>
+									<c:when test="${maxBlock >= total }"></c:when>
+									<c:otherwise><a href="${pageContext.request.contextPath}/missing?num=${maxBlock+1}">▶▶</a></c:otherwise>
+								</c:choose>
 							</div>
 							<!-- form으로 수정 필요 -->
 							<div class="searchBox">

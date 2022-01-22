@@ -33,7 +33,7 @@
 	<br/>
 	<a href="main">main</a>
 	<br/>
-	<a href="mnw">유기견 목격 / 실종 게시판</a>
+	<a href="missing">유기견 목격 / 실종 게시판</a>
 	<br />
 	<a href="adminHome">관리자페이지</a>
 	<a href="adminMember">관리자 회원관리</a>

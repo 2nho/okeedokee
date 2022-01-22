@@ -5,8 +5,8 @@ public class ImageVO {
 	private int num;
 	private int bdiv;
 	private int bnum;
-	private String localName;
 	private String serverName;
+	private String localName;
 	
 	public ImageVO() {
 		// TODO Auto-generated constructor stub
@@ -14,10 +14,9 @@ public class ImageVO {
 	
 	
 
-	public ImageVO(String localName, String serverName) {
-		super();
-		this.localName = localName;
+	public ImageVO(String serverName, String localName) {
 		this.serverName = serverName;
+		this.localName = localName;
 	}
 
 
@@ -46,14 +45,7 @@ public class ImageVO {
 		this.bnum = bnum;
 	}
 
-	public String getLocalName() {
-		return localName;
-	}
-
-	public void setLocalName(String localName) {
-		this.localName = localName;
-	}
-
+	
 	public String getServerName() {
 		return serverName;
 	}
@@ -62,5 +54,12 @@ public class ImageVO {
 		this.serverName = serverName;
 	}
 	
-	
+	public String getLocalName() {
+		return localName;
+	}
+
+	public void setLocalName(String localName) {
+		this.localName = localName;
+	}
+
 }

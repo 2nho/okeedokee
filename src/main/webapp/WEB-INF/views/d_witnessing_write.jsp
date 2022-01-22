@@ -31,7 +31,7 @@
 			</nav>
 			<section>
 				<article id="arti1">
-					<div id="menuText">유기견 목격 신고 게시판</div>
+					<div id="menuText"><span>유기견 목격 신고 게시판</span></div>
 				</article>
 				<!-- 글쓰기 -->
 				<article id="arti2">
@@ -77,9 +77,11 @@
 														<option value="시츄">시츄</option>
 														<option value="치와와">치와와</option>
 														<option value="불독">불독</option>
+														<option value="요크셔테리어">요크셔테리어</option>
 														<option value="비숑프리제">비숑프리제</option>
 														<option value="아프간하운드">아프간하운드</option>
 														<option value="진도">진도</option>
+														<option value="믹스">믹스</option>
 														<option value="기타">기타</option>
 													</form:select>
 												</td>

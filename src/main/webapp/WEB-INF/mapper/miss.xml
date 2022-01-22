@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
+<!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
+<mapper namespace="miss">
+
+	<!-- 게시글 가져오기 -->
+	<select id="selectMiss" parameterType="mnwVO" resultType="mnwVO">
+		SELECT num, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg
+		FROM misstbl
+		WHERE isdelete = "N"
+		ORDER BY num DESC
+		LIMIT #{start}, #{count}
+	</select>
+	
+	<!-- 게시글 토탈 카운트 -->
+	<select id="selectMissCount" parameterType="mnwVO" resultType="int">
+		SELECT COUNT(*) 
+		FROM misstbl
+		WHERE isdelete = "N"
+	</select>
+	
+	<!-- 게시글 추가 -->
+	<insert id="insertMiss" parameterType="mnwVO" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO misstbl(id, title, species, sex, characters, date, location, content, createdate, bdiv, hasimg)
+		VALUES(#{id}, #{title}, #{species}, #{sex}, #{characters}, #{date}, #{location}, #{content}, #{createdate}, #{bdiv}, #{hasimg})
+	</insert>
+	
+	<!-- 게시글 삭제 : isdelete만 업데이트 -->
+	<delete id="deleteMiss" parameterType="mnwVO">
+		UPDATE misstbl 
+		SET isdelete = 'Y'
+		WHERE num = #{num}
+	</delete>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateMiss" parameterType="mnwVO">
+		UPDATE misstbl
+		SET title = #{title}, species =#{species}, sex = #{sex}, characters = #{characters}, date = #{date}, location = #{location}, content = #{content}  
+	</update>
+	
+</mapper>
