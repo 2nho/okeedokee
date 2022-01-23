@@ -21,7 +21,7 @@
 	<a href="missing">유기견 목격 / 실종 게시판</a>
 	<br />
 	<a href="adminHome">관리자페이지</a>
-	<a href="adminMember">관리자 회원관리</a>
+	<a href="adminMember">관리자 회원관리</a> <a href="adminReport">관리자 신고관리</a>
 	<a href="Announcement">유기견공고</a>
 </body>
 </html>

@@ -18,5 +18,10 @@ public class adminController {
 		
 		return "adminMember";
 	}
+	@GetMapping("/adminReport")
+	public String adminReport() {
+		
+		return "adminReport";
+	}
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,8 +33,8 @@
 					<h1>회원관리</h1>
 					<article class="article3">
 						<form action="#">
-							<label for="search"><i class="fas fa-search"></i></label> 
-							<select	name="choice">
+							<label for="search"><i class="fas fa-search"></i></label> <select
+								name="choice">
 								<option value="title">제목</option>
 								<option value="id">아이디</option>
 								<option value="class">신고구분</option>
