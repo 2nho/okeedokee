@@ -46,7 +46,9 @@
 	<!-- 게시글 수정 -->
 	<update id="updateMiss" parameterType="mnwVO">
 		UPDATE misstbl
-		SET title = #{title}, species =#{species}, sex = #{sex}, characters = #{characters}, date = #{date}, location = #{location}, content = #{content}  
+		SET title = #{title}, species = #{species}, sex = #{sex}, characters = #{characters}, date = #{date}, location = #{location}, content = #{content}
+		<if test="hasimg != null">, hasimg = #{hasimg}</if> 
+		WHERE num = #{num}
 	</update>
 	
 </mapper>

@@ -20,8 +20,9 @@
 		VALUES(#{bnum}, #{bdiv}, #{localName}, #{serverName})
 	</insert>
 	
-	<delete id="deleteImg"></delete>
-	
-	<update id="updateImg"></update>
+	<delete id="deleteImg" parameterType="imgVO">
+		DELETE FROM imagetbl
+		WHERE num = #{num}
+	</delete>
 
 </mapper>

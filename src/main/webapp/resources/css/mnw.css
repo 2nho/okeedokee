@@ -368,6 +368,7 @@ main section #arti2 #boardBox #board .submitBtnBox #submit:hover {
 	border: 1px solid #fbd157;
 }
 
+
 /* 글 읽기 페이지 */
 /* 수정, 귀가, 종료, 신고 버튼 */
 main section #arti2 #boardBox #board #boardContent .btnBox {
@@ -446,4 +447,31 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #readConte
 	margin: 0 auto;
 	padding: 10px;
 	border: 1px solid black;
+}
+
+
+/* 글 수정 페이지 */
+main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable .fileBox p {
+	font-size: 13px;
+	font-weight: bold;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable .fileBox .savedFile {
+	display: flex;
+	flex-direction: row;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable .fileBox .savedFile li {
+	margin-right: 5px;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable .fileBox .savedFile li img {
+	width:100px;
+	height:100px;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable .fileBox .savedFile li .deleteFile {
+	width: 100%;
+  	background-color:  #fbd157;
+  	border:none;
+  	outline: none;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable .fileBox .savedFile li .deleteFile:hover {
+	background-color: #f9f1c0;
 }

@@ -24,15 +24,15 @@
 						<h3>유기견 실종 / 목격 신고</h3>
 					</div>
 					<div id="mnwSubTitle">
-						<a href="missing" id="focus"><h4>유기견 실종 신고</h4></a> 
-						<a href="witnessing"><h4>유기견 목격 신고</h4></a> 
+						<a href="missing"><h4>유기견 실종 신고</h4></a> 
+						<a href="witnessing" id="focus"><h4>유기견 목격 신고</h4></a> 
 						<a href="selfFlyer"><h4>셀프 전단지</h4></a>
 					</div>
 				</div> 
 			</nav>
 			<section>
 				<article id="arti1">
-					<div id="menuText"><span>유기견 실종 신고 게시판</span></div>
+					<div id="menuText"><span>유기견 목격 신고 게시판</span></div>
 				</article>
 				<div class="buttonBox">
 				<!-- article 사이 패딩용 -->
@@ -48,7 +48,7 @@
 								<div class="btnBox">
 									<!-- 실제 세션 정보 수정 필!!!! -->
 									<c:if test="${sessionScope.account == mnwVO.id}">
-										<a href="${pageContext.request.contextPath}/revise?num=${mnwVO.num}&bdiv=3">수정</a>
+										<a href="${pageContext.request.contextPath}/revise?num=${mnwVO.num}&bdiv=4">수정</a>
 										<a href="${pageContext.request.contextPath}/back?num=${mnwVO.num}">귀가</a>
 										<a href="${pageContext.request.contextPath}/end?num=${mnwVO.num}">종료</a>
 									</c:if>
@@ -68,6 +68,7 @@
 											<c:if test="${mnwVO.hasimg == 'N'}">
 												<img src="media/logo/mainLogo.png" alt=>
 											</c:if>
+											
 											<div class="dotbox"></div>
 										</div>
 										<table id="informTable">
@@ -93,14 +94,14 @@
 											</tr>
 											
 											<tr>
-												<td>실종 장소</td>
+												<td>목격 장소</td>
 												<td>
 													<input type="text" name="location" id="location" readonly="readonly" value="${mnwVO.location }"/>
 												</td>
 											</tr>
 											
 											<tr>
-												<td>실종일</td>
+												<td>목격일</td>
 												<td>
 													<input type="date" name="date" id="date" readonly="readonly" value="${mnwVO.date }"/>
 												</td>

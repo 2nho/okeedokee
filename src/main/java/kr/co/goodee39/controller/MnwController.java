@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -34,7 +35,7 @@ public class MnwController {
 
 	// 실종, 목격 메뉴 이동 = 실종 게시판 이동
 	@GetMapping("/missing")
-	public String mnw(@RequestParam(defaultValue = "1") int num, Model model) {
+	public String missing(@RequestParam(defaultValue = "1") int num, Model model) {
 
 		service.selectMiss(num, model);
 
@@ -56,13 +57,25 @@ public class MnwController {
 		return "d_selfFlyer";
 	}
 
-	// 게시글 상세보기 이동
-	@GetMapping("/mnw/detail")
-	public String mnwDetail() {
+	
+	// 게시글 내용보기
+	@GetMapping("/read")
+	public String detailMnw(@RequestParam int num, @RequestParam int bdiv, @ModelAttribute("mnwVO") mnwVO vo,
+			Model model, HttpSession session) {
 
-		return "";
+		String path = "";
+
+		path = service.selectMnwOne(num, bdiv, vo, model);
+
+		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
+		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
+		session.setAttribute("account", "sessionId");
+		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
+		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
+
+		return path + "read";
 	}
-
+	
 	// 실종 글쓰기 이동
 	@GetMapping("/writeMissing")
 	public String writeMissing(@ModelAttribute mnwVO vo) {
@@ -75,11 +88,9 @@ public class MnwController {
 		return "d_witnessing_write";
 	}
 
-	// 실종 게시판 글쓰기
-	// 게시글 등록
-	// 얘는 지금 form 데이터 통해서 값 받아가는 거니까 커맨드 객체 필요!
+	// 실종/목격 게시글 제출
 	@PostMapping("/createResult")
-	private String setMNWCreate(mnwVO vo) {
+	private String sendMNWCreate(mnwVO vo) {
 
 		String path = "";
 
@@ -99,9 +110,7 @@ public class MnwController {
 		 * System.out.println("fileList : "+vo.getFileList());
 		 * System.out.println("작성일 : "+vo.getCreatedate());
 		 */
-
-		System.out.println("date : " + vo.getDate());
-
+	
 		if (vo.getBdiv() == 3) {
 			service.insertMiss(vo);
 			path = "missing";
@@ -156,20 +165,39 @@ public class MnwController {
 		// 콘솔창에 나타남
 		return response;
 	}
-
 	
 	
-	//게시글 내용보기
-	@GetMapping("/read")
-	public String detailMissing(@RequestParam int num, @RequestParam int bdiv, @ModelAttribute("mnwVO")  mnwVO vo, Model model, HttpSession session) {
-
-		vo.setNum(num);
-		vo.setBdiv(bdiv);
+	//게시글 수정 페이지 이동
+	@GetMapping("/revise")
+	public String revise(@RequestParam int num, @RequestParam int bdiv, mnwVO vo, Model model) {
 		
-		service.selectMissOne(vo, model);
+		String path = "";
 		
-		session.setAttribute("account", "sessionId");
+		path = service.selectMnwOne(num, bdiv, vo, model);
 		
-		return "d_missing_read";
+		return path+"revise";
 	}
+	
+	//게시글 수정 내 등록된 사진 삭제
+	@PostMapping("/deleteFile")
+	public @ResponseBody ResponseEntity<String> deleteFile(@RequestBody ImageVO[] ivos) {
+		for(ImageVO imgVO : ivos) {
+			System.out.println("삭제num : "+imgVO.getNum());
+		}
+		service.deleteImgFile(ivos);
+		return new ResponseEntity<String>("DeleteFile Success", HttpStatus.OK);
+	}
+	
+	//게시글 수정완료
+	@PostMapping("/reviseResult")
+	public String reviseResult(mnwVO vo) {
+		
+		String path = "";
+	
+		path = service.updateMnw(vo);
+		service.changeHasimg(vo);
+		
+		return "redirect:/"+path;
+	}
+	
 }
