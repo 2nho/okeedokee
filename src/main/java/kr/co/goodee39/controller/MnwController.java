@@ -200,4 +200,14 @@ public class MnwController {
 		return "redirect:/"+path;
 	}
 	
+	//게시글 삭제
+	@GetMapping("/isdelete")
+	public String isdelete(@RequestParam int bdiv, @RequestParam int num, mnwVO vo) {
+		
+		String path = "";
+		
+		path = service.deleteMnw(bdiv, num, vo);
+		
+		return "redirect:/"+path;
+	}
 }

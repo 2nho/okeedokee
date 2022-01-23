@@ -48,12 +48,13 @@
 								<div class="btnBox">
 									<!-- 실제 세션 정보 수정 필!!!! -->
 									<c:if test="${sessionScope.account == mnwVO.id}">
-										<a href="${pageContext.request.contextPath}/revise?num=${mnwVO.num}&bdiv=4">수정</a>
-										<a href="${pageContext.request.contextPath}/back?num=${mnwVO.num}">귀가</a>
-										<a href="${pageContext.request.contextPath}/end?num=${mnwVO.num}">종료</a>
+										<a href="${pageContext.request.contextPath}/revise?bdiv=4&num=${mnwVO.num}">수정</a>
+										<a href="${pageContext.request.contextPath}/back?bdiv=4&num=${mnwVO.num}">귀가</a>
+										<a href="${pageContext.request.contextPath}/end?bdiv=4&num=${mnwVO.num}">종료</a>
+										<a href="${pageContext.request.contextPath}/isdelete?bdiv=3&num=${mnwVO.num}">삭제</a>
 									</c:if>
 									<c:if test="${sessionScope.account != mnwVO.id}">
-										<a href="${pageContext.request.contextPath}/missing/revise?num=${mnwVO.num}">신고</a>
+										<a href="${pageContext.request.contextPath}/missing/revise?bdiv=4&num=${mnwVO.num}">신고</a>
 									</c:if>
 								</div>
 								<div id="informBox">

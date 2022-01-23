@@ -292,4 +292,26 @@ public class MnwService {
 		}
 		
 	}
+	
+	
+	//게시글 삭제
+	public String deleteMnw(int bdiv, int num, mnwVO vo) {
+		String path = "";
+		
+		vo.setBdiv(bdiv);
+		vo.setNum(num);
+		
+		if(vo.getBdiv() == 3) {
+			sqlSessionTemplate.update("miss.deleteMiss", vo);
+			path = "missing";
+			
+		}
+		else if(vo.getBdiv() == 4) {
+			sqlSessionTemplate.update("witness.deleteWitness", vo);
+			path = "witnessing";
+			
+		}
+		
+		return path;
+	}
 }
