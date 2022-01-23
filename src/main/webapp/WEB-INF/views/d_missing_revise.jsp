@@ -148,6 +148,6 @@
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
 
-<!-- 	<script type="text/javascript" src="js/mnwWrite.js"></script> -->
+	<script type="text/javascript" src="js/mnwWrite.js"></script>
 </body>
 </html>

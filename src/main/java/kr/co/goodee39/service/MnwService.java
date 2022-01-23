@@ -132,7 +132,7 @@ public class MnwService {
 		}
 		// 사진 미등록인 경우
 		else if(fileList.isEmpty()){
-			vo.setHasimg(null);
+			vo.setHasimg("N");
 		}
 		sqlSessionTemplate.insert("witness.insertWitness", vo);
 		
@@ -265,7 +265,9 @@ public class MnwService {
 		ImageVO vo1 = new ImageVO();
 		vo1.setBnum(vo.getNum());
 		vo1.setBdiv(vo.getBdiv());
-		
+	
+		System.out.println(vo1.getBnum());
+		System.out.println(vo1.getBdiv());
 		
 		// 이미지 파일 아예 없다면 hasimg 'N'변경
 		if(vo1.getBdiv() == 3) {
@@ -280,12 +282,12 @@ public class MnwService {
 		}
 		
 		if(vo1.getBdiv() == 4) {
-			if (sqlSessionTemplate.selectList("img.selectImg", vo1).isEmpty()) {
+			if (sqlSessionTemplate.selectList("img.selectImg", vo1) == null || sqlSessionTemplate.selectList("img.selectImg", vo1).isEmpty()) {
 				vo.setHasimg("N");
 				sqlSessionTemplate.update("witness.updateWitness", vo);
 			}else {
 				vo.setHasimg("Y");
-				sqlSessionTemplate.update("miss.updateMiss", vo);
+				sqlSessionTemplate.update("witness.updateWitness", vo);
 			}	
 		}
 		
