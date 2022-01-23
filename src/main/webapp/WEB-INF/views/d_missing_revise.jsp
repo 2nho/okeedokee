@@ -144,6 +144,7 @@
 			</section>
 		</main>
 
+	<!-- 테스트 -->
 		<!-- 푸터 불러오기 -->
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
