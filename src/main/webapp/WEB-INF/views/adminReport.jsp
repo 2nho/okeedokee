@@ -25,7 +25,7 @@
 					<li><h3>회원관리</h3></li>
 					<li><h3>게시글관리</h3></li>
 					<li><h3 class="red">신고관리</h3></li>
-					<li><h3>문의사항 답변</h3></li>
+					<li><h3>일정관리</h3></li>
 				</ul>
 			</aside>
 			<section>
