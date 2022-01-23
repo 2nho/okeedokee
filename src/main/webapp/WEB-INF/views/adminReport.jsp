@@ -39,7 +39,7 @@
 								<option value="id">아이디</option>
 								<option value="class">신고구분</option>
 								<option value="state">처리상태</option>
-							</select> <input type="text" /><input type="text" />
+							</select> <input type="text" />
 							<button type="submit" id="search">검색</button>
 						</form>
 					</article>
