@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -159,10 +161,14 @@ public class MnwController {
 	
 	//게시글 내용보기
 	@GetMapping("/read")
-	public String detailMissing(@RequestParam int num, @ModelAttribute("mnwVO")  mnwVO vo, Model model) {
-		
+	public String detailMissing(@RequestParam int num, @RequestParam int bdiv, @ModelAttribute("mnwVO")  mnwVO vo, Model model, HttpSession session) {
+
 		vo.setNum(num);
+		vo.setBdiv(bdiv);
+		
 		service.selectMissOne(vo, model);
+		
+		session.setAttribute("account", "sessionId");
 		
 		return "d_missing_read";
 	}

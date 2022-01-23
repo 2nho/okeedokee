@@ -33,6 +33,9 @@
 				<article id="arti1">
 					<div id="menuText"><span>유기견 실종 신고 게시판</span></div>
 				</article>
+				<div class="buttonBox">
+				<!-- article 사이 패딩용 -->
+				</div>
 				<!-- 글쓰기 -->
 				<article id="arti2">
 					<div id="boardBox">

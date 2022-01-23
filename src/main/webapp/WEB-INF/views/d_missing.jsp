@@ -94,7 +94,7 @@
 									<tr>
 										<td>${list.num}</td>
 										<td>
-											<a href="${pageContext.request.contextPath}/read?num=${list.num}">
+											<a href="${pageContext.request.contextPath}/read?num=${list.num}&bdiv=3">
 											<!-- 저장된 파일 가져오기 -->
 											<c:set var="loop_flag" value="false" />
 											<c:forEach var="file" items="${filelist}">

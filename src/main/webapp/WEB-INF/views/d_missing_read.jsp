@@ -34,72 +34,86 @@
 				<article id="arti1">
 					<div id="menuText"><span>유기견 실종 신고 게시판</span></div>
 				</article>
+				<div class="buttonBox">
+				<!-- article 사이 패딩용 -->
+				</div>
 				<!-- 글쓰기 -->
 				<article id="arti2">
 					<div id="boardBox">
 						<div id="board">
-							<form:form modelAttribute="mnwVO" id="boardContent">
-								<form:input path="title" type="text" id="title" name="title" readonly="true"/>
+							<div id="boardContent">
+								<input type="text" id="title" name="title" readonly="readonly" value="${getMnw.title}"/>
 								<label for="id">작성자&nbsp; |</label>
-								<form:input path="id" type="text" name="id" id="id" readonly="true"/>
-								<%-- <div class="btnBox">
-									<c:if test="${sessionScope.account.id == mnwVO.id}">
-										<a href="${pageContext.request.contextPath}/missing/revise?num=${mnwVO.num}">수정</a>
-										<a href="${pageContext.request.contextPath}/missing/back?num=${mnwVO.num}">귀가</a>
-										<a href="${pageContext.request.contextPath}/missing/end?num=${mnwVO.num}">종료</a>
+								<input type="text" name="id" id="id" readonly="readonly" value="${getMnw.id}"/>
+								<div class="btnBox">
+									<c:if test="${sessionScope.account == getMnw.id}">
+										<a href="${pageContext.request.contextPath}/revise?num=${getMnw.num}">수정</a>
+										<a href="${pageContext.request.contextPath}/back?num=${getMnw.num}">귀가</a>
+										<a href="${pageContext.request.contextPath}/end?num=${getMnw.num}">종료</a>
 									</c:if>
-									<c:if test="${sessionScope.account.id != mnwVO.id}">
-										<a href="${pageContext.request.contextPath}/missing/revise?num=${mnwVO.num}">신고</a>
+									<c:if test="${sessionScope.account != getMnw.id}">
+										<a href="${pageContext.request.contextPath}/missing/revise?num=${getMnw.num}">신고</a>
 									</c:if>
-								</div> --%>
+								</div>
 								<div id="informBox">
 									<div id="informTitle"><span>* 기본정보</span></div>
 									<div id="inform">
 										<div class="imgBox">
+											<c:if test="${getMnw.hasimg == 'Y'}">
+												<c:forEach var="img" items="${filelist }">
+													<img alt="" src="media/img/${img.localName}" class="mySlides fade">
+												</c:forEach>
+											</c:if>
+											<c:if test="${getMnw.hasimg == 'N'}">
+												<img src="media/logo/mainLogo.png" alt=>
+											</c:if>
 											
+											<div class="dotbox"></div>
 										</div>
 										<table id="informTable">
 											<tr>
 												<td>성별</td>
 												 <td>
-													<form:input path="sex" type="text" name="sex" id="sex" readonly="true"/>
+													<input type="text" name="sex" id="sex" readonly="readonly" value="${getMnw.sex }"/>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>견종</td>
 												<td>
-													<form:input path="species" type="text" name="species" id="species" readonly="true"/>
+													<input type="text" name="species" id="species" readonly="readonly" value="${getMnw.species }"/>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>특징</td>
 												<td>
-													<form:input path="characters" type="text" name="characters" id="characters" readonly="true"/>
+													<input type="text" name="characters" id="characters" readonly="readonly" value="${getMnw.characters }"/>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>실종 장소</td>
 												<td>
-													<form:input path="location" type="text" name="location" id="location" readonly="true"/>
+													<input type="text" name="location" id="location" readonly="readonly" value="${getMnw.location }"/>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>실종일</td>
 												<td>
-													<form:input path="date" type="date" name="date" id="date" readonly="true"/>
+													<input type="date" name="date" id="date" readonly="readonly" value="${getMnw.date }"/>
 												</td>
 											</tr>
 										</table>
 										
-										<form:textarea path="content" name="content" id="content" rows="15" cols="100" readonly="true" ></form:textarea><br/>
+										<div id="readContent" >${getMnw.content }</div><br/>
+										
+										<div class="comment"></div>
 									</div>
 								</div>
-								<form:input path="bdiv" type="hidden"/>
-							</form:form>
+								<input type="hidden" value="${getMnw.bdiv }"/>
+							</div>
 						</div>
 					</div>
 				</article>
@@ -109,6 +123,7 @@
 		<!-- 푸터 불러오기 -->
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
-
+	
+	<script type="text/javascript" src="js/mnwRead.js"></script>
 </body>
 </html>

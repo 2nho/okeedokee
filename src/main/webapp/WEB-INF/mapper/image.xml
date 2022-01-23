@@ -7,10 +7,12 @@
 <!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
 <mapper namespace="img">
 	
+	<!-- 이미지 가져오기 -->
 	<select id="selectImg" parameterType="imgVO" resultType="imgVO">
 		SELECT num, bdiv, bnum, localName, serverName
 		FROM imagetbl
 		WHERE bdiv = #{bdiv}
+		 <if test="bnum gt 0">AND bnum = #{bnum}</if>
 	</select>
 	
 	<insert id="insertImg" parameterType="imgVO">

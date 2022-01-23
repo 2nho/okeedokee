@@ -64,7 +64,7 @@ main section {
 	padding: 0 30px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 }
 /* 게시판 상단 슬라이더 영역 */
@@ -80,7 +80,7 @@ main section #arti1 {
 main section #arti1 #slideBox {
 	display: flex;
 	flex-direction: row;
-	padding: 20px 50px;
+	padding: 10px 50px;
 	/* 슬라이드 설정 */
 	position: absolute;
 	left: 0;
@@ -147,12 +147,11 @@ main section .buttonBox #next {
 main section #arti2 {
 	width: 1550px;
 	background-color: #f9f1c0;
-	height: 80%;
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 15px 15px;
-	margin-top: 50px;
 }
 main section #arti2 #boardBox {
 	width: 93%;
@@ -367,4 +366,84 @@ main section #arti2 #boardBox #board .submitBtnBox #submit:hover {
 	background-color: #f9f1c0;
 	padding: 9px 29px;
 	border: 1px solid #fbd157;
+}
+
+/* 글 읽기 페이지 */
+/* 수정, 귀가, 종료, 신고 버튼 */
+main section #arti2 #boardBox #board #boardContent .btnBox {
+	width: 100%;
+	text-align: right;
+}
+main section #arti2 #boardBox #board #boardContent .btnBox a {
+	padding: 10px;
+	background-color: #fbd157;
+	margin: 5px;
+	font-weight: bold;
+}
+main section #arti2 #boardBox #board #boardContent .btnBox a:hover {
+	padding: 8px;
+	background-color: #f9f1c0;
+	border: 2px solid #fbd157;
+}
+/* 사진 슬라이드 */
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox {
+	width: 100%;
+	height: 600px;
+ 	overflow: hidden;
+  	position: relative;
+}
+
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10px 10px;
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade {
+  animation: fade 0.5s;
+}
+
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  margin: 0 10px;
+  background-color: rgba(0, 0, 0, 0.6);  
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot.active,
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot:hover {
+  background-color:  #fbd157;
+}
+/* content */
+main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	padding: 10px;
+	border: 1px solid black;
 }

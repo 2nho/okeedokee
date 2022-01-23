@@ -146,6 +146,7 @@ public class MnwService {
 		ImageVO ivo = new ImageVO();
 		ivo.setBdiv(vo.getBdiv());
 		System.out.println(vo.getBdiv());
+		System.out.println(vo.getNum());
 				
 		//게시글 num으로 해당하는 파일들 긁어오기
 		List<ImageVO> filelist = sqlSessionTemplate.selectList("img.selectImg", ivo);
@@ -163,6 +164,18 @@ public class MnwService {
 	
 	//게시글 자세히보기
 	public void selectMissOne(mnwVO vo, Model model) {
+		//게시글 내용 가져오기
 		model.addAttribute("getMnw", sqlSessionTemplate.selectOne("miss.selectMissOne", vo));
+	
+		//게시글 사진 가져오기
+		ImageVO ivo = new ImageVO();
+		ivo.setBnum(vo.getNum());
+		ivo.setBdiv(vo.getBdiv());
+		System.out.println("내용보기 게시판번호 : "+vo.getBdiv());
+		System.out.println("내용보기 게시글번호 : "+vo.getNum());
+		
+		List<ImageVO> filelist = sqlSessionTemplate.selectList("img.selectImg", ivo);
+		model.addAttribute("filelist", filelist);
+
 	}
 }
