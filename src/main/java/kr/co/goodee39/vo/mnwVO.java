@@ -15,6 +15,7 @@ public class mnwVO {
 	private int bdiv;
 	private String hasimg;
 	private String fileList;
+	private String status;
 	private int start;
 	private int count;
 
@@ -132,6 +133,14 @@ public class mnwVO {
 
 	public void setFileList(String fileList) {
 		this.fileList = fileList;
+	}
+	public String getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 

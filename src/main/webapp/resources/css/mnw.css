@@ -196,6 +196,7 @@ main section #arti2 #boardBox #board #writeBox #writeBtn:hover {
 	padding: 8px;
 	border: 2px solid #fbd157;
 }
+/* 게시글 정보 */
 main section #arti2 #boardBox #board #boardTable:not(:first-child) {
 	width: 100%;
 	border-collapse: separate;
@@ -222,7 +223,40 @@ main section #arti2 #boardBox #board #boardTable tbody tr td:first-child {
 main section #arti2 #boardBox #board #boardTable tbody tr td:not(:first-child) {
 	border-bottom: 1px solid black;
 }
-
+/* 게시글 상태에 따른 처리 */
+main section #arti2 #boardBox #board #boardTable tbody tr {
+	position: relative;
+}
+main section #arti2 #boardBox #board #boardTable tbody tr.back::after {
+    content: "귀가";
+   
+}
+main section #arti2 #boardBox #board #boardTable tbody tr.end::after {
+	content: "종료";
+}
+main section #arti2 #boardBox #board #boardTable tbody tr.report::after {
+	content: "신고된 글입니다.";
+}
+main section #arti2 #boardBox #board #boardTable tbody tr.back::after,
+main section #arti2 #boardBox #board #boardTable tbody tr.end::after,
+main section #arti2 #boardBox #board #boardTable tbody tr.report::after {
+	display: table;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+    font-weight: 900;
+    color: #fff;
+    font-size: 50px;
+   	display: flex;
+   	justify-content: center;
+   	align-items: center;
+}
+ 
 /* 게시판 페이징 버튼 */
 /*게시글 검색*/
 main section #arti2 #boardBox #board #pagingBox,
@@ -385,33 +419,6 @@ main section #arti2 #boardBox #board #boardContent .btnBox a:hover {
 	padding: 8px;
 	background-color: #f9f1c0;
 	border: 2px solid #fbd157;
-}
-/* 귀가버튼 클릭시 검은 화면 덮기 */
-main.back::after {
-	content: "";
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(50, 50, 50, .8);
-	width: 100%;
-	height: 100%;
-	/* display: none; */
-}
-main.back::after::after {
-	content: "귀가처리된 게시글 입니다.";
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	width: 30%;
-	height: 30%;
-	background-color: #fff;
 }
 /* 사진 슬라이드 */
 main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox {

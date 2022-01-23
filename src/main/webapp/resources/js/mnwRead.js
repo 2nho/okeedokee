@@ -53,16 +53,3 @@ function showSlider() {
 	}
 
 } showSlider();
-
-
-//귀가 클릭시 검정화면 깔기
-function homecoming() {
-	const backBtn = document.querySelector("#back");
-	
-	backBtn.addEventListener("click", function(e){
-		e.preventDefault();
-		const main = document.querySelector("main");
-		main.classList.add("back");
-	});
-	
-}homecoming();

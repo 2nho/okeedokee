@@ -9,7 +9,7 @@
 
 	<!-- 게시글 가져오기 -->
 	<select id="selectWitness" parameterType="mnwVO" resultType="mnwVO">
-		SELECT num, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg
+		SELECT num, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg, status
 		FROM witnesstbl
 		WHERE isdelete = "N"
 		ORDER BY num DESC
@@ -25,7 +25,7 @@
 	
 	<!-- 게시글 자세히보기 -->
 	<select id="selectWitnessOne" parameterType="mnwVO" resultType="mnwVO">
-		SELECT num, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg
+		SELECT num, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg, status
 		FROM witnesstbl
 		WHERE isdelete = "N" AND num = #{num}
 	</select>
@@ -47,8 +47,17 @@
 	<!-- 게시글 수정 -->
 	<update id="updateWitness" parameterType="mnwVO">
 		UPDATE witnesstbl
-		SET title = #{title}, species =#{species}, sex = #{sex}, characters = #{characters}, date = #{date}, location = #{location}, content = #{content}  
-		<if test="hasimg != null">, hasimg = #{hasimg}</if> 
+		<set>
+			<if test="title != null">title = #{title}</if>
+			<if test="species != null">, species = #{species}</if>
+			<if test="sex != null">, sex = #{sex}</if>
+			<if test="characters != null">, characters = #{characters}</if>
+			<if test="date != null">, date = #{date}</if>
+			<if test="location != null">, location = #{location}</if>
+			<if test="content != null">, content = #{content}</if>
+			<if test="hasimg != null">, hasimg = #{hasimg}</if> 
+			<if test="status != null">, status = #{status}</if>
+		</set>
 		WHERE num = #{num} 
 	</update>
 	

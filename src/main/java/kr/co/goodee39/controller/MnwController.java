@@ -210,4 +210,26 @@ public class MnwController {
 		
 		return "redirect:/"+path;
 	}
+	
+	//게시글 귀가처리
+	@GetMapping("/back")
+	public String back(@RequestParam int bdiv, @RequestParam int num, mnwVO vo) {
+		String path = "";
+		
+		vo.setStatus("B");
+		path = service.updateStatus(bdiv, num, vo);
+		
+		return "redirect:/"+path;
+	}
+	
+	//게시글 종료처리
+	@GetMapping("/end")
+	public String end(@RequestParam int bdiv, @RequestParam int num, mnwVO vo) {
+		String path = "";
+
+		vo.setStatus("E");
+		path = service.updateStatus(bdiv, num, vo);
+		
+		return "redirect:/"+path;
+	}
 }

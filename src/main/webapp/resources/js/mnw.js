@@ -140,3 +140,26 @@ function slideShow() {
 
 } slideShow();
 
+
+//게시글 상태에 따른 처리
+function addEffect() {
+	
+	const status = document.querySelectorAll(".status");
+
+	for(let i = 0; i < status.length; i ++) {
+		
+		const tr = status[i].parentNode;
+		//귀가 처리시
+		if(status[i].value == "B") {
+			tr.classList.add("back");
+		}
+		//종료 처리시
+		else if(status[i].value == "E") {
+			tr.classList.add("end");
+		}
+		//신고 처리시
+		else if(status[i].value == "R") {
+			tr.classList.add("report");
+		}
+	}
+}addEffect();

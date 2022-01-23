@@ -314,4 +314,23 @@ public class MnwService {
 		
 		return path;
 	}
+	
+	//게시글 귀가/종료처리
+	public String updateStatus(int bdiv, int num, mnwVO vo) {
+		String path = "";
+		
+		vo.setBdiv(bdiv);
+		vo.setNum(num);
+		
+		if(vo.getBdiv() == 3) {
+			sqlSessionTemplate.update("miss.updateMiss", vo);
+			path = "missing";
+		}
+		else if(vo.getBdiv() == 4) {
+			sqlSessionTemplate.update("witness.updateWitness", vo);
+			path = "witnessing";
+		}
+		
+		return path;
+	}
 }

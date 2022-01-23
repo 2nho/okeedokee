@@ -109,6 +109,8 @@
 										<td>${list.id }</td>
 										<td>${list.createdate }</td>
 										<td>3</td>
+										<!-- 게시글 상태 처리용 -->
+										<input type="hidden" name="status" class="status" value="${list.status}" />
 									</tr>
 								</c:forEach>
 								</tbody>
