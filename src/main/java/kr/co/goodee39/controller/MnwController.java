@@ -69,12 +69,6 @@ public class MnwController {
 		return "d_witnessing";
 	}
 
-	// 셀프 전단지 이동
-	@GetMapping("/selfFlyer")
-	public String selfFlyer() {
-		return "d_selfFlyer";
-	}
-
 	
 	// 게시글 내용보기
 	@GetMapping("/read")
