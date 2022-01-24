@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.goodee39.service.MnwService;
 import kr.co.goodee39.vo.ImageVO;
+import kr.co.goodee39.vo.mnwCmtVO;
 import kr.co.goodee39.vo.mnwVO;
 
 @Controller
@@ -232,4 +234,42 @@ public class MnwController {
 		
 		return "redirect:/"+path;
 	}
+	
+	
+	//게시글 코멘트 가져오기
+	@GetMapping("/getCmt/{num}")
+	public ResponseEntity<List<mnwCmtVO>> getCommentList(@PathVariable int num, mnwVO vo) {
+		
+		//게시글 번호 num을 bnum으로 설정
+		mnwCmtVO cvo = new mnwCmtVO();
+		cvo.setBnum(num);
+		
+		//service통해 코멘트 db긁어오기
+		List<mnwCmtVO> list = service.selectMnwCmt(vo, cvo);
+		
+		//리턴타입 변수에 결과 담기 (단, status가 ok인 상황에서만!)
+		ResponseEntity<List<mnwCmtVO>> entity = new ResponseEntity<List<mnwCmtVO>>(list, HttpStatus.OK);
+		
+		return entity;
+	}
+	
+	
+	//게시글 코멘트 추가
+	@PostMapping("/createComment")
+	public ResponseEntity<mnwCmtVO> createComment(@RequestBody mnwCmtVO vo, HttpSession session) {
+		System.out.println("코멘트 : "+vo.getCmt());
+		System.out.println("글번호 : "+vo.getBnum());
+		
+		//MemberVO mvo = (MemberVO)session.getAttribute("account");
+		//vo.setId(mvo.getId());
+		
+		//임시
+		vo.setId("sessionId");
+		
+		ResponseEntity<mnwCmtVO> entity = new ResponseEntity<mnwCmtVO>(vo, HttpStatus.OK);
+		
+		return entity;
+	}
+	
+	//게시글 코멘트 삭제
 }

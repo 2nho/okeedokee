@@ -482,8 +482,37 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #readConte
 	padding: 10px;
 	border: 1px solid black;
 }
+/* 댓글 */
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment {
+	width: 100%;
+	height: 100%;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate #commentCreator {
+	resize: none;
+	width: 100%;
+	height: 100%;
+	font-size: 20px;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox {
+	width: 100%;
+	display: flex;
+	justify-content: right;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit {
+	padding: 8px 10px;
+	background-color: #fbd157;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	font-size: 15px;
+	cursor: pointer;
+}
 
-
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit:hover {
+	padding: 6px 8px;
+	background-color: #f9f1c0;
+	border: 2px solid #fbd157;
+}
 /* 글 수정 페이지 */
 main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable .fileBox p {
 	font-size: 13px;

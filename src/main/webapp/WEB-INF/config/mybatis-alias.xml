@@ -8,5 +8,6 @@
 		<typeAlias type="kr.co.goodee39.vo.mnwVO" alias="mnwVO"/>
 		<typeAlias type="kr.co.goodee39.vo.ImageVO" alias="imgVO"/>
 		<typeAlias type="kr.co.goodee39.vo.adminVO" alias="adminVO"/>
+		<typeAlias type="kr.co.goodee39.vo.mnwCmtVO" alias="mnwCmtVO"/>
 	</typeAliases>
 </configuration>

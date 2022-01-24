@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
+<!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
+<mapper namespace="witnessCmt">
+
+	<!-- 댓글 리스트 가져오기 -->
+	<select id="selectWitnessCmt" parameterType="mnwCmtVO" resultType="mnwCmtVO">
+		SELECT num, id, cmt, createdate, bnum  
+		FROM witnesscmt
+		WHERE bnum = #{bnum}
+	</select>
+	
+	<!-- 댓글 추가 -->
+	<insert id="insertWitnessCmt" parameterType="mnwCmtVO">
+		INSERT INTO witnesscmt(num, id, cmt, createdate, bnum)
+		VALUES(#{num}, #{id}, #{cmt}, #{createdate}, #{bnum})	
+	</insert>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteWitnessCmt" parameterType="mnwCmtVO">
+		DELETE FROM witnesscmt
+		WHERE num = #{num}
+		AND id = #{id}
+	</delete>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateWitnessCmt" parameterType="mnwCmtVO">
+		UPDATE witnesscmt
+		SET cmt = #{cmt}
+		WHERE num = #{num}
+		AND id = #{id}
+	</update>
+	
+	
+</mapper>

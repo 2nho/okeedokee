@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import com.google.gson.Gson;
 
 import kr.co.goodee39.vo.ImageVO;
+import kr.co.goodee39.vo.mnwCmtVO;
 import kr.co.goodee39.vo.mnwVO;
 
 @Service
@@ -333,4 +334,27 @@ public class MnwService {
 		
 		return path;
 	}
+	
+	
+	//게시글 댓글 가져오기
+	public List<mnwCmtVO> selectMnwCmt(mnwVO vo, mnwCmtVO cvo) {
+		
+		List<mnwCmtVO> list = null;
+		
+		if(vo.getBdiv() == 3) {
+			 list = sqlSessionTemplate.selectList("missCmt.selectMissCmt", cvo);
+		}
+		else if(vo.getBdiv() == 4) {
+			list = sqlSessionTemplate.selectList("witnessCmt.selectWitnessCmt", cvo);
+		}
+		
+		return list;
+		
+	}
+	
+	/*
+	 * //게시글 댓글 등록 public void insertMnwCmt() {
+	 * 
+	 * }
+	 */
 }

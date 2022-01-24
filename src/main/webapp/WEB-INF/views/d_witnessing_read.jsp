@@ -44,7 +44,10 @@
 							<div id="boardContent">
 								<input type="text" id="title" name="title" readonly="readonly" value="${mnwVO.title}"/>
 								<label for="id">작성자&nbsp; |</label>
-								<input type="text" name="id" id="id" readonly="readonly" value="${mnwVO.id}"/>
+								<input type="text" name="id" id="id" readonly="readonly" value="${mnwVO.id}"/>	
+								
+								<!-- 실제 세션 정보 수정 필!!!! -->
+								<input type="hidden" name="sessionId" id="sessionId" readonly="readonly" value="${sessionScope.account}"/>
 								<div class="btnBox">
 									<!-- 실제 세션 정보 수정 필!!!! -->
 									<c:if test="${sessionScope.account == mnwVO.id}">
@@ -111,7 +114,18 @@
 										
 										<div id="readContent" >${mnwVO.content }</div><br/>
 										
-										<div class="comment"></div>
+										<div class="comment">
+											<h3>댓글</h3>
+											<div class="commentCreate">
+												<textarea id="commentCreator" rows="2" cols="100"></textarea>
+											</div>
+											<hr />
+											<br />
+											<div class="commentList">
+											
+											</div>
+										</div>
+										
 									</div>
 								</div>
 								<input type="hidden" value="${mnwVO.bdiv }"/>
