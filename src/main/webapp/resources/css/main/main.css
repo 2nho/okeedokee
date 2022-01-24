@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* main */
+
+.main-content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 5%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-advertisement {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    height: 400px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.slider-dot {
+    text-align: center;
+}
+
+.slidershow img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.slidershow {
+    display: none;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+
+
+.nearby-dog {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.nearby-dog-title {
+    font-size: 1.5rem;
+}
+
+.nearby-dog-content {
+	position: relative;
+    margin-top: 30px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 240px);
+    justify-content: center;
+    align-items: center;
+}
+
+.nearby-dog-div{
+	position : relative;
+}
+
+.nearby-dog-img {
+	position: relative;
+    width: 230px;
+    height: 230px;
+    border : 1px solid #f1f1f1;
+    padding : 5px;
+    margin : 5px 0;
+    z-index : -100;
+    
+}
+
+.nearby-dog-img img {
+	position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.hover-div {
+	position: absolute;
+	width : 230px;
+	height : 230px;
+	background-color : black;
+	opacity : 0.7;
+	color : white;
+	font-size : 1.2rem;
+	font-weight : bold;
+	display : none;
+	align-items: center;
+    justify-content: center;
+    padding-bottom : 70px;
+    z-index : 100;
+    top : 5px;
+}
+
+.find-dog {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.find-dog-title {
+    font-size: 1.5rem;
+}
+
+.find-dog-content {
+    margin-top: 30px;
+    width: 1000px;
+}
+
+.find-dog-content table tr td {
+    width: 300px;
+    height: 200px;
+    padding: 30px;
+    border: 2px solid black;
+}
+
+.find-dog-content table tr td img {
+    width: 100%;
+}
