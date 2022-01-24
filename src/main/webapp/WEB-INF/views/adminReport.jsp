@@ -34,13 +34,13 @@
 					<article class="article3">
 						<form action="#">
 							<label for="search"><i class="fas fa-search"></i></label> <select
-								name="choice">
+								name="choice" id="choice">
 								<option value="title">제목</option>
 								<option value="id">아이디</option>
 								<option value="class">신고구분</option>
 								<option value="state">처리상태</option>
-							</select> <input type="text" />
-							<button type="submit" id="search">검색</button>
+							</select> <input type="text" id="text" />
+							<button id="search">검색</button>
 						</form>
 					</article>
 					<article class="article1">
@@ -74,10 +74,106 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<hr />
+	<!-- num -> 1~10 11~20 21~30 => ((num-1)/10)+1 -->
+	<%
+		// 현재 페이지
+		int num = (Integer)request.getAttribute("num");
+		// 전체 데이터 개수
+		int count = (Integer)request.getAttribute("count");
+		// 전체 페이지 개수
+		int total = count/10+((count%10==0)?0:1);
+		// 한 블럭에서 가장 작은 번호를 가지는 페이지 번호
+		int minBlock = (((num-1)/10)*10)+1;
+		// 한 블럭에서 가장 큰 번호를 가지는 페이지 번호
+		int maxBlock = (((num-1)/10)+1)*10;
+		
+		pageContext.setAttribute("total", total);
+		pageContext.setAttribute("minBlock", minBlock);
+		pageContext.setAttribute("maxBlock", maxBlock);
+		
+		// 검색 데이터 연동
+		String query = "";
+		
+		String title = (String)request.getAttribute("title");
+		String content = (String)request.getAttribute("content");
+		
+		if(title != null){
+			query += "&title="+title;
+		}
+		
+		if(content != null){
+			query += "&content="+content;
+		}
+		
+		pageContext.setAttribute("query", query);
+	%>
+	<c:choose>
+		<c:when test="${(minBlock-1) < 1 }">
+			<span>◀◀</span>	
+		</c:when>
+		<c:otherwise>
+			<a href="${pageContext.request.contextPath}/bbs/main?num=${minBlock-1}${query}">◀◀</a>
+		</c:otherwise>
+	</c:choose>
+	&nbsp;&nbsp;
+	<c:choose>
+		<c:when test="${num==1 }">
+			<span>◀</span>
+		</c:when>
+		<c:otherwise>
+			<a href="${pageContext.request.contextPath}/bbs/main?num=${num-1}${query}">◀</a>
+		</c:otherwise>
+	</c:choose>
+	<c:forEach begin="${minBlock}" end="${(total<maxBlock)?total:maxBlock}" step="1" var="i">
+		<c:choose>
+			<c:when test="${num == i}">
+				<span>${i}</span>
+			</c:when>
+			<c:otherwise>
+				<a href="${pageContext.request.contextPath}/bbs/main?num=${i}${query}">${i}</a>
+			</c:otherwise>
+		</c:choose>
+
+	</c:forEach>
+	<c:choose>
+		<c:when test="${num == total }">
+			<span>▶</span>
+		</c:when>
+		<c:otherwise>
+			<a href="${pageContext.request.contextPath}/bbs/main?num=${num+1}${query}">▶</a>	
+		</c:otherwise>
+	</c:choose>
+	&nbsp;&nbsp;
+	<c:choose>
+		<c:when test="${maxBlock > total }">
+			<span>▶▶</span>	
+		</c:when>
+		<c:otherwise>
+			<a href="${pageContext.request.contextPath}/bbs/main?num=${maxBlock+1}${query}">▶▶</a>
+		</c:otherwise>
+	</c:choose>
 					</article>
 				</div>
 			</section>
 		</main>
 	</div>
+	<script type="text/javascript">
+	$(function(){
+		$("#search").click(function(){
+			let category = $("#choice").val();
+			let text = $("#text").val();
+			
+			if(category == "title"){
+				location.href = "${pageContext.request.contextPath}/bbs/main?title="+text;	
+			}else if(category == "id"){
+				location.href = "${pageContext.request.contextPath}/bbs/main?id="+text;
+			}else if(category == "class"){
+				location.href = "${pageContext.request.contextPath}/bbs/main?class="+text;	
+			}else if(category == "state"){
+				location.href = "${pageContext.request.contextPath}/bbs/main?state="+text;
+			
+		});
+	</script>
 </body>
 </html>
