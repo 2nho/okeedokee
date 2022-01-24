@@ -48,7 +48,7 @@
 								
 								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
 								 <!-- sessionScope.account.id -->
-								<form:input path="id" type="text" name="id" id="id" readonly="readonly" value="sessionId"/>
+								<form:input path="id" type="text" name="id" id="id" readonly="true" value="sessionId"/>
 								<!--  sessionScope.account.mnum  -->
 								<form:hidden path="mnum" name="mnum" id="mnum" value="100"/>
 							

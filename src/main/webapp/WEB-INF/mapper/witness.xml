@@ -12,6 +12,20 @@
 		SELECT num, mnum, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg, status
 		FROM witnesstbl
 		WHERE isdelete = "N"
+		<choose>
+			<when test="id != null">
+				AND id LIKE #{id}
+			</when>
+			<when test="title != null and content != null">
+				AND (title LIKE #{title} or content LIKE #{content})
+			</when>
+			<when test="title != null and content == null">
+				AND title LIKE #{title}
+			</when>
+			<when test="title == null and content != null">
+				AND content LIKE #{content}
+			</when>
+		</choose>
 		ORDER BY num DESC
 		LIMIT #{start}, #{count}
 	</select>
@@ -21,6 +35,20 @@
 		SELECT COUNT(*) 
 		FROM witnesstbl
 		WHERE isdelete = "N"
+		<choose>
+			<when test="id != null">
+				AND id LIKE #{id}
+			</when>
+			<when test="title != null and content != null">
+				AND (title LIKE #{title} or content LIKE #{content})
+			</when>
+			<when test="title != null and content == null">
+				AND title LIKE #{title}
+			</when>
+			<when test="title == null and content != null">
+				AND content LIKE #{content}
+			</when>
+		</choose>
 	</select>
 	
 	<!-- 게시글 자세히보기 -->

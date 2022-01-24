@@ -38,18 +38,33 @@ public class MnwController {
 
 	// 실종, 목격 메뉴 이동 = 실종 게시판 이동
 	@GetMapping("/missing")
-	public String missing(@RequestParam(defaultValue = "1") int num, Model model) {
+	public String missing(
+			@RequestParam(defaultValue = "1") int num,
+			@RequestParam(defaultValue = "") String id,
+			@RequestParam(defaultValue = "") String title,
+			@RequestParam(defaultValue = "") String content,
+			Model model) {
 
-		service.selectMiss(num, model);
+		//게시판 구분
+		int bdiv = 3;
+		service.selectMnw(num, id, title, content, bdiv, model);
 
 		return "d_missing";
 	}
 
 	// 목격 게시판 이동
 	@GetMapping("/witnessing")
-	public String witnessing(@RequestParam(defaultValue = "1") int num, mnwVO vo, Model model) {
-
-		service.selectWitness(num, model);
+	public String witnessing(
+			@RequestParam(defaultValue = "1") int num,
+			@RequestParam(defaultValue = "") String id,
+			@RequestParam(defaultValue = "") String title,
+			@RequestParam(defaultValue = "") String content,
+			Model model) {
+		
+		//게시판 구분
+		int bdiv = 4;
+		service.selectMnw(num, id, title, content, bdiv, model);
+		//service.selectWitness(num, model);
 
 		return "d_witnessing";
 	}
@@ -84,14 +99,39 @@ public class MnwController {
 	
 	// 실종 글쓰기 이동
 	@GetMapping("/writeMissing")
-	public String writeMissing(@ModelAttribute mnwVO vo) {
-		return "d_missing_write";
+	public String writeMissing(@ModelAttribute mnwVO vo, HttpSession session) {
+		
+		String path = "";
+		
+		//로그인 Controller 등록 후 주석 지우기!!!!!!
+		//로그인 정보 있어야 접근 가능
+		//if(session.getAttribute("account") != null) {
+			path = "d_missing_write";
+		//}
+		//없다면 로그인 페이지
+		//else if(session.getAttribute("account") == null){
+		//	path = "redirect:/login";
+		//}
+		
+		return path;
 	}
 
 	// 목격 글쓰기 이동
 	@GetMapping("/writeWitnessing")
-	public String writeWitnessing(@ModelAttribute mnwVO vo) {
-		return "d_witnessing_write";
+	public String writeWitnessing(@ModelAttribute mnwVO vo, HttpSession session) {
+		
+		String path = "";
+		
+		//로그인 Controller 등록 후 주석 지우기!!!!!!
+		//로그인 정보 있어야 접근 가능
+		//if(session.getAttribute("account") != null) {
+			path = "d_witnessing_write";
+		//}
+		//없다면 로그인 페이지
+		//else if(session.getAttribute("account") == null) {
+		//	path = "redirect:/login";
+		//}
+		return path;
 	}
 
 	// 실종/목격 게시글 제출
@@ -117,14 +157,15 @@ public class MnwController {
 		 * System.out.println("fileList : "+vo.getFileList());
 		 * System.out.println("작성일 : "+vo.getCreatedate());
 		 */
+
+		service.insertMnw(vo);
 	
 		if (vo.getBdiv() == 3) {
-			service.insertMiss(vo);
 			path = "missing";
 		} else if (vo.getBdiv() == 4) {
-			service.insertWitness(vo);
 			path = "witnessing";
 		}
+		
 
 		// 작성완료시 다시 게시판 리스트 페이지로 이동
 		return "redirect:/" + path;
@@ -240,6 +281,24 @@ public class MnwController {
 		return "redirect:/"+path;
 	}
 	
+	//게시글 신고처리
+	public String report(HttpSession session) {
+		
+		String path = "";
+		
+		//로그인 Controller 등록 후 주석 지우기!!!!!!
+		//로그인 정보 있어야 접근 가능
+		//if(session.getAttribute("account") != null) {
+			path = "g_report";
+		//}
+		//없다면 로그인 페이지
+		//else if(session.getAttribute("account") == null){
+		//	path = "redirect:/login";
+		//}
+		
+		return path;
+	}
+	
 	
 	//게시글 댓글 가져오기
 	@GetMapping("/getComment/{num}/{bdiv}")
@@ -300,4 +359,5 @@ public class MnwController {
 		
 		return entity;
 	}
+	
 }

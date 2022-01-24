@@ -166,20 +166,22 @@
 									<c:otherwise><a href="${pageContext.request.contextPath}/witnessing?num=${maxBlock+1}" class="paging">▶▶</a></c:otherwise>
 								</c:choose>
 							</div>
-							<!-- form으로 수정 필요 -->
+							<!-- 검색 -->
 							<div class="searchBox">
+								<!-- 게시판 구분용 -->
+								<input type="hidden" name="bdiv" id="bdiv" value="4" />
 								<select name="searchType" id="searchType">
-									<option value="">작성자</option>
-									<option value="">제목</option>
-									<option value="">내용</option>
-									<option value="">제목+내용</option>
+									<option value="id">작성자</option>
+									<option value="title">제목</option>
+									<option value="content">내용</option>
+									<option value="both">제목+내용</option>
 								</select>
 								<input type="text" id="search" name="search" placeholder="검색어를 입력해주세요"/>
 								<button type="button" id="searchBtn">검색</button>
 							</div>
 						</div>
 					</div>
-			</article>
+				</article>
 			
 		</section>
 	</main>

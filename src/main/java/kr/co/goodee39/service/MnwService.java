@@ -1,6 +1,5 @@
 package kr.co.goodee39.service;
 
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -25,25 +24,59 @@ public class MnwService {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	//실종 게시글 가져오기 및 페이징
-	public void selectMiss(int num, Model model) {
+	//게시글 가져오기 및 페이징
+	public void selectMnw(int num, String id, String title, String content, int bdiv, Model model) {
 		
-		//총 게시글 수 
-		int count = sqlSessionTemplate.selectOne("miss.selectMissCount"); 
+		//페이징 처리시 첫 게시글 num설정 
+		mnwVO vo = new mnwVO();
+		vo.setStart((num -1)*vo.getCount());
+		
+		
+		// 검색결과 추려내기 및 페이징 버튼 반영 쿼리
+		String query = "";
+
+		if (!id.equals("")) {
+			// model.addAttribute("id", id);
+			vo.setId("%" + id + "%");
+			query += "&id=" + id;
+		}
+		if (!title.equals("")) {
+			// model.addAttribute("title", title);
+			vo.setTitle("%" + title + "%");
+			query += "&title=" + title;
+		}
+		if (!content.equals("")) {
+			// model.addAttribute("content", content);
+			vo.setContent("%" + content + "%");
+			query += "&content=" + content;
+		}
+		model.addAttribute("query", query);
+		
+		
+		//총 게시글 수 : 설정된 bdiv타입따라 쿼리 결정
+		int count = 0;
+		if(bdiv == 3) {
+			count = sqlSessionTemplate.selectOne("miss.selectMissCount", vo); 
+		}
+		else if(bdiv == 4) {
+			count = sqlSessionTemplate.selectOne("witness.selectWitnessCount", vo); 
+		}
+		
 		//페이지 범위 
 		int total = (count/5)+((count%5==0)? 0:1); 
 		//페이지 범위 최초숫자 
 		int minBlock = (((num-1)/5)*5)+1; 
 		//페이지 범위 최후숫자 
 		int maxBlock = (((num-1)/5)+1)*5;
-		  
-		//페이징 처리시 첫 게시글 num설정 
-		mnwVO vo = new mnwVO();
-		vo.setStart((num -1)*vo.getCount());
 		 
 		
-		//설정된 bdiv타입 게시글만 가져가기
-		model.addAttribute("list", sqlSessionTemplate.selectList("miss.selectMiss", vo));
+		//bdiv타입 따라 가져갈 게시글 쿼리 선택
+		if(bdiv == 3) {
+			model.addAttribute("list", sqlSessionTemplate.selectList("miss.selectMiss", vo));
+		}
+		else if(bdiv == 4) {
+			model.addAttribute("list", sqlSessionTemplate.selectList("witness.selectWitness", vo));
+		}
 		
 		//view단으로 설정 가져가기		
 		model.addAttribute("num", num); 
@@ -53,47 +86,14 @@ public class MnwService {
 		model.addAttribute("maxBlock", maxBlock);
 		
 		//이미지 가져가기
-		vo.setBdiv(3);
+		vo.setBdiv(bdiv);
 		selectImg(vo, model);
 	}
 	
-	//목격 게시글 가져오기 및 페이징
-	public void selectWitness(int num, Model model) {
-		
-		//총 게시글 수 
-		int count = sqlSessionTemplate.selectOne("witness.selectWitnessCount"); 
-		//페이지 범위 
-		int total = (count/5)+((count%5==0)? 0:1); 
-		//페이지 범위 최초숫자 
-		int minBlock = (((num-1)/5)*5)+1; 
-		//페이지 범위 최후숫자 
-		int maxBlock = (((num-1)/5)+1)*5;
-		
-		//페이징 처리시 첫 게시글 num설정 
-		mnwVO vo = new mnwVO();
-		vo.setStart((num -1)*vo.getCount());
-		
-		
-		//설정된 bdiv타입 게시글만 가져가기
-		model.addAttribute("list", sqlSessionTemplate.selectList("witness.selectWitness", vo));
-		
-		//view단으로 설정 가져가기
-		model.addAttribute("num", num); 
-		model.addAttribute("count", count);
-		model.addAttribute("total", total); 
-		model.addAttribute("minBlock", minBlock);
-		model.addAttribute("maxBlock", maxBlock);
-		
-		//이미지 가져가기
-		vo.setBdiv(4);
-		selectImg(vo, model);
-	}
-
 	
-	
-	// 실종 게시글 등록하기
+	// 게시글 등록하기
 	@Transactional
-	public void insertMiss(mnwVO vo) {
+	public void insertMnw(mnwVO vo) {
 
 		// JSON 객체에 대한 핸들링
 		Gson gson = new Gson();
@@ -111,7 +111,14 @@ public class MnwService {
 		else if (fileList.isEmpty()) {
 			vo.setHasimg("N");
 		}
-		sqlSessionTemplate.insert("miss.insertMiss", vo);
+		
+		//게시판 구분번호 따라 쿼리 실행
+		if(vo.getBdiv() == 3) {
+			sqlSessionTemplate.insert("miss.insertMiss", vo);
+		}
+		else if(vo.getBdiv() == 4) {
+			sqlSessionTemplate.insert("witness.insertWitness", vo);
+		}
 
 		// 이미지 이름 삽입 with 조회가능하게 num이름과 함께
 		for (ImageVO img : fileList) {
@@ -120,35 +127,7 @@ public class MnwService {
 			sqlSessionTemplate.insert("img.insertImg", img);
 		}
 	}
-	
-	// 목격 게시글 등록하기
-	@Transactional
-	public void insertWitness(mnwVO vo) {
-		
-		// JSON 객체에 대한 핸들링
-		Gson gson = new Gson();
-		ImageVO[] fileArray = gson.fromJson(vo.getFileList(), ImageVO[].class);
-		List<ImageVO> fileList = Arrays.asList(fileArray);
-		
-		// 게시글 등록
-		// 사진 등록하는 경우
-		if (!(fileList.isEmpty())) {
-			vo.setHasimg("Y");
-		}
-		// 사진 미등록인 경우
-		else if(fileList.isEmpty()){
-			vo.setHasimg("N");
-		}
-		sqlSessionTemplate.insert("witness.insertWitness", vo);
-		
-		// 이미지 이름 삽입 with 조회가능하게 num이름과 함께
-		for (ImageVO img : fileList) {
-			img.setBnum(vo.getNum());
-			img.setBdiv(vo.getBdiv());
-			sqlSessionTemplate.insert("img.insertImg", img);
-		}
-	}
-	
+
 	//게시판 리스트 이미지 가져오기
 	public void selectImg(mnwVO vo, Model model) {
 
@@ -266,7 +245,7 @@ public class MnwService {
 	//게시글 수정 후 이미지 없을 시 hasimg변경
 	public void changeHasimg(mnwVO vo) {
 		
-		// 수정 후 이미지 파일 지우고 없다면 hasimg 'N'변경 위한 작업
+		// 수정 시 이미지 다 지우고 없다면 hasimg 'N'변경 위한 작업
 		ImageVO vo1 = new ImageVO();
 		vo1.setBnum(vo.getNum());
 		vo1.setBdiv(vo.getBdiv());
