@@ -7,6 +7,7 @@ public class mnwCmtVO {
 	private String cmt;
 	private String createdate;
 	private int bnum;
+	private int bdiv;
 	
 	public mnwCmtVO() {
 		// TODO Auto-generated constructor stub
@@ -51,6 +52,16 @@ public class mnwCmtVO {
 	public void setBnum(int bnum) {
 		this.bnum = bnum;
 	}
+
+	public int getBdiv() {
+		return bdiv;
+	}
+
+	public void setBdiv(int bdiv) {
+		this.bdiv = bdiv;
+	}
+	
+	
 	
 	
 	

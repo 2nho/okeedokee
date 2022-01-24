@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -237,15 +238,16 @@ public class MnwController {
 	
 	
 	//게시글 코멘트 가져오기
-	@GetMapping("/getCmt/{num}")
-	public ResponseEntity<List<mnwCmtVO>> getCommentList(@PathVariable int num, mnwVO vo) {
+	@GetMapping("/getComment/{num}/{bdiv}")
+	public ResponseEntity<List<mnwCmtVO>> getCommentList(@PathVariable int num, @PathVariable int bdiv) {
 		
 		//게시글 번호 num을 bnum으로 설정
 		mnwCmtVO cvo = new mnwCmtVO();
 		cvo.setBnum(num);
+		cvo.setBdiv(bdiv);
 		
 		//service통해 코멘트 db긁어오기
-		List<mnwCmtVO> list = service.selectMnwCmt(vo, cvo);
+		List<mnwCmtVO> list = service.selectMnwCmt(cvo);
 		
 		//리턴타입 변수에 결과 담기 (단, status가 ok인 상황에서만!)
 		ResponseEntity<List<mnwCmtVO>> entity = new ResponseEntity<List<mnwCmtVO>>(list, HttpStatus.OK);
@@ -259,12 +261,15 @@ public class MnwController {
 	public ResponseEntity<mnwCmtVO> createComment(@RequestBody mnwCmtVO vo, HttpSession session) {
 		System.out.println("코멘트 : "+vo.getCmt());
 		System.out.println("글번호 : "+vo.getBnum());
+		System.out.println("게시판구분 : "+vo.getBdiv());
 		
 		//MemberVO mvo = (MemberVO)session.getAttribute("account");
 		//vo.setId(mvo.getId());
-		
-		//임시
+		//임시id : 후에 세션정보로 교체 필요
 		vo.setId("sessionId");
+		
+		//코멘트 db추가
+		service.insertMnwCmt(vo);
 		
 		ResponseEntity<mnwCmtVO> entity = new ResponseEntity<mnwCmtVO>(vo, HttpStatus.OK);
 		
@@ -272,4 +277,26 @@ public class MnwController {
 	}
 	
 	//게시글 코멘트 삭제
+	@DeleteMapping("/deletetComment")
+	public ResponseEntity<String> deletetComment(@RequestBody mnwCmtVO vo, HttpSession session) {
+		
+		System.out.println("어떤 댓글 삭제? : "+vo.getNum());
+		System.out.println("어디 게시판? : "+vo.getBdiv());
+		
+		//세션정보와 비교해 본인 댓글인지 체크 필요(보안)
+		//MemberVO mvo = (MemberVO)session.getAttribute("account");
+		//세션정보의 회원 num을 삽입하기  (본인 댓글만 삭제 가능)
+		//vo.setId(mvo.getId());
+		
+		//임시 아이디 설정
+		vo.setId("sessionId");
+		
+		service.deleteMnwCmt(vo);
+		
+		String msg = "삭제 완.";
+		
+		ResponseEntity<String> entity = new ResponseEntity<String>(msg, HttpStatus.OK);
+		
+		return entity;
+	}
 }

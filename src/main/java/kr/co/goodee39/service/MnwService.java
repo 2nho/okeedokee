@@ -1,7 +1,11 @@
 package kr.co.goodee39.service;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -337,14 +341,14 @@ public class MnwService {
 	
 	
 	//게시글 댓글 가져오기
-	public List<mnwCmtVO> selectMnwCmt(mnwVO vo, mnwCmtVO cvo) {
+	public List<mnwCmtVO> selectMnwCmt(mnwCmtVO cvo) {
 		
 		List<mnwCmtVO> list = null;
 		
-		if(vo.getBdiv() == 3) {
+		if(cvo.getBdiv() == 3) {
 			 list = sqlSessionTemplate.selectList("missCmt.selectMissCmt", cvo);
 		}
-		else if(vo.getBdiv() == 4) {
+		else if(cvo.getBdiv() == 4) {
 			list = sqlSessionTemplate.selectList("witnessCmt.selectWitnessCmt", cvo);
 		}
 		
@@ -352,9 +356,33 @@ public class MnwService {
 		
 	}
 	
-	/*
-	 * //게시글 댓글 등록 public void insertMnwCmt() {
-	 * 
-	 * }
-	 */
+	
+	// 게시글 댓글 등록
+	public void insertMnwCmt(mnwCmtVO vo) {
+		
+		String today = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(new Date());
+		vo.setCreatedate(today);
+		
+		if(vo.getBdiv() == 3) {
+			sqlSessionTemplate.insert("missCmt.insertMissCmt", vo);
+		}
+		else if (vo.getBdiv() == 4) {
+			sqlSessionTemplate.insert("witnessCmt.insertWitnessCmt", vo);
+		}
+	
+	}
+	  
+	
+	//게시글 댓글 삭제
+	public void deleteMnwCmt(mnwCmtVO vo) {
+
+		if(vo.getBdiv() == 3) {
+			sqlSessionTemplate.insert("missCmt.deleteMissCmt", vo);
+		}
+		else if (vo.getBdiv() == 4) {
+			sqlSessionTemplate.insert("witnessCmt.deleteWitnessCmt", vo);
+		}
+	
+	}
+	 
 }

@@ -130,9 +130,10 @@
 											</div>
 											
 										</div>
+										
 									</div>
 								</div>
-								<input type="hidden" value="${mnwVO.bdiv }"/>
+								<input type="hidden" name="bdiv" id="bdiv" value="${mnwVO.bdiv }"/>
 							</div>
 						</div>
 					</div>

@@ -118,17 +118,23 @@
 											<h3>댓글</h3>
 											<div class="commentCreate">
 												<textarea id="commentCreator" rows="2" cols="100"></textarea>
+												<input type="hidden" name="bnum" id="bnum" value="${mnwVO.num }" />
+												<div class="cmtSubmitBox">
+													<button type="button" id="cmtSubmit">등록</button>
+												</div>
 											</div>
+											<br />
 											<hr />
 											<br />
-											<div class="commentList">
+											<div class="commentList" id="commentList">
 											
 											</div>
+											
 										</div>
 										
 									</div>
 								</div>
-								<input type="hidden" value="${mnwVO.bdiv }"/>
+								<input type="hidden" name="bdiv" id="bdiv" value="${mnwVO.bdiv }"/>
 							</div>
 						</div>
 					</div>

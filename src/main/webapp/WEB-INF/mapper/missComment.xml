@@ -16,8 +16,8 @@
 	
 	<!-- 댓글 추가 -->
 	<insert id="insertMissCmt" parameterType="mnwCmtVO">
-		INSERT INTO misscmt(num, id, cmt, createdate, bnum)
-		VALUES(#{num}, #{id}, #{cmt}, #{createdate}, #{bnum})	
+		INSERT INTO misscmt(id, cmt, createdate, bnum)
+		VALUES(#{id}, #{cmt}, #{createdate}, #{bnum})	
 	</insert>
 	
 	<!-- 댓글 삭제 -->
