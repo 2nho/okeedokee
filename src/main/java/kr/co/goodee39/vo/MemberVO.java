@@ -8,11 +8,11 @@ public class MemberVO {
 	private String phNum;
 	private String petOwn;
 	private String size;
-	private long donation;
+	private String donation;
 	private String level;
 	private String del;
 	
-	// 아이디
+	
 	public String getId() {
 		return id;
 	}
@@ -70,10 +70,10 @@ public class MemberVO {
 	}
 	
 	// 기부액
-	public long getDonation() {
+	public String getDonation() {
 		return donation;
 	}
-	public void setDonation(long donation) {
+	public void setDonation(String donation) {
 		this.donation = donation;
 	}
 	
