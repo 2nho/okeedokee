@@ -47,7 +47,12 @@
 							<form:form modelAttribute="mnwVO" method="post" action="createResult" id="boardContent">
 								<form:input path="title" type="text" id="title" name="title" placeholder="제목을 입력해주세요" />
 								<label for="id">작성자&nbsp; |</label>
+								
+								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
+								 <!-- sessionScope.account.id -->
 								<form:input path="id" type="text" name="id" id="id" readonly="readonly" value="sessionId"/>
+								<!--  sessionScope.account.mnum  -->
+								<form:hidden path="mnum" name="mnum" id="mnum" value="100"/>
 							
 								<div id="informBox">
 									<div id="informTitle"><span>* 기본정보</span></div>

@@ -100,6 +100,7 @@ function getCmmt() {
 				const p = document.createElement("p");
 				p.innerText = item.cmt;
 				p.classList.add("cmtContent");
+			
 
 				//본인이 작성한 댓글의 삭제버튼만 나타나도록
 				if (userId == item.id) {
@@ -109,9 +110,8 @@ function getCmmt() {
 					button.innerText = "삭제"
 					
 
-					//버튼에 이벤트 추가
+					//버튼 클릭시 댓글 삭제
 					button.addEventListener("click", function() {
-						//alert("삭제완.");
 						let yn = confirm("댓글을 삭제하시겠습니까?");
 						console.log(yn);
 
@@ -130,8 +130,6 @@ function getCmmt() {
 								success: function() {
 									console.log("삭제완");
 									location.reload(true);
-									
-									
 								}
 							});
 						}
@@ -140,7 +138,20 @@ function getCmmt() {
 					//div안에 생성된 버튼 삽입
 					div2.append(button);
 				}
-
+				
+					
+				if(userId != item.id) {
+					//신고버튼
+					const report = document.createElement("button");
+					report.classList.add("cmtReport");
+					report.innerText = "신고";
+					
+					/*report.addEventListener("click", function(){
+						location.href =  "report/"
+					});*/
+					
+					div2.append(report);
+				}
 
 				//div안에 생성된 내용 삽입
 				//버튼이 먼저 삽입됐기 때문에 버튼 위로 추가
@@ -188,8 +199,6 @@ function submitCmt() {
 		else {
 			alert("코멘트를 작성해주세요.");
 		}
-
-
 	});
 } submitCmt();
 

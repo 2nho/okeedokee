@@ -16,8 +16,8 @@
 	
 	<!-- 댓글 추가 -->
 	<insert id="insertWitnessCmt" parameterType="mnwCmtVO">
-		INSERT INTO witnesscmt(num, id, cmt, createdate, bnum)
-		VALUES(#{num}, #{id}, #{cmt}, #{createdate}, #{bnum})	
+		INSERT INTO witnesscmt(id, cmt, createdate, bnum)
+		VALUES(#{id}, #{cmt}, #{createdate}, #{bnum})	
 	</insert>
 	
 	<!-- 댓글 삭제 -->

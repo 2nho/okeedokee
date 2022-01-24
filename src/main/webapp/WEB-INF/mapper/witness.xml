@@ -9,7 +9,7 @@
 
 	<!-- 게시글 가져오기 -->
 	<select id="selectWitness" parameterType="mnwVO" resultType="mnwVO">
-		SELECT num, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg, status
+		SELECT num, mnum, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg, status
 		FROM witnesstbl
 		WHERE isdelete = "N"
 		ORDER BY num DESC
@@ -25,16 +25,15 @@
 	
 	<!-- 게시글 자세히보기 -->
 	<select id="selectWitnessOne" parameterType="mnwVO" resultType="mnwVO">
-		SELECT num, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg, status
+		SELECT num, mnum, id, title, species, sex, characters, date, location, content, createdate, bdiv, isdelete, hasimg, status
 		FROM witnesstbl
 		WHERE isdelete = "N" AND num = #{num}
 	</select>
 	
-	
 	<!-- 게시글 추가 -->
 	<insert id="insertWitness" parameterType="mnwVO" useGeneratedKeys="true" keyProperty="num">
-		INSERT INTO witnesstbl(id, title, species, sex, characters, date, location, content, createdate, bdiv, hasimg)
-		VALUES(#{id}, #{title}, #{species}, #{sex}, #{characters}, #{date}, #{location}, #{content}, #{createdate}, #{bdiv}, #{hasimg})
+		INSERT INTO witnesstbl(mnum, id, title, species, sex, characters, date, location, content, createdate, bdiv, hasimg)
+		VALUES(#{mnum}, #{id}, #{title}, #{species}, #{sex}, #{characters}, #{date}, #{location}, #{content}, #{createdate}, #{bdiv}, #{hasimg})
 	</insert>
 	
 	<!-- 게시글 삭제 : isdelete만 업데이트 -->

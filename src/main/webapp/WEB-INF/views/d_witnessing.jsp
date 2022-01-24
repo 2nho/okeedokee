@@ -31,16 +31,32 @@
 		</nav>
 		<section>
 			<article id="arti1">
-				<!-- 게시글 내용 슬라이드 -->
+			<!-- 게시글 내용 슬라이드 -->
 				<div id="slideBox">
 				<c:forEach var="list" items="${list}">
 					<div class="slides" id="slide1">
-						<div class="slideContent">
-							<img src="media/logo/mainLogo.png" alt="" />
-							<div class="text">
-								<h3>${list.title}</h3>
+						
+						<a href="${pageContext.request.contextPath}/read?bdiv=4&num=${list.num}">
+							<div class="slideContent">
+								 <!-- 저장된 파일 가져오기 -->
+								<c:set var="loop_flag" value="false" />
+								<c:forEach var="file" items="${filelist}">
+								<c:if test="${not loop_flag }">
+								<c:if test="${(list.hasimg eq 'Y') and (file.bnum == list.num)}">
+									<img src="media/img/${file.localName}" alt=""/>
+									  <c:set var="loop_flag" value="true" />
+								</c:if>
+								<c:if test="${list.hasimg ne 'Y'}">
+									<img src="media/logo/mainLogo.png" alt=""/>
+									 <c:set var="loop_flag" value="true" />
+								</c:if>
+								 </c:if>
+							</c:forEach>
+								<div class="text">
+									<h3>${list.title}</h3>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				</c:forEach>
 				</div>
@@ -99,12 +115,14 @@
 											</a>
 										</td>
 										<td>
-											<h4>${list.title }</h4>
-											<p><strong>성별</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${(list.sex == 'F')? "여":(list.sex == 'M')? "남":"미상"}</p>
-											<p><strong>견종</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.species }</p>
-											<p><strong>특징</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.characters}</p>
-											<p><strong>목격일</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.date}</p>
-											<p><strong>목격장소</strong>&nbsp;&nbsp;&nbsp;:&nbsp;${list.location}</p>
+											<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${list.num}">
+												<h4>${list.title }</h4>
+												<p><strong>성별</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${(list.sex == 'F')? "여":(list.sex == 'M')? "남":"미상"}</p>
+												<p><strong>견종</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.species }</p>
+												<p><strong>특징</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.characters}</p>
+												<p><strong>실종일</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.date}</p>
+												<p><strong>실종장소</strong>&nbsp;&nbsp;&nbsp;:&nbsp;${list.location}</p>
+											</a>
 										</td>
 										<td>${list.id }</td>
 										<td>${list.createdate }</td>

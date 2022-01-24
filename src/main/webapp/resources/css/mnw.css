@@ -374,7 +374,6 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #informTab
 main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #location {
 	width: 80%;
 }
-
 /* content 작성란 (텍스트 에디터) */
 main section #arti2 #boardBox #board #boardContent #informBox #inform #content {
 	width: 99.8%;
@@ -499,7 +498,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .
 	display: flex;
 	justify-content: right;
 }
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit {
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit{
 	padding: 8px 10px;
 	background-color: #fbd157;
 	border: none;
@@ -533,7 +532,8 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #
 	background-color: #fbd157;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtDelete {
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtDelete, 
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtReport  {
 	padding: 5px;
 	background-color: #fbd157;
 	border: none;
@@ -542,7 +542,8 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #
 	font-size: 10px;
 	cursor: pointer;
 }
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtDelete:hover{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtDelete:hover,
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtReport:hover {
 	padding: 3px;
 	background-color: #f9f1c0;
 	border: 2px solid #fbd157;

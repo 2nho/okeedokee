@@ -70,8 +70,11 @@ public class MnwController {
 
 		path = service.selectMnwOne(num, bdiv, vo, model);
 
+		
 		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
 		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
+		//session.getAttribute("account");
+		//임시세션 정보
 		session.setAttribute("account", "sessionId");
 		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
 		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
@@ -103,6 +106,7 @@ public class MnwController {
 		// 도착했는지 뽑아봅시다 : 잘옵니다~
 		/*
 		 * System.out.println("title : "+vo.getTitle());
+		 * System.out.println("mnum : "+vo.getMnum());
 		 * System.out.println("id : "+vo.getId());
 		 * System.out.println("sp : "+vo.getSpecies());
 		 * System.out.println("se : "+vo.getSex());
@@ -237,7 +241,7 @@ public class MnwController {
 	}
 	
 	
-	//게시글 코멘트 가져오기
+	//게시글 댓글 가져오기
 	@GetMapping("/getComment/{num}/{bdiv}")
 	public ResponseEntity<List<mnwCmtVO>> getCommentList(@PathVariable int num, @PathVariable int bdiv) {
 		
@@ -256,7 +260,7 @@ public class MnwController {
 	}
 	
 	
-	//게시글 코멘트 추가
+	//게시글 댓글 추가
 	@PostMapping("/createComment")
 	public ResponseEntity<mnwCmtVO> createComment(@RequestBody mnwCmtVO vo, HttpSession session) {
 		System.out.println("코멘트 : "+vo.getCmt());
@@ -276,19 +280,16 @@ public class MnwController {
 		return entity;
 	}
 	
-	//게시글 코멘트 삭제
+	//게시글 댓글 삭제
 	@DeleteMapping("/deletetComment")
 	public ResponseEntity<String> deletetComment(@RequestBody mnwCmtVO vo, HttpSession session) {
 		
 		System.out.println("어떤 댓글 삭제? : "+vo.getNum());
 		System.out.println("어디 게시판? : "+vo.getBdiv());
 		
-		//세션정보와 비교해 본인 댓글인지 체크 필요(보안)
 		//MemberVO mvo = (MemberVO)session.getAttribute("account");
-		//세션정보의 회원 num을 삽입하기  (본인 댓글만 삭제 가능)
 		//vo.setId(mvo.getId());
-		
-		//임시 아이디 설정
+		//임시id : 후에 세션정보로 교체 필요
 		vo.setId("sessionId");
 		
 		service.deleteMnwCmt(vo);

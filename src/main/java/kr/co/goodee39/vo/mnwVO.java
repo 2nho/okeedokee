@@ -3,6 +3,7 @@ package kr.co.goodee39.vo;
 public class mnwVO {
 
 	private int num;
+	private int mnum;
 	private String id;
 	private String title;
 	private String species; 
@@ -34,6 +35,14 @@ public class mnwVO {
 
 	public void setNum(int num) {
 		this.num = num;
+	}
+	
+	public int getMnum() {
+		return mnum;
+	}
+
+	public void setMnum(int mnum) {
+		this.mnum = mnum;
 	}
 
 	public String getId() {

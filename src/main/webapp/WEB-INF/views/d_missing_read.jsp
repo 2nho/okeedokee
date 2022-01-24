@@ -56,8 +56,9 @@
 										<a href="${pageContext.request.contextPath}/end?bdiv=3&num=${mnwVO.num}" id="end">종료</a>
 										<a href="${pageContext.request.contextPath}/isdelete?bdiv=3&num=${mnwVO.num}">삭제</a>
 									</c:if>
+									<!-- 실제 세션 정보 수정 필!!!! -->
 									<c:if test="${sessionScope.account != mnwVO.id}">
-										<a href="${pageContext.request.contextPath}/missing/revise?bdiv=3&num=${mnwVO.num}">신고</a>
+										<a href="${pageContext.request.contextPath}/report?bdiv=3&num=${mnwVO.num}">신고</a>
 									</c:if>
 								</div>
 								<div id="informBox">
@@ -72,6 +73,7 @@
 											<c:if test="${mnwVO.hasimg == 'N'}">
 												<img src="media/logo/mainLogo.png" alt=>
 											</c:if>
+											
 											<div class="dotbox"></div>
 										</div>
 										<table id="informTable">
