@@ -158,7 +158,6 @@ public class MnwService {
 		vo.setNum(num);
 		vo.setBdiv(bdiv);
 		
-		
 		//게시글 내용 가져오기 및 이동 path 설정
 		mnwVO mvo = new mnwVO();
 		

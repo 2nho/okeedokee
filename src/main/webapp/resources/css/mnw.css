@@ -165,7 +165,7 @@ main section #arti2 #boardBox h1 {
 	margin-bottom: 30px;
 	padding: 10px;
 }
-main section #arti2 #boardBox h1::after {
+main section #arti2 #boardBox>h1::after {
 	content: "";
 	display: block;
 	width: 100%;
@@ -604,7 +604,7 @@ main section #arti2 #boardBox #board #flyerBox::-webkit-scrollbar-track {
 main section #arti2 #boardBox #board #flyerBox #flyers {
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(3, .2fr);
+	grid-template-columns: repeat(3, .5fr);
 	gap: 30px 50px;
 	padding: 10px;
 	margin: 0 auto;
@@ -621,4 +621,67 @@ main section #arti2 #boardBox #board #flyerBox #flyers .flyer .flyerImg {
 main section #arti2 #boardBox #board #flyerBox #flyers .flyer .flyerImg img {
 	width: 100%;
 	height: 100%;
+}
+
+/* 셀프전단지 읽기 */
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent {	
+	width: 100%;
+	border: 5px solid black;
+	margin-bottom: 100px;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent #flyerTitle {
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #ff8080;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent #flyerTitle>h1 {
+	padding: 0;
+	margin: 0;
+	font-size: 50px;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.imgBox,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.informTable {
+	padding: 50px;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.imgBox {
+	width: 80%;
+	height: 600px;
+	margin: 20px auto;
+	padding: 0;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward {
+	width: 80%;
+	margin: 30px auto;
+	background-color: #eee;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward {
+	text-align: center;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:first-child {
+	font-size: 25px;
+	font-weight: bold;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable tr,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:last-child {
+	font-size: 35px;
+	font-weight: bold;
+	line-height: 100px;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:nth-child(2) {
+	font-size: 20px;
+	font-weight: bold;
+	color: red;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #petName,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #species,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #characters,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #location {
+	border: none;
+	outline: none;
+	font-size: 30px;
+	font-weight: bold;
+	background-color: #eee;
 }

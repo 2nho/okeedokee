@@ -6,25 +6,39 @@
 <!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
 <mapper namespace="self">
 
-	<select id="selectFlyerList">
-		SELECT num, mnum, id, pname, ptype, psex, page, pcharacter, plocation, pgratuity, phone, status, hasimg
+	<select id="selectFlyer" parameterType="selfVO" resultType="selfVO">
+		SELECT num, mnum, id, petName, species, sex, age, characters, location, gratuity, phone, status, hasimg
 		FROM selfflyertbl
 		<where>
 			<if test="num != null">num = #{num}</if>
 		</where>
 	</select>
 	
-	<insert id="">
-		INSERT INTO selfflyertbl(mnum, id, pname, ptype, psex, page, pcharacter, plocation, pgratuity, phone, status, hasimg)
-		VALUES(#{mnum}, #{id}, #{pname}, #{ptype}, #{psex}, #{page}, #{pcharacter}, #{plocation}, #{pgratuity}, #{phone}, #{status}, #{hasimg})
+	<insert id="insertFlyer" parameterType="selfVO">
+		INSERT INTO selfflyertbl(mnum, id, petName, species, sex, age, characters, location, gratuity, phone, status, hasimg)
+		VALUES(#{mnum}, #{id}, #{name}, #{species}, #{sex}, #{age}, #{characters}, #{location}, #{gratuity}, #{phone}, #{hasimg})
 	</insert>
 	
-	<update id="">
-	
+	<update id="updateFlyer" parameterType="selfVO">
+		UPDATE selfflyertbl
+		<set>
+			<if test="petName != null">petName = #{petName}</if>
+			<if test="species != null">species = #{species}</if>
+			<if test="sex != null">sex = #{sex}</if>
+			<if test="age != null">age = #{age}</if>
+			<if test="characters != null">characters = #{characters}</if>
+			<if test="location != null">location = #{location}</if>
+			<if test="gratuity != null">gratuity = #{gratuity}</if>
+			<if test="phone != null">phone = #{phone}</if>
+			<if test="status != null">status = #{status}</if>
+			<if test="hasimg != null">hasimg = #{hasimg}</if>
+		</set>
+		WHERE num = #{num}
 	</update>
 	
-	<delete id="">
-	
+	<delete id="deleteFlyer">
+		DELETE FROM selfflyertbl
+		WHERE num = #{num}
 	</delete>
 	
 </mapper>

@@ -72,8 +72,12 @@ public class MnwController {
 	
 	// 게시글 내용보기
 	@GetMapping("/read")
-	public String detailMnw(@RequestParam int num, @RequestParam int bdiv, @ModelAttribute("mnwVO") mnwVO vo,
-			Model model, HttpSession session) {
+	public String detailMnw(
+			@RequestParam int num, 
+			@RequestParam int bdiv, 
+			@ModelAttribute("mnwVO") mnwVO vo,
+			Model model, 
+			HttpSession session) {
 
 		String path = "";
 
@@ -104,7 +108,7 @@ public class MnwController {
 		//}
 		//없다면 로그인 페이지
 		//else if(session.getAttribute("account") == null){
-		//	path = "redirect:/login";
+		//	path = "redirect:/member/login";
 		//}
 		
 		return path;
@@ -123,7 +127,7 @@ public class MnwController {
 		//}
 		//없다면 로그인 페이지
 		//else if(session.getAttribute("account") == null) {
-		//	path = "redirect:/login";
+		//	path = "redirect:/member/login";
 		//}
 		return path;
 	}
@@ -287,7 +291,7 @@ public class MnwController {
 		//}
 		//없다면 로그인 페이지
 		//else if(session.getAttribute("account") == null){
-		//	path = "redirect:/login";
+		//	path = "redirect:/member/login";
 		//}
 		
 		return path;
