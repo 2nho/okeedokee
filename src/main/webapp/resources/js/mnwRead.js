@@ -122,7 +122,7 @@ function getCmmt() {
 
 							//ajax를 통해 전달
 							$.ajax({
-								url: "deletetComment",
+								url: "deleteComment",
 								type: "DELETE",
 								data: JSON.stringify(commentData),
 								contentType: "application/json; charset=utf-8",

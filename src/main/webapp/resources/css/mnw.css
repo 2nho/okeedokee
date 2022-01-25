@@ -536,7 +536,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .d
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot.active,
-	main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot:hover
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot:hover
 	{
 	background-color: #fbd157;
 }
@@ -617,7 +617,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtDelete,
-	main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtReport
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtReport
 	{
 	padding: 5px;
 	background-color: #fbd157;
@@ -629,7 +629,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtDelete:hover,
-	main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtReport:hover
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtReport:hover
 	{
 	padding: 3px;
 	background-color: #f9f1c0;
@@ -768,7 +768,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.imgBox,
-	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.informTable
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.informTable
 	{
 	padding: 50px;
 }
@@ -782,7 +782,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable,
-	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward
 	{
 	width: 80%;
 	margin: 30px auto;
@@ -801,7 +801,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable tr,
-	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:last-child
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:last-child
 	{
 	font-size: 35px;
 	font-weight: bold;
@@ -816,9 +816,9 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #petName,
-	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #species,
-	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #characters,
-	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #location
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #species,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #characters,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #location
 	{
 	border: none;
 	outline: none;
@@ -835,12 +835,13 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 		margin: 0;
 	}
 	header, footer, nav,
-	main section #arti2 #boardBox #boardContent #title,
-	main section #arti2 #boardBox #boardContent #id, 
-	main section #arti2 #boardBox #boardContent #sessinId,
-	main section #arti2 #boardBox #boardContent .printNshare,
-	main section #arti2 #boardBox #boardContent #btnBox,
-	main section #arti2 #boardBox #boardContent #informBox #inform .comment {
+	main section #arti2 #boardBox #board #boardContent #title,
+	main section #arti2 #boardBox #board #boardContent #id, 
+	main section #arti2 #boardBox #board #boardContent #sessinId,
+	main section #arti2 #boardBox #board #boardContent .printNshare,
+	main section #arti2 #boardBox #board #boardContent #btnBox,
+	main section #arti2 #boardBox #board #boardContent #printNshare,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform .comment {
 		display: none;
 		padding: 0;
 		margin: 0;
@@ -860,4 +861,22 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 	body {
 		margin: 1.6cm;
 	}
+}
+
+/* 셀프전단지 만들기 */
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker {
+	width: 100%;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question {
+	width: 30%;
+	margin: 20px auto;
+	padding: 5px;
+	background-color: #fbd157;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question input,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question select,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question button {
+	width: 100%;
+	border: none;
+	outline: none;
 }
