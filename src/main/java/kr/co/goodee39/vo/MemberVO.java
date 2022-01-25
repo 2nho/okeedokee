@@ -8,7 +8,6 @@ public class MemberVO {
 	private String phNum;
 	private String petOwn;
 	private String size;
-	private String donation;
 	private String level;
 	private String del;
 	
@@ -67,14 +66,6 @@ public class MemberVO {
 	}
 	public void setSize(String size) {
 		this.size = size;
-	}
-	
-	// 기부액
-	public String getDonation() {
-		return donation;
-	}
-	public void setDonation(String donation) {
-		this.donation = donation;
 	}
 	
 	// 회원 등급
