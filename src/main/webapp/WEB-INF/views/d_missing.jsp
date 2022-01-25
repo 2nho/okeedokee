@@ -51,7 +51,7 @@
 									 <c:set var="loop_flag" value="true" />
 								</c:if>
 								 </c:if>
-							</c:forEach>
+								</c:forEach>
 								<div class="text">
 									<h3>${list.title}</h3>
 								</div>

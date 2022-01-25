@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,14 +39,234 @@
 								<a href="makeFlyer" id="writeBtn">제작하기</a>
 							</div>
 							<div id="flyerBox">
-								
-								<c:forEach var="f" items="${flyers}">
-								<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${list.num}">
-									<div class="flyer">
+								<div id="flyers">
+									<%-- <c:forEach var="f" items="${flyers}"> --%>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
 										
-									</div>
-								</a>
-								</c:forEach>
+											<div class="flyerImg">
+												 <!-- 저장된 파일 가져오기 -->
+												<%-- <c:set var="loop_flag" value="false" />
+												<c:forEach var="file" items="${filelist}">
+												<c:if test="${not loop_flag }">
+												<c:if test="${(f.hasimg eq 'Y') and (file.bnum == f.num)}"> 
+													<img src="media/img/${file.localName}" alt=""/>--%>
+												<%-- 	  <c:set var="loop_flag" value="true" />
+												</c:if>
+												<c:if test="${f.hasimg ne 'Y'}">--%>
+													<img src="media/logo/mainLogo.png" alt=""/>
+													 <%--<c:set var="loop_flag" value="true" />
+												</c:if>
+												</c:if>
+												</c:forEach> --%>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<%-- </c:forEach> --%>
+									
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+									<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${f.num}">
+										<div class="flyer">
+										
+											<div class="flyerImg">
+												<img src="media/logo/mainLogo.png" alt=""/>
+											</div>
+											
+											<div class="flyerText">
+												<h3>${f.id }님의 전단지</h3>
+												<p>${f.pname }을/를 찾습니다.</p>
+											</div>
+											
+										</div>
+									</a>
+								</div>
 							</div>
 							<!-- 검색 -->
 							<div class="searchBox">

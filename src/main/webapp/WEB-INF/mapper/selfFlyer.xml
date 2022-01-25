@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
+<!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
+<mapper namespace="self">
+
+	<select id="selectFlyerList">
+		SELECT num, mnum, id, pname, ptype, psex, page, pcharacter, plocation, pgratuity, phone, status, hasimg
+		FROM selfflyertbl
+		<where>
+			<if test="num != null">num = #{num}</if>
+		</where>
+	</select>
+	
+	<insert id="">
+		INSERT INTO selfflyertbl(mnum, id, pname, ptype, psex, page, pcharacter, plocation, pgratuity, phone, status, hasimg)
+		VALUES(#{mnum}, #{id}, #{pname}, #{ptype}, #{psex}, #{page}, #{pcharacter}, #{plocation}, #{pgratuity}, #{phone}, #{status}, #{hasimg})
+	</insert>
+	
+	<update id="">
+	
+	</update>
+	
+	<delete id="">
+	
+	</delete>
+	
+</mapper>
