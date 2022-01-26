@@ -10,5 +10,7 @@
 		<typeAlias type="kr.co.goodee39.vo.adminVO" alias="adminVO"/>
 		<typeAlias type="kr.co.goodee39.vo.mnwCmtVO" alias="mnwCmtVO"/>
 		<typeAlias type="kr.co.goodee39.vo.selfFlyerVO" alias="selfVO"/>
+		<typeAlias type="kr.co.goodee39.vo.NoticeVO" alias="tvo"/>
+		<typeAlias type="kr.co.goodee39.vo.MemberVO" alias="memberVO"/>
 	</typeAliases>
 </configuration>
