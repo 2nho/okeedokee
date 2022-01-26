@@ -12,5 +12,6 @@
 		<typeAlias type="kr.co.goodee39.vo.selfFlyerVO" alias="selfVO"/>
 		<typeAlias type="kr.co.goodee39.vo.NoticeVO" alias="tvo"/>
 		<typeAlias type="kr.co.goodee39.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="kr.co.goodee39.vo.DonationVO" alias="DonaVO"/>
 	</typeAliases>
 </configuration>
