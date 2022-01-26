@@ -19,7 +19,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 			response.sendRedirect(request.getContextPath()); // home으로 이동한다.
 			return false;
 		}
-		
+		 
 		// preHandle 은 반환값 true가 아니라면 다음으로 이동하지 못하고 about:blank로 이동
 		return true;
 	}
