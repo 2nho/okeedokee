@@ -5,10 +5,9 @@
 
 <mapper namespace="donation">
 	<!-- 이번달 후원금액 -->
-	<select id="selectMoney" parameterType="DonaVO"
-		resultType="DonaVO">
+	<select id="selectMoney" parameterType="DonaVO" resultType="DonaVO">
 		SELECT SUM(donation)
 		FROM donation
-		WHERE MONTH(date) like {date}
+		WHERE MONTH(date) like #{date}
 	</select>
 </mapper>

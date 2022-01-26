@@ -16,29 +16,22 @@ import kr.co.goodee39.vo.adminReportVO;
 public class adminSerivce {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
-	@Autowired
-	adminReportVO vo1;
-	@Autowired
-	DonationVO vo2;
-	@Autowired
-	MemberVO vo3;
-
-	public void TotalMember(Model model) {
-		
-		model.addAttribute("total",sqlSessionTemplate.selectOne("member.TotalMember", vo3));
+	public void TotalMember(MemberVO vo, Model model) {
+		model.addAttribute("total",sqlSessionTemplate.selectOne("member.totalMember", vo));
 	}
 
-	public void NewMember(Model model) {
+	public void NewMember(MemberVO vo, Model model) {
 		LocalDate now = LocalDate.now();
 		String date = now.getMonth().toString();
-		vo3.setSignupDate(date);
-		model.addAttribute("new",sqlSessionTemplate.selectOne("member.NewMember", vo3));
+		vo.setSignupDate(date);
+		// new class static 변수 사용 불가능
+		model.addAttribute("newMember",sqlSessionTemplate.selectOne("member.newMember", vo));
 	}
 	
-	public void selectMoney(Model model) {
+	public void selectMoney(DonationVO vo, Model model) {
 		LocalDate now = LocalDate.now();
 		String date = now.getMonth().toString();
-		vo2.setDate(date);
-		model.addAttribute("money",sqlSessionTemplate.selectOne("donation.selectMoney", vo2));
+		vo.setDate(date);
+		model.addAttribute("money",sqlSessionTemplate.selectOne("donation.selectMoney", vo));
 	}
 }

@@ -8,7 +8,6 @@
 <link href="css/layout.css" rel="stylesheet" />
 <link href="css/adminHome.css" rel="stylesheet" />
 <script src="https://d3js.org/d3.v7.min.js"></script>
-
 </head>
 
 <body>
@@ -41,7 +40,7 @@
 						<h2>입양건수</h2>
 					</div>
 					<div>
-						<h1>${new}</h1>
+						<h1>${newMember}</h1>
 						<h2>신규회원</h2>
 					</div>
 				</div>

@@ -1,20 +1,20 @@
 package kr.co.goodee39.vo;
 
 public class adminReportVO {
-	private String id;
+	private int num;
 	private String title;
 	private String contetnt;
 	private String date;
 	private String comm;
 	private int bdiv;
-	private String del;
 	private String sep;
-	private String stauts;
-	public String getId() {
-		return id;
+	private String status;
+	private String del;
+	public int getNum() {
+		return num;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setNum(int num) {
+		this.num = num;
 	}
 	public String getTitle() {
 		return title;
@@ -46,23 +46,23 @@ public class adminReportVO {
 	public void setBdiv(int bdiv) {
 		this.bdiv = bdiv;
 	}
-	public String getDel() {
-		return del;
-	}
-	public void setDel(String del) {
-		this.del = del;
-	}
 	public String getSep() {
 		return sep;
 	}
 	public void setSep(String sep) {
 		this.sep = sep;
 	}
-	public String getStauts() {
-		return stauts;
+	public String getStatus() {
+		return status;
 	}
-	public void setStauts(String stauts) {
-		this.stauts = stauts;
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getDel() {
+		return del;
+	}
+	public void setDel(String del) {
+		this.del = del;
 	}
 	
 }
