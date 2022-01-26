@@ -5,124 +5,187 @@ public class selfFlyerVO {
 	private int num;
 	private int mnum;
 	private String id;
-	private String pname;
-	private String ptype;
-	private String psex;
-	private String page;
-	private String pcharacter;
-	private String plocation;
-	private String pgratuity;
+	private String petName;
+	private String species;
+	private String sex;
+	private String age;
+	private String characters;
+	private String location;
+	private String gratuity;
 	private String phone;
 	private String status;
 	private String hasimg;
+	private int bdiv;
+	private String color;
+	private String fileList;
+	
 	
 	public selfFlyerVO() {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public int getNum() {
 		return num;
 	}
+
 
 	public void setNum(int num) {
 		this.num = num;
 	}
 
+
 	public int getMnum() {
 		return mnum;
 	}
+
 
 	public void setMnum(int mnum) {
 		this.mnum = mnum;
 	}
 
+
 	public String getId() {
 		return id;
 	}
+
 
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getPname() {
-		return pname;
+
+	public String getPetName() {
+		return petName;
 	}
 
-	public void setPname(String pname) {
-		this.pname = pname;
+
+	public void setPetName(String petName) {
+		this.petName = petName;
 	}
 
-	public String getPtype() {
-		return ptype;
+
+	public String getSpecies() {
+		return species;
 	}
 
-	public void setPtype(String ptype) {
-		this.ptype = ptype;
+
+	public void setSpecies(String species) {
+		this.species = species;
 	}
 
-	public String getPsex() {
-		return psex;
+
+	public String getSex() {
+		return sex;
 	}
 
-	public void setPsex(String psex) {
-		this.psex = psex;
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
-	public String getPage() {
-		return page;
+
+	public String getAge() {
+		return age;
 	}
 
-	public void setPage(String page) {
-		this.page = page;
+
+	public void setAge(String age) {
+		this.age = age;
 	}
 
-	public String getPcharacter() {
-		return pcharacter;
+
+	public String getCharacters() {
+		return characters;
 	}
 
-	public void setPcharacter(String pcharacter) {
-		this.pcharacter = pcharacter;
+
+	public void setCharacters(String characters) {
+		this.characters = characters;
 	}
 
-	public String getPlocation() {
-		return plocation;
+
+	public String getLocation() {
+		return location;
 	}
 
-	public void setPlocation(String plocation) {
-		this.plocation = plocation;
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
-	public String getPgratuity() {
-		return pgratuity;
+
+	public String getGratuity() {
+		return gratuity;
 	}
 
-	public void setPgratuity(String pgratuity) {
-		this.pgratuity = pgratuity;
+
+	public void setGratuity(String gratuity) {
+		this.gratuity = gratuity;
 	}
+
 
 	public String getPhone() {
 		return phone;
 	}
 
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
 
 	public String getStatus() {
 		return status;
 	}
 
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
 
 	public String getHasimg() {
 		return hasimg;
 	}
 
+
 	public void setHasimg(String hasimg) {
 		this.hasimg = hasimg;
 	}
+
+
+	public int getBdiv() {
+		return bdiv;
+	}
+
+
+	public void setBdiv(int bdiv) {
+		this.bdiv = bdiv;
+	}
+
+
+	public String getColor() {
+		return color;
+	}
+
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+
+	public String getFileList() {
+		return fileList;
+	}
+
+
+	public void setFileList(String fileList) {
+		this.fileList = fileList;
+	}
+	
+
+	
 	
 	
 }

@@ -1,58 +1,22 @@
 /**
  * 
  */
+ //전단지 프린트
+function printFlyer() {
+	const printBtn = document.querySelector("#printBtn");
 
-//글읽기 사진 슬라이더
-function showSlider() {
-	//초기화 리스트 (이미지, 인덱스 초기넘버)
-	let imgs = document.querySelectorAll(".mySlides");
-	//console.log(imgs.length);
-	//console.log(imgs);
-	let dotbox = document.querySelector(".dotbox");
-	let num = 0;
-
-	if (imgs.length > 0) {
-		//이미지 갯수만큼 dot 생성하기
-		createDots();
-
-		//슬라이드 초기 설정
-		showSlides(num);
-
-		//dot클릭시 슬라이드 이동
-		clickDots();
-
-	}
-	function createDots() {
-		for (let i = 0; i < imgs.length; i++) {
-			let tagForDot = document.createElement("span");
-			tagForDot.classList.add("dot");
-			tagForDot.setAttribute("data-num", i);
-			dotbox.append(tagForDot);
-		}
-	}
-
-	function showSlides(n) {
-		let dots = document.querySelectorAll(".dot");
-		for (let i = 0; i < imgs.length; i++) {
-			imgs[i].style.display = "none";
-			dots[i].classList.remove("active");
-		}
-		imgs[n].style.display = "block";
-		dots[n].classList.add("active");
+	printBtn.addEventListener("click", function() {
 	
-	}
+		//프린트
+		window.print();
+		//페이지 새로고침
+		location.reload();
 
-	function clickDots() {
-		let dots = document.querySelectorAll(".dot");
-		for (let i = 0; i < dots.length; i++) {
-			dots[i].addEventListener("click", function() {
-				showSlides(dots[i].dataset.num);
-			});
+	});
 
-		}
-	}
+} printFlyer();
 
-} showSlider();
+
 
 
 //코멘트 가져오기
@@ -62,11 +26,11 @@ function getCmmt() {
 	const bdiv = document.querySelector("#bdiv").value;
 	
 	console.log(num);
-	console.log("getComment/"+num+"/"+bdiv);
+	console.log("getFlyerComment/"+num+"/"+bdiv);
 	
 	//게시글에 해당하는 댓글 보여지게 만들기
 	$.ajax({
-		url: "getComment/"+num+"/"+bdiv,
+		url: "getFlyerComment/"+num+"/"+bdiv,
 		type: "GET",
 		dataType: "json",
 		success: function(data) {
@@ -122,13 +86,16 @@ function getCmmt() {
 
 							//ajax를 통해 전달
 							$.ajax({
-								url: "deleteComment",
+								url: "deleteFlyerComment",
 								type: "DELETE",
 								data: JSON.stringify(commentData),
 								contentType: "application/json; charset=utf-8",
 								dataType: "text",
 								success: function() {
 									console.log("삭제완");
+									//새로고침 방법은 트래픽 증가 BUT 사용은 되는 방법임	
+									//location.reload(true);
+									
 									//동적 삭제
 									div.remove();
 								}
@@ -186,16 +153,16 @@ function submitCmt() {
 			let commentData = { cmt, bnum, bdiv };
 
 			$.ajax({
-				url: "createComment",
+				url: "createFlyerComment",
 				type: "POST",
 				data: JSON.stringify(commentData),
 				contentType: "application/json; charset=utf-8",
 				dataType: "json",
 				success: function(data) {
-					console.log(data);
-					//새로고침 방법은 트래픽 증가 BUT 사용은 되는 방법임					
+					console.log(data);				
+					//새로고침 방법은 트래픽 증가 BUT 사용은 되는 방법임	
 					//location.reload(true);
-
+				
 				//순수JS 동적쿼리로 추가된 댓글 보여지게 하기
 				const commentList = document.querySelector("#commentList");
 				const div = document.createElement("div");
