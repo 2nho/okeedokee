@@ -10,6 +10,8 @@
 <link rel="stylesheet" type="text/css"  href="css/mnw.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+
+
 </head>
 <body>
 
@@ -57,12 +59,9 @@
 										<a href="${pageContext.request.contextPath}/report?bdiv=3&num=${selfVO.num}">신고</a>
 									</c:if>
 								</div>
-								
 								<div id="printNshare">
 									<button id="printBtn"><img src="media/logo/printer.png" alt="" /></button>
-									<button id="insta"><img src="media/sns/instagram.com" alt="" /></button>
 								</div>
-								
 								<div id="informBox">
 									<div id="inform">
 										<div id="flyerContent">

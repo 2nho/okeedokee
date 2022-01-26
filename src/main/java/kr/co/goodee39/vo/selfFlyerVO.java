@@ -15,6 +15,8 @@ public class selfFlyerVO {
 	private String phone;
 	private String status;
 	private String hasimg;
+	private int bdiv;
+	private String fileList;
 	
 	
 	public selfFlyerVO() {
@@ -150,6 +152,27 @@ public class selfFlyerVO {
 	public void setHasimg(String hasimg) {
 		this.hasimg = hasimg;
 	}
+
+
+	public int getBdiv() {
+		return bdiv;
+	}
+
+
+	public void setBdiv(int bdiv) {
+		this.bdiv = bdiv;
+	}
+
+
+	public String getFileList() {
+		return fileList;
+	}
+
+
+	public void setFileList(String fileList) {
+		this.fileList = fileList;
+	}
+	
 
 	
 	
