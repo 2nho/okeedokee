@@ -28,6 +28,10 @@
 		</beans:property>
 	</beans:bean>
 	
+	<beans:bean class="kr.co.goodee39.vo.adminReportVO" id="adminReportVO"></beans:bean>
+	<beans:bean class="kr.co.goodee39.vo.DonationVO" id="DonationVO"></beans:bean>
+	<beans:bean class="kr.co.goodee39.vo.MemberVO" id="MemberVO"></beans:bean>
+	
 	<!-- 상단에서 정의한 DB 접속 정보 파일 값을 불러와 접속 정보 관리하는 Bean 정의 -->
 	<beans:bean class="org.apache.commons.dbcp2.BasicDataSource" id="basicDataSource">
 		<beans:property name="driverClassName" value="${db.classname}"/>
