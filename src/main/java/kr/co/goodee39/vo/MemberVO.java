@@ -2,6 +2,18 @@ package kr.co.goodee39.vo;
 
 public class MemberVO {
 	private int mnum;
+	private String id;
+	private String name;
+	private String pw;
+	private String address;
+	private String email;
+	private String phNum;
+	private String petOwn;
+	private String size;
+	private String donation;
+	private String level;
+	private String date;
+	private String del;
 	public int getMnum() {
 		return mnum;
 	}
@@ -80,18 +92,6 @@ public class MemberVO {
 	public void setDel(String del) {
 		this.del = del;
 	}
-	private String id;
-	private String name;
-	private String pw;
-	private String address;
-	private String email;
-	private String phNum;
-	private String petOwn;
-	private String size;
-	private String donation;
-	private String level;
-	private String date;
-	private String del;
 	
 	
 	
