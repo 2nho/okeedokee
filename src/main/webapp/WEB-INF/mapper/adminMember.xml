@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="member">
+	<!-- 탈퇴하지 않은 총 회원수 -->
+	<select id="selectTotalMember" parameterType="MemberVO"
+		resultType="MemberVO">
+		SELECT count(*)
+		FROM member
+		WHERE del = N
+	</select>
+
+	<select id="selectMember" parameterType="MemberVO"
+		resultType="MemberVO">
+		SELECT count(*)
+		FROM member
+		<!-- 이번달 가입회원 -->
+		WHERE MONTH(now())
+	</select>
+</mapper>
+
+
+	
+	
+	
