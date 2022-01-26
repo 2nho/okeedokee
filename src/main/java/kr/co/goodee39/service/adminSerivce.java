@@ -11,7 +11,7 @@ public class adminSerivce {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	@Autowired
-	adminReportVO vo;
+	adminVO vo;
 	
 	public void selectTotalMember() {
 		
