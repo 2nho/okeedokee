@@ -38,7 +38,7 @@
 					<div id="boardBox">
 						<div id="board">
 							<!-- 숨겨진 파일 업로드 버튼 -->
-							<input type="file" name="image" id="image" style="display: none;"/>
+							<input type="file" name="image" id="image" accept="image/*" style="display: none;"/>
 
 							<form:form modelAttribute="selfVO" method="post" action="createFlyerResult" id="boardContent">
 								<label for="id">작성자&nbsp; |</label>
@@ -126,10 +126,14 @@
 											<div class="question" id="q9">
 												<p>알아볼 수 있도록 강아지 사진을 첨부해주세요.</p>										
 												<button type="button" id="callUpload">사진선택</button>
+												<!-- 사진 추가시 사진 제목 보여주기 -->												
+												<p id="fileResult"></p>
+												<!-- 사진 미리보기용 주소 -->
+												<p id="filePath"></p>
 												<form:hidden path="fileList" id="fileList"/>
 											</div>
 											<div class="question" id="q10">
-												<p>전단지 제목 배경 색을 선택해주세요. <br /><span>(*미선택시 분홍색입니다.)</span></p>			
+												<p>전단지 제목 배경 색을 선택해주세요. <br /><span>* 미선택시 분홍색입니다.</span></p>			
 												<input type="color" name="colorPicker" id="colorPicker" value=""/>
 												<form:hidden path="color" name="color" id="color" value=""/>
 											</div>

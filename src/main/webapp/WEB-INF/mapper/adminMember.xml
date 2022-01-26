@@ -17,7 +17,7 @@
 		resultType="MemberVO">
 		SELECT count(*)
 		FROM member
-		WHERE month(date) like #{date}
+		WHERE month(date) like #{signupDay}
 	</select>
 </mapper>
 

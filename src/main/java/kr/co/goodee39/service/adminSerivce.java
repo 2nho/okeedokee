@@ -31,7 +31,7 @@ public class adminSerivce {
 	public void NewMember(Model model) {
 		LocalDate now = LocalDate.now();
 		String date = now.getMonth().toString();
-		vo3.setDate(date);
+		vo3.setSignupDate(date);
 		model.addAttribute("new",sqlSessionTemplate.selectOne("member.NewMember", vo3));
 	}
 	
