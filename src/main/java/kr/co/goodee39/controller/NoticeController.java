@@ -20,7 +20,7 @@ import kr.co.goodee39.vo.NoticeVO;
 @RequestMapping("/Notice")
 public class NoticeController {
 	
-	@Autowired
+	@Autowired 
 	private NoticeService service;
 	
 	@GetMapping("/main")
