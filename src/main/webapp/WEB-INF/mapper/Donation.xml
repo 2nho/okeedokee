@@ -9,6 +9,6 @@
 		SELECT SUM(donation)
 		FROM donation
 		<!-- 이번달 후원금액 -->
-		WHERE MONTH(now())
+		WHERE MONTH(date) like {date}
 	</select>
 </mapper>
