@@ -1,6 +1,6 @@
 package kr.co.goodee39.vo;
 
-public class adminVO {
+public class adminReportVO {
 	private String id;
 	private String title;
 	private String contetnt;

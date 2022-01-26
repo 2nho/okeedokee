@@ -6,18 +6,17 @@
 
 <mapper namespace="member">
 	<!-- 탈퇴하지 않은 총 회원수 -->
-	<select id="selectTotalMember" parameterType="MemberVO"
+	<select id="TotalMember" parameterType="MemberVO"
 		resultType="MemberVO">
 		SELECT count(*)
 		FROM member
 		WHERE del = N
 	</select>
-
-	<select id="selectMember" parameterType="MemberVO"
+	<!-- 이번달 가입회원 -->
+	<select id="NewMember" parameterType="MemberVO"
 		resultType="MemberVO">
 		SELECT count(*)
 		FROM member
-		<!-- 이번달 가입회원 -->
 		WHERE month(date) like #{date}
 	</select>
 </mapper>

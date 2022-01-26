@@ -7,7 +7,7 @@
 	<typeAliases>
 		<typeAlias type="kr.co.goodee39.vo.mnwVO" alias="mnwVO"/>
 		<typeAlias type="kr.co.goodee39.vo.ImageVO" alias="imgVO"/>
-		<typeAlias type="kr.co.goodee39.vo.adminVO" alias="adminVO"/>
+		<typeAlias type="kr.co.goodee39.vo.adminReportVO" alias="adminRVO"/>
 		<typeAlias type="kr.co.goodee39.vo.mnwCmtVO" alias="mnwCmtVO"/>
 		<typeAlias type="kr.co.goodee39.vo.selfFlyerVO" alias="selfVO"/>
 		<typeAlias type="kr.co.goodee39.vo.DonationVO" alias="DonaVO"/>
