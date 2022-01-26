@@ -121,7 +121,7 @@
 		 //전화번호
 		 phone.innerText = "Tel. "+opener.document.getElementById("phone").value;
 		 //이미지
-		 image.innerText = opener.document.getElementById("filePath").innerHTML;
+		 image.src = opener.document.getElementById("filePath").innerHTML;
 		 //제목 배경색
 		 flyerTitle.style.backgroundColor = opener.document.getElementById("colorPicker").value;
 		 

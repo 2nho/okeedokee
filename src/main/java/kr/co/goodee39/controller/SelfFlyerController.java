@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.goodee39.service.SelfFlyerService;
 import kr.co.goodee39.vo.mnwCmtVO;
+import kr.co.goodee39.vo.mnwVO;
 import kr.co.goodee39.vo.selfFlyerVO;
 
 @Controller
@@ -81,7 +82,7 @@ public class SelfFlyerController {
 		cvo.setBdiv(bdiv);
 
 		// service통해 코멘트 db긁어오기
-		List<mnwCmtVO> list = service.selectMnwCmt(cvo);
+		List<mnwCmtVO> list = service.selectFlyerCmt(cvo);
 
 		// 리턴타입 변수에 결과 담기 (단, status가 ok인 상황에서만!)
 		ResponseEntity<List<mnwCmtVO>> entity = new ResponseEntity<List<mnwCmtVO>>(list, HttpStatus.OK);
@@ -102,7 +103,7 @@ public class SelfFlyerController {
 		vo.setId("sessionId");
 
 		// 코멘트 db추가
-		service.insertMnwCmt(vo);
+		service.insertFlyerCmt(vo);
 
 		ResponseEntity<mnwCmtVO> entity = new ResponseEntity<mnwCmtVO>(vo, HttpStatus.OK);
 
@@ -121,7 +122,7 @@ public class SelfFlyerController {
 		// 임시id : 후에 세션정보로 교체 필요
 		vo.setId("sessionId");
 
-		service.deleteMnwCmt(vo);
+		service.deleteFlyerCmt(vo);
 
 		String msg = "삭제 완.";
 
@@ -148,7 +149,7 @@ public class SelfFlyerController {
 		 * System.out.println("배경색 : "+vo.getColor());
 		 */
 
-		service.insertSelf(vo);
+		service.insertFlyer(vo);
 
 		return "redirect:/selfFlyer";
 	}
@@ -168,37 +169,39 @@ public class SelfFlyerController {
 		System.out.println("연락처 : " + vo.getPhone());
 		System.out.println("사진 : " + vo.getFileList());
 		System.out.println("배경색 : " + vo.getColor());
-		
+
 		mav.setViewName("d_selfFlyer_preview");
-		
+
 		return mav;
 	}
-	
-	//전단지 수정
-	@GetMapping("/reviseFlyer/{bdiv}/{num}")
-	public String reviseFlyer(@RequestParam int bdiv, @RequestParam int num, @ModelAttribute("selfVO") selfFlyerVO vo, Model model) {
-		
-		vo.setNum(num);
+
+	// 전단지 수정 페이지 이동
+	@GetMapping("/reviseFlyer")
+	public String reviseFlyer(@RequestParam int bdiv, @RequestParam int num, @ModelAttribute("selfVO") selfFlyerVO vo,
+			Model model) {
+
 		service.selectFlyer(bdiv, num, vo, model);
-		
+
 		return "d_selfFlyer_revise";
 	}
-	
-	//상태처리(귀가/종료)
-	@GetMapping("/backFlyer")
-	public String backFlyer() {
-		return "";
+
+	// 게시글 수정완료
+	@PostMapping("/reviseFlyerResult")
+	public String reviseFlyerResult(selfFlyerVO vo) {
+
+		return "redirect:/selfFlyer";
 	}
-	
-	@GetMapping("/endFlyer")
-	public String endFlyer() {
-		return "";
-	}
-	
-	//전단지 삭제
-	@GetMapping("/isdeleteFlyer")
-	public String isdeleteFlyer() {
-		return "";
-	}
-	
+
+	/*
+	 * //상태처리(귀가/종료)
+	 * 
+	 * @GetMapping("/backFlyer") public String backFlyer() { return ""; }
+	 * 
+	 * @GetMapping("/endFlyer") public String endFlyer() { return ""; }
+	 * 
+	 * //전단지 삭제
+	 * 
+	 * @GetMapping("/isdeleteFlyer") public String isdeleteFlyer() { return ""; }
+	 */
+
 }

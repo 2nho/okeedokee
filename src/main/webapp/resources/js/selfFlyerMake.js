@@ -19,25 +19,31 @@ function callUpload() {
 function colorPick() {
 	//기본 컬러 설정
 	const colorPicker = document.getElementById("colorPicker");
-	colorPicker.setAttribute("value", "#ff8080");
-
+	
 	//선택 컬러 저장할 hidden input
 	let color = document.querySelector("#color");
+	
+	//새로 만드는 전단지 일경우 기본 컬러 설정
+	if(!(colorPicker.getAttribute("value")) && !(color.value)) {
+		colorPicker.setAttribute("value", "#ff8080");
+	}
+	//전단지 수정시 저장된 컬러 가져오기
+	else if(color.value) {
+		colorPicker.setAttribute("value", color.value);
+	}
 
-	//지정된 기본컬러 변경시 hidden input에 반영
+	//컬러 변경시 hidden input에 반영
 	colorPicker.addEventListener("change", function() {
 		color.setAttribute("value", colorPicker.value);
 	});
 } colorPick();
 
+
+//이미지 전달
 function submitPost() {
 	const submitBtn = document.querySelector("#submit");
 
 	submitBtn.addEventListener("click", function() {
-
-		//에디터 작성 후 등록 버튼 클릭시 실행될 로직
-		//일단 콘솔창으로 전달
-		//console.log("내용 : " + content);
 
 		/* 파일 업로드 */
 		//formData객체 불러오기
@@ -107,7 +113,7 @@ function deleteImg(num) {
 	}
 } deleteImg();
 
-//이미지 수정시 삭제 
+//이미지 삭제 
 function deleteInfo(num) {
 	$.ajax({
 		url: 'deleteFile',
@@ -143,7 +149,7 @@ function previewWin() {
 		window.open(
 			"preview",
 			"_blank",
-			"top=200, left=200, width=380, height=500");
+			"top=200, left=200, width=1000, height=2000");
 	});
 } previewWin();
 
