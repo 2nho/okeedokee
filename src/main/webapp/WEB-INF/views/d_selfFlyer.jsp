@@ -25,7 +25,7 @@
 				<div id="mnwSubTitle">
 					<a href="missing" ><h4>유기견 실종 신고</h4></a>
 					<a href="witnessing"><h4>유기견 목격 신고</h4></a>
-					<a href="selfFlyer/selfFlyer" id="focus"><h4>셀프 전단지</h4></a>
+					<a href="selfFlyer" id="focus"><h4>셀프 전단지</h4></a>
 				</div>
 			</div>
 		</nav>

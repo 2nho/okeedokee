@@ -65,13 +65,13 @@
 								<div id="informBox">
 									<div id="inform">
 										<div id="flyerContent">
-											<div id="flyerTitle">
+											<div id="flyerTitle" style="background-color: ${selfVO.color};">
 												<h1>강아지를 찾습니다.</h1>
 											</div>
 											<div class="imgBox">
 												<c:if test="${selfVO.hasimg == 'Y'}">
 													<c:forEach var="img" items="${filelist }">
-														<img alt="" src="media/img/${img.localName}" class="mySlides fade">
+														<img alt="" src="media/img/${img.localName}">
 													</c:forEach>
 												</c:if>
 												<c:if test="${selfVO.hasimg == 'N'}">

@@ -445,8 +445,10 @@ main section #arti2 #boardBox #board .submitBtnBox {
 	justify-content: center;
 }
 
-main section #arti2 #boardBox #board .submitBtnBox #submit {
+main section #arti2 #boardBox #board .submitBtnBox #submit,
+main section #arti2 #boardBox #board .submitBtnBox #preview {
 	padding: 10px 30px;
+	margin: 0 10px;
 	background-color: #fbd157;
 	border: none;
 	outline: none;
@@ -709,7 +711,7 @@ main section #arti2 #boardBox #board #flyerBox::-webkit-scrollbar-track
 main section #arti2 #boardBox #board #flyerBox #flyers {
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(3, .5fr);
+	grid-template-columns: repeat(3, .29fr);
 	gap: 30px 50px;
 	padding: 10px; margin : 0 auto;
 	justify-content: space-between;
@@ -757,7 +759,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #ff8080;
+	/* background-color: #ff8080; */
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent #flyerTitle>h1
@@ -839,7 +841,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 	main section #arti2 #boardBox #board #boardContent #id, 
 	main section #arti2 #boardBox #board #boardContent #sessinId,
 	main section #arti2 #boardBox #board #boardContent .printNshare,
-	main section #arti2 #boardBox #board #boardContent #btnBox,
+	main section #arti2 #boardBox #board #boardContent .btnBox,
 	main section #arti2 #boardBox #board #boardContent #printNshare,
 	main section #arti2 #boardBox #board #boardContent #informBox #inform .comment {
 		display: none;
@@ -855,6 +857,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 		margin: auto 0;
 
 	}
+	/* 인쇄시 머릿글, 꼬릿글 지우기 */
 	@page {
 		margin: 0;
 	}

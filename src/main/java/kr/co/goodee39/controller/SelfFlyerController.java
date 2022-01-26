@@ -52,8 +52,6 @@ public class SelfFlyerController {
 		return path;
 	}
 	
-	//전단지 만들기
-	
 	
 	//전단지 읽기
 	@GetMapping("/readFlyer")
@@ -139,5 +137,26 @@ public class SelfFlyerController {
 		return entity;
 	}
 	
-	
+	//전단지 만들기 제출
+	@PostMapping("/createFlyerResult")
+	public String createFlyerResult(@ModelAttribute("selfVO") selfFlyerVO vo) {
+		
+		//데이터 오는지 출력해보기
+		/*
+		System.out.println("이름 : "+vo.getPetName());
+		System.out.println("견종 : "+vo.getSpecies());
+		System.out.println("성별 : "+vo.getSex());
+		System.out.println("나이 : "+vo.getAge());
+		System.out.println("특징 : "+vo.getCharacters());
+		System.out.println("실종장소 : "+vo.getLocation());
+		System.out.println("사례금 : "+vo.getGratuity());
+		System.out.println("연락처 : "+vo.getPhone());
+		System.out.println("사진 : "+vo.getFileList());
+		System.out.println("배경색 : "+vo.getColor());
+		*/
+		
+		service.insertSelf(vo);
+		
+		return "redirect:/selfFlyer";
+	}
 }

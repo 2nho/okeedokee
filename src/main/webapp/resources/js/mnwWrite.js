@@ -16,16 +16,13 @@ function callUpload() {
 	
 } callUpload();
 
+
 //실종일에 오늘날짜 디폴트
 function setDefaultDate() {
 
 	document.getElementById('date').value = new Date().toISOString().substring(0, 10);
 	//적용안함
 }
-
-
-
-
 
 
 //텍스트 에디터 설정 및 게시글 작성, 수정, 전송
