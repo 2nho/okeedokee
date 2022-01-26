@@ -71,7 +71,7 @@
 											<div class="question" id="q4">
 												<p>강아지 나이는 몇살인가요?</p>
 												<form:select path="age" name="age" id="age" required="required">
-													<option value="" disabled="disabled" selected="selected">나이</option>
+													<option value="" disabled="disabled">나이</option>
 													<c:forEach var="i" begin="0" end="24">
 														<c:set var="i" value="${i+1}" />
 														<option value="${i }">${i }살</option>

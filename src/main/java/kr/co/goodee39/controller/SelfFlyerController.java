@@ -175,9 +175,13 @@ public class SelfFlyerController {
 	}
 	
 	//전단지 수정
-	@GetMapping("/reviseFlyer")
-	public String reviseFlyer() {
-		return "";
+	@GetMapping("/reviseFlyer/{bdiv}/{num}")
+	public String reviseFlyer(@RequestParam int bdiv, @RequestParam int num, @ModelAttribute("selfVO") selfFlyerVO vo, Model model) {
+		
+		vo.setNum(num);
+		service.selectFlyer(bdiv, num, vo, model);
+		
+		return "d_selfFlyer_revise";
 	}
 	
 	//상태처리(귀가/종료)

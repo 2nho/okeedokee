@@ -56,7 +56,7 @@
 									</c:if>
 									<!-- 실제 세션 정보 수정 필!!!! -->
 									<c:if test="${sessionScope.account != selfVO.id}">
-										<a href="${pageContext.request.contextPath}/report?bdiv=3&num=${selfVO.num}">신고</a>
+										<a href="${pageContext.request.contextPath}/report?bdiv=7&num=${selfVO.num}">신고</a>
 									</c:if>
 								</div>
 								<div id="printNshare">
