@@ -129,7 +129,8 @@ function getCmmt() {
 								dataType: "text",
 								success: function() {
 									console.log("삭제완");
-									location.reload(true);
+									//동적 삭제
+									div.remove();
 								}
 							});
 						}
@@ -192,7 +193,76 @@ function submitCmt() {
 				dataType: "json",
 				success: function(data) {
 					console.log(data);					
-					location.reload(true);
+					//location.reload(true);
+
+				//순수JS 동적쿼리로 추가된 댓글 보여지게 하기
+				const commentList = document.querySelector("#commentList");
+				const div = document.createElement("div");
+				const div2 = document.createElement("div");
+				
+				div.classList.add("cmt");
+				div2.classList.add("cmtInform");
+			
+				//작성자 아이디
+				const h5 = document.createElement("h5");
+				h5.innerText = data.id;
+				h5.classList.add("cmtWriter");
+				
+				//작성일
+				const date = document.createElement("p");
+				date.innerText = data.createdate;
+				date.classList.add("cmtDate");
+				
+				//댓글 내용
+				const p = document.createElement("p");
+				p.innerText = data.cmt;
+				p.classList.add("cmtContent");
+			
+				//삭제버튼
+				const button = document.createElement("button");
+				button.classList.add("cmtDelete");
+				button.innerText = "삭제"
+				
+
+				//버튼 클릭시 댓글 삭제
+				button.addEventListener("click", function() {
+					let yn = confirm("댓글을 삭제하시겠습니까?");
+					console.log(yn);
+
+					//삭제 true면
+					if (yn) {
+						//commentData 에 item.num을 넣어준다! 즉 게시글의 번호를 넣어준다
+						commentData = { num: data.num, bdiv: bdiv };
+
+						//ajax를 통해 전달
+						$.ajax({
+							url: "deleteComment",
+							type: "DELETE",
+							data: JSON.stringify(commentData),
+							contentType: "application/json; charset=utf-8",
+							dataType: "text",
+							success: function() {
+								console.log("삭제완");
+								//동적 삭제
+								div.remove();
+							}
+						});
+					}
+				});
+
+				//div안에 생성된 버튼 삽입
+				div2.append(button);
+				
+				//div안에 생성된 내용 삽입
+				//버튼이 먼저 삽입됐기 때문에 버튼 위로 추가
+				div2.prepend(h5);
+
+				div.append(div2);
+				div.append(date);
+				div.append(p);
+
+				//commentList안에 div추가
+				commentList.append(div);
 				}
 			});
 		}

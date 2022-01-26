@@ -14,7 +14,7 @@
 	</select>
 	
 	<!-- 댓글 추가 -->
-	<insert id="insertSelfCmt" parameterType="mnwCmtVO">
+	<insert id="insertSelfCmt" parameterType="mnwCmtVO" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO selfflyercmt(id, cmt, createdate, bnum)
 		VALUES(#{id}, #{cmt}, #{createdate}, #{bnum})	
 	</insert>

@@ -14,7 +14,7 @@
 		</where>
 	</select>
 	
-	<insert id="insertFlyer" parameterType="selfVO">
+	<insert id="insertFlyer" parameterType="selfVO" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO selfflyertbl(mnum, id, petName, species, sex, age, characters, location, gratuity, phone, status, hasimg)
 		VALUES(#{mnum}, #{id}, #{name}, #{species}, #{sex}, #{age}, #{characters}, #{location}, #{gratuity}, #{phone}, #{hasimg})
 	</insert>

@@ -15,7 +15,7 @@
 	</select>
 	
 	<!-- 댓글 추가 -->
-	<insert id="insertMissCmt" parameterType="mnwCmtVO">
+	<insert id="insertMissCmt" parameterType="mnwCmtVO" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO misscmt(id, cmt, createdate, bnum)
 		VALUES(#{id}, #{cmt}, #{createdate}, #{bnum})	
 	</insert>
