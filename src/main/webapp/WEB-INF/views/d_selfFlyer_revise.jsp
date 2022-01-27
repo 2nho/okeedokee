@@ -74,7 +74,7 @@
 													<option value="" disabled="disabled">나이</option>
 													<c:forEach var="i" begin="0" end="24">
 														<c:set var="i" value="${i+1}" />
-														<option value="${i }">${i }살</option>
+														<option value="${i}" <c:if test="${selfVO.age == i }">selected="selected"</c:if>>${i }살</option>
 													</c:forEach>
 												</form:select>
 											</div>
@@ -88,10 +88,10 @@
 											</div>
 											<div class="question" id="q7">
 												<p>가능한 사례 금액을 선택해주세요.</p>
-												<form:select path="gratuity">
+												<form:select path="gratuity" name="gratuity" id="gratuity" required="required">
 													<c:forEach var="j" begin="1" end="6">
 														<c:set var="j" value="${j*5}" />
-														<option value="${j }">${j }만원</option>
+														<option value="${j}" <c:if test="${selfVO.gratuity == j }">selected="selected"</c:if>>${j }만원</option>
 													</c:forEach>
 														<option value="0">없음</option>
 												</form:select>

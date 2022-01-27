@@ -114,56 +114,46 @@ public class SelfFlyerService {
 	public void insertFlyer(selfFlyerVO vo) {
 
 		// JSON 객체에 대한 핸들링
-		/*
 		Gson gson = new Gson();
 		ImageVO[] fileArray = gson.fromJson(vo.getFileList(), ImageVO[].class);
 		List<ImageVO> fileList = Arrays.asList(fileArray);
-		*/
-		
+
 		// 게시글 등록
 		// 사진 등록하는 경우
 		if (vo.getFileList() != null) {
-		//if (!(fileList.isEmpty())) {
 			vo.setHasimg("Y");
 		}
 		// 사진 미등록인 경우
 		else if (vo.getFileList() == null) {
-		//else if (fileList.isEmpty()) {
 			vo.setHasimg("N");
 		}
-
 		// 전단지 게시판 db삽입 쿼리 실행
 		sqlSessionTemplate.insert("self.insertFlyer", vo);
 
 		// 이미지 이름 삽입 with 조회가능하게 num이름과 함께
-		ImageVO img = new ImageVO();
-		img.setBnum(vo.getNum());
-		img.setBdiv(vo.getBdiv());
-		sqlSessionTemplate.insert("img.insertImg", img);
-	}
-	
-	//게시글 수정시 이미지 삭제
-	/*
-	@Transactional
-	public void deleteFlyerImgFile(ImageVO[] ivos) {
-		for (ImageVO ivo : ivos) {
-			sqlSessionTemplate.delete("img.deleteImg", ivo);
+		for (ImageVO img : fileList) {
+			img.setBnum(vo.getNum());
+			img.setBdiv(vo.getBdiv());
+			sqlSessionTemplate.insert("img.insertImg", img);
 		}
-			
 	}
-	*/
-		
 
 	// 전단지 수정
 	public void updateFlyer(selfFlyerVO vo) {
 		// JSON 객체에 대한 핸들링
 		Gson gson = new Gson();
 		ImageVO[] fileArray = gson.fromJson(vo.getFileList(), ImageVO[].class);
+		// 사진 등록하는 경우
+		if (vo.getFileList() != null) {
+			vo.setHasimg("Y");
+		}
 
+		else if (vo.getFileList() == null) {
+			vo.setHasimg("N");
+		}
 		int i = sqlSessionTemplate.update("self.updateFlyer", vo);
-		System.out.println("된거야? : "+i);
+		System.out.println("된거야? : " + i);
 
-		
 		// 새로 추가한 파일이 1개 이상 있을 때만 아래 로직 실행
 		if (fileArray != null) {
 			List<ImageVO> fileList = Arrays.asList(fileArray);

@@ -179,17 +179,6 @@ public class SelfFlyerController {
 		return "d_selfFlyer_revise";
 	}
 	
-	// 게시글 수정 내 등록된 사진 삭제
-	/*
-	@PostMapping("/deleteFlyerFile")
-	public @ResponseBody ResponseEntity<String> deleteFile(@RequestBody ImageVO[] ivos) {
-		for(ImageVO imgVO : ivos) {
-			System.out.println("삭제num : "+imgVO.getNum());
-		}
-		service.deleteFlyerImgFile(ivos);
-		return new ResponseEntity<String>("DeleteFile Success", HttpStatus.OK);
-	}
-	*/
 
 	// 게시글 수정완료
 	@PostMapping("/reviseFlyerResult")
