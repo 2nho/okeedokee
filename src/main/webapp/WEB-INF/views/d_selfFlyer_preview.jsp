@@ -120,8 +120,15 @@
 		 locations.value = opener.document.getElementById("location").value;
 		 //전화번호
 		 phone.innerText = "Tel. "+opener.document.getElementById("phone").value;
+		 
 		 //이미지
-		 image.src = opener.document.getElementById("filePath").innerHTML;
+		 if(opener.document.getElementById("filePath").innerHTML == "") {
+			 image.src = "media/logo/mainLogo.png";
+		 }
+		 else {
+			 image.src = opener.document.getElementById("filePath").innerHTML;
+		 }
+		 
 		 //제목 배경색
 		 flyerTitle.style.backgroundColor = opener.document.getElementById("colorPicker").value;
 		 

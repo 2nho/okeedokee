@@ -1,6 +1,9 @@
 package kr.co.goodee39.controller;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,9 +19,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.goodee39.service.SelfFlyerService;
+import kr.co.goodee39.vo.ImageVO;
 import kr.co.goodee39.vo.mnwCmtVO;
 import kr.co.goodee39.vo.mnwVO;
 import kr.co.goodee39.vo.selfFlyerVO;
@@ -34,6 +40,7 @@ public class SelfFlyerController {
 	public String selfFlyer(Model model) {
 
 		service.selectFlyerList(model);
+		
 		return "d_selfFlyer";
 	}
 
@@ -153,26 +160,13 @@ public class SelfFlyerController {
 
 		return "redirect:/selfFlyer";
 	}
+	
 
 	// 전단지 만들기 미리보기창
 	@GetMapping("/preview")
-	public ModelAndView preview(@ModelAttribute("selfVO") selfFlyerVO vo, ModelAndView mav) {
-		// 데이터 오는지 출력해보기
+	public String preview() {
 
-		System.out.println("이름 : " + vo.getPetName());
-		System.out.println("견종 : " + vo.getSpecies());
-		System.out.println("성별 : " + vo.getSex());
-		System.out.println("나이 : " + vo.getAge());
-		System.out.println("특징 : " + vo.getCharacters());
-		System.out.println("실종장소 : " + vo.getLocation());
-		System.out.println("사례금 : " + vo.getGratuity());
-		System.out.println("연락처 : " + vo.getPhone());
-		System.out.println("사진 : " + vo.getFileList());
-		System.out.println("배경색 : " + vo.getColor());
-
-		mav.setViewName("d_selfFlyer_preview");
-
-		return mav;
+		return "d_selfFlyer_preview";
 	}
 
 	// 전단지 수정 페이지 이동
@@ -184,11 +178,23 @@ public class SelfFlyerController {
 
 		return "d_selfFlyer_revise";
 	}
+	
+	// 게시글 수정 내 등록된 사진 삭제
+	@PostMapping("/deleteFlyerFile")
+	public @ResponseBody ResponseEntity<String> deleteFile(@RequestBody ImageVO[] ivos) {
+		for(ImageVO imgVO : ivos) {
+			System.out.println("삭제num : "+imgVO.getNum());
+		}
+		service.deleteFlyerImgFile(ivos);
+		return new ResponseEntity<String>("DeleteFile Success", HttpStatus.OK);
+	}
 
 	// 게시글 수정완료
 	@PostMapping("/reviseFlyerResult")
-	public String reviseFlyerResult(selfFlyerVO vo) {
+	public String reviseFlyerResult(@ModelAttribute("selfVO") selfFlyerVO vo) {
 
+		service.updateFlyer(vo);
+		
 		return "redirect:/selfFlyer";
 	}
 

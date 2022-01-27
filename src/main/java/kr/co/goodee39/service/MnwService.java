@@ -232,7 +232,7 @@ public class MnwService {
 
 	}
 	
-	//게시글 수정시 이미지 지우기
+	//게시글 수정시 이미지 삭제
 	@Transactional
 	public void deleteImgFile(ImageVO[] ivos) {
 		for (ImageVO ivo : ivos) {

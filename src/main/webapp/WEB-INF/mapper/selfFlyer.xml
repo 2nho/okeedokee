@@ -24,16 +24,16 @@
 		UPDATE selfflyertbl
 		<set>
 			<if test="petName != null">petName = #{petName}</if>
-			<if test="species != null">species = #{species}</if>
-			<if test="sex != null">sex = #{sex}</if>
-			<if test="age != null">age = #{age}</if>
-			<if test="characters != null">characters = #{characters}</if>
-			<if test="location != null">location = #{location}</if>
-			<if test="gratuity != null">gratuity = #{gratuity}</if>
-			<if test="phone != null">phone = #{phone}</if>
-			<if test="color != null">color = #{color}</if>
-			<if test="status != null">status = #{status}</if>
-			<if test="hasimg != null">hasimg = #{hasimg}</if>
+			<if test="species != null">, species = #{species}</if>
+			<if test="sex != null">, sex = #{sex}</if>
+			<if test="age != null">, age = #{age}</if>
+			<if test="characters != null">, characters = #{characters}</if>
+			<if test="location != null">, location = #{location}</if>
+			<if test="gratuity != null">, gratuity = #{gratuity}</if>
+			<if test="phone != null">, phone = #{phone}</if>
+			<if test="color != null">, color = #{color}</if>
+			<if test="status != null">, status = #{status}</if>
+			<if test="hasimg != null">, hasimg = #{hasimg}</if>
 		</set>
 		WHERE num = #{num}
 	</update>

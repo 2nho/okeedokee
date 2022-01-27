@@ -717,7 +717,7 @@ main section #arti2 #boardBox #board #flyerBox #flyers {
 
 main section #arti2 #boardBox #board #flyerBox #flyers .flyer {
 	width: 100%;
-	height: 100%;
+	height: 400px;
 	padding: 10px;
 	background-color: #fbd157;
 }

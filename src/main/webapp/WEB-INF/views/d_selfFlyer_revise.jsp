@@ -40,7 +40,7 @@
 							<!-- 숨겨진 파일 업로드 버튼 -->
 							<input type="file" name="image" id="image" accept="image/*" style="display: none;"/>
 
-							<form:form modelAttribute="selfVO" method="get" action="" id="boardContent">
+							<form:form modelAttribute="selfVO" method="post" action="reviseFlyerResult" id="boardContent">
 								<label for="id">작성자&nbsp; |</label>
 
 								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
@@ -63,7 +63,7 @@
 											<div class="question" id="q3">
 												<p>강아지 성별은 무엇인가요?</p>
 												<form:select path="sex" name="sex" id="sex" required="required">
-													<option value="" disabled="disabled" selected="selected">성별</option>
+													<option value="" disabled="disabled">성별</option>
 													<option value="F">여</option>
 													<option value="M">남</option>
 												</form:select>
@@ -101,13 +101,23 @@
 												<form:input path="phone" type="text" name="phone" id="phone" required="required" maxlength=""/>
 											</div>
 											<div class="question" id="q9">
-												<p>알아볼 수 있도록 강아지 사진을 첨부해주세요.</p>										
+												<p>알아볼 수 있도록 강아지 사진을 첨부해주세요.</p>
 												<button type="button" id="callUpload">사진선택</button>
-												<!-- 사진 추가시 사진 제목 보여주기 -->												
+												<!-- 사진 추가시 사진 제목 보여주기 -->
 												<p id="fileResult"></p>
 												<!-- 사진 미리보기용 주소 -->
 												<p id="filePath">media/img/${filelist[0].localName}</p>
-												<form:hidden path="fileList" id="fileList"/>
+												<form:hidden path="fileList" id="fileList" />
+												<div class="fileBox">
+													<p>*등록된 사진</p>
+													<ul class="savedFile">
+														<c:forEach var="file" items="${filelist }">
+															<li><img src="media/img/${file.localName}" alt="" style="width: 50px; height:50px;"/><br />
+																<button data-num="${file.num}" class="deleteFile">삭제</button>
+															</li>
+														</c:forEach>
+													</ul>
+												</div>
 											</div>
 											<div class="question" id="q10">
 												<p>전단지 제목 배경 색을 선택해주세요. <br /><span>* 미선택시 분홍색입니다.</span></p>			
@@ -120,7 +130,7 @@
 									</div>
 								</div>
 								<form:hidden path="bdiv" value="7" />
-								<form:hidden path="num" value="${selfVO.num }" />
+								<form:hidden path="num"	 />
 							</form:form>
 							<div class="submitBtnBox">
 								<button type="button" id="preview">미리보기</button>

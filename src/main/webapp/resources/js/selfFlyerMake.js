@@ -24,8 +24,9 @@ function colorPick() {
 	let color = document.querySelector("#color");
 	
 	//새로 만드는 전단지 일경우 기본 컬러 설정
-	if(!(colorPicker.getAttribute("value")) && !(color.value)) {
+	if((colorPicker.getAttribute("value") == "") && !(color.value)) {
 		colorPicker.setAttribute("value", "#ff8080");
+		color.setAttribute("value", colorPicker.getAttribute("value"));
 	}
 	//전단지 수정시 저장된 컬러 가져오기
 	else if(color.value) {
@@ -92,12 +93,15 @@ function submitPost() {
 } submitPost();
 
 //게시글 수정시 이미지 삭제
-function deleteImg(num) {
+function deleteImg() {
 	const deleteBtn = document.querySelectorAll(".deleteFile");
-
+	
 	if (deleteBtn) {
 		for (let i = 0; i < deleteBtn.length; i++) {
 			deleteBtn[i].addEventListener("click", function() {
+				//게시판 수정시 사진 삭제 번호 담을 배열
+				let num = [];
+				
 				//dataset에 설정한 num을 상단 선언된 배열변수 num에 삽입
 				num.push({ num: this.dataset.num });
 
@@ -106,17 +110,25 @@ function deleteImg(num) {
 					console.log(num[j]);
 				};
 
-				//버튼의 부모, 즉 사진 li지우기
+				//미리 보기 파일 초기화
+				document.querySelector("#filePath").innerText = "";
+				//버튼의 부모, 즉 사진 li와 '*등록된 사진' 지우기
+				document.querySelector(".fileBox>p").remove();
 				this.parentNode.remove();
+				
+				//DB반영
+				deleteInfo(num);
 			});
 		}
 	}
+	
 } deleteImg();
 
 //이미지 삭제 
 function deleteInfo(num) {
+	console.log(num);
 	$.ajax({
-		url: 'deleteFile',
+		url: 'deleteFlyerFile',
 		data: JSON.stringify(num),
 		type: "post",
 		contentType: "application/json; charset=uft-8;",
@@ -149,7 +161,7 @@ function previewWin() {
 		window.open(
 			"preview",
 			"_blank",
-			"top=200, left=200, width=1000, height=2000");
+			"top=200, left=200, width=1500, height=1700");
 	});
 } previewWin();
 
