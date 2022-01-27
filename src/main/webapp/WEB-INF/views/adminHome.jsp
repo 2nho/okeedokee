@@ -38,7 +38,7 @@
 					<div>
 					<!-- 세개의 게시글 count 더하기 -->
 						<h1>${missing+witness}</h1>
-						<h2>새 실종/목격글</h2>
+						<h2>새실종/목격글</h2>
 					</div>
 					<div>
 						<h1>${nMember}</h1>
