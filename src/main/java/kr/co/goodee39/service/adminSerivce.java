@@ -10,28 +10,43 @@ import org.springframework.ui.Model;
 
 import kr.co.goodee39.vo.DonationVO;
 import kr.co.goodee39.vo.MemberVO;
-import kr.co.goodee39.vo.adminReportVO;
+import kr.co.goodee39.vo.mnwVO;
 
 @Service
 public class adminSerivce {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
-	public void TotalMember(MemberVO vo, Model model) {
+	public void TotalMember(Model model) {
+		MemberVO vo = new MemberVO();
 		model.addAttribute("total",sqlSessionTemplate.selectOne("member.totalMember", vo));
 	}
 
-	public void NewMember(MemberVO vo, Model model) {
+	public void NewMember(Model model) {
+		MemberVO vo =new MemberVO();
 		LocalDate now = LocalDate.now();
-		String date = now.getMonth().toString();
-		vo.setSignupDate(date);
+		//String date = now.getMonthValue()+""; 가능
+		String date = String.valueOf(now.getMonthValue());
+		vo.setsignupDay(date);
 		// new class static 변수 사용 불가능
-		model.addAttribute("newMember",sqlSessionTemplate.selectOne("member.newMember", vo));
+		model.addAttribute("nMember",sqlSessionTemplate.selectOne("member.newMember", vo));
 	}
 	
-	public void selectMoney(DonationVO vo, Model model) {
+	public void selectMoney(Model model) {
+		DonationVO vo = new DonationVO();
 		LocalDate now = LocalDate.now();
-		String date = now.getMonth().toString();
+		String date = String.valueOf(now.getMonthValue());
 		vo.setDate(date);
 		model.addAttribute("money",sqlSessionTemplate.selectOne("donation.selectMoney", vo));
+	}
+	
+	public void sumBBS(Model model) {
+		mnwVO vo = new mnwVO();
+		LocalDate now = LocalDate.now();
+		String date = String.valueOf(now);
+		//System.out.println(date.getClass().getName());
+		//System.out.println(date);
+		vo.setCreatedate(date);
+		model.addAttribute("missing",sqlSessionTemplate.selectOne("misstbl.selectMissing", vo));
+		model.addAttribute("witness",sqlSessionTemplate.selectOne("witnesstbl.selectWitness", vo));
 	}
 }

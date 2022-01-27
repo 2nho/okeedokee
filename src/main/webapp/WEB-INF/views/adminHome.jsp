@@ -36,11 +36,12 @@
 						<h2>이번달 후원금액</h2>
 					</div>
 					<div>
-						<h1>${12}</h1>
-						<h2>입양건수</h2>
+					<!-- 세개의 게시글 count 더하기 -->
+						<h1>${missing+witness}</h1>
+						<h2>새 실종/목격글</h2>
 					</div>
 					<div>
-						<h1>${newMember}</h1>
+						<h1>${nMember}</h1>
 						<h2>신규회원</h2>
 					</div>
 				</div>
