@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="notice">
+	<select id="selectNoticeCount" parameterType="tvo" resultType="int">
+		<!-- 전체 행 개수 가져오기 -->
+		select count(*)
+		from notice
+		where del = 'N'
+		
+		<!-- 검색 동적 쿼리 조건을 통해서 색인 -->
+		<choose>
+			<when test="title != null and content != null">
+				and (title like #{title} or content like #{content})
+			</when>
+			<when test="title == null and content != null">
+				and content like #{content}
+			</when>
+			<when test="title != null and content == null">
+				and title like #{title}
+			</when>
+		</choose>
+	</select>
+	
+	<select id="selectNoticeList" parameterType="tvo" resultType="tvo">
+		select num, title, date, name, del
+		from notice
+		where del = 'N'
+		
+		<choose>
+			<when test="title != null and content != null">
+				and (title like #{title} or content like #{content})
+			</when>
+			<when test="title == null and content != null">
+				and content like #{content}
+			</when>
+			<when test="title != null and content == null">
+				and title like #{title}
+			</when>
+		</choose>
+			order by num desc		
+			limit #{start}, #{count}
+	</select>
+	
+	<select id="selectNotice" parameterType="tvo" resultType="tvo">
+			select num, content, title, date, name, del
+		from notice
+		where del = 'N'
+		and num=#{num}
+	</select>
+	
+	<update id="updateNotice" parameterType="tvo">
+		update notice
+		<set>
+			<if test="title!=null">, title=#{title}</if>
+			<if test="content!=null">, content=#{content}</if>
+		</set>
+		where num=#{num}
+	</update>
+	
+	<delete id="deleteNotice" parameterType="tvo">
+		<!-- 실제 지우는 것이 아닌 isdelete의 신호만 바꾸주어서 select 하지 못하도록 함 -->
+		update notice set del='Y' where num=#{num}
+	</delete>
+	
+	<insert id="insertNotice" parameterType="tvo"
+		useGeneratedKeys="true" keyProperty="num">
+		insert into notice(title, content,  name, date)
+		values(#{title}, #{content}, #{name}, #{date})
+	</insert>
+</mapper>

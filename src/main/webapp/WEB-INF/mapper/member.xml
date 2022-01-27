@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+  
+<mapper namespace="member">
+	<select id="selectMember" parameterType="memberVO" resultType="memberVO">
+		select mnum, id, pw, name, email, phNum
+		from member
+		where id = #{id}
+		and pw = #{pw}
+	</select>
+	
+	<insert id="insertMember" parameterType="memberVO">
+		insert into member(id, pw, name, address, email, phNum, 
+							petOwn, size, level, signupDay, del )
+		values(#{id}, #{pw}, #{name}, #{address}, #{email}, #{phNum}, 
+				#{petOwn}, #{size}, #{level}, #{signupDay}, #{del} )
+	</insert>
+		
+	<update id="updateMember" parameterType="memberVO">
+		update member
+		<set>
+			<if test="pw!=null">pw=#{pw}</if>
+			<if test="name!=null">name=#{name}</if>
+			<if test="email!=null">email=#{email}</if>
+			<if test="phNum!=null">phNum=#{phNum}</if>
+		</set>
+		where  id=#{id}
+	</update>
+	
+	<delete id="deleteMember" parameterType="memberVO">
+		delete from member where id=#{id}
+	</delete>
+</mapper>
