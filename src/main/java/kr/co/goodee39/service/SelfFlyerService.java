@@ -11,12 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.gson.Gson;
 
 import kr.co.goodee39.vo.ImageVO;
 import kr.co.goodee39.vo.mnwCmtVO;
+import kr.co.goodee39.vo.mnwVO;
 import kr.co.goodee39.vo.selfFlyerVO;
 
 @Service
@@ -118,13 +121,13 @@ public class SelfFlyerService {
 		ImageVO[] fileArray = gson.fromJson(vo.getFileList(), ImageVO[].class);
 		List<ImageVO> fileList = Arrays.asList(fileArray);
 
-		// 게시글 등록
-		// 사진 등록하는 경우
-		if (vo.getFileList() != null) {
+
+		// 사진 등록시
+		if (vo.getFileList().contains("num")) {
 			vo.setHasimg("Y");
 		}
-		// 사진 미등록인 경우
-		else if (vo.getFileList() == null) {
+		// 사진 미등록시
+		else if (!(vo.getFileList().contains("num"))) {
 			vo.setHasimg("N");
 		}
 		// 전단지 게시판 db삽입 쿼리 실행
@@ -143,14 +146,18 @@ public class SelfFlyerService {
 		// JSON 객체에 대한 핸들링
 		Gson gson = new Gson();
 		ImageVO[] fileArray = gson.fromJson(vo.getFileList(), ImageVO[].class);
-		// 사진 등록하는 경우
-		if (vo.getFileList() != null) {
+	
+		
+		// 사진 등록시
+		if (vo.getFileList().contains("num")) {
 			vo.setHasimg("Y");
 		}
-
-		else if (vo.getFileList() == null) {
+		//사진 미등록시
+		else if (!(vo.getFileList().contains("num"))) {
 			vo.setHasimg("N");
 		}
+		
+		// 전단지 게시판 db수정 쿼리 실행
 		int i = sqlSessionTemplate.update("self.updateFlyer", vo);
 		System.out.println("된거야? : " + i);
 
@@ -166,5 +173,23 @@ public class SelfFlyerService {
 			}
 		}
 	}
+	
+	
+	//전단지 삭제
+	public void deleteFlyer(int bdiv, int num, selfFlyerVO vo) {
+		
+		vo.setNum(num);
+		sqlSessionTemplate.delete("self.deleteFlyer", vo);
+		
+	}
+	
+	//전단지 상태처리(귀가/종료)
+	public void updateStatusFlyer(int bdiv, int num, selfFlyerVO vo) {
+		
+		vo.setNum(num);
+		sqlSessionTemplate.update("self.updateFlyer", vo);
+	}
+	
+
 	
 }

@@ -42,10 +42,20 @@ function colorPick() {
 
 //이미지 전달
 function submitPost() {
+	
+	let num = [];
+	
+	deleteImg(num);
+	
 	const submitBtn = document.querySelector("#submit");
-
 	submitBtn.addEventListener("click", function() {
 
+		//DB반영
+		//이미지 삭제 함수는 deleteFile버튼 존재시에만 적용
+		if (document.querySelector(".fileBox")) {
+			deleteInfo(num);
+		}
+		
 		/* 파일 업로드 */
 		//formData객체 불러오기
 		const formData = new FormData();
@@ -93,14 +103,16 @@ function submitPost() {
 } submitPost();
 
 //게시글 수정시 이미지 삭제
-function deleteImg() {
+function deleteImg(num) {
 	const deleteBtn = document.querySelectorAll(".deleteFile");
+	const filePath = document.querySelector("#filePath");
+	const fileBoxText = document.querySelector(".fileBox>p");
 	
 	if (deleteBtn) {
+		
 		for (let i = 0; i < deleteBtn.length; i++) {
 			deleteBtn[i].addEventListener("click", function() {
 				//게시판 수정시 사진 삭제 번호 담을 배열
-				let num = [];
 				
 				//dataset에 설정한 num을 상단 선언된 배열변수 num에 삽입
 				num.push({ num: this.dataset.num });
@@ -111,18 +123,17 @@ function deleteImg() {
 				};
 
 				//미리 보기 파일 초기화
-				document.querySelector("#filePath").innerText = "";
+				filePath.innerText = "";
 				//버튼의 부모, 즉 사진 li와 '*등록된 사진' 지우기
-				document.querySelector(".fileBox>p").remove();
+				fileBoxText.remove();
 				this.parentNode.remove();
 				
-				//DB반영
-				deleteInfo(num);
 			});
 		}
 	}
 	
-} deleteImg();
+};
+
 
 //이미지 삭제 
 function deleteInfo(num) {
@@ -139,6 +150,19 @@ function deleteInfo(num) {
 		}
 	});
 }
+
+
+//저장된 사진이 없다면 '*등록된 사진' 지우기
+function savedImgComment() {
+	
+	const filePath = document.querySelector("#filePath");
+	const fileBoxText = document.querySelector(".fileBox>p");
+	
+	if(fileBoxText && filePath.innerText == "") {
+		fileBoxText.style.display = "none";
+	}
+}savedImgComment();
+
 
 //전화번호 자동 하이픈 추가
 function autoHypen() {

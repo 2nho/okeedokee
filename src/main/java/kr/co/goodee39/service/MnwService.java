@@ -289,7 +289,7 @@ public class MnwService {
 		return path;
 	}
 	
-	//게시글 귀가/종료처리
+	//게시글 상태처리(귀가/종료)
 	public String updateStatus(int bdiv, int num, mnwVO vo) {
 		String path = "";
 		

@@ -189,16 +189,33 @@ public class SelfFlyerController {
 		return "redirect:/selfFlyer";
 	}
 
-	/*
-	 * //상태처리(귀가/종료)
-	 * 
-	 * @GetMapping("/backFlyer") public String backFlyer() { return ""; }
-	 * 
-	 * @GetMapping("/endFlyer") public String endFlyer() { return ""; }
-	 * 
-	 * //전단지 삭제
-	 * 
-	 * @GetMapping("/isdeleteFlyer") public String isdeleteFlyer() { return ""; }
-	 */
+	//전단지 삭제
+	@GetMapping("/isdeleteFlyer")
+	public String isdelete(@RequestParam int bdiv, @RequestParam int num, selfFlyerVO vo) {
+		
+		service.deleteFlyer(bdiv, num, vo);
+		
+		return "redirect:/selfFlyer";
+	}
+	
+	//전단지 귀가처리
+	@GetMapping("/backFlyer")
+	public String back(@RequestParam int bdiv, @RequestParam int num, selfFlyerVO vo) {
+		
+		vo.setStatus("B");
+		service.updateStatusFlyer(bdiv, num, vo);
+		
+		return "redirect:/selfFlyer";
+	}
+	
+	//전단지 종료처리
+	@GetMapping("/endFlyer")
+	public String end(@RequestParam int bdiv, @RequestParam int num, selfFlyerVO vo) {
 
+		vo.setStatus("E");
+		service.updateStatusFlyer(bdiv, num, vo);
+		
+		return "redirect:/selfFlyer";
+	}
+	
 }

@@ -241,7 +241,7 @@ function submitCmt() {
 } submitCmt();
 
 
-
+//실종위치, 특징 글자수에 따라 폰트 사이즈 조절
 function resizeFont() {
 	let characters = document.getElementById("characters");
 	let locations = document.getElementById("location");
@@ -261,3 +261,5 @@ function resizeFont() {
 		characters.style.fontSize = "17px";
 	}
 } resizeFont();
+
+

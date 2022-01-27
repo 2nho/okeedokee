@@ -106,7 +106,7 @@
 												<!-- 사진 추가시 사진 제목 보여주기 -->
 												<p id="fileResult"></p>
 												<!-- 사진 미리보기용 주소 -->
-												<p id="filePath">media/img/${filelist[0].localName}</p>
+												<p id="filePath"><c:if test="${filelist[0].localName != null}">media/img/${filelist[0].localName}</c:if></p>
 												<form:hidden path="fileList" id="fileList" />
 												<div class="fileBox">
 													<p>*등록된 사진</p>

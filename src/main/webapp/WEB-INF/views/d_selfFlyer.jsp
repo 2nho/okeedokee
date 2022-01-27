@@ -78,8 +78,10 @@
 												<h3>${f.id }님의 전단지</h3>
 												<p>${f.petName } 어디있니?</p>
 											</div>
-											
+											<!-- 게시글 상태 처리용 -->
+											<input type="hidden" name="status" class="status" value="${f.status}" />
 										</div>
+										
 									</a>
 									</c:forEach>
 								</div>
@@ -96,6 +98,7 @@
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
 
+<script type="text/javascript" src="js/selfFlyer.js"></script>
 
 </body>
 </html>

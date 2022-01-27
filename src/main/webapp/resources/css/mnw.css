@@ -715,7 +715,7 @@ main section #arti2 #boardBox #board #flyerBox #flyers {
 	margin: 0 auto;
 }
 
-main section #arti2 #boardBox #board #flyerBox #flyers .flyer {
+main section #arti2 #boardBox #board #flyerBox #flyers a .flyer {
 	width: 100%;
 	height: 400px;
 	padding: 10px;
@@ -731,7 +731,40 @@ main section #arti2 #boardBox #board #flyerBox #flyers .flyer .flyerImg img {
 	width: 100%;
 	height: 100%;
 }
+/* 셀프 전단지 상태 처리 */
+main section #arti2 #boardBox #board #flyerBox #flyers a {
+	position: relative;
+}
+main section #arti2 #boardBox #board #flyerBox #flyers a .flyer.back:after {
+	content: "귀가";
+	color: #D0DF1D;
+}
+main section #arti2 #boardBox #board #flyerBox #flyers a .flyer.end:after {
+	content: "종료";
+	color: black;
+}
+main section #arti2 #boardBox #board #flyerBox #flyers a .flyer.report:after {
+	content: "신고된 글입니다.";
+	color: #800000;
+}
 
+main section #arti2 #boardBox #board #flyerBox #flyers a .flyer.back:after,
+main section #arti2 #boardBox #board #flyerBox #flyers a .flyer.end:after,
+main section #arti2 #boardBox #board #flyerBox #flyers a .flyer.report:after {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, .5);
+	font-weight: 900;
+	font-size: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 /* 셀프전단지 읽기 */
 main section #arti2 #boardBox #board #boardContent #printNshare {
 	width: 80%;
