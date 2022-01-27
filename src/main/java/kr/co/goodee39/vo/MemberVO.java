@@ -111,9 +111,5 @@ public class MemberVO {
 	public void setsignupDay(String signupDay) {
 		this.signupDay = signupDay;
 	}
-	public void setSignupDate(String signupDay) {
-		this.signupDay = signupDay;
-	}
-	
 	
 }
