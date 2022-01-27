@@ -232,15 +232,6 @@ public class MnwService {
 
 	}
 	
-	//게시글 수정시 이미지 삭제
-	@Transactional
-	public void deleteImgFile(ImageVO[] ivos) {
-		for (ImageVO ivo : ivos) {
-			sqlSessionTemplate.delete("img.deleteImg", ivo);
-		}
-		
-	}
-	
 	//게시글 수정 후 이미지 없을 시 hasimg변경
 	public void changeHasimg(mnwVO vo) {
 		

@@ -143,6 +143,7 @@ public class SelfFlyerService {
 	}
 	
 	//게시글 수정시 이미지 삭제
+	/*
 	@Transactional
 	public void deleteFlyerImgFile(ImageVO[] ivos) {
 		for (ImageVO ivo : ivos) {
@@ -150,6 +151,7 @@ public class SelfFlyerService {
 		}
 			
 	}
+	*/
 		
 
 	// 전단지 수정

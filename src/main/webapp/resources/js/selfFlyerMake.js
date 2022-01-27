@@ -128,7 +128,7 @@ function deleteImg() {
 function deleteInfo(num) {
 	console.log(num);
 	$.ajax({
-		url: 'deleteFlyerFile',
+		url: 'deleteFile',
 		data: JSON.stringify(num),
 		type: "post",
 		contentType: "application/json; charset=uft-8;",
