@@ -109,7 +109,7 @@ button span {
 							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
 							         </svg>
-							         <span>글쓰기</span>
+							         <span>로그인</span>
 							    </button></li>
 							</ul>
 						</form>
