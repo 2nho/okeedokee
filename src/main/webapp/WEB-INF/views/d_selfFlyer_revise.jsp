@@ -40,14 +40,14 @@
 							<!-- 숨겨진 파일 업로드 버튼 -->
 							<input type="file" name="image" id="image" accept="image/*" style="display: none;"/>
 
-							<form:form modelAttribute="selfVO" method="post" action="createFlyerResult" id="boardContent">
+							<form:form modelAttribute="selfVO" method="get" action="" id="boardContent">
 								<label for="id">작성자&nbsp; |</label>
 
 								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
 								<!-- sessionScope.account.id -->
 								<form:input path="id" type="text" name="id" id="id" readonly="true" value="sessionId" />
 								<!--  sessionScope.account.mnum  -->
-								<form:hidden path="mnum" name="mnum" id="mnum" value="100" />
+								<form:hidden path="mnum" name="mnum" id="mnum" value="${selfVO.mnum }" />
 
 								<div id="informBox">
 									<div id="inform">
@@ -71,7 +71,7 @@
 											<div class="question" id="q4">
 												<p>강아지 나이는 몇살인가요?</p>
 												<form:select path="age" name="age" id="age" required="required">
-													<option value="" disabled="disabled" selected="selected">나이</option>
+													<option value="" disabled="disabled">나이</option>
 													<c:forEach var="i" begin="0" end="24">
 														<c:set var="i" value="${i+1}" />
 														<option value="${i }">${i }살</option>
@@ -106,7 +106,7 @@
 												<!-- 사진 추가시 사진 제목 보여주기 -->												
 												<p id="fileResult"></p>
 												<!-- 사진 미리보기용 주소 -->
-												<p id="filePath"></p>
+												<p id="filePath">media/img/${filelist[0].localName}</p>
 												<form:hidden path="fileList" id="fileList"/>
 											</div>
 											<div class="question" id="q10">
@@ -120,6 +120,7 @@
 									</div>
 								</div>
 								<form:hidden path="bdiv" value="7" />
+								<form:hidden path="num" value="${selfVO.num }" />
 							</form:form>
 							<div class="submitBtnBox">
 								<button type="button" id="preview">미리보기</button>

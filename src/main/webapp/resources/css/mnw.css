@@ -445,8 +445,10 @@ main section #arti2 #boardBox #board .submitBtnBox {
 	justify-content: center;
 }
 
-main section #arti2 #boardBox #board .submitBtnBox #submit {
+main section #arti2 #boardBox #board .submitBtnBox #submit,
+main section #arti2 #boardBox #board .submitBtnBox #preview {
 	padding: 10px 30px;
+	margin: 0 10px;
 	background-color: #fbd157;
 	border: none;
 	outline: none;
@@ -679,8 +681,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #informTab
 	outline: none;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable .fileBox .savedFile li .deleteFile:hover
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable .fileBox .savedFile li .deleteFile:hover {
 	background-color: #f9f1c0;
 }
 
@@ -695,21 +696,19 @@ main section #arti2 #boardBox #board #flyerBox::-webkit-scrollbar {
 	width: 15px; /*스크롤바의 너비*/
 }
 
-main section #arti2 #boardBox #board #flyerBox::-webkit-scrollbar-thumb
-	{
+main section #arti2 #boardBox #board #flyerBox::-webkit-scrollbar-thumb {
 	background-color: #FBD157; /*스크롤바의 색상*/
 	border-radius: 20px;
 }
 
-main section #arti2 #boardBox #board #flyerBox::-webkit-scrollbar-track
-	{
+main section #arti2 #boardBox #board #flyerBox::-webkit-scrollbar-track {
 	background-color: white; /*스크롤바 트랙 색상*/
 }
 
 main section #arti2 #boardBox #board #flyerBox #flyers {
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(3, .5fr);
+	grid-template-columns: repeat(3, .29fr);
 	gap: 30px 50px;
 	padding: 10px; margin : 0 auto;
 	justify-content: space-between;
@@ -718,17 +717,17 @@ main section #arti2 #boardBox #board #flyerBox #flyers {
 
 main section #arti2 #boardBox #board #flyerBox #flyers .flyer {
 	width: 100%;
+	height: 100%;
 	padding: 10px;
 	background-color: #fbd157;
 }
 
-main section #arti2 #boardBox #board #flyerBox #flyers .flyer .flyerImg
-	{
+main section #arti2 #boardBox #board #flyerBox #flyers .flyer .flyerImg {
+	height: 80%;
 	background-color: #fff;
 }
 
-main section #arti2 #boardBox #board #flyerBox #flyers .flyer .flyerImg img
-	{
+main section #arti2 #boardBox #board #flyerBox #flyers .flyer .flyerImg img {
 	width: 100%;
 	height: 100%;
 }
@@ -757,7 +756,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #ff8080;
+	/* background-color: #ff8080; */
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent #flyerTitle>h1
@@ -785,6 +784,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward
 	{
 	width: 80%;
+	padding: 0;
 	margin: 30px auto;
 	background-color: #eee;
 }
@@ -803,7 +803,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable tr,
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:last-child
 	{
-	font-size: 35px;
+	font-size: 30px;
 	font-weight: bold;
 	line-height: 100px;
 }
@@ -825,6 +825,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 	font-size: 30px;
 	font-weight: bold;
 	background-color: #eee;
+	width: 100%;
 }
 
 /* 전단지 프린트 설정 */
@@ -839,7 +840,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 	main section #arti2 #boardBox #board #boardContent #id, 
 	main section #arti2 #boardBox #board #boardContent #sessinId,
 	main section #arti2 #boardBox #board #boardContent .printNshare,
-	main section #arti2 #boardBox #board #boardContent #btnBox,
+	main section #arti2 #boardBox #board #boardContent .btnBox,
 	main section #arti2 #boardBox #board #boardContent #printNshare,
 	main section #arti2 #boardBox #board #boardContent #informBox #inform .comment {
 		display: none;
@@ -855,6 +856,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 		margin: auto 0;
 
 	}
+	/* 인쇄시 머릿글, 꼬릿글 지우기 */
 	@page {
 		margin: 0;
 	}
@@ -879,4 +881,12 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMake
 	width: 100%;
 	border: none;
 	outline: none;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question #fileResult,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker #q10 p span {
+	font-size: 13px;
+	font-weight: 500;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question #filePath {
+	display: none;
 }

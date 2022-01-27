@@ -16,6 +16,7 @@ public class selfFlyerVO {
 	private String status;
 	private String hasimg;
 	private int bdiv;
+	private String color;
 	private String fileList;
 	
 	
@@ -161,6 +162,16 @@ public class selfFlyerVO {
 
 	public void setBdiv(int bdiv) {
 		this.bdiv = bdiv;
+	}
+
+
+	public String getColor() {
+		return color;
+	}
+
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 

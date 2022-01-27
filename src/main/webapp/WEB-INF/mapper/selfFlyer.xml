@@ -7,16 +7,17 @@
 <mapper namespace="self">
 
 	<select id="selectFlyer" parameterType="selfVO" resultType="selfVO">
-		SELECT num, mnum, id, petName, species, sex, age, characters, location, gratuity, phone, status, hasimg
+		SELECT num, mnum, id, petName, species, sex, age, characters, location, gratuity, phone, color, status, hasimg
 		FROM selfflyertbl
 		<where>
 			<if test="num != null">num = #{num}</if>
 		</where>
+		ORDER BY num DESC
 	</select>
 	
 	<insert id="insertFlyer" parameterType="selfVO" useGeneratedKeys="true" keyProperty="num">
-		INSERT INTO selfflyertbl(mnum, id, petName, species, sex, age, characters, location, gratuity, phone, status, hasimg)
-		VALUES(#{mnum}, #{id}, #{name}, #{species}, #{sex}, #{age}, #{characters}, #{location}, #{gratuity}, #{phone}, #{hasimg})
+		INSERT INTO selfflyertbl(mnum, id, petName, species, sex, age, characters, location, gratuity, phone, color, hasimg)
+		VALUES(#{mnum}, #{id}, #{petName}, #{species}, #{sex}, #{age}, #{characters}, #{location}, #{gratuity}, #{phone}, #{color}, #{hasimg})
 	</insert>
 	
 	<update id="updateFlyer" parameterType="selfVO">
@@ -30,6 +31,7 @@
 			<if test="location != null">location = #{location}</if>
 			<if test="gratuity != null">gratuity = #{gratuity}</if>
 			<if test="phone != null">phone = #{phone}</if>
+			<if test="color != null">color = #{color}</if>
 			<if test="status != null">status = #{status}</if>
 			<if test="hasimg != null">hasimg = #{hasimg}</if>
 		</set>

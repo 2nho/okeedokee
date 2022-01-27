@@ -49,14 +49,14 @@
 								<div class="btnBox">
 									<!-- 실제 세션 정보 수정 필!!!! -->
 									<c:if test="${sessionScope.account == selfVO.id}">
-										<a href="${pageContext.request.contextPath}/revise?bdiv=3&num=${selfVO.num}">수정</a>
-										<a href="${pageContext.request.contextPath}/back?bdiv=3&num=${selfVO.num}" id="back">귀가</a>
-										<a href="${pageContext.request.contextPath}/end?bdiv=3&num=${selfVO.num}" id="end">종료</a>
-										<a href="${pageContext.request.contextPath}/isdelete?bdiv=3&num=${selfVO.num}">삭제</a>
+										<a href="${pageContext.request.contextPath}/reviseFlyer?bdiv=7&num=${selfVO.num}">수정</a>
+										<a href="${pageContext.request.contextPath}/backFlyer?bdiv=7&num=${selfVO.num}" id="back">귀가</a>
+										<a href="${pageContext.request.contextPath}/endFlyer?bdiv=7&num=${selfVO.num}" id="end">종료</a>
+										<a href="${pageContext.request.contextPath}/isdeleteFlyer?bdiv=7&num=${selfVO.num}">삭제</a>
 									</c:if>
 									<!-- 실제 세션 정보 수정 필!!!! -->
 									<c:if test="${sessionScope.account != selfVO.id}">
-										<a href="${pageContext.request.contextPath}/report?bdiv=3&num=${selfVO.num}">신고</a>
+										<a href="${pageContext.request.contextPath}/report?bdiv=7&num=${selfVO.num}">신고</a>
 									</c:if>
 								</div>
 								<div id="printNshare">
@@ -65,13 +65,13 @@
 								<div id="informBox">
 									<div id="inform">
 										<div id="flyerContent">
-											<div id="flyerTitle">
+											<div id="flyerTitle" style="background-color: ${selfVO.color};">
 												<h1>강아지를 찾습니다.</h1>
 											</div>
 											<div class="imgBox">
 												<c:if test="${selfVO.hasimg == 'Y'}">
 													<c:forEach var="img" items="${filelist }">
-														<img alt="" src="media/img/${img.localName}" class="mySlides fade">
+														<img alt="" src="media/img/${img.localName}">
 													</c:forEach>
 												</c:if>
 												<c:if test="${selfVO.hasimg == 'N'}">

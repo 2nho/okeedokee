@@ -8,7 +8,6 @@
 <link href="css/layout.css" rel="stylesheet" />
 <link href="css/adminHome.css" rel="stylesheet" />
 <script src="https://d3js.org/d3.v7.min.js"></script>
-
 </head>
 
 <body>
@@ -29,11 +28,11 @@
 			<section>
 				<div class="box">
 					<div>
-						<h1>${352}</h1>
+						<h1>${total}</h1>
 						<h2>회원수</h2>
 					</div>
 					<div>
-						<h1>${132123}</h1>
+						<h1>${money}</h1>
 						<h2>이번달 후원금액</h2>
 					</div>
 					<div>
@@ -41,7 +40,7 @@
 						<h2>입양건수</h2>
 					</div>
 					<div>
-						<h1>${21}</h1>
+						<h1>${newMember}</h1>
 						<h2>신규회원</h2>
 					</div>
 				</div>
