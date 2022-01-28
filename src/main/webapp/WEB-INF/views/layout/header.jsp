@@ -13,21 +13,21 @@
 			<div class="nav1">
 				<div class="nav1-pagelink">
 					<ul>
-						<li><a href="Introduction">소개</a></li>
-						<li><a href="Announcement_detail">유기견공고</a></li>
-						<li><a href="missing">실종/목격 게시판</a></li>
+						<li><a href="/okeedokee/Introduction">소개</a></li>
+						<li><a href="/okeedokee/Announcement_detail">유기견공고</a></li>
+						<li><a href="/okeedokee/missing">실종/목격 게시판</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="header-logo">
-				<img src="${pageContext.request.contextPath}/media/logo/mainLogo.png" alt="로고" />
+				<img src="/okeedokee/media/logo/mainLogo.png" alt="로고" />
 			</div>
 			<div class="nav2">
 				<div class="nav2-pagelink">
 					<ul>
 						<li><a href="">후원/봉사</a></li>
-						<li><a href="">공지사항</a></li>
-						<li><a href="">로그인/회원가입</a></li>
+						<li><a href="/okeedokee/Notice/main">공지사항</a></li>
+						<li><a href="/okeedokee/member/loginPage">로그인/회원가입</a></li>
 					</ul>
 				</div>
 			</div>
