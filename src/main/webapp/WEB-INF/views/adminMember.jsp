@@ -23,7 +23,6 @@
 					<li><h2>관리자모드</h2></li>
 					<li><h3>Home</h3></li>
 					<li><h3 class="red">회원관리</h3></li>
-					<li><h3>게시글관리</h3></li>
 					<li><h3>신고관리</h3></li>
 					<li><h3>일정관리</h3></li>
 				</ul>
