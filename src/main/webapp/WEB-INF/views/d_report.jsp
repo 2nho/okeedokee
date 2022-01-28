@@ -26,7 +26,7 @@
 					<div id="boardBox">
 						<div id="board">
 
-							<%-- <form:form modelAttribute="" method="post" action="" id="boardContent">
+							<form:form modelAttribute="repVO" method="post" action="reportResult" id="boardContent">
 								<label for="id">작성자&nbsp; |</label>
 
 								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
@@ -44,11 +44,11 @@
 
 									</div>
 								</div>
-								<form:hidden path="bdiv" value="8" />
+								<form:hidden path="bdiv" value="1" />
 							</form:form>
 							<div class="submitBtnBox">
 								<button type="button" id="submit">등록</button>
-							</div> --%>
+							</div>
 						</div>
 					</div>
 				</article>
