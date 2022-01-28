@@ -52,7 +52,9 @@ div>h1 {
 	font-size: 40px;
 }
 .chart {
-	margin-left: 100px;
+	width : 100%;
+	display: flex;
+	justify-content: center;
 }
 .red {
 	color: red;
