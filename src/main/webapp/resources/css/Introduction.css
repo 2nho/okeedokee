@@ -107,7 +107,7 @@ body {
 .expanation-title h1::before {
     content: "아이의 두번째 이름을 지어주세요.";
     position: absolute;
-    top: 480%;
+    top: 460%;
     left: -75%;
     width: 100%;
     height: 100%;
