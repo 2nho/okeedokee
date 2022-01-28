@@ -14,6 +14,10 @@ public class reportVO {
 	private int start;
 	private int count;
 	
+	public reportVO() {
+		this.start = 0;
+		this.count = 10;
+	}
 	
 	public int getNum() {
 		return num;
