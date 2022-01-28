@@ -13,8 +13,8 @@
 			<div class="nav1">
 				<div class="nav1-pagelink">
 					<ul>
-						<li><a href="">소개</a></li>
-						<li><a href="">유기견공고</a></li>
+						<li><a href="Introduction">소개</a></li>
+						<li><a href="Announcement_detail">유기견공고</a></li>
 						<li><a href="missing">실종/목격 게시판</a></li>
 					</ul>
 				</div>

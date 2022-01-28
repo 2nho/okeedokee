@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* 메인 */
+
+body {
+    background-color: #F9F1C0;
+}
+
+.main-content {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-explanation {
+    position: absolute;
+    width: 400px;
+    top: 250px;
+    left: 450px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.content-title {
+    margin-bottom: 170px;
+}
+
+.expanation-title {
+    font-size: 1.8rem;
+    margin: 250px 0;
+    color: black;
+}
+
+.expanation-title > *{
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typingAnim 3s steps(50);
+  }
+  @keyframes typingAnim {
+    from {width:0}
+    to {width:100%}
+  }
+
+
+.expanation-button {
+    display: flex;
+    justify-content: center;
+}
+
+/* 여기서부터 버튼 css */
+.button {
+    width: 180px;
+    height: 50px;
+    position: absolute;
+  }
+  
+  .btn {
+    width: 180px;
+    height: 50px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #FBD157;
+    outline: none;
+    transition: 1s ease-in-out;
+  }
+  
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+  }
+  
+  .btn:hover {
+    transition: 1s ease-in-out;
+    background: #FBD157;
+  }
+  
+  .btn:hover svg {
+    stroke-dashoffset: -480;
+  }
+  
+  .btn span {
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+
+.img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+.img img {
+    width: 100%;
+}
+
+.img-color1 {
+    position: absolute;   
+    top: 50px;
+    left: 150px;
+    width: 230px;
+    height: 230px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    transform: perspective(500px) rotateY(40deg);
+}
+
+.img-color2 {
+    position: absolute;
+    top: 200px;
+    left: 30px;
+    width: 230px;
+    height: 230px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: perspective(500px) rotateY(40deg);    
+}
+
+.img-color3 {
+    position: absolute;   
+    width: 230px;
+    height: 230px;
+    top: 300px;
+    left: 180px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    transform: perspective(500px) rotateY(40deg);
+}
+
+.welcome-img1 {
+    background-image: url("../media/Introduction/welcome_img1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.welcome-img2 {
+    background-image: url("../media/Introduction/welcome_img2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.welcome-img3 {
+    background-image: url("../media/Introduction/welcome_img3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img-color4 {
+    position: absolute;
+    top: 50px;
+    right: 150px;
+    width: 230px;
+    height: 230px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    transform: perspective(500px) rotateY(150deg);  
+}
+
+.img-color5 {
+    position: absolute;
+    top: 200px;
+    right: 30px;
+    width: 230px;
+    height: 230px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: perspective(500px) rotateY(150deg);
+}
+
+.img-color6 {
+    position: absolute;
+    top: 300px;
+    right: 200px;
+    width: 230px;
+    height: 230px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    transform: perspective(500px) rotateY(150deg); 
+}
+
+.welcome-img4 {
+    background-image: url("../media/Introduction/welcome_img4.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.welcome-img5 {
+    background-image: url("../media/Introduction/welcome_img5.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.welcome-img6 {
+    background-image: url("../media/Introduction/welcome_img6.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
