@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    color : #cb7f2b;
 }
 
 ul, li {
@@ -14,7 +16,8 @@ a {
     text-decoration: none;
     color: black;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 /* 메인 */
 
@@ -25,45 +28,115 @@ body {
 .main-content {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 570px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.expanation {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
 .content-explanation {
-    position: absolute;
-    width: 400px;
-    top: 250px;
-    left: 450px;
+    color: #cb7f2b;
+    line-height: 30px;
+    font-size: 1rem;
+    margin-left: -27px;
+}
+
+.fade-in-box1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadein 5s;
+    font-weight: bold;
+}
+.fade-in-box2 {
+    margin-bottom: 10px;
+    animation: fadein 7s;
+}
+
+.fade-in-box3 {
+    margin-bottom: 10px;
+    animation: fadein 9s;
+}
+
+.fade-in-box4 {
+    margin-bottom: 10px;
+    animation: fadein 11s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.sub-title {
+    font-weight: bold;
     font-size: 1.2rem;
+}
+
+.sub-text {
     font-weight: 600;
 }
 
 .content-title {
-    margin-bottom: 170px;
+    width: 100%;
+    margin-top: 40px;
 }
 
-.expanation-title {
+.expanation-title h1 {
     font-size: 1.8rem;
-    margin: 250px 0;
-    color: black;
+    min-width: 12px;
+    white-space: nowrap;
+    margin: 0;
+    position: fixed;
+    color: transparent;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
 }
 
-.expanation-title > *{
+.expanation-title h1::before {
+    content: "아이의 두번째 이름을 지어주세요.";
+    position: absolute;
+    top: 480%;
+    left: -75%;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    white-space: nowrap;
-    animation: typingAnim 3s steps(50);
+    color: #cb7f2b;
+    border-right: 1px solid black;
+    animation: typing 5s steps(31) both;
+    animation-delay: 3s;
+}
+
+@keyframes typing{
+    0% {
+      width: 0%;
+    }
+    50% {
+      width: 200px;
+    }
+    100% {
+        width: 450px;
+        border: none;
+    }
   }
-  @keyframes typingAnim {
-    from {width:0}
-    to {width:100%}
-  }
+
 
 
 .expanation-button {
     display: flex;
     justify-content: center;
+    margin-left: -37px;
 }
 
 /* 여기서부터 버튼 css */

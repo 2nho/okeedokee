@@ -1,19 +1,14 @@
- function typeWrite(target) {
-            var textHolder = target.text();
-            target.text("");
-            var toWrite = "";
-            var index = 0;
-            var interval = setInterval(function() {
-                if (index == textHolder.length) {
-                clearInterval(interval);
-                } else {
-                toWrite += textHolder[index];
-                index++;
-                target.text(toWrite);
-                }
-            }, 100)
-            }
+var init_Introduction = function () {
 
-            $(function(){
-                typeWrite($("#text"));
-        });
+	$("#btn").on("click", function () {
+		ajaxPageFunction ('GET', 'main');
+	});
+}
+
+$(document).ready(function() {
+	
+    //초기 init render
+    init_Introduction();
+
+	
+});
