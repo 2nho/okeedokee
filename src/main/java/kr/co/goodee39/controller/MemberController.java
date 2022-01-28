@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.goodee39.service.MemberService;
 import kr.co.goodee39.vo.MemberVO;
@@ -18,21 +19,25 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
+	@Autowired
+	HomeController homeController;
+	
 	// 테스트 페이지.
-	@GetMapping("loginPage")
+	@GetMapping("/loginPage")
 	public String loginPage() {
 		return "login"; 
 	}
 	
-	@PostMapping("login")
+	@PostMapping("/login")
+//	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String isLogin(MemberVO vo, HttpSession session) {
 		return memberService.getMember(vo, session);
 	}
 	
-	@GetMapping("logout")
+	@GetMapping("/logout")
 	public String isLogout(HttpSession session) {
 		session.invalidate();
-		return "index";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/signUp")

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/layout.css" />
 </head>
 <body>
 	<header>
@@ -20,7 +20,7 @@
 				</div>
 			</div>
 			<div class="header-logo">
-				<img src="media/logo/mainLogo.png" alt="로고" />
+				<img src="${pageContext.request.contextPath}/media/logo/mainLogo.png" alt="로고" />
 			</div>
 			<div class="nav2">
 				<div class="nav2-pagelink">

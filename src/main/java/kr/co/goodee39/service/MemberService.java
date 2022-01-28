@@ -21,7 +21,7 @@ public class MemberService {
 			// account 세션 등록
 			session.setAttribute("account", vo1);
 			// 동일한 id와 password가 있으면 아래 영역으로 보내라.
-			path = "index";
+			path = "redirect:/";
 		}else {
 			path = "redirect:/member/login";
 		}

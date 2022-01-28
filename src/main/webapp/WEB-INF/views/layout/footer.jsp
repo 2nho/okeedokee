@@ -5,14 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/layout.css" />
 </head>
 <body>
 	<footer>
 		<div id="bar"></div>
 		<div id="footerContent">
 			<div class="logo">
-				<img src="media/logo/mainLogo.png" alt="로고" />
+				<img src="${pageContext.request.contextPath}/media/logo/mainLogo.png" alt="로고" />
 			</div>
 			<div class="text">
 				<p>
@@ -22,9 +22,9 @@
 				</p>
 			</div>
 			<div class="sns">
-				<a href="https://www.instagram.com"><img src="media/sns/instagram.png" alt="" /></a> 
-				<a href="https://www.facebook.com"><img src="media/sns/facebook.png" alt="" /></a> 
-				<a href="https://www.youtube.com"><img src="media/sns/youtube.png" alt="" /></a>
+				<a href="https://www.instagram.com"><img src="${pageContext.request.contextPath}/media/sns/instagram.png" alt="" /></a> 
+				<a href="https://www.facebook.com"><img src="${pageContext.request.contextPath}/media/sns/facebook.png" alt="" /></a> 
+				<a href="https://www.youtube.com"><img src="${pageContext.request.contextPath}/media/sns/youtube.png" alt="" /></a>
 			</div>
 		</div>
 	</footer>
