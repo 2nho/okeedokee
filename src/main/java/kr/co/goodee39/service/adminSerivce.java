@@ -49,4 +49,8 @@ public class adminSerivce {
 		model.addAttribute("missing",sqlSessionTemplate.selectOne("misstbl.selectMissing", vo));
 		model.addAttribute("witness",sqlSessionTemplate.selectOne("witnesstbl.selectWitness", vo));
 	}
+	public void memberlist(Model model) {
+	    MemberVO vo = new MemberVO();
+	    model.addAttribute("list", sqlSessionTemplate.selectList("member.allMember", vo));
+	}
 }

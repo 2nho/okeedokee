@@ -21,8 +21,8 @@ public class adminController {
 	}
 
 	@GetMapping("/adminMember")
-	public String adminMember() {
-		
+	public String adminMember(Model model) {
+		service.memberlist(model);
 		return "adminMember";
 	}
 	@GetMapping("/adminReport")

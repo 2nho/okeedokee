@@ -7,17 +7,23 @@ header {
 }
 
 main {
-	height: 90%;
-	width: 100vw;
 	display: flex;
+	height: 90vh;
+	width: 100vw;
 }
 
 aside {
 	height: 90vh;
-	min-width: 139px;
+	min-width: 108px;
 	background-color: #C4C4C4;
+	/* flex-basis는 크기 flex-grow 여백 조정 */
 	flex-grow: 1;
+	max-width: 192px;
 	padding: 15px;
+}
+
+aside > ul > li {
+	margin-top: 10px;
 }
 
 section {
@@ -27,6 +33,10 @@ section {
 section>div {
 	width: 90%;
 	margin: 0 auto;
+}
+
+div>h1 {
+	font-size: 40px;
 }
 
 .article1 {
@@ -49,6 +59,7 @@ section>h1 {
 
 table {
 	margin: 0 auto;
+	width: 100%;
 }
 
 table, th, tr, td {
@@ -56,9 +67,6 @@ table, th, tr, td {
 	border: 1px solid black;
 }
 
-table {
-	width: 100%;
-}
 
 th {
 	background-color: #778899;
@@ -67,6 +75,9 @@ th {
 
 tr {
 	height: 30px;
+}
+td {
+	text-align: center;
 }
 
 .red {

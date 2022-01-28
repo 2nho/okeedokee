@@ -17,6 +17,13 @@
 		FROM member
 		WHERE month(signupDay) like #{signupDay}
 	</select>
+	
+	<select id="allMember" parameterType="memberVO" resultType="memberVO">
+		SELECT mnum,id,name,pw,email,level
+		FROM member
+		WHERE del like 'N'
+	</select>
+	
 </mapper>
 
 

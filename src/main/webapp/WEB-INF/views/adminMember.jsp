@@ -62,10 +62,10 @@
 								<c:forEach var="item" items="${list}">
 									<tr>
 										<td><input type="checkbox" /></td>
-										<td>${item.num}</td>
+										<td>${item.mnum}</td>
 										<td>${item.name}</td>
 										<td>${item.id}</td>
-										<td>${item.password}</td>
+										<td>${item.pw}</td>
 										<td>${item.email}</td>
 										<td>${item.level}</td>
 									</tr>

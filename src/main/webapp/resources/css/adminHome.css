@@ -8,7 +8,7 @@ header {
 
 main {
 	display: flex;
-	height: 90%;
+	height: 90vh;
 	width: 100vw;
 }
 
@@ -46,7 +46,7 @@ section {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-}
+} 
 
 div>h1 {
 	font-size: 40px;
