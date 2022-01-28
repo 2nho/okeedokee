@@ -50,12 +50,18 @@
 												<tr>
 													<td>관련 내용</td>
 													<td>
-														<a href="">이동하기</a>
+														<a href="${boardUrl}">이동하기</a>
 													</td>
 												</tr>
 												<tr>
+													<td></td>
+													<td>
+														
+													</td>
 												</tr>
 												<tr>
+													<td></td>
+													<td></td>
 												</tr>
 											</table>
 										</div>

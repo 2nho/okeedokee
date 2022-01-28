@@ -1,7 +1,10 @@
 package kr.co.goodee39.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +21,18 @@ public class ReportController {
 	
 	//신고 게시판 이동
 	@GetMapping("/report")
-	public String report(@RequestParam int bdiv, @RequestParam int num, @ModelAttribute("repVO") reportVO vo) {
+	public String report(
+			@RequestParam int bdiv, 
+			@RequestParam int num, 
+			@ModelAttribute("repVO") reportVO vo, 
+			HttpServletRequest request,
+			Model model) {
+		
+		//이전 페이지 주소 받아오기
+		String boardUrl = request.getHeader("referer"); 
+		System.out.println(boardUrl);
+		
+		model.addAttribute("boardUrl", boardUrl);
 		
 		return "d_report";
 	}

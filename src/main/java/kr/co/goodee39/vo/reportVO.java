@@ -11,7 +11,6 @@ public class reportVO {
 	private int bdiv;
 	private String status;
 	private String del;
-	private int bnum;
 	private int start;
 	private int count;
 	
@@ -70,12 +69,6 @@ public class reportVO {
 	}
 	public void setDel(String del) {
 		this.del = del;
-	}
-	public int getBnum() {
-		return bnum;
-	}
-	public void setBnum(int bnum) {
-		this.bnum = bnum;
 	}
 	public int getStart() {
 		return start;
