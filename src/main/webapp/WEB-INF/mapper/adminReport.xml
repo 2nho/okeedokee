@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="reporttbl">
+	<select id="selectReport" parameterType="repVO" resultType="repVO">
+		SELECT num,title,content,id,createdate,status
+		FROM reporttbl
+		order by num desc
+		<!-- limit #{start}, #{count} -->
+	</select>
+</mapper>

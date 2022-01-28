@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import kr.co.goodee39.vo.DonationVO;
 import kr.co.goodee39.vo.MemberVO;
 import kr.co.goodee39.vo.mnwVO;
+import kr.co.goodee39.vo.reportVO;
 
 @Service
 public class adminSerivce {
@@ -52,5 +53,9 @@ public class adminSerivce {
 	public void memberlist(Model model) {
 	    MemberVO vo = new MemberVO();
 	    model.addAttribute("list", sqlSessionTemplate.selectList("member.allMember", vo));
+	}
+	public void selectReportBBS(Model model) {
+		reportVO vo = new reportVO();
+		model.addAttribute("report",sqlSessionTemplate.selectList("reporttbl.selectReport", vo));
 	}
 }

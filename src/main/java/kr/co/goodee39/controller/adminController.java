@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import kr.co.goodee39.service.adminSerivce;
+import kr.co.goodee39.vo.MemberVO;
 
 @Controller
 public class adminController {
@@ -26,8 +27,8 @@ public class adminController {
 		return "adminMember";
 	}
 	@GetMapping("/adminReport")
-	public String adminReport() {
-		
+	public String adminReport(Model model) {
+		service.selectReportBBS(model);
 		return "adminReport";
 	}
 

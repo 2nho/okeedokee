@@ -60,22 +60,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="item" items="${list}">
+								<c:forEach var="item" items="${report}">
 									<tr>
 										<td><input type="checkbox" /></td>
 										<td>${item.num}</td>
 										<td>${item.title}</td>
 										<td>${item.content}</td>
-										<td>${id}</td>
-										<td>${item.date}</td>
-										<td>${item.state}</td>
+										<td>${item.id}</td>
+										<td>${item.createdate}</td>
+										<td>${item.status}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 						<hr />
 	<!-- num -> 1~10 11~20 21~30 => ((num-1)/10)+1 -->
-	<%
+	<%-- <%
 		// 현재 페이지
 		int num = (Integer)request.getAttribute("num");
 		// 전체 데이터 개수
@@ -106,7 +106,7 @@
 		}
 		
 		pageContext.setAttribute("query", query);
-	%>
+	%> --%>
 	<c:choose>
 		<c:when test="${(minBlock-1) < 1 }">
 			<span>◀◀</span>	

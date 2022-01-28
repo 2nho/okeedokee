@@ -2,7 +2,6 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <!-- 각 게시판의 셀렉문을 구해서 합치기.. -->
 <mapper namespace="misstbl">
 	<!-- 실종 게시판 -->
 	<select id="selectMissing" parameterType="mnwVO" resultType="int">
