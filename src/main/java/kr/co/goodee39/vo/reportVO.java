@@ -4,6 +4,7 @@ public class reportVO {
 
 	private int num;
 	private int mnum;
+	private String id;
 	private String title;
 	private String content;
 	private String createdate;
@@ -13,6 +14,8 @@ public class reportVO {
 	private int bnum;
 	private int start;
 	private int count;
+	
+	
 	public int getNum() {
 		return num;
 	}
@@ -24,6 +27,13 @@ public class reportVO {
 	}
 	public void setMnum(int mnum) {
 		this.mnum = mnum;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getTitle() {
 		return title;
