@@ -39,12 +39,6 @@
 							<div class="searchBox">
 								<!-- 게시판 구분용 -->
 								<input type="hidden" name="bdiv" id="bdiv" value="7" />
-								<select name="searchType" id="searchType">
-									<option value="id">작성자</option>
-									<option value="title">제목</option>
-									<option value="content">내용</option>
-									<option value="both">제목+내용</option>
-								</select>
 								<input type="text" id="search" name="search" placeholder="검색어를 입력해주세요"/>
 								<button type="button" id="searchBtn">검색</button>
 							</div>
