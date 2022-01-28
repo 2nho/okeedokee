@@ -45,7 +45,8 @@
 						<h2>신규회원</h2>
 					</div>
 				</div>
-				<div class="chart"></div>
+				<div class="chart">
+				<svg viewBox="0 0 1200 300"></svg></div>
 			</section>
 		</main>
 	</div>
