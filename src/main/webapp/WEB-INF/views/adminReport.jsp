@@ -23,7 +23,6 @@
 					<li><h2>관리자모드</h2></li>
 					<li><h3>Home</h3></li>
 					<li><h3>회원관리</h3></li>
-					<li><h3>게시글관리</h3></li>
 					<li><h3 class="red">신고관리</h3></li>
 					<li><h3>일정관리</h3></li>
 				</ul>
@@ -67,7 +66,7 @@
 										<td>${item.num}</td>
 										<td>${item.title}</td>
 										<td>${item.content}</td>
-										<td>${item.id}</td>
+										<td>${id}</td>
 										<td>${item.date}</td>
 										<td>${item.state}</td>
 									</tr>

@@ -1,12 +1,12 @@
-
 // svg 박스를 설정하기 위한 높이 넓이 마진 설정 값
-const width = 1500;
+// 이였으나 가변을 위해 x축 y축 그래프를 위한 값으로 
+const width = 1200;
 const height = 300;
 const margin = {top: 40, left: 40, bottom: 40, right: 40};
 
 // svg 에 위에 설정한 값들을 넣고 body태그에 삽입
-const svg = d3.select('.chart').append('svg').style('width', width).style('height', height);
-
+//const svg = d3.select('.chart').append('svg').style('width', width).style('height', height);
+ const svg = d3.select('svg');
 // data를 db에서 뽑아와야함
 const data = [
     {name: '1월', value: 10},
@@ -67,7 +67,7 @@ const xAxis = g => g
   .attr('transform', `translate(0, 260)`)
   // bottom x축을 아래
   .call(d3.axisBottom(x)
-		  //시작테두리 끝 테두리 길이 
+		  //시작테두리,끝 테두리 길이 
     .tickSizeOuter(0));
  
 const yAxis = g => g
