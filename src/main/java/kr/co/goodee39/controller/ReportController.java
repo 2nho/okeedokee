@@ -18,7 +18,7 @@ public class ReportController {
 	
 	//신고 게시판 이동
 	@GetMapping("/report")
-	public String report(reportVO vo) {
+	public String report(@ModelAttribute("repVO") reportVO vo) {
 		
 		return "d_report";
 	}
