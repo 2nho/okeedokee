@@ -13,7 +13,7 @@
 		<div id="footerContent">
 			<div class="logo">
 				<img src="/okeedokee/media/logo/mainLogo.png" alt="로고" />
-			</div>
+			</div> 
 			<div class="text">
 				<p>
 					서울특별시 종로구 000동 TEL : 010-0000-0000서울특별시 종로구 000동 TEL : 010-0000-0000 <br /> 

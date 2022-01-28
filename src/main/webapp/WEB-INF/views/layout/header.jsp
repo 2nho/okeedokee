@@ -24,7 +24,7 @@
 			</div>
 			<div class="nav2">
 				<div class="nav2-pagelink">
-					<ul>
+					<ul> 
 						<li><a href="">후원/봉사</a></li>
 						<li><a href="/okeedokee/Notice/main">공지사항</a></li>
 						<li><a href="/okeedokee/member/loginPage">로그인/회원가입</a></li>
