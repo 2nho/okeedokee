@@ -28,13 +28,13 @@
 	<a href="${pageContext.request.contextPath }/Notice/main">공지사항</a>
 	
 	<a href="${pageContext.request.contextPath }/member/loginPage">로그인</a>
-<%-- 	<c:if test="${sessionScope.account.mnum != null}">
+	<c:if test="${sessionScope.account.mnum != null}">
 		<p>로그인되었습니다.</p>
 		<a href="${pageContext.request.contextPath }/member/logout">로그아웃</a>
 	</c:if>
 	
 	<c:if test="${sessionScope.account.mnum == null}">
 		<p>로그인해주세요.</p>
-	</c:if> --%>
+	</c:if>
 </body>
 </html>
