@@ -75,7 +75,7 @@
 						</table>
 						<hr />
 	<!-- num -> 1~10 11~20 21~30 => ((num-1)/10)+1 -->
-	<%-- <%
+	 <%
 		// 현재 페이지
 		int num = (Integer)request.getAttribute("num");
 		// 전체 데이터 개수
@@ -106,7 +106,7 @@
 		}
 		
 		pageContext.setAttribute("query", query);
-	%> --%>
+	%> 
 	<c:choose>
 		<c:when test="${(minBlock-1) < 1 }">
 			<span>◀◀</span>	
