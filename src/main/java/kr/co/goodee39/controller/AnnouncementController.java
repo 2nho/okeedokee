@@ -29,9 +29,6 @@ public class AnnouncementController {
 	//	유기견공고
 	@Autowired
 	ApiService service;
-	
-	@Autowired
-	AnnouncementService AnnouncementService;
 
 	@GetMapping("/Announcement")
 	public String Announcement(HttpServletRequest request, Model model) {
@@ -394,7 +391,7 @@ public class AnnouncementController {
             	} else {;}
             }
             
-            AnnouncementService.getAnnouncement(model, num, kind, careNm, happenPlace);
+            //AnnouncementService.getAnnouncement(model, num, kind, careNm, happenPlace);
             
             //뽑아온 내용 최종 산출물 변수에 담아주기
             resultMap.put("Result", "0000");
