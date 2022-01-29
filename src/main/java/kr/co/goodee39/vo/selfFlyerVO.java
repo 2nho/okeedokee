@@ -18,6 +18,7 @@ public class selfFlyerVO {
 	private int bdiv;
 	private String color;
 	private String fileList;
+	private String title;
 	
 	
 	public selfFlyerVO() {
@@ -182,6 +183,16 @@ public class selfFlyerVO {
 
 	public void setFileList(String fileList) {
 		this.fileList = fileList;
+	}
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 

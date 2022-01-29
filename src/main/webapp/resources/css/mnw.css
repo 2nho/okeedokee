@@ -930,3 +930,18 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 	height: 100%;
 	margin: 0;
 }
+
+main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTable #reportUrl {
+	font-size: 20px;
+	font-weight: bold;
+	color: red;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTable #content {
+	resize: none;
+	padding: 10px;
+	background-color: #f9f1c0;
+	font-size: 20px;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTable #content::placeholder {
+	font-size: 20px;
+}

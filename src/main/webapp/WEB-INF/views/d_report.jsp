@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/mnw.css" />
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
 <body>
 
@@ -45,7 +46,7 @@
 
 										<table id="reportTable">
 											<tr>
-												<td>* 신고 게시글 : <a href="${boardUrl}">${report.title}</a></td>		
+												<td id="reportUrl">* 신고 게시글 : <a href="${boardUrl}">${(report.title == null)? (report.id+='님의 전단지'):report.title}</a></td>		
 											</tr>
 											
 											<tr>
@@ -56,7 +57,7 @@
 											
 											<tr>
 												<td>
-													<form:textarea path="content" name="content" id="content" rows="15" cols="100"></form:textarea><br/>
+													<form:textarea path="content" name="content" id="content" rows="20" cols="120" placeholder="신고 내용을 입력해주세요."></form:textarea><br/>
 												</td>
 											</tr>
 											
@@ -81,6 +82,7 @@
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
 
+	<script type="text/javascript" src="js/report.js"></script>
 
 </body>
 </html>
