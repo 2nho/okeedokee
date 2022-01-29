@@ -1,0 +1,155 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 메인 */
+
+.main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.main-content-info, .main-content-map {
+    flex: 1;
+}
+
+.main-content-info {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 5%;
+    background-color: RGB(249, 241, 192);
+    display: flex;
+    flex-direction: column;
+}
+
+.dog-profile {
+    display: flex;
+    flex-direction: row nowrap;
+}
+
+.profile-img {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: 10px;
+    top: 10px;
+}
+
+.profile-img img {
+    width: 100%;
+}
+
+.dog-shelter {
+    padding: 50px;
+}
+
+.dog-detail {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.dog-detail ul li {
+    font-weight: 600;
+    padding: 5px 0;
+}
+
+.shelter-info {
+    padding-top: 20px;
+    border-top: 2px solid black;
+}
+
+.shelter-detail {
+    margin-top: 20px;
+}
+
+.shelter-detail ul li {
+    font-weight: 600;
+    padding: 5px 0;
+}
+
+.Announcement-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: row nowrap;
+}
+
+.button {
+    width: 150px;
+    height: 40px;
+    position: relative;
+    margin-left: 10px;
+}
+  
+.btn {
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #FBD157;
+    outline: none;
+    transition: 1s ease-in-out;
+}
+  
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+}
+  
+.btn:hover {
+    transition: 1s ease-in-out;
+    background: #FBD157;
+}
+  
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
+  
+.btn span {
+    color: black;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.main-content-map {
+    margin-top: 5%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 5%;
+}
+
+.map-api {
+    width: 100%;
+    height: 500px;
+}

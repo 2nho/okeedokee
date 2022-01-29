@@ -21,11 +21,11 @@
                             <h1>날짜</h1>
                         </div>
                         <div class="date-search">
-                            <input type="date">
+                            <input type="date" id="start_date" name="start_date">
                             <p>~</p>
-                            <input type="date">
+                            <input type="date" id="end_date" name="end_date">
                             <div class="button">
-                                <button class="btn">
+                                <button class="btn" id="date-btn">
                                 <svg width="80px" height="25px" viewBox="0 0 80 25" class="border">
                                     <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                                     <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
@@ -34,43 +34,19 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="kind-search-title">
-                            <h1>품종</h1>
-                        </div>
-                        <div class="kind-search">
-                            <input type="text">
-                            <div class="button">
-                                <button class="btn">
-                                <svg width="80px" height="25px" viewBox="0 0 80 25" class="border">
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                                </svg>
-                                <span>검색</span>
-                                </button>
+                         <div class="kind-search">
+                            <div class="seach-select">
+                                <select name="seach-category" id="search_category">
+                                    <option value="kind">품종</option>
+                                    <option value="happenPlace">구조지역</option>
+                                    <option value="careNm">보호소</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="size-search-title">
-                            <h1>크기</h1>
-                        </div>
-                        <div class="size-search">
-                            <input type="text">
-                            <div class="button">
-                                <button class="btn">
-                                <svg width="80px" height="25px" viewBox="0 0 80 25" class="border">
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                                </svg>
-                                <span>검색</span>
-                                </button>
+                            <div class="search-input">
+                                <input type="text" id="search" name="search" placeholder="검색어를 입력해주세요.">
                             </div>
-                        </div>
-                        <div class="shelter-search-title">
-                            <h1>보호소</h1>
-                        </div>
-                        <div class="shelter-search">
-                            <input type="text">
                             <div class="button">
-                                <button class="btn">
+                                <button class="btn" id="btn-search">
                                 <svg width="80px" height="25px" viewBox="0 0 80 25" class="border">
                                     <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                                     <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
@@ -86,25 +62,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-content-profile">
+                <div class="main-content-profile" id="div_dogContentMain">
+                    <c:set var="dog_data" value="${result.item}" />
 	                <c:forEach var="dog" items="${result.item}">
 		             	<div class="profile-div">
-		                 	<div class="profile-contents">
-		                     	<div class="profile-photo">
-		                         	<img src="${dog.popfile}" alt="">
-		                     	</div>
-			                    <div>	
+	                 		<div class="profile-contents" id="profile_${dog.desertionNo}">
+	                     		<div class="profile-photo">
+	                         		<img id="dog_img_${dog.desertionNo}" src="${dog.popfile}" alt="">
+	                     		</div>
+		                    	<div class="profile-info">
 			                         <ul>
-			                             <li>품종 : ${dog.kindCd}</li>
-			                             <li>나이 :${dog.age}</li>
-			                             <li>성별 : ${dog.sexCd}</li>
-			                             <li>등록일 : ${dog.noticeSdt}</li>
-			                             <li>보호소 : ${dog.careNm}</li>
-			                             <li>구조지역 :${dog.happenPlace}</li>
+			                             <li id="dog_kindCd_${dog.desertionNo}">품종 : ${dog.kindCd}</li>
+			                             <li id="dog_orgNm_${dog.desertionNo}" style="display: none;">지역 : ${dog.orgNm}</li>
+			                             <li id="dog_age_${dog.desertionNo}">나이 : ${dog.age}</li>
+			                             <li id="dog_sexCd_${dog.desertionNo}">성별 : ${dog.sexCd}</li>
+			                             <li id="dog_noticeSdt_${dog.desertionNo}">등록일 : ${dog.happenDt}</li>
+			                             <li id="dog_careNm_${dog.desertionNo}">보호소 : ${dog.careNm}</li>
+			                             <li id="dog_happenPlace_${dog.desertionNo}">구조지역 :${dog.happenPlace}</li>
+			                         	 <li>
+				                         	 <div class="key" id="key_${dog.desertionNo}">
+				                         	  	key : ${dog.desertionNo}
+				                         	 </div>
+			                         	 </li>
 			                         </ul>
 			                    </div>
-		                 	</div>
-                    	</div>
+	                 		</div>
+                   		</div>
 	                </c:forEach>
                 </div>
             </div>
@@ -112,5 +95,13 @@
 		
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 	</div>
+
+    <script language=JavaScript>
+        var dogData = '<c:out value="${dog_data}" />';
+    </script>
+
+	
+	<script src="js/Announcement.js" type="text/javascript"></script>
+	<script src="js/common.js" type="text/javascript"></script>
 </body>
 </html>

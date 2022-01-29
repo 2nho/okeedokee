@@ -27,7 +27,7 @@ public class ApiService {
 			// 출력 페이지 수
 			urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));
 			// 총 가져올 정보 수
-			urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("500", "UTF-8"));
+			urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("6000", "UTF-8"));
 			// urlBuilder.append("&type=json"); /*json 출력인데 안먹힘*/
 
 			// 설정한 url바탕으로 url 생성

@@ -38,11 +38,11 @@ a {
     flex-direction: column;
 }
 
-.date-search-title, .kind-search-title, .size-search-title, .shelter-search-title {
+.date-search-title, .kind-search-title, .location-search-title, .shelter-search-title {
     margin-bottom: 10px;
 }
 
-.date-search, .kind-search, .size-search, .shelter-search {
+.date-search, .kind-search {
     
     width: 400px;
     height: 40px;
@@ -52,7 +52,10 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+}
+
+.search-input {
+    margin-left: 10px;
 }
 
 .button {
@@ -62,7 +65,7 @@ a {
     margin-left: 10px;
 }
   
-  .btn {
+.btn {
     width: 80px;
     height: 25px;
     cursor: pointer;
@@ -72,7 +75,7 @@ a {
     transition: 1s ease-in-out;
 }
   
-  svg {
+svg {
     position: absolute;
     left: 0;
     top: 0;
@@ -83,19 +86,19 @@ a {
     transition: 1s ease-in-out;
 }
   
-  .btn:hover {
+.btn:hover {
     transition: 1s ease-in-out;
     background: #FBD157;
 }
   
-  .btn:hover svg {
+.btn:hover svg {
     stroke-dashoffset: -480;
 }
   
-  .btn span {
+.btn span {
     color: black;
     font-size: 18px;
-    font-weight: 100;
+    font-weight: 400;
 }
 
 .statistics-contents {
@@ -133,12 +136,12 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     margin: 30px;
 }
 
 .profile-contents {
     padding: 10px;
+    cursor: pointer;
 }
 
 .profile-photo {
@@ -149,4 +152,8 @@ a {
 .profile-photo img {
     width: 200px;
     height: 200px;
+}
+
+.key {
+	display : none;
 }
