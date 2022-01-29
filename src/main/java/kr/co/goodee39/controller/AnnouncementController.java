@@ -26,7 +26,7 @@ import kr.co.goodee39.service.ApiService;
 
 @Controller
 public class AnnouncementController {
-	
+	//유기견공고
 	@Autowired
 	ApiService service;
 	
