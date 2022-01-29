@@ -26,10 +26,10 @@ import kr.co.goodee39.service.ApiService;
 
 @Controller
 public class AnnouncementController {
-	//	유기견공고
+	
 	@Autowired
 	ApiService service;
-
+	
 	@GetMapping("/Announcement")
 	public String Announcement(HttpServletRequest request, Model model) {
 		
