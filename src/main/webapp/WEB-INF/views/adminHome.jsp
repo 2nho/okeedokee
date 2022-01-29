@@ -35,7 +35,7 @@
 						<h2>이번달 후원금액</h2>
 					</div>
 					<div>
-					<!-- 세개의 게시글 count 더하기 -->
+					<!-- 게시글 count 더하기 -->
 						<h1>${missing+witness}</h1>
 						<h2>새실종/목격글</h2>
 					</div>
@@ -45,6 +45,7 @@
 					</div>
 				</div>
 				<div class="chart">
+				<!-- 가변을 위해 크기지정X -->
 				<svg viewBox="0 0 1200 300"></svg></div>
 			</section>
 		</main>
