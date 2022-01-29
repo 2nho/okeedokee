@@ -923,3 +923,10 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMake
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question #filePath {
 	display: none;
 }
+
+/* 신고 게시판 */
+main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTable {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}

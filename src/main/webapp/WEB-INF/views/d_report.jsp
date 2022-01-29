@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/mnw.css" />
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
 <body>
 
@@ -44,16 +43,14 @@
 								<div id="informBox">
 									<div id="inform">
 
-										<table id="informTable">
+										<table id="reportTable">
 											<tr>
-												<td>관련 내용</td>										
-												<td><a href="${boardUrl}">이동하기</a></td>					
+												<td>* 신고 게시글 : <a href="${boardUrl}">${report.title}</a></td>		
 											</tr>
 											
 											<tr>
-												<td>제목</td>
 												 <td>
-													<form:input path="title" name="title" id="title" required="required" placeholder="제목을 입력해주세요"/>
+													<form:input path="title" name="title" id="title" required="required" placeholder="신고 제목을 입력해주세요."/>
 												</td>
 											</tr>
 											
@@ -84,7 +81,6 @@
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
 
-	<script type="text/javascript" src="js/mnwWrite.js"></script>
 
 </body>
 </html>
