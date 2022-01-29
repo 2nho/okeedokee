@@ -7,8 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/mnw.css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -37,38 +36,35 @@
 								<label for="id">작성자&nbsp; |</label>
 								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
 								<!-- sessionScope.account.id -->
-								<form:input path="id" type="text" name="id" id="id"
-									readonly="true" value="sessionId" />
+								<form:input path="id" type="text" name="id" id="id" readonly="true" value="sessionId" />
 								<!--  sessionScope.account.mnum  -->
 								<form:hidden path="mnum" name="mnum" id="mnum" value="100" />
 
 								<div id="informBox">
 									<div id="inform">
 
-										<div id="report">
-											<table>
-												<tr>
-													<td>관련 내용</td>
-													<td>
-														<a href="${boardUrl}">이동하기</a>
-													</td>
-												</tr>
-												<tr>
-													<td></td>
-													<td>
-														
-													</td>
-												</tr>
-												<tr>
-													<td></td>
-													<td></td>
-												</tr>
-											</table>
-										</div>
-
+										<table id="reportTable">
+											<tr>
+												<td>* 신고 게시글 : <a href="${boardUrl}">${report.title}</a></td>		
+											</tr>
+											
+											<tr>
+												 <td>
+													<form:input path="title" name="title" id="title" required="required" placeholder="신고 제목을 입력해주세요."/>
+												</td>
+											</tr>
+											
+											<tr>
+												<td>
+													<form:textarea path="content" name="content" id="content" rows="15" cols="100"></form:textarea><br/>
+												</td>
+											</tr>
+											
+										</table>
+										
 									</div>
 								</div>
-								<form:hidden path="bdiv" value="1" />
+								<form:hidden path="bdiv" value="1"/>
 							</form:form>
 							
 							<div class="submitBtnBox">

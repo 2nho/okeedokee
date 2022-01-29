@@ -34,6 +34,9 @@ public class ReportController {
 		
 		model.addAttribute("boardUrl", boardUrl);
 		
+		//신고대상 게시글 제목 가져오기
+		service.selectTitle(bdiv, num, model);
+		
 		return "d_report";
 	}
 	
