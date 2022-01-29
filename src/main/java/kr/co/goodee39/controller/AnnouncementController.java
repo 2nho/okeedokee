@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import kr.co.goodee39.service.AnnouncementService;
 import kr.co.goodee39.service.ApiService;
 
 @Controller
