@@ -63,8 +63,8 @@
                     </div>
                 </div>
                 <div class="main-content-profile" id="div_dogContentMain">
-                    <c:set var="dog_data" value="${result.item}" />
-	                <c:forEach var="dog" items="${result.item}">
+                    <%-- <c:set var="dog_data" value="${result.item}" /> --%>
+	                <!-- <c:forEach var="dog" items="${result.item}">
 		             	<div class="profile-div">
 	                 		<div class="profile-contents" id="profile_${dog.desertionNo}">
 	                     		<div class="profile-photo">
@@ -88,7 +88,7 @@
 			                    </div>
 	                 		</div>
                    		</div>
-	                </c:forEach>
+	                </c:forEach> -->
                 </div>
             </div>
         </section>
@@ -97,7 +97,42 @@
 	</div>
 
     <script language=JavaScript>
-        var dogData = '<c:out value="${dog_data}" />';
+        var dogData = new Array();
+        var json = {};
+
+        // var json = {
+        //         kindCd : "${item.kindCd}"
+        //         , orgNm : "${item.orgNm}"
+        //         , age : "${item.age}"
+        //         , sexCd : "${item.sexCd}"
+        //         , happenDt : "${item.happenDt}"
+        //         , careNm : "${item.careNm}"
+        //         , happenPlace : "${item.happenPlace}"
+        //         , popfile : "${item.popfile}"
+        // };
+
+        //Map convert To JSON..
+        <c:forEach items="${result.item}" var="item">
+        	json = {};
+            json.desertionNo = "${item.desertionNo}";
+            json.kindCd = "${item.kindCd}";
+            json.orgNm = "${item.orgNm}";
+            json.age = "${item.age}";
+            json.sexCd = "${item.sexCd}";
+            json.happenDt = "${item.happenDt}";
+            json.noticeSdt = "${item.noticeSdt}";
+            json.careNm = "${item.careNm}";
+            json.happenPlace = "${item.happenPlace}";
+            json.popfile = "${item.popfile}";
+            json.processState = "${item.processState}";
+            json.specialMark = "${item.specialMark}";
+            json.careTel = "${item.careTel}";
+            json.chargeNm = "${item.chargeNm}";
+            json.careAddr = "${item.careAddr}";
+            dogData.push(json);
+        </c:forEach>
+        
+        //var dogData = '<c:out value="${dog_data}" />';
     </script>
 
 	

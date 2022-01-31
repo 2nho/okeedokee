@@ -7,21 +7,18 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import kr.co.goodee39.service.AnnouncementService;
 import kr.co.goodee39.service.ApiService;
 
 @Controller
@@ -29,6 +26,7 @@ public class AnnouncementController {
 	//유기견공고
 	@Autowired
 	ApiService service;
+	
 	
 	@GetMapping("/Announcement")
 	public String Announcement(HttpServletRequest request, Model model) {
@@ -221,8 +219,14 @@ public class AnnouncementController {
 		            resultMap.put("pageNo", body.get("pageNo"));
 		            resultMap.put("totalCount", body.get("totalCount"));
 		            resultMap.put("item", item);
+		            //String json = new ObjectMapper().writeValueAsString(item);
+		            //JSONObject jsonScript = new JSONObject(item);
+		            //JSONArray jarrScript = announcementService.convertListToJson(listMap);
+		            
+		            //resultMap.put("scriptJson", jarrScript);
 		            
 		            //view로 가져가기
+		            //JSONObject jsonResult = new JSONObject(resultMaps);
 		            model.addAttribute("result", resultMap);
 
 					

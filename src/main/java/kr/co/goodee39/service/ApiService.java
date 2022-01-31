@@ -23,11 +23,11 @@ public class ApiService {
 			// 인증키 설정
 			urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=QWmRBRgQFVjPLxlHE0NTfMfwlmHMGKmPqTeI1D%2BPhZO2gQzZpIR0ycYZCtH%2BN7p8W7amKDhwRqHFzjCfSU%2Fvzw%3D%3D");
 			// 축종 : 견(417000)
-			urlBuilder.append("&" + URLEncoder.encode("upkind", "UTF-8") + "=" + URLEncoder.encode("417000", "UTF-8"));
+			urlBuilder.append("&" + URLEncoder.encode("addr", "UTF-8") + "=" + URLEncoder.encode("417000", "UTF-8"));
 			// 출력 페이지 수
 			urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));
 			// 총 가져올 정보 수
-			urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("6000", "UTF-8"));
+			urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("500", "UTF-8"));
 			// urlBuilder.append("&type=json"); /*json 출력인데 안먹힘*/
 
 			// 설정한 url바탕으로 url 생성

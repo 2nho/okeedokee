@@ -50,6 +50,12 @@ public class AnnouncementDetailController {
 		String dog_careNm = request.getParameter("dog_careNm").toString();
 		String dog_happenPlace = request.getParameter("dog_happenPlace").toString();
 		
+		String dog_processState = request.getParameter("dog_processState").toString();
+		String dog_specialMark = request.getParameter("dog_specialMark").toString();
+		String dog_careTel = request.getParameter("dog_careTel").toString();
+		String dog_chargeNm = request.getParameter("dog_chargeNm").toString();
+		String dog_careAddr = request.getParameter("dog_careAddr").toString();
+		
 		hashMap.put("dog_img", dog_img);
 		hashMap.put("dog_kindCd", dog_kindCd);
 		hashMap.put("dog_orgNm", dog_orgNm);
@@ -58,6 +64,11 @@ public class AnnouncementDetailController {
 		hashMap.put("dog_noticeSdt", dog_noticeSdt);
 		hashMap.put("dog_careNm", dog_careNm);
 		hashMap.put("dog_happenPlace", dog_happenPlace);
+		hashMap.put("dog_processState", dog_processState);
+		hashMap.put("dog_specialMark", dog_specialMark);
+		hashMap.put("dog_careTel", dog_careTel);
+		hashMap.put("dog_chargeNm", dog_chargeNm);
+		hashMap.put("dog_careAddr", dog_careAddr);
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("Announcement_detail");
@@ -233,6 +244,7 @@ public class AnnouncementDetailController {
             resultMap.put("totalCount", body.get("totalCount"));
             resultMap.put("item", hashMap);
             
+            //AnnouncementService
             //view로 가져가기
             //model.addAttribute("strTargetDesertionNo", resultMap);
             //model.addAttribute("result", resultMap);

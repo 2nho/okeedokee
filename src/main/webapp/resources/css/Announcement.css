@@ -139,6 +139,10 @@ svg {
     margin: 30px;
 }
 
+.dog_hidden {
+	display : none;
+}
+
 .profile-contents {
     padding: 10px;
     cursor: pointer;

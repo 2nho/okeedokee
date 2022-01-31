@@ -26,9 +26,10 @@
                                     </div>
                                     <div class="dog-detail">
                                         <ul>
-                                            <li>상태 : </li> 
                                             <li>${dog.dog_kindCd}</li>
                                             <li>${dog.dog_sexCd}</li>
+                                            <li>${dog.dog_age}</li>
+                                            <li>${dog.dog_processState}</li> 
                                             <li>${dog.dog_noticeSdt}</li>
                                             <li>${dog.dog_careNm}</li>
                                             <li>${dog.dog_happenPlace}</li>
@@ -45,10 +46,10 @@
                                 </div>
                                 <div class="shelter-detail">
                                     <ul>
-                                        <li>지역 : </li>
-                                        <li>연락처 : </li>
-                                        <li>이메일 : </li>
-                                        <li>주소 : </li>
+                                        <li>지역 : ${dog.dog_specialMark}</li>
+                                        <li>연락처 : ${dog.dog_careTel}</li>
+                                        <li>이메일 : ${dog.dog_chargeNm}</li>
+                                        <li>주소 : ${dog.dog_careAddr}</li>
                                     </ul>
                                 </div>
                             </div>
