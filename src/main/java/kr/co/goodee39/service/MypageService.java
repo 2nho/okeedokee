@@ -21,11 +21,16 @@ public class MypageService {
 	public void selectReportList(HttpSession session, reportVO vo, Model model) {
 		
 		//세션에 저장된 mnum정보 설정해 신고 내역 가져오기
-		MemberVO mvo = (MemberVO)session.getAttribute("account");
-		vo.setMnum(mvo.getMnum());
+		//MemberVO mvo = (MemberVO)session.getAttribute("account");
+		//vo.setMnum(mvo.getMnum());
+		
+		//임시 mnum설정
+		vo.setMnum(100);
 		
 		
 		//결과 리스트 view로 가져가기
+		
+		
 		model.addAttribute("report", sqlSessionTemplate.selectList("rep.selectReportList", vo));
 		
 	}

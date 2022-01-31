@@ -94,6 +94,7 @@ main section #arti1 .content {
 }
 main section #arti1 .content h1 {
 	font-size: 28px;
+	margin-bottom: 100px;
 }
 main section #arti1 .content h1::after {
 	content: "";
@@ -106,4 +107,14 @@ main section #arti1 .content h1::after {
 /* 신고내역 */
 main section #arti1 .content .reportList {
 	width: 100%;
+}
+main section #arti1 .content .reportList>table {
+	width: 100%;
+	text-align: center;
+	border-collapse: separate;
+	border-spacing: 0 10px;
+}
+
+main section #arti1 .content .reportList>table>thead>tr>th {
+	border-bottom: 2px solid #323232;
 }

@@ -63,7 +63,39 @@
 					<h1>신고 내역</h1>
 					<!-- 여기서부터 작업 시작하세요 -->
 					<div class="reportList">
-						
+						<table>
+							<colgroup>
+								<col width="5%">
+								<col width="auto">
+								<col width="15%">
+								<col width="10%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>순번</th>
+									<th>제목</th>
+									<th>작성일</th>
+									<th>처리상태</th>
+								</tr>
+							</thead>
+							<tbody>
+								<%-- <c:forEach var="rep" items="${report}">
+								<c:set var="i" value="${i+1}"/>
+								<tr>
+									<td>${i}</td>
+									<td>${rep.title}</td>
+									<td>${rep.createdate}</td>
+									<td>${rep.status}</td>
+								</tr>
+								</c:forEach> --%>
+								<tr>
+									<td>1</td>
+									<td><a href="">신고테스트 제목</a></td>
+									<td>2022-01-31</td>
+									<td>답변대기</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</article>
