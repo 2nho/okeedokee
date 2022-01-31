@@ -75,7 +75,7 @@ main section {
 	align-items: center;
 }
 
-/*  */
+/* 기본 틀 */
 main section #arti1 {
 	width: 100%;
 	height: 100%;
@@ -100,4 +100,10 @@ main section #arti1 .content h1::after {
 	display: block;
 	width: 100%;
 	border-bottom: 2px solid black;
+}
+
+
+/* 신고내역 */
+main section #arti1 .content .reportList {
+	width: 100%;
 }

@@ -62,7 +62,9 @@
 				<div class="content">
 					<h1>신고 내역</h1>
 					<!-- 여기서부터 작업 시작하세요 -->
-					
+					<div class="reportList">
+						
+					</div>
 				</div>
 			</article>
 		</section>

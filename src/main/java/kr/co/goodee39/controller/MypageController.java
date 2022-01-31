@@ -1,11 +1,21 @@
 package kr.co.goodee39.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import kr.co.goodee39.service.MypageService;
+import kr.co.goodee39.vo.reportVO;
 
 @Controller
 public class MypageController {
 
+	@Autowired
+	MypageService service;
+	
 	//마이페이지 이동
 	@GetMapping("/mypage")
 	public String mypage() {
@@ -47,7 +57,9 @@ public class MypageController {
 	
 	//신고내역 이동
 	@GetMapping("/reportList")
-	public String reportList() {
+	public String reportList(HttpSession session, reportVO vo, Model model) {
+		
+		service.selectReportList(session, vo, model);
 		
 		return "g_mypage_report";
 	}
