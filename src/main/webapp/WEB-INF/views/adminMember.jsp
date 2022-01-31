@@ -8,7 +8,6 @@
 <title>adminMember</title>
 <link href="../css/layout.css" rel="stylesheet" />
 <link href="../css/adminBBS.css" rel="stylesheet" />
-<script src="https://d3js.org/d3.v7.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/70977de212.js"
@@ -31,15 +30,13 @@
 				<div>
 					<h1>회원관리</h1>
 					<article class="article3">
-						<form action="#">
 							<label for="search"><i class="fas fa-search"></i></label>
-							 <select name="choice">
+							 <select name="choice" id="choice">
 								<option value="id">아이디</option>
 								<option value="email">이메일</option>
 								<option value="level">구분</option>
-							</select> <input type="text" />
-							<button type="submit" id="search">검색</button>
-						</form>
+							</select> <input type="text" id="text" />
+							<button id="search">검색</button>
 					</article>
 					<article class="article1">
 						<h3>회원리스트</h3>
@@ -72,10 +69,77 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<c:choose>
+							<c:when test="${(minBlock-1) < 1 }">
+								<span>◀◀</span>
+							</c:when>
+							<c:otherwise>
+								<a
+									href="${pageContext.request.contextPath}/admin/adminMember?num=${minBlock-1}${query}">◀◀</a>
+							</c:otherwise>
+						</c:choose>
+						&nbsp;&nbsp;
+						<c:choose>
+							<c:when test="${num==1 }">
+								<span>◀</span>
+							</c:when>
+							<c:otherwise>
+								<a
+									href="${pageContext.request.contextPath}/admin/adminMember?num=${num-1}${query}">◀</a>
+							</c:otherwise>
+						</c:choose>
+						<c:forEach begin="${minBlock}"
+							end="${(total<maxBlock)?total:maxBlock}" step="1" var="i">
+							<c:choose>
+								<c:when test="${num == i}">
+									<span>${i}</span>
+								</c:when>
+								<c:otherwise>
+									<a
+										href="${pageContext.request.contextPath}/admin/adminMember?num=${i}${query}">${i}</a>
+								</c:otherwise>
+							</c:choose>
+
+						</c:forEach>
+						<c:choose>
+							<c:when test="${num == total }">
+								<span>▶</span>
+							</c:when>
+							<c:otherwise>
+								<a
+									href="${pageContext.request.contextPath}/admin/adminMember?num=${num+1}${query}">▶</a>
+							</c:otherwise>
+						</c:choose>
+						&nbsp;&nbsp;
+						<c:choose>
+							<c:when test="${maxBlock > total }">
+								<span>▶▶</span>
+							</c:when>
+							<c:otherwise>
+								<a
+									href="${pageContext.request.contextPath}/admin/adminMember?num=${maxBlock+1}${query}">▶▶</a>
+							</c:otherwise>
+						</c:choose>
 					</article>
 				</div>
 			</section>
 		</main>
 	</div>
+	<script type="text/javascript">
+		      	$(function() {		
+					$("#search").click(function(){
+						let category = $("#choice").val();
+						let text = $("#text").val();
+						
+						if(category == "id"){
+				      		location.href = "${pageContext.request.contextPath}/admin/adminMember?id="+text;
+				      	}else if(category == "email"){
+				      		location.href = "${pageContext.request.contextPath}/admin/adminMember?email="+text;
+				      	}else if(category == "level"){
+				      		location.href = "${pageContext.request.contextPath}/admin/adminMember?level="+text;
+						}
+					});
+				});
+	</script>
 </body>
 </html>

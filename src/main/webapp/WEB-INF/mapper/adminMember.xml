@@ -22,8 +22,36 @@
 		SELECT mnum,id,name,pw,email,level
 		FROM member
 		WHERE del like 'N'
+		<choose>
+			<when test="id != null">
+				and id like #{id}
+			</when>
+			<when test="email != null">
+				and email like #{email}
+			</when>
+			<when test="level != null">
+				and level like #{level}
+			</when>
+		</choose>
+		order by mnum desc
+		limit #{start}, #{count}
 	</select>
-	
+	<select id="CountMember" parameterType="memberVO" resultType="int">
+		SELECT count(*)
+		FROM member
+		WHERE del like 'N'
+		<choose>
+			<when test="id != null">
+				and id like #{id}
+			</when>
+			<when test="email != null">
+				and email like #{email}
+			</when>
+			<when test="level != null">
+				and level like #{level}
+			</when>
+		</choose>
+	</select>
 </mapper>
 
 

@@ -25,12 +25,15 @@ public class adminController {
 	}
 
 	@GetMapping("/adminMember")
-	public String adminMember(Model model) {
-		service.memberlist(model);
+	public String adminMember(Model model, @RequestParam(defaultValue = "1") int num,
+			@RequestParam(defaultValue="") String id,
+			@RequestParam(defaultValue="") String email,
+			@RequestParam(defaultValue="") String level) {
+		service.memberlist(model, num, id, email, level);
 		return "adminMember";
 	}
 	@GetMapping("/adminReport")
-	public String adminReport(Model model,  @RequestParam(defaultValue = "1") int num,
+	public String adminReport(Model model, @RequestParam(defaultValue = "1") int num,
 			@RequestParam(defaultValue="") String title,
 			@RequestParam(defaultValue="") String content,
 			@RequestParam(defaultValue="") String status) {

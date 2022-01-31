@@ -7,6 +7,20 @@
 		SELECT num,title,content,id,createdate,status
 		FROM reporttbl
 		where del = 'N'
+		<choose>
+			<when test="title != null and content != null">
+				and (title like #{title} or content like #{content})
+			</when>
+			<when test="title == null and content != null">
+				and content like #{content}
+			</when>
+			<when test="title != null and content == null">
+				and title like #{title}
+			</when>
+			<when test="title = null and content == null and status != null">
+				and status like #{status}
+			</when>
+		</choose>
 		order by num desc
 		limit #{start}, #{count}
 	</select>
