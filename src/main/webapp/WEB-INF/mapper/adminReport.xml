@@ -6,6 +6,7 @@
 	<select id="selectReport" parameterType="repVO" resultType="repVO">
 		SELECT num,title,content,id,createdate,status
 		FROM reporttbl
+		where del = 'N'
 		order by num desc
 		limit #{start}, #{count}
 	</select>

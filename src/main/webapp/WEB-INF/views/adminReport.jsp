@@ -32,8 +32,8 @@
 					<h1>회원관리</h1>
 					<article class="article3">
 						
-							<label for="search"><i class="fas fa-search"></i></label> <select
-								name="choice" id="choice">
+							<label for="search"><i class="fas fa-search"></i></label> 
+							<select name="choice" id="choice">
 								<option value="title">제목</option>
 								<option value="content">내용</option>
 								<option value="both">제목+내용</option>
@@ -79,7 +79,7 @@
 			<span>◀◀</span>	
 		</c:when>
 		<c:otherwise>
-			<a href="${pageContext.request.contextPath}/adminReport?num=${minBlock-1}${query}">◀◀</a>
+			<a href="${pageContext.request.contextPath}/admin/adminReport?num=${minBlock-1}${query}">◀◀</a>
 		</c:otherwise>
 	</c:choose>
 	&nbsp;&nbsp;
@@ -88,7 +88,7 @@
 			<span>◀</span>
 		</c:when>
 		<c:otherwise>
-			<a href="${pageContext.request.contextPath}/adminReport?num=${num-1}${query}">◀</a>
+			<a href="${pageContext.request.contextPath}/admin/adminReport?num=${num-1}${query}">◀</a>
 		</c:otherwise>
 	</c:choose>
 	<c:forEach begin="${minBlock}" end="${(total<maxBlock)?total:maxBlock}" step="1" var="i">
@@ -97,7 +97,7 @@
 				<span>${i}</span>
 			</c:when>
 			<c:otherwise>
-				<a href="${pageContext.request.contextPath}/adminReport?num=${i}${query}">${i}</a>
+				<a href="${pageContext.request.contextPath}/admin/adminReport?num=${i}${query}">${i}</a>
 			</c:otherwise>
 		</c:choose>
 
@@ -107,7 +107,7 @@
 			<span>▶</span>
 		</c:when>
 		<c:otherwise>
-			<a href="${pageContext.request.contextPath}/adminReport?num=${num+1}${query}">▶</a>	
+			<a href="${pageContext.request.contextPath}/admin/adminReport?num=${num+1}${query}">▶</a>	
 		</c:otherwise>
 	</c:choose>
 	&nbsp;&nbsp;
@@ -116,7 +116,7 @@
 			<span>▶▶</span>	
 		</c:when>
 		<c:otherwise>
-			<a href="${pageContext.request.contextPath}/adminReport?num=${maxBlock+1}${query}">▶▶</a>
+			<a href="${pageContext.request.contextPath}/admin/adminReport?num=${maxBlock+1}${query}">▶▶</a>
 		</c:otherwise>
 	</c:choose>
 					</article>
@@ -131,13 +131,13 @@
 			let text = $("#text").val();
 			
 			if(category == "title"){
-				location.href = "${pageContext.request.contextPath}/adminReport?title="+text;	
+				location.href = "${pageContext.request.contextPath}/admin/adminReport?title="+text;	
 			}else if(category == "content"){
-				location.href = "${pageContext.request.contextPath}/adminReport?content="+text;
+				location.href = "${pageContext.request.contextPath}/admin/adminReport?content="+text;
 			}else if(category == "both"){
-				location.href = "${pageContext.request.contextPath}/adminReport?title="+text+"&content="+text;	
+				location.href = "${pageContext.request.contextPath}/admin/adminReport?title="+text+"&content="+text;	
 			}else if(category == "status"){
-				location.href = "${pageContext.request.contextPath}/adminReport?status="+text;
+				location.href = "${pageContext.request.contextPath}/admin/adminReport?status="+text;
 			
 		});
 	</script>

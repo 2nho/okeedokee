@@ -57,7 +57,7 @@ public class adminSerivce {
 	}
 	public void selectReportBBS(Model model, int num, String title, String content, String status) {
 		reportVO vo = new reportVO();
-		int count = sqlSessionTemplate.selectOne("reporttbl.CountReport", vo);
+			int count = sqlSessionTemplate.selectOne("reporttbl.CountReport", vo);
 			// 현재 페이지
 			model.addAttribute("num", num);
 			// 전체 데이터 개수
