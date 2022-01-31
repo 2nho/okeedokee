@@ -35,6 +35,7 @@
 
 							<form:form modelAttribute="repVO" method="post"	action="reportResult" id="boardContent">
 								<label for="id">작성자&nbsp; |</label>
+								
 								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
 								<!-- sessionScope.account.id -->
 								<form:input path="id" type="text" name="id" id="id" readonly="true" value="sessionId" />
@@ -46,7 +47,10 @@
 
 										<table id="reportTable">
 											<tr>
-												<td id="reportUrl">* 신고 게시글 : <a href="${boardUrl}">${(report.title == null)? (report.id+='님의 전단지'):report.title}</a></td>		
+												<td id="reportUrl">
+													* 신고 게시글 : <a href="${boardUrl}">${(report.title == null)? (report.id+='님의 전단지'):report.title}</a>
+													<form:hidden path="url" value="${boardUrl}"/>
+												</td>		
 											</tr>
 											
 											<tr>
@@ -69,7 +73,7 @@
 							</form:form>
 							
 							<div class="submitBtnBox">
-								<button type="button" id="submit">등록</button>
+								<button type="button" id="submit">제출</button>
 							</div>
 							
 						</div>

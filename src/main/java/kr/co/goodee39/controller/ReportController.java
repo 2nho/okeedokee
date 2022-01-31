@@ -44,6 +44,8 @@ public class ReportController {
 	@PostMapping("/reportResult")
 	public String reportResult(@ModelAttribute("repVO") reportVO vo) {
 		
-		return "";
+		String path = service.insertReport(vo);
+		
+		return "redirect:/"+path;
 	}
 }
