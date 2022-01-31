@@ -13,6 +13,7 @@ public class reportVO {
 	private String del;
 	private int start;
 	private int count;
+	private String url;
 	
 	public reportVO() {
 		this.start = 0;
@@ -86,5 +87,14 @@ public class reportVO {
 	public void setCount(int count) {
 		this.count = count;
 	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
 	
 }

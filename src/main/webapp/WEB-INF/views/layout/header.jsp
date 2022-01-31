@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +27,17 @@
 					<ul> 
 						<li><a href="">후원/봉사</a></li>
 						<li><a href="/okeedokee/Notice/main">공지사항</a></li>
-						<li><a href="/okeedokee/member/loginPage">로그인/회원가입</a></li>
+						<li>
+							<c:choose>
+								<c:when test="${sessionScope.account.mnum != null}">
+								<a href="/okeedokee/mypage">마이페이지</a>
+								</c:when>
+								<c:otherwise>
+								<a href="/okeedokee/member/loginPage">로그인/회원가입</a>	
+								</c:otherwise>
+							</c:choose>
+							
+						</li>
 					</ul>
 				</div>
 			</div>

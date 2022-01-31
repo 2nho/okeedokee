@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
+<!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
+<mapper namespace="rep">
+
+	<!-- 신고글 리스트 가져오기 -->
+	<select id="selectReportList" parameterType="repVO" resultType="repVO">
+		SELECT num, mnum, id, title, content, createdate, bdiv, status, del, url
+		FROM reporttbl
+		<where>
+			<if test="mnum != null">mnum = #{mnum}</if>
+			<if test="id != null">id = #{id}</if>
+		</where>
+	</select>	
+	
+	<!-- 신고글 한개 가져오기 -->
+	<select id="selectReport" parameterType="repVO" resultType="repVO">
+		SELECT num, mnum, id, title, content, createdate, bdiv, status, del, url
+		FROM reporttbl
+		<where>
+			<if test="num != null">num = #{num}</if>
+			<if test="mnum != null">AND mnum = #{mnum}</if>
+		</where>
+	</select>
+	
+	<!-- 신고글 추가 -->
+	<insert id="insertReport" parameterType="repVO">
+		 INSERT INTO reporttbl(mnum, id, title, content, createdate, bdiv, url)
+		 VALUES(#{mnum}, #{id}, #{title}, #{content}, #{createdate}, #{bdiv}, #{url})
+	</insert>
+	
+	<!-- 신고글 수정 -->
+	<update id="updateReport" parameterType="repVO">
+		UPDATE reporttbl
+		<set>
+			<if test="title != null">title = #{title}</if>
+			<if test="content != null">content = #{content}</if>
+		</set>
+		WHERE num = #{num}
+	</update>
+	
+	<!-- 신고글 삭제 -->
+	<delete id="deleteReport" parameterType="repVO">
+		UPDATE reporttbl 
+		SET del = 'Y'
+		WHERE num = #{num}
+	</delete>
+	
+</mapper>
