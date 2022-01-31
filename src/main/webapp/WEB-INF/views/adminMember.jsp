@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>adminMember</title>
-<link href="css/layout.css" rel="stylesheet" />
-<link href="css/adminBBS.css" rel="stylesheet" />
+<link href="../css/layout.css" rel="stylesheet" />
+<link href="../css/adminBBS.css" rel="stylesheet" />
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
