@@ -17,7 +17,6 @@
 	
 	<main>
 		<nav>
-			<!-- missing and witnessing 줄여서 mnw -->
 			<div class="mypageNav">
 				<div class="mypageTitle">
 					<h3>개인정보</h3>
@@ -48,6 +47,13 @@
 					<a href="donationList" ><h4>기부 현황</h4></a>
 					<a href="volunteerList" ><h4>자원봉사 현황</h4></a>
 				</div>
+				<br />
+				<div class="mypageTitle">
+					<h3>나의 신고 내역</h3>
+				</div>
+				<div class="mypageSubTitle">
+					<a href="reportList" ><h4>신고 내역</h4></a>
+				</div>
 			</div>
 		</nav>
 		<section>
@@ -55,7 +61,7 @@
 			</article>
 			<div class="buttonBox">
 			</div>
-			<!-- 개인정보 변경 -->
+			<!-- 목격 신고 내역 -->
 			<article id="arti2">
 			
 			</article>

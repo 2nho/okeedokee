@@ -44,4 +44,11 @@ public class MypageController {
 		
 		return "g_mypage_volunteer";
 	}
+	
+	//신고내역 이동
+	@GetMapping("/reportList")
+	public String reportList() {
+		
+		return "g_mypage_report";
+	}
 }
