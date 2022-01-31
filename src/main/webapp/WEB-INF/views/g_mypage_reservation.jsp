@@ -23,14 +23,14 @@
 					<h3>개인정보</h3>
 				</div>
 				<div class="mypageSubTitle">
-					<a href="mypage" id="focus"><h4>개인정보 변경</h4></a>
+					<a href="mypage"><h4>개인정보 변경</h4></a>
 				</div>
 				<br />
 				<div class="mypageTitle">
 					<h3>나의 상담 일정</h3>
 				</div>
 				<div class="mypageSubTitle">
-					<a href="reservation" ><h4>상담 예약일</h4></a>
+					<a href="reservation" id="focus"><h4>상담 예약일</h4></a>
 				</div>
 				<br />
 				<div class="mypageTitle">
