@@ -30,7 +30,7 @@
 						<li>
 							<c:choose>
 								<c:when test="${sessionScope.account.mnum != null}">
-								<a href="/okeedokee/member/mypage">마이페이지</a>
+								<a href="/okeedokee/mypage">마이페이지</a>
 								</c:when>
 								<c:otherwise>
 								<a href="/okeedokee/member/loginPage">로그인/회원가입</a>	
