@@ -73,6 +73,5 @@
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
 
-<script type="text/javascript" src="js/mnw.js"></script>
 </body>
 </html>
