@@ -13,10 +13,9 @@ main nav {
 
 /* 네비게이션 */
 main nav .mypageNav {
-	width: 250px;
-	height: 630px;
+	width: 100%;
 	background-color: #f9f1c0;
-	padding: 10px;
+	padding: 20px 10px;
 	border-radius: 15px 15px;
 }
 
@@ -77,12 +76,28 @@ main section {
 }
 
 /*  */
-main section #arti2 {
-	width: 1550px;
-	background-color: #f9f1c0;
+main section #arti1 {
+	width: 100%;
 	height: 100%;
+	background-color: #f9f1c0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 15px 15px;
+}
+main section #arti1 .content {
+	width: 95%;
+	height: 90%;
+	background-color: #fff;
+	border-radius: 15px 15px;
+	padding: 20px;
+}
+main section #arti1 .content h1 {
+	font-size: 28px;
+}
+main section #arti1 .content h1::after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
 }

@@ -29,7 +29,7 @@
 					<h3>나의 상담 일정</h3>
 				</div>
 				<div class="mypageSubTitle">
-					<a href="reservation" ><h4>상담 예약일</h4></a>
+					<a href="reservation" ><h4>상담 예약 내역</h4></a>
 				</div>
 				<br />
 				<div class="mypageTitle">
@@ -57,13 +57,13 @@
 			</div>
 		</nav>
 		<section>
-			<article id="arti1">
-			</article>
-			<div class="buttonBox">
-			</div>
 			<!-- 개인정보 변경 -->
-			<article id="arti2">
-			
+			<article id="arti1">
+				<div class="content">
+					<h1>개인정보변경</h1>
+					<!-- 여기서부터 작업 시작하세요 -->
+					
+				</div>
 			</article>
 			
 		</section>
