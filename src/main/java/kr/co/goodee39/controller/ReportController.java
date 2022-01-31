@@ -48,4 +48,8 @@ public class ReportController {
 		
 		return "redirect:/"+path;
 	}
+	
+	//신고 수정
+	
+	
 }

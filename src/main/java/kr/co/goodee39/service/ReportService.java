@@ -41,9 +41,8 @@ public class ReportService {
 			model.addAttribute("report", vo2);
 		}
 		
-		//게시글 번호 가져가기
-		model.addAttribute("bnum", num);
 	}
+	
 	
 	//신고 제출
 	public String insertReport(reportVO vo) {
@@ -62,6 +61,9 @@ public class ReportService {
 		System.out.println(vo.getCreatedate());
 		System.out.println(vo.getBdiv());
 		System.out.println(vo.getUrl());
+		
+		//DB에 추가
+		sqlSessionTemplate.insert("rep.insertReport", vo);
 		
 		//게시글 작성 완료 후 각 게시판 페이지로 이동 경로 설정
 		//자원봉사 게시판

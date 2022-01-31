@@ -9,7 +9,7 @@
 
 	<!-- 신고글 리스트 가져오기 -->
 	<select id="selectReportList" parameterType="repVO" resultType="repVO">
-		SELECT num, mnum, id, title, content, createdate, bdiv, status, del, bnum, url
+		SELECT num, mnum, id, title, content, createdate, bdiv, status, del, url
 		FROM reporttbl
 		<where>
 			<if test="mnum != null">mnum = #{mnum}</if>
@@ -19,7 +19,7 @@
 	
 	<!-- 신고글 한개 가져오기 -->
 	<select id="selectReport" parameterType="repVO" resultType="repVO">
-		SELECT num, mnum, id, title, content, createdate, bdiv, status, del, bnum, url
+		SELECT num, mnum, id, title, content, createdate, bdiv, status, del, url
 		FROM reporttbl
 		<where>
 			<if test="num != null">num = #{num}</if>
@@ -29,8 +29,8 @@
 	
 	<!-- 신고글 추가 -->
 	<insert id="insertReport" parameterType="repVO">
-		 INSERT INTO reporttbl(mnum, id, title, content, createdate, bdiv, bnum, url)
-		 VALUES(#{mnum}, #{id}, #{title}, #{content}, #{createdate}, #{bdiv}, #{bnum}, #{url})
+		 INSERT INTO reporttbl(mnum, id, title, content, createdate, bdiv, url)
+		 VALUES(#{mnum}, #{id}, #{title}, #{content}, #{createdate}, #{bdiv}, #{url})
 	</insert>
 	
 	<!-- 신고글 수정 -->
