@@ -62,7 +62,6 @@
 			<article id="arti1">
 				<div class="content">
 					<h1>신고 내역</h1>
-					<!-- 여기서부터 작업 시작하세요 -->
 					<div class="reportList">
 						<table>
 							<colgroup>
@@ -84,7 +83,7 @@
 								<c:set var="i" value="${i+1}"/>
 								<tr>
 									<td>${i}</td>
-									<td>${rep.title}</td>
+									<td><a href="readReport?num=${rep.num}">${rep.title}</a></td>
 									<td>${rep.createdate}</td>
 									<td>${(rep.status eq 'N')? '답변대기':'답변완료'}</td>
 								</tr>

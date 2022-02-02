@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.goodee39.service.MypageService;
 import kr.co.goodee39.vo.reportVO;
@@ -62,5 +63,14 @@ public class MypageController {
 		service.selectReportList(session, vo, model);
 		
 		return "g_mypage_report";
+	}
+	
+	//신고내역 글 읽기
+	@GetMapping("/readReport")
+	public String readReport(@RequestParam int num, HttpSession session, reportVO vo, Model model) {
+		
+		service.selectReport(num, vo, session, model);
+		
+		return "d_report_read";
 	}
 }
