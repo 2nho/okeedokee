@@ -40,7 +40,7 @@ const x = d3.scaleBand()
 //.domain(data.map(function(d){return d.name}); 배열
 //scaleband.domain(배열)
   .domain(data.map(d => d.name))
-  // marin left와 margin right을 뺀 길이
+  // marin left와 width에서 margin right을 뺀 길이
   .range([margin.left, width - margin.right])
   .padding(0.3);
 
