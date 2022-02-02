@@ -18,47 +18,35 @@
                 <div class="main-content-search">
                     <div class="search-contents">
                         <div class="date-search-title">
-                            <h1>날짜</h1>
+                            <h1>검색</h1>
                         </div>
-                        <div class="date-search">
-                            <input type="date" id="start_date" name="start_date">
-                            <p>~</p>
-                            <input type="date" id="end_date" name="end_date">
-                            <div class="button">
-                                <button class="btn" id="date-btn">
-                                <svg width="80px" height="25px" viewBox="0 0 80 25" class="border">
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                                </svg>
-                                <span>검색</span>
-                                </button>
-                            </div>
-                        </div>
-                         <div class="kind-search">
-                            <div class="seach-select">
-                                <select name="seach-category" id="search_category">
-                                    <option value="kind">품종</option>
-                                    <option value="happenPlace">구조지역</option>
-                                    <option value="careNm">보호소</option>
-                                </select>
-                            </div>
-                            <div class="search-input">
-                                <input type="text" id="search" name="search" placeholder="검색어를 입력해주세요.">
-                            </div>
-                            <div class="button">
-                                <button class="btn" id="btn-search">
-                                <svg width="80px" height="25px" viewBox="0 0 80 25" class="border">
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                                </svg>
-                                <span>검색</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="statistics-contents">
-                        <div class="">
-
+                        <div class="search-data">
+	                        <div class="date-search">
+	                            <input type="date" id="start_date" name="start_date">
+	                            <p>~</p>
+	                            <input type="date" id="end_date" name="end_date">
+	                        </div>
+	                         <div class="kind-search">
+	                            <div class="seach-select">
+	                                <select name="seach-category" id="search_category">
+	                                    <option value="kind">품종</option>
+	                                    <option value="happenPlace">구조지역</option>
+	                                    <option value="careNm">보호소</option>
+	                                </select>
+	                            </div>
+	                            <div class="search-input">
+	                                <input type="text" id="search" name="search" placeholder="검색어를 입력해주세요.">
+	                            </div>
+	                            <div class="button">
+	                                <button class="btn" id="btn-search">
+	                                <svg width="80px" height="25px" viewBox="0 0 80 25" class="border">
+	                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+	                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+	                                </svg>
+	                                <span>검색</span>
+	                                </button>
+	                            </div>
+	                        </div>
                         </div>
                     </div>
                 </div>
@@ -135,7 +123,6 @@
         //var dogData = '<c:out value="${dog_data}" />';
     </script>
 
-	
 	<script src="js/Announcement.js" type="text/javascript"></script>
 	<script src="js/common.js" type="text/javascript"></script>
 </body>

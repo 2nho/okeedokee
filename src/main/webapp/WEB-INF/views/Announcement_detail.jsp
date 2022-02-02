@@ -31,8 +31,8 @@
                                             <li>${dog.dog_age}</li>
                                             <li>${dog.dog_processState}</li> 
                                             <li>${dog.dog_noticeSdt}</li>
-                                            <li>${dog.dog_careNm}</li>
                                             <li>${dog.dog_happenPlace}</li>
+                                            <li>${dog.dog_specialMark}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -44,12 +44,12 @@
                                 <div class="shelter-title">
                                     <h2>보호소 정보</h2>
                                 </div>
-                                <div class="shelter-detail">
+                                <div class="shelter-detail" id="dog_${dog.dog_careNm}">
                                     <ul>
-                                        <li>지역 : ${dog.dog_specialMark}</li>
-                                        <li>연락처 : ${dog.dog_careTel}</li>
-                                        <li>이메일 : ${dog.dog_chargeNm}</li>
-                                        <li>주소 : ${dog.dog_careAddr}</li>
+                                    	<li>${dog.dog_careNm}</li>
+                                        <li>${dog.dog_careAddr}</li>
+                                        <li>${dog.dog_careTel}</li>
+                                        <li>${dog.dog_chargeNm}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -86,7 +86,6 @@
 		
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 	</div>
-	
 	<script src="../js/Announcement_detail.js" type="text/javascript"></script>
 	<script src="../js/common.js" type="text/javascript"></script>
 </body>

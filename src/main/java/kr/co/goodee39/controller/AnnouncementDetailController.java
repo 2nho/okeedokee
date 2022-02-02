@@ -30,14 +30,13 @@ import kr.co.goodee39.vo.NoticeVO;
 @Controller
 public class AnnouncementDetailController {
 	
-//	유기견공고
+
 	@Autowired
 	ApiService service;
 	
 	@RequestMapping(value = "/Announcement/Announcement_detail", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public ModelAndView Announcement_detail(HttpServletRequest request) {
-        //dog_img dog_kindCd dog_orgNm dog_age dog_sexCd dog_noticeSdt dog_careNm dog_happenPlace
 		
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		

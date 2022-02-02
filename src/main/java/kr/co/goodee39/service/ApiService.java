@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ApiService {
-
+	//유기견api 서비스
 	public String getXml() {
 
 		StringBuffer sb = new StringBuffer();
@@ -23,7 +23,7 @@ public class ApiService {
 			// 인증키 설정
 			urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=QWmRBRgQFVjPLxlHE0NTfMfwlmHMGKmPqTeI1D%2BPhZO2gQzZpIR0ycYZCtH%2BN7p8W7amKDhwRqHFzjCfSU%2Fvzw%3D%3D");
 			// 축종 : 견(417000)
-			urlBuilder.append("&" + URLEncoder.encode("addr", "UTF-8") + "=" + URLEncoder.encode("417000", "UTF-8"));
+			urlBuilder.append("&" + URLEncoder.encode("upkind", "UTF-8") + "=" + URLEncoder.encode("417000", "UTF-8"));
 			// 출력 페이지 수
 			urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));
 			// 총 가져올 정보 수

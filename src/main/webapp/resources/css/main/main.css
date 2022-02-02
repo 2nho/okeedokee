@@ -44,12 +44,14 @@ a {
 }
 
 .slider-dot {
+	margin-top : 10px;
     text-align: center;
 }
 
 .slidershow img {
-    width: 100%;
+    width: 1000px;
     vertical-align: middle;
+    height : 400px;
 }
 
 .slidershow {
@@ -74,7 +76,43 @@ a {
     to {opacity: 1}
 }
 
+.main-link {
+	display : flex;
+	flex-direction : row nowrap;
+	width : 100%;
+	align-items: center;
+    justify-content: center;
+    margin-top : 20px;
+}
 
+.main-link-img1, .main-link-img2, .main-link-img3 {
+	margin : 0 5px;
+}
+
+.main-link-img1 img, .main-link-img2 img, .main-link-img3 img {
+	width : 100%;
+	height : 250px;
+}
+
+.main-link-img1 {
+	width : 250px;
+	height : 250px;
+}
+
+
+.main-link-img2 {
+	width : 250px;
+	height : 250px;
+}
+
+.main-link-img3 {
+	width : 350px;
+	height : 250px;
+}
+
+.dog-hidden {
+	display : none;
+}
 
 .nearby-dog {
     margin-top: 50px;
@@ -101,6 +139,7 @@ a {
 
 .nearby-dog-div{
 	position : relative;
+	cursor: pointer;
 }
 
 .nearby-dog-img {
@@ -126,7 +165,7 @@ a {
 	width : 230px;
 	height : 230px;
 	background-color : black;
-	opacity : 0.7;
+	opacity : 0.5;
 	color : white;
 	font-size : 1.2rem;
 	font-weight : bold;
