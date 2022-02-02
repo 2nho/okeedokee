@@ -28,14 +28,14 @@
 						<li><a href="">후원/봉사</a></li>
 						<li><a href="/okeedokee/Notice/main">공지사항</a></li>
 						<li>
-							<c:choose>
+							<%-- <c:choose>
 								<c:when test="${sessionScope.account.mnum != null}">
 								<a href="/okeedokee/mypage">마이페이지</a>
 								</c:when>
-								<c:otherwise>
+								<c:otherwise> --%>
 								<a href="/okeedokee/member/loginPage">로그인/회원가입</a>	
-								</c:otherwise>
-							</c:choose>
+								<%-- </c:otherwise>
+							</c:choose> --%>
 							
 						</li>
 					</ul>

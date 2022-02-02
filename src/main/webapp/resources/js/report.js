@@ -36,7 +36,7 @@ function textEdit() {
 		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
 
 		//널값 체크 후 전송
-		checkNull(num);
+		checkNull();
 	}
 
 } textEdit();
@@ -44,7 +44,7 @@ function textEdit() {
 
 
 //input 공란 체크 후 전송
-function checkNull(num) {
+function checkNull() {
 	//변수 설정
 	let title = document.getElementById("title");
 	let content = document.getElementById("content").value;
