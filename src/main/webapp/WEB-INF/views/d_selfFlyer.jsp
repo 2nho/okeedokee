@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>OKEEDOKEE</title>
+<link rel="icon" href="media/logo/favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/mnw.css" />
 </head>
 <body>

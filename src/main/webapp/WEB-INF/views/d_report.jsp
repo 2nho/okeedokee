@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>OKEEDOKEE</title>
+<link rel="icon" href="media/logo/favicon.ico">
 <link rel="stylesheet" href="css/mnw.css" />
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
@@ -73,7 +74,7 @@
 							</form:form>
 							
 							<div class="submitBtnBox">
-								<button type="button" id="submit">제출</button>
+								<button type="button" id="submit" onclick="submitPost()">제출</button>
 							</div>
 							
 						</div>

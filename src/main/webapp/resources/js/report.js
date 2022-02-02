@@ -34,36 +34,28 @@ function textEdit() {
 
 		//UPDATE_CONTENTS_FIELD 메세지 호출
 		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
+		
+		//변수 설정
+		let title = document.getElementById("title");
+		let content = document.getElementById("content").value;
 
-		//널값 체크 후 전송
-		checkNull();
+		//미입력시 
+		if (title.value == "") {
+			alert("제목을 입력해주세요.");
+			title.focus();
+		}
+		//'<p><br></p>' 추출되므로 해당 내용을 공백으로 간주
+		else if (content == "<p><br></p>") {
+			alert("내용을 입력해주세요.");
+			oEditors.getById["content"].exec("FOCUS");
+			return;
+		}
+
+		else {
+			//input에 작성한 내용 전송하기
+			$("#boardContent").submit();
+		}
 	}
 
 } textEdit();
 
-
-
-//input 공란 체크 후 전송
-function checkNull() {
-	//변수 설정
-	let title = document.getElementById("title");
-	let content = document.getElementById("content").value;
-
-	//미입력시 
-	if (title.value == "") {
-		alert("제목을 입력해주세요.");
-		title.focus();
-	}
-	//'<p><br></p>' 추출되므로 해당 내용을 공백으로 간주
-	else if (content == "<p><br></p>") {
-		alert("내용을 입력해주세요.");
-		oEditors.getById["content"].exec("FOCUS");
-		return;
-	}
-
-	else {
-		//input에 작성한 내용 전송하기
-		$("#boardContent").submit();
-	}
-
-};

@@ -104,7 +104,7 @@ main section #arti1 .content h1::after {
 }
 
 
-/* 신고내역 */
+/* 나의 신고 내역 */
 main section #arti1 .content .reportList {
 	width: 100%;
 }
@@ -117,4 +117,7 @@ main section #arti1 .content .reportList>table {
 
 main section #arti1 .content .reportList>table>thead>tr>th {
 	border-bottom: 2px solid #323232;
+}
+main section #arti1 .content .reportList>table>tbody>tr>td {
+	border-bottom: 1px solid rgba(0,0,0,.2);
 }

@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>OKEEDOKEE</title>
+<link rel="icon" href="media/logo/favicon.ico">
 <link rel="stylesheet" href="css/mypage.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -79,21 +80,16 @@
 								</tr>
 							</thead>
 							<tbody>
-								<%-- <c:forEach var="rep" items="${report}">
+								<c:forEach var="rep" items="${report}">
 								<c:set var="i" value="${i+1}"/>
 								<tr>
 									<td>${i}</td>
 									<td>${rep.title}</td>
 									<td>${rep.createdate}</td>
-									<td>${rep.status}</td>
+									<td>${(rep.status eq 'N')? '답변대기':'답변완료'}</td>
 								</tr>
-								</c:forEach> --%>
-								<tr>
-									<td>1</td>
-									<td><a href="">신고테스트 제목</a></td>
-									<td>2022-01-31</td>
-									<td>답변대기</td>
-								</tr>
+								</c:forEach>
+								
 							</tbody>
 						</table>
 					</div>
