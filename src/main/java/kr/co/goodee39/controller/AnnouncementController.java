@@ -206,12 +206,7 @@ public class AnnouncementController {
 		            
 		            
 		            
-					/*
-					 * System.out.println("### map="+map);
-					 * System.out.println("### dataResponse="+dataResponse);
-					 * System.out.println("### body="+body); System.out.println("### items="+items);
-					 * System.out.println("### item="+item);
-					 */
+					
 		            
 		            //뽑아온 내용 최종 산출물 변수에 담아주기
 		            resultMap.put("Result", "0000");

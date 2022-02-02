@@ -255,11 +255,6 @@ public class AnnouncementDetailController {
 		return resultMap;
 	}
 	
-	/*
-	 * @GetMapping("/Announcement_detail") public String
-	 * Announcement_detail(HttpServletRequest request, Model model) {
-	 * 
-	 * return "Announcement_detail"; }
-	 */
+	
 	
 }

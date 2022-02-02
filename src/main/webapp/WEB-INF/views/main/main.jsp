@@ -16,8 +16,7 @@
 		
 		<section>
             <div class="main-content">
-                <!-- 슬라이드 광고 -->
-                <!-- 이미지 추가만 하면 완료 -->
+                
                 <div class="main-advertisement" id="main_advertisement">
                     <div class="slidershow fade">
                             <img src="media/main/advertisement_img1.jpg" alt="">

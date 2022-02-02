@@ -86,6 +86,7 @@
 		
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 	</div>
+	
 	<script src="../js/Announcement_detail.js" type="text/javascript"></script>
 	<script src="../js/common.js" type="text/javascript"></script>
 </body>

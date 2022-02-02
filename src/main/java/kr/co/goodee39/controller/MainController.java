@@ -60,12 +60,7 @@ public class MainController {
             items = (Map<String, Object>) body.get("items");
             item = (List<Map<String, Object>>) items.get("item");
 
-			/*
-			 * System.out.println("### map="+map);
-			 * System.out.println("### dataResponse="+dataResponse);
-			 * System.out.println("### body="+body); System.out.println("### items="+items);
-			 * System.out.println("### item="+item);
-			 */
+		
             
             List<Map<String, Object>> listMap = new ArrayList<Map<String, Object>>(); //결과 DATA
             Map<String, Object> hashMap = new HashMap<String, Object>(); //API 임시 HashMap

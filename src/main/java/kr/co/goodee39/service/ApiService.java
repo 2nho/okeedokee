@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ApiService {
-	//유기견api 서비스
+	
 	public String getXml() {
 
 		StringBuffer sb = new StringBuffer();

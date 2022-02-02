@@ -141,7 +141,6 @@ var init_main = function () {
 
 		page_move('/okeedokee/Announcement/Announcement_detail', arrDoagPrams);
 		
-		
 	});
 
 

@@ -122,7 +122,6 @@
         
         //var dogData = '<c:out value="${dog_data}" />';
     </script>
-
 	<script src="js/Announcement.js" type="text/javascript"></script>
 	<script src="js/common.js" type="text/javascript"></script>
 </body>

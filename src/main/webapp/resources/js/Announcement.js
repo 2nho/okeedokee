@@ -335,6 +335,7 @@ var bindDogData = function (i_init, i_data) {
 		arrDogParams.push(_dog_careAddr);
 
 		page_move('/okeedokee/Announcement/Announcement_detail', arrDogParams);
+	
 	});
 	
 }
