@@ -37,10 +37,10 @@ const data = [
 // scaleband = x축 , scaleLinear = y축
 // 고정된 문자열에는 scaleBand, 일반 숫자값은 scaleLinear을 사용한다.
 const x = d3.scaleBand()
-//.domain(data.map(function(d){return d.name}); 배열
+//.domain(data.map(function(d){return d.name}); '배열'
 //scaleband.domain(배열)
   .domain(data.map(d => d.name))
-  // marin left와 margin right을 뺀 길이
+  // marin left와 width에서 margin right을 뺀 길이
   .range([margin.left, width - margin.right])
   .padding(0.3);
 
@@ -48,7 +48,7 @@ const x = d3.scaleBand()
  //d3.scale.linear - 정량적 선형 스케일(축척)을 생성한다
 const y = d3.scaleLinear()
 // nice() 반올림을 통해 축을 이쁘게
-// .domain(0,max)
+// .domain(0,max) '범위'
   .domain([0, d3.max(data, d => d.value)]).nice()
     .range([height - margin.bottom, margin.top]);
  //g 문서요소 

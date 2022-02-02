@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>OKEEDOKEE</title>
+<link rel="icon" href="media/logo/favicon.ico">
 <link rel="stylesheet" href="css/mnw.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>

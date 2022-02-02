@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>adminHome</title>
-<link href="css/layout.css" rel="stylesheet" />
-<link href="css/adminHome.css" rel="stylesheet" />
+<link href="../css/layout.css" rel="stylesheet" />
+<link href="../css/adminHome.css" rel="stylesheet" />
 <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
@@ -50,6 +50,6 @@
 			</section>
 		</main>
 	</div>
-	<script type="text/javascript" src="js/chart.js"></script>
+	<script type="text/javascript" src="../js/chart.js"></script>
 </body>
 </html>

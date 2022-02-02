@@ -6,7 +6,41 @@
 	<select id="selectReport" parameterType="repVO" resultType="repVO">
 		SELECT num,title,content,id,createdate,status
 		FROM reporttbl
+		where del = 'N'
+		<choose>
+			<when test="title != null and content != null">
+				and (title like #{title} or content like #{content})
+			</when>
+			<when test="title == null and content != null">
+				and content like #{content}
+			</when>
+			<when test="title != null and content == null">
+				and title like #{title}
+			</when>
+			<when test="title = null and content == null and status != null">
+				and status like #{status}
+			</when>
+		</choose>
 		order by num desc
-		<!-- limit #{start}, #{count} -->
+		limit #{start}, #{count}
+	</select>
+	<select id="CountReport" parameterType="repVO" resultType="int">
+		select count(*)
+		from reporttbl
+		where del = 'N'
+		<choose>
+			<when test="title != null and content != null">
+				and (title like #{title} or content like #{content})
+			</when>
+			<when test="title == null and content != null">
+				and content like #{content}
+			</when>
+			<when test="title != null and content == null">
+				and title like #{title}
+			</when>
+			<when test="title = null and content == null and status != null">
+				and status like #{status}
+			</when>
+		</choose>
 	</select>
 </mapper>

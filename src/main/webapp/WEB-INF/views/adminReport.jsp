@@ -6,9 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>adminReport</title>
-<link href="css/layout.css" rel="stylesheet" />
-<link href="css/adminBBS.css" rel="stylesheet" />
-<script src="https://d3js.org/d3.v7.min.js"></script>
+<link href="../css/layout.css" rel="stylesheet" />
+<link href="../css/adminBBS.css" rel="stylesheet" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/70977de212.js"
@@ -31,16 +30,14 @@
 				<div>
 					<h1>회원관리</h1>
 					<article class="article3">
-						<form action="#">
-							<label for="search"><i class="fas fa-search"></i></label> <select
-								name="choice" id="choice">
-								<option value="title">제목</option>
-								<option value="id">아이디</option>
-								<option value="class">신고구분</option>
-								<option value="state">처리상태</option>
-							</select> <input type="text" id="text" />
-							<button id="search">검색</button>
-						</form>
+						<label for="search"><i class="fas fa-search"></i></label> 
+						<select name="category" id="category">
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+							<option value="both">제목+내용</option>
+							<option value="status">처리상태</option>
+						</select> <input type="text" id="text" />
+						<button id="search">검색</button>
 					</article>
 					<article class="article1">
 						<h3>회원리스트</h3>
@@ -50,7 +47,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th><input type="checkbox" /></th>
+									<th><input type="checkbox" class="checkboxALL" /></th>
 									<th>번호</th>
 									<th>제목</th>
 									<th>신고내용</th>
@@ -62,7 +59,7 @@
 							<tbody>
 								<c:forEach var="item" items="${report}">
 									<tr>
-										<td><input type="checkbox" /></td>
+										<td><input type="checkbox" class="checkbox" /></td>
 										<td>${item.num}</td>
 										<td>${item.title}</td>
 										<td>${item.content}</td>
@@ -74,105 +71,93 @@
 							</tbody>
 						</table>
 						<hr />
-	<!-- num -> 1~10 11~20 21~30 => ((num-1)/10)+1 -->
-	<%-- <%
-		// 현재 페이지
-		int num = (Integer)request.getAttribute("num");
-		// 전체 데이터 개수
-		int count = (Integer)request.getAttribute("count");
-		// 전체 페이지 개수
-		int total = count/10+((count%10==0)?0:1);
-		// 한 블럭에서 가장 작은 번호를 가지는 페이지 번호
-		int minBlock = (((num-1)/10)*10)+1;
-		// 한 블럭에서 가장 큰 번호를 가지는 페이지 번호
-		int maxBlock = (((num-1)/10)+1)*10;
-		
-		pageContext.setAttribute("total", total);
-		pageContext.setAttribute("minBlock", minBlock);
-		pageContext.setAttribute("maxBlock", maxBlock);
-		
-		// 검색 데이터 연동
-		String query = "";
-		
-		String title = (String)request.getAttribute("title");
-		String content = (String)request.getAttribute("content");
-		
-		if(title != null){
-			query += "&title="+title;
-		}
-		
-		if(content != null){
-			query += "&content="+content;
-		}
-		
-		pageContext.setAttribute("query", query);
-	%> --%>
-	<c:choose>
-		<c:when test="${(minBlock-1) < 1 }">
-			<span>◀◀</span>	
-		</c:when>
-		<c:otherwise>
-			<a href="${pageContext.request.contextPath}/bbs/main?num=${minBlock-1}${query}">◀◀</a>
-		</c:otherwise>
-	</c:choose>
-	&nbsp;&nbsp;
-	<c:choose>
-		<c:when test="${num==1 }">
-			<span>◀</span>
-		</c:when>
-		<c:otherwise>
-			<a href="${pageContext.request.contextPath}/bbs/main?num=${num-1}${query}">◀</a>
-		</c:otherwise>
-	</c:choose>
-	<c:forEach begin="${minBlock}" end="${(total<maxBlock)?total:maxBlock}" step="1" var="i">
-		<c:choose>
-			<c:when test="${num == i}">
-				<span>${i}</span>
-			</c:when>
-			<c:otherwise>
-				<a href="${pageContext.request.contextPath}/bbs/main?num=${i}${query}">${i}</a>
-			</c:otherwise>
-		</c:choose>
+						<c:choose>
+							<c:when test="${(minBlock-1) < 1 }">
+								<span>◀◀</span>
+							</c:when>
+							<c:otherwise>
+								<a
+									href="${pageContext.request.contextPath}/admin/adminReport?num=${minBlock-1}${query}">◀◀</a>
+							</c:otherwise>
+						</c:choose>
+						&nbsp;&nbsp;
+						<c:choose>
+							<c:when test="${num==1 }">
+								<span>◀</span>
+							</c:when>
+							<c:otherwise>
+								<a
+									href="${pageContext.request.contextPath}/admin/adminReport?num=${num-1}${query}">◀</a>
+							</c:otherwise>
+						</c:choose>
+						<c:forEach begin="${minBlock}"
+							end="${(total<maxBlock)?total:maxBlock}" step="1" var="i">
+							<c:choose>
+								<c:when test="${num == i}">
+									<span>${i}</span>
+								</c:when>
+								<c:otherwise>
+									<a
+										href="${pageContext.request.contextPath}/admin/adminReport?num=${i}${query}">${i}</a>
+								</c:otherwise>
+							</c:choose>
 
-	</c:forEach>
-	<c:choose>
-		<c:when test="${num == total }">
-			<span>▶</span>
-		</c:when>
-		<c:otherwise>
-			<a href="${pageContext.request.contextPath}/bbs/main?num=${num+1}${query}">▶</a>	
-		</c:otherwise>
-	</c:choose>
-	&nbsp;&nbsp;
-	<c:choose>
-		<c:when test="${maxBlock > total }">
-			<span>▶▶</span>	
-		</c:when>
-		<c:otherwise>
-			<a href="${pageContext.request.contextPath}/bbs/main?num=${maxBlock+1}${query}">▶▶</a>
-		</c:otherwise>
-	</c:choose>
+						</c:forEach>
+						<c:choose>
+							<c:when test="${num == total }">
+								<span>▶</span>
+							</c:when>
+							<c:otherwise>
+								<a
+									href="${pageContext.request.contextPath}/admin/adminReport?num=${num+1}${query}">▶</a>
+							</c:otherwise>
+						</c:choose>
+						&nbsp;&nbsp;
+						<c:choose>
+							<c:when test="${maxBlock > total }">
+								<span>▶▶</span>
+							</c:when>
+							<c:otherwise>
+								<a
+									href="${pageContext.request.contextPath}/admin/adminReport?num=${maxBlock+1}${query}">▶▶</a>
+							</c:otherwise>
+						</c:choose>
 					</article>
 				</div>
 			</section>
 		</main>
 	</div>
 	<script type="text/javascript">
-	$(function(){
-		$("#search").click(function(){
-			let category = $("#choice").val();
-			let text = $("#text").val();
-			
-			if(category == "title"){
-				location.href = "${pageContext.request.contextPath}/bbs/main?title="+text;	
-			}else if(category == "id"){
-				location.href = "${pageContext.request.contextPath}/bbs/main?id="+text;
-			}else if(category == "class"){
-				location.href = "${pageContext.request.contextPath}/bbs/main?class="+text;	
-			}else if(category == "state"){
-				location.href = "${pageContext.request.contextPath}/bbs/main?state="+text;
-			
-		});
+		      	$(function() {		
+					$("#search").click(function(){
+						let category = $("#category").val();
+						let text = $("#text").val();
+						
+						if(category == "title"){
+				      		location.href = "${pageContext.request.contextPath}/admin/adminReport?title="+text;
+				      	}else if(category == "content"){
+				      		location.href = "${pageContext.request.contextPath}/admin/adminReport?content="+text;
+				      	}else if(category == "both"){
+				      		location.href = "${pageContext.request.contextPath}/admin/adminReport?title="+text+"&content="+text;
+				      	}else if(category == "status"){
+				      		location.href = "${pageContext.request.contextPath}/admin/adminReport?status="+text;
+						}
+					});
+					$(function() {
+			    		// 전체 선택 클릭시 전부 선택 / 해제
+			    		$(".checkboxAll").change(function() {
+			    			$(".checkbox").prop("checked", $(this).prop("checked"));
+			    		});
+
+			    		// 4개 전부 체크시 전체 선택 체크 / 하나라도 체크 해제시 전체 선택 해제
+			    		$(".checkbox").click(function() {
+			    			if ($(".checkbox:checked").length == $(".checkbox").length) {
+			    				$(".checkboxAll").prop("checked", true);
+			    			} else {
+			    				$(".checkboxAll").prop("checked", false);
+			    			}
+			    		});
+				});
 	</script>
 </body>
 </html>

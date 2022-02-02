@@ -1,14 +1,17 @@
 package kr.co.goodee39.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.goodee39.service.adminSerivce;
-import kr.co.goodee39.vo.MemberVO;
 
 @Controller
+@RequestMapping("/admin")
 public class adminController {
 	@Autowired
 	adminSerivce service;
@@ -22,13 +25,19 @@ public class adminController {
 	}
 
 	@GetMapping("/adminMember")
-	public String adminMember(Model model) {
-		service.memberlist(model);
+	public String adminMember(Model model, @RequestParam(defaultValue = "1") int num,
+			@RequestParam(defaultValue="") String id,
+			@RequestParam(defaultValue="") String email,
+			@RequestParam(defaultValue="") String level) {
+		service.memberlist(model, num, id, email, level);
 		return "adminMember";
 	}
 	@GetMapping("/adminReport")
-	public String adminReport(Model model) {
-		service.selectReportBBS(model);
+	public String adminReport(Model model, @RequestParam(defaultValue = "1") int num,
+			@RequestParam(defaultValue="") String title,
+			@RequestParam(defaultValue="") String content,
+			@RequestParam(defaultValue="") String status) {
+		service.selectReportBBS(model, num, title, content, status);
 		return "adminReport";
 	}
 
