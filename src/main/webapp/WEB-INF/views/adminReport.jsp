@@ -47,7 +47,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th><input type="checkbox" /></th>
+									<th><input type="checkbox" class="checkboxALL" /></th>
 									<th>번호</th>
 									<th>제목</th>
 									<th>신고내용</th>
@@ -59,7 +59,7 @@
 							<tbody>
 								<c:forEach var="item" items="${report}">
 									<tr>
-										<td><input type="checkbox" /></td>
+										<td><input type="checkbox" class="checkbox" /></td>
 										<td>${item.num}</td>
 										<td>${item.title}</td>
 										<td>${item.content}</td>
@@ -143,6 +143,20 @@
 				      		location.href = "${pageContext.request.contextPath}/admin/adminReport?status="+text;
 						}
 					});
+					$(function() {
+			    		// 전체 선택 클릭시 전부 선택 / 해제
+			    		$(".checkboxAll").change(function() {
+			    			$(".checkbox").prop("checked", $(this).prop("checked"));
+			    		});
+
+			    		// 4개 전부 체크시 전체 선택 체크 / 하나라도 체크 해제시 전체 선택 해제
+			    		$(".checkbox").click(function() {
+			    			if ($(".checkbox:checked").length == $(".checkbox").length) {
+			    				$(".checkboxAll").prop("checked", true);
+			    			} else {
+			    				$(".checkboxAll").prop("checked", false);
+			    			}
+			    		});
 				});
 	</script>
 </body>

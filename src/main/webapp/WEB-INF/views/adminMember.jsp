@@ -46,7 +46,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th><input type="checkbox" /></th>
+									<th><input type="checkbox" class="checkboxAll" /></th>
 									<th>번호</th>
 									<th>이름</th>
 									<th>아이디</th>
@@ -58,7 +58,7 @@
 							<tbody>
 								<c:forEach var="item" items="${list}">
 									<tr>
-										<td><input type="checkbox" /></td>
+										<td><input type="checkbox" class="checkbox" /></td>
 										<td>${item.mnum}</td>
 										<td>${item.name}</td>
 										<td>${item.id}</td>
@@ -140,6 +140,21 @@
 						}
 					});
 				});
+		      	$(function() {
+		    		// 전체 선택 클릭시 전부 선택 / 해제
+		    		$(".checkboxAll").change(function() {
+		    			$(".checkbox").prop("checked", $(this).prop("checked"));
+		    		});
+
+		    		// 4개 전부 체크시 전체 선택 체크 / 하나라도 체크 해제시 전체 선택 해제
+		    		$(".checkbox").click(function() {
+		    			if ($(".checkbox:checked").length == $(".checkbox").length) {
+		    				$(".checkboxAll").prop("checked", true);
+		    			} else {
+		    				$(".checkboxAll").prop("checked", false);
+		    			}
+		    		});
+		    	});
 	</script>
 </body>
 </html>
