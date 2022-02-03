@@ -1,6 +1,7 @@
 package kr.co.goodee39.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,18 +27,29 @@ public class ReportController {
 			@RequestParam int num, 
 			@ModelAttribute("repVO") reportVO vo, 
 			HttpServletRequest request,
+			HttpSession session,
 			Model model) {
 		
-		//이전 페이지 주소 받아오기
-		String boardUrl = request.getHeader("referer"); 
-		System.out.println(boardUrl);
+		String path = "";
 		
-		model.addAttribute("boardUrl", boardUrl);
+		//로그인 후 신고 가능
+		if(session.getAttribute("account") == null) {
+			path = "redirect:/member/loginPage";
+		}
+		else if(session.getAttribute("account") != null) {
+			//이전 페이지 주소 받아오기
+			String boardUrl = request.getHeader("referer"); 
+			System.out.println(boardUrl);
+			
+			model.addAttribute("boardUrl", boardUrl);
+			
+			//신고대상 게시글 제목 가져오기
+			service.selectTitle(bdiv, num, model);
+			
+			path = "d_report";
+		}
 		
-		//신고대상 게시글 제목 가져오기
-		service.selectTitle(bdiv, num, model);
-		
-		return "d_report";
+		return path;
 	}
 	
 	//신고 제출

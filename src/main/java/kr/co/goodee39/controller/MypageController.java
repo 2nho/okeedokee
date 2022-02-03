@@ -83,4 +83,12 @@ public class MypageController {
 
 		return "d_report_read";
 	}
+	//신고내역 삭제
+	@GetMapping("/isdeleteRpeort")
+	public String isdeleteRpeort(@RequestParam int num, reportVO vo) {
+		
+		service.deleteReport(num, vo);
+		
+		return "redirect:/reportList";
+	}
 }

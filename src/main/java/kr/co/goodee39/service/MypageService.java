@@ -83,5 +83,12 @@ public class MypageService {
 			model.addAttribute("title", title.getId()+"님의 강아지를 찾습니다.");
 		}
 	}
+	
+	
+	//신고내역 삭제
+	public void deleteReport(int num, reportVO vo) {
+		vo.setNum(num);
+		sqlSessionTemplate.update("rep.deleteReport", vo);
+	}
 
 }
