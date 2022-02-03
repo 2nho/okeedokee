@@ -27,6 +27,7 @@
 	<a href="admin/adminMember">관리자 회원관리</a> <a href="admin/adminReport">관리자 신고관리</a>
 	<a href="Announcement">유기견공고</a>
 	<a href="Announcement_detail">유기견공고</a>
+	<a href="Save">후원/자원봉사 페이지</a>
 	<br/>
 	<a href="${pageContext.request.contextPath }/Notice/main">공지사항</a>
 	
