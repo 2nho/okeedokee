@@ -1,9 +1,6 @@
 package kr.co.goodee39.controller;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,14 +16,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.goodee39.service.SelfFlyerService;
-import kr.co.goodee39.vo.ImageVO;
+import kr.co.goodee39.vo.MemberVO;
 import kr.co.goodee39.vo.mnwCmtVO;
-import kr.co.goodee39.vo.mnwVO;
 import kr.co.goodee39.vo.selfFlyerVO;
 
 @Controller
@@ -51,12 +44,12 @@ public class SelfFlyerController {
 		String path = "";
 
 		// 로그인 정보 없을 시 로그인 페이지로 이동 : 연동시 수정 필수
-		// if(session.getAttribute("account") != null) {
-		path = "d_selfFlyer_make";
-		// }
-		// else if(session.getAttribute("account") == null) {
-		// path = "redirect:/member/login";
-		// }
+		if(session.getAttribute("account") != null) {
+			path = "d_selfFlyer_make";
+		}
+		else if(session.getAttribute("account") == null) {
+			path = "redirect:/member/loginPage";
+		}
 
 		return path;
 	}
@@ -69,11 +62,9 @@ public class SelfFlyerController {
 		service.selectFlyer(bdiv, num, vo, model);
 
 		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
-		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
 		// session.getAttribute("account");
 		// 임시세션 정보
-		session.setAttribute("account", "sessionId");
-		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
+		//session.setAttribute("account", "sessionId");
 		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
 
 		return "d_selfFlyer_read";
@@ -104,10 +95,11 @@ public class SelfFlyerController {
 		System.out.println("글번호 : " + vo.getBnum());
 		System.out.println("게시판구분 : " + vo.getBdiv());
 
-		// MemberVO mvo = (MemberVO)session.getAttribute("account");
-		// vo.setId(mvo.getId());
+		//세션에서 id가져오기
+		MemberVO mvo = (MemberVO)session.getAttribute("account");
+		vo.setId(mvo.getId());
 		// 임시id : 후에 세션정보로 교체 필요
-		vo.setId("sessionId");
+		//vo.setId("sessionId");
 
 		// 코멘트 db추가
 		service.insertFlyerCmt(vo);
@@ -123,11 +115,12 @@ public class SelfFlyerController {
 
 		System.out.println("어떤 댓글 삭제? : " + vo.getNum());
 		System.out.println("어디 게시판? : " + vo.getBdiv());
-
-		// MemberVO mvo = (MemberVO)session.getAttribute("account");
-		// vo.setId(mvo.getId());
+		
+		//세션에서 id가져오기
+		MemberVO mvo = (MemberVO)session.getAttribute("account");
+		vo.setId(mvo.getId());
 		// 임시id : 후에 세션정보로 교체 필요
-		vo.setId("sessionId");
+		//vo.setId("sessionId");
 
 		service.deleteFlyerCmt(vo);
 

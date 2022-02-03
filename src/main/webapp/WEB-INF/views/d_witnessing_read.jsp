@@ -48,16 +48,16 @@
 								<input type="text" name="id" id="id" readonly="readonly" value="${mnwVO.id}"/>	
 								
 								<!-- 실제 세션 정보 수정 필!!!! -->
-								<input type="hidden" name="sessionId" id="sessionId" readonly="readonly" value="${sessionScope.account}"/>
+								<input type="hidden" name="sessionId" id="sessionId" readonly="readonly" value="${sessionScope.account.id}"/>
 								<div class="btnBox">
 									<!-- 실제 세션 정보 수정 필!!!! -->
-									<c:if test="${sessionScope.account == mnwVO.id}">
+									<c:if test="${sessionScope.account.id == mnwVO.id}">
 										<a href="${pageContext.request.contextPath}/revise?bdiv=4&num=${mnwVO.num}">수정</a>
 										<a href="${pageContext.request.contextPath}/back?bdiv=4&num=${mnwVO.num}" id="back">귀가</a>
 										<a href="${pageContext.request.contextPath}/end?bdiv=4&num=${mnwVO.num}" id="end">종료</a>
 										<a href="${pageContext.request.contextPath}/isdelete?bdiv=4&num=${mnwVO.num}">삭제</a>
 									</c:if>
-									<c:if test="${sessionScope.account != mnwVO.id}">
+									<c:if test="${sessionScope.account.id != mnwVO.id}">
 										<a href="${pageContext.request.contextPath}/report?bdiv=4&num=${mnwVO.num}">신고</a>
 									</c:if>
 								</div>

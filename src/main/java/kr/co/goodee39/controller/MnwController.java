@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.goodee39.service.MnwService;
+import kr.co.goodee39.vo.MemberVO;
 import kr.co.goodee39.vo.mnwCmtVO;
 import kr.co.goodee39.vo.mnwVO;
 
@@ -58,7 +59,6 @@ public class MnwController {
 		//게시판 구분
 		int bdiv = 4;
 		service.selectMnw(num, id, title, content, bdiv, model);
-		//service.selectWitness(num, model);
 
 		return "d_witnessing";
 	}
@@ -79,11 +79,9 @@ public class MnwController {
 
 		
 		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
-		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
 		//session.getAttribute("account");
 		//임시세션 정보
-		session.setAttribute("account", "sessionId");
-		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
+		//session.setAttribute("account", "sessionId");
 		// 로그인 기능 생성 전 임시 코드//로그인 기능 생성 전 임시 코드
 
 		return path + "read";
@@ -97,13 +95,13 @@ public class MnwController {
 		
 		//로그인 Controller 등록 후 주석 지우기!!!!!!
 		//로그인 정보 있어야 접근 가능
-		//if(session.getAttribute("account") != null) {
+		if(session.getAttribute("account") != null) {
 			path = "d_missing_write";
-		//}
+		}
 		//없다면 로그인 페이지
-		//else if(session.getAttribute("account") == null){
-		//	path = "redirect:/member/login";
-		//}
+		else if(session.getAttribute("account") == null){
+			path = "redirect:/member/loginPage";
+		}
 		
 		return path;
 	}
@@ -116,13 +114,13 @@ public class MnwController {
 		
 		//로그인 Controller 등록 후 주석 지우기!!!!!!
 		//로그인 정보 있어야 접근 가능
-		//if(session.getAttribute("account") != null) {
+		if(session.getAttribute("account") != null) {
 			path = "d_witnessing_write";
-		//}
+		}
 		//없다면 로그인 페이지
-		//else if(session.getAttribute("account") == null) {
-		//	path = "redirect:/member/login";
-		//}
+		else if(session.getAttribute("account") == null) {
+			path = "redirect:/member/loginPage";
+		}
 		return path;
 	}
 
@@ -229,13 +227,13 @@ public class MnwController {
 		
 		//로그인 Controller 등록 후 주석 지우기!!!!!!
 		//로그인 정보 있어야 접근 가능
-		//if(session.getAttribute("account") != null) {
+		if(session.getAttribute("account") != null) {
 			path = "g_report";
-		//}
+		}
 		//없다면 로그인 페이지
-		//else if(session.getAttribute("account") == null){
-		//	path = "redirect:/member/login";
-		//}
+		else if(session.getAttribute("account") == null){
+			path = "redirect:/member/loginPage";
+		}
 		
 		return path;
 	}
@@ -267,10 +265,11 @@ public class MnwController {
 		System.out.println("글번호 : "+vo.getBnum());
 		System.out.println("게시판구분 : "+vo.getBdiv());
 		
-		//MemberVO mvo = (MemberVO)session.getAttribute("account");
-		//vo.setId(mvo.getId());
+		//세션에서 id정보 가져오기
+		MemberVO mvo = (MemberVO)session.getAttribute("account");
+		vo.setId(mvo.getId());
 		//임시id : 후에 세션정보로 교체 필요
-		vo.setId("sessionId");
+		//vo.setId("sessionId");
 		
 		//코멘트 db추가
 		service.insertMnwCmt(vo);
@@ -287,10 +286,11 @@ public class MnwController {
 		System.out.println("어떤 댓글 삭제? : "+vo.getNum());
 		System.out.println("어디 게시판? : "+vo.getBdiv());
 		
-		//MemberVO mvo = (MemberVO)session.getAttribute("account");
-		//vo.setId(mvo.getId());
+		//세션에서 id정보 가져오기
+		MemberVO mvo = (MemberVO)session.getAttribute("account");
+		vo.setId(mvo.getId());
 		//임시id : 후에 세션정보로 교체 필요
-		vo.setId("sessionId");
+		//vo.setId("sessionId");
 		
 		service.deleteMnwCmt(vo);
 		
