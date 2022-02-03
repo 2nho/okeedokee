@@ -67,7 +67,8 @@
         dataType: "json",
         //성공시 결과값 매개변수로 받아서
         success: function(result) {
-        	const width = 1200;
+        	makeGraph(result);
+        	/* const width = 1200;
         	const height = 300;
         	const margin = {top: 40, left: 40, bottom: 40, right: 40};
         	const svg = d3.select('svg');
@@ -97,7 +98,7 @@
         	  .attr('x', d => x(d.name))
         	  .attr('y', d => y(d.value))
         	  .attr('height', d => y(0) - y(d.value))
-        	  .attr('width', x.bandwidth());
+        	  .attr('width', x.bandwidth()); */
         },
         error: function(err){
         	console.log(err);	
@@ -105,5 +106,6 @@
         });
 	});
 </script>
+<script type="text/javascript" src="../js/chart.js"></script>
 </body>
 </html>
