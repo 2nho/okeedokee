@@ -76,16 +76,20 @@ header {
 .nav2-pagelink ul li {
 	flex: 1;
 	font-weight: 500;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
+
 /* 각 메뉴 호버시 밑줄 나타나도록 설정
 검정 밑줄이 나을지, 서브컬러가 나을지 고민 : 소현 */
 .nav1-pagelink ul li a::after,
 .nav2-pagelink ul li a::after {
 	content: "";
 	display: block;
+	margin: 1px auto;
 	width: 0px;
 	border-bottom: 2px solid black;
-	margin-top: 1px;
 	transition: .5s ease;
 }
 .nav1-pagelink ul li a:hover::after,
@@ -93,10 +97,10 @@ header {
 	width: 15px;
 }
 
-.nav1-pagelink ul li:first-child,
+/* .nav1-pagelink ul li:first-child,
 .nav2-pagelink ul li:first-child {
 	margin-left: 50px;
-}
+} */
 
 /* 가운데 로고 */
 .header-logo {
@@ -181,3 +185,61 @@ footer #footerContent .sns a img {
 	width: 35px;
 	height: 35px;
 }
+
+/* 반응형 */
+/* 태블릿 */
+@media ( max-width : 1000px) {
+	/* 헤더 */
+	.nav1-pagelink ul li, 
+	.nav2-pagelink ul li {
+    	font-size: 80%;
+    }
+    /* 푸터 */
+    footer #footerContent {
+	  	flex-direction: column;
+	}
+	footer #footerContent .text {
+    	order: 3;
+	    justify-content: center;
+	}
+	footer #footerContent .text p {
+		text-align: center;
+	}
+	footer #footerContent .sns {
+    	order: 2;
+	    justify-content: center;
+	    align-items: center;
+	}
+	footer #footerContent .logo {
+    	order: 1;
+	}
+}
+
+@media ( max-width : 780px) {
+	/* 헤더 */
+	.header-container {
+		align-items: center;
+	}
+	.header-logo {
+		height: 120px;
+	}
+	.header-logo img {
+		width: 100px;
+		height: 100px;
+	}
+	.nav1-pagelink ul li, 
+	.nav2-pagelink ul li {
+    	font-weight: 900;
+    	white-space: pre-wrap;
+    }
+	.nav1-pagelink ul li,
+    .nav2-pagelink ul li {
+		line-height: 7px;
+		text-align: center;
+	}
+	.nav1-pagelink ul li a::after,
+	.nav2-pagelink ul li a::after {
+		margin: 7px auto;
+	}
+}
+	

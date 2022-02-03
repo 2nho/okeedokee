@@ -14,8 +14,11 @@
 				<div class="nav1-pagelink">
 					<ul>
 						<li><a href="/okeedokee/Introduction">소개</a></li>
-						<li><a href="/okeedokee/Announcement_detail">유기견공고</a></li>
-						<li><a href="/okeedokee/missing">실종/목격 게시판</a></li>
+						<li><a href="/okeedokee/Announcement_detail">유기견
+						공고</a></li>
+						<li><a href="/okeedokee/missing">실종
+						•
+						목격</a></li>
 					</ul>
 				</div>
 			</div>
@@ -25,15 +28,20 @@
 			<div class="nav2">
 				<div class="nav2-pagelink">
 					<ul> 
-						<li><a href="">후원/봉사</a></li>
-						<li><a href="/okeedokee/Notice/main">공지사항</a></li>
+						<li><a href="">후원
+						•
+						봉사</a></li>
+						<li><a href="/okeedokee/Notice/main">공지
+						사항</a></li>
 						<c:choose>
 							<c:when test="${sessionScope.account.mnum != null}">
 							<li>
-								<a href="/okeedokee/mypage">마이페이지</a>
+								<a href="/okeedokee/mypage">마이
+								페이지</a>
 							</li>
 							<li>
-								<a href="/okeedokee/member/logout">로그아웃</a>
+								<a href="/okeedokee/member/logout">로그
+								아웃</a>
 							</li>
 							</c:when>
 							<c:otherwise>

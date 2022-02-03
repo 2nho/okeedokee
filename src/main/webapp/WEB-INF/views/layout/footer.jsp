@@ -16,7 +16,7 @@
 			</div> 
 			<div class="text">
 				<p>
-					서울특별시 종로구 000동 TEL : 010-0000-0000서울특별시 종로구 000동 TEL : 010-0000-0000 <br /> 
+					서울특별시 종로구 000동 TEL : 010-0000-0000 <br /> 
 					서울 12345호 법인사업자등록번호 : 123-3456-12314 <br />
 					Copyright®2022OKEE DOKEE All Rights Reserved.
 				</p>
