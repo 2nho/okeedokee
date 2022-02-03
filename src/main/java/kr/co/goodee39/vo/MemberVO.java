@@ -11,7 +11,7 @@ public class MemberVO {
 	private String petOwn;
 	private String size;
 	private String level;
-	private String signupDay;
+	private String SignupDay;
 	private String del;
 	private String chkpw;
 	
@@ -107,10 +107,10 @@ public class MemberVO {
 	
 	// 가입일
 	public String getSignupDay() {
-		return signupDay;
+		return SignupDay;
 	}
-	public void setSignupDay(String signupDay) {
-		this.signupDay = signupDay;
+	public void setSignupDay(String SignupDay) {
+		this.SignupDay = SignupDay;
 	}
 	
 	// 패스워드 확인
