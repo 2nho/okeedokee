@@ -616,7 +616,7 @@ INSERT INTO `imagetbl` (`num`, `bdiv`, `bnum`, `serverName`, `localName`) VALUES
 CREATE TABLE IF NOT EXISTS `reportcmt` (
   `num` int(11) NOT NULL AUTO_INCREMENT,
   `id` varchar(30) DEFAULT NULL,
-  `comment` varchar(255) DEFAULT NULL,
+  `cmt` varchar(255) DEFAULT NULL,
   `createdate` date DEFAULT curdate(),
   `bnum` int(11) DEFAULT NULL,
   PRIMARY KEY (`num`),

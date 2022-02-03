@@ -195,6 +195,7 @@ function submitCmt() {
 					console.log(data);
 					//새로고침 방법은 트래픽 증가 BUT 사용은 되는 방법임					
 					//location.reload(true);
+					document.querySelector("#commentCreator").value = '';
 
 				//순수JS 동적쿼리로 추가된 댓글 보여지게 하기
 				const commentList = document.querySelector("#commentList");

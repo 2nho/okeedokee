@@ -2,6 +2,7 @@ package kr.co.goodee39.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import kr.co.goodee39.vo.MemberVO;
+import kr.co.goodee39.vo.mnwCmtVO;
 import kr.co.goodee39.vo.mnwVO;
 import kr.co.goodee39.vo.reportVO;
 import kr.co.goodee39.vo.selfFlyerVO;
@@ -180,6 +182,42 @@ public class ReportService {
 	public void deleteReport(int num, reportVO vo) {
 		vo.setNum(num);
 		sqlSessionTemplate.update("rep.deleteReport", vo);
+	}
+	
+	
+	//신고내역 댓글 가져오기
+	public List<mnwCmtVO> selectRepCmt(mnwCmtVO cvo) {
+		
+		System.out.println("가져올 게시글 번호 : "+cvo.getBnum());
+		
+		List<mnwCmtVO> list = null;
+		
+		list = sqlSessionTemplate.selectList("repCmt.selectRepCmt", cvo);
+		
+		return list;
+		
+	}
+	
+	
+	//신고내역  댓글 등록
+	public void insertRepCmt(mnwCmtVO vo) {
+		
+		String today = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(new Date());
+		vo.setCreatedate(today);
+		
+		System.out.println(vo.getCmt());
+		System.out.println(vo.getId());
+		System.out.println(vo.getBnum());
+		
+		sqlSessionTemplate.insert("repCmt.insertRepCmt", vo);
+
+	}
+	  
+	
+	//신고내역 댓글 삭제
+	public void deleteRepCmt(mnwCmtVO vo) {
+		sqlSessionTemplate.insert("repCmt.deleteRepCmt", vo);
+	
 	}
 
 }

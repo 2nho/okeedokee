@@ -68,6 +68,26 @@
 											
 										</table>
 										
+										
+										<div class="comment">
+											<h3>댓글</h3>
+											<div class="commentCreate">
+												<textarea id="commentCreator" rows="2" cols="100"></textarea>
+												<input type="hidden" name="bnum" id="bnum" value="${reportVO.num }" />
+												<div class="cmtSubmitBox">
+													<button type="button" id="cmtSubmit">등록</button>
+												</div>
+											</div>
+											<br />
+											<hr />
+											<br />
+											<div class="commentList" id="commentList">
+											
+											</div>
+											
+										</div>
+										
+										
 									</div>
 								</div>
 								<input type="hidden" name="bdiv" id="bdiv" value="${reportVO.bdiv}"/>
@@ -81,6 +101,9 @@
 		<!-- 푸터 불러오기 -->
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
+	
+	
+	<script type="text/javascript" src="js/reportRead.js"></script>
 
 </body>
 </html>
