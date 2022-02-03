@@ -98,26 +98,26 @@
 											<tr>
 												<td>특징</td>
 												<td>
-													<form:input path="characters" type="text" name="characters" id="characters" placeholder="특징을 적어주세요 (30자 내외)" required="required"/>
+													<form:input path="characters" type="text" name="characters" id="characters" placeholder="특징 (30자 내외)" required="required"/>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>목격 장소</td>
 												<td>
-													<form:input path="location" type="text" name="location" id="location" placeholder="마지막으로 함께 있던 장소, 추측되는 장소 (30자 내외)" required="required"/>
+													<form:input path="location" type="text" name="location" id="location" placeholder="목격한 장소 (30자 내외)" required="required"/>
 												</td>
 											</tr>
 											
-											<tr>
-												<td>목격일</td>
+											<tr> 
+												<td>목격 일자</td>
 												<td>
 													<form:input path="date" type="date" name="date" id="date" required="required"/>
 												</td>
 											</tr>
 										</table>
 										
-										<form:textarea path="content" name="content" id="content" rows="15" cols="100"></form:textarea><br/>
+										<form:textarea path="content" name="content" id="content" rows="15" cols="100" style="width: 100%; min-width: 150px;"></form:textarea><br/>
 									</div>
 								</div>
 								<form:hidden path="bdiv" value="4"/>

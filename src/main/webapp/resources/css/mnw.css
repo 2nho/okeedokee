@@ -418,19 +418,13 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #informTab
 	border: 1px solid #fbd157;
 }
 /* 특징란 input확장 */
-main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #characters
-	{
-	width: 80%;
-}
 /* 실종장소란 input확장 */
-main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #location
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #characters,
+main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #location {
 	width: 80%;
 }
 /* content 작성란 (텍스트 에디터) */
-main section #arti2 #boardBox #board #boardContent #informBox #inform #content
-	{
-	width: 99.8%;
+main section #arti2 #boardBox #board #boardContent #informBox #inform #content {
 	height: 100%;
 }
 /* 등록 버튼 */
@@ -453,7 +447,8 @@ main section #arti2 #boardBox #board .submitBtnBox #preview {
 	cursor: pointer;
 }
 
-main section #arti2 #boardBox #board .submitBtnBox #submit:hover {
+main section #arti2 #boardBox #board .submitBtnBox #submit:hover,
+main section #arti2 #boardBox #board .submitBtnBox #preview:hover  {
 	background-color: #f9f1c0;
 	padding: 9px 29px;
 	border: 1px solid #fbd157;
@@ -899,7 +894,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMake
 	width: 100%;
 }
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question {
-	width: 30%;
+	width: 350px;
 	margin: 20px auto;
 	padding: 5px;
 	background-color: #fbd157;
@@ -972,6 +967,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 	}
 }
 @media ( max-width : 1260px) {
+	/*실종 목격*/
 	main section #arti1,
 	main section #arti2 {
 		width: 650px;
@@ -984,7 +980,11 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 	main section #arti2 #boardBox #board #boardTable #colDate {
 		width: 18%;
 	}
-	
+	/* 실종 목격 글쓰기 */
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #characters,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #location {
+		width: 100%;
+	}
 	/* 셀프전단지 */
 	main section #arti2 #boardBox #board #flyerBox #flyers {
 		grid-template-columns: repeat(2, 1fr);
@@ -992,6 +992,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 }
 
 /* 태블릿 */
+
 @media ( max-width : 1000px) {
 	main {
 		flex-direction: column;
@@ -1006,8 +1007,16 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 }
 
 @media ( max-width : 780px) {
+	/* 실종 목격 */
+	body {
+		overflow-x: hidden; 
+	}
 	main section #arti1 {
 		width: 350px;
+	}
+	main section #arti1 #menuText {
+		justify-content: center;
+		align-items: center;
 	}
 	main section #arti2 {
 		width: 450px;
@@ -1033,6 +1042,18 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 		border: 2px solid #fbd157;
 	}
 	
+	/* 실종 목격 글쓰기 */
+	main section #arti1 #menuText span {
+		font-size: 30px;
+	}
+	main section #arti2 #boardBox #boardContent #title::placeholder {
+		font-size: 28px;
+	}
+	main section #arti2 #boardBox #board #boardContent label[for=id],
+	main section #arti2 #boardBox #board #boardContent #id {
+	    font-size: 15px;
+	}
+	
 	/* 셀프전단지 */
 	main section #arti2 #boardBox #board #flyerBox #flyers {
 		grid-template-columns: repeat(1, 1fr);
@@ -1040,16 +1061,30 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 	main section #arti2 #boardBox #board #writeBox {
 		margin-top: 20px;
 	}
+	/* 셀프전단지 만들기 */
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question {
+	    width: 250px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question p {
+		font-size: 13px;
+	}
+	main section #arti2 #boardBox #board .submitBtnBox #submit,
+	main section #arti2 #boardBox #board .submitBtnBox #preview {
+		padding: 5px 15px;
+		font-size: 18px;
+	}
+	
+	main section #arti2 #boardBox #board .submitBtnBox #submit:hover,
+	main section #arti2 #boardBox #board .submitBtnBox #preview:hover  {
+		padding: 4px 14px;
+		border: 1px solid #fbd157;
+	}
 }
 
 /* 모바일 */
 @media ( max-width : 500px) {
 	main section {
 		flex: 2;
-	}
-	main section #arti1,
-	main section .buttonBox {
-		display: none;
 	}
 	main section #arti2 {
 		width: 450px;
