@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.goodee39.service.MemberService;
 import kr.co.goodee39.vo.MemberVO;
@@ -19,9 +19,6 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
-	@Autowired
-	HomeController homeController;
-	
 	// 테스트 페이지.
 	@GetMapping("/loginPage")
 	public String loginPage() {
@@ -29,7 +26,6 @@ public class MemberController {
 	}
 	
 	@PostMapping("/login")
-//	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String isLogin(MemberVO vo, HttpSession session) {
 		return memberService.getMember(vo, session);
 	}
@@ -49,6 +45,13 @@ public class MemberController {
 	@PostMapping("/signupResult")
 	public String signupResult(MemberVO vo) {
 		memberService.setMember(vo);
-		return "login";
+		return "redirect:/member/loginPage";
+	}
+	
+	
+	@PostMapping("/idCheck")
+	public @ResponseBody boolean idCheck(String id) {
+		System.out.println(id);
+		return memberService.memberIdCheck(id);
 	}
 }

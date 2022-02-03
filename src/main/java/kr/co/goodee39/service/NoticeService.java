@@ -1,5 +1,10 @@
 package kr.co.goodee39.service;
 
+import java.util.Arrays;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +13,8 @@ import org.springframework.ui.Model;
 
 import com.google.gson.Gson;
 
+import kr.co.goodee39.vo.ImageVO;
+import kr.co.goodee39.vo.MemberVO;
 import kr.co.goodee39.vo.NoticeVO;
 
 @Service
@@ -55,12 +62,14 @@ public class NoticeService {
 		vo.setName(vo2.getName());
 		vo.setNum(vo2.getNum());
 		vo.setDate(vo2.getDate());
+		vo.setBdiv(vo2.getBdiv());
 		
-//		FileVO fvo = new FileVO();
-//		fvo.setBnum(vo2.getNum());
-//		
-//		List<FileVO> filelist = sqlSessionTemplate.selectList("file.selectFile",fvo);
-//		model.addAttribute("filelist", filelist);
+		ImageVO fvo = new ImageVO();
+		fvo.setBnum(vo2.getNum());
+		fvo.setBdiv(vo2.getBdiv());
+		
+		List<ImageVO> filelist = sqlSessionTemplate.selectList("img.selectImg",fvo);
+		model.addAttribute("filelist", filelist);
 	}
 	
 	public void deleteNotice(NoticeVO vo) {
@@ -68,39 +77,65 @@ public class NoticeService {
 	}
 	
 	public void updateNotice(NoticeVO vo) {
-//		Gson gson = new Gson();
+		Gson gson = new Gson();
 		
-		/* FileVO[] fileArray = gson.fromJson(vo.getFilelist(), FileVO[].class); */
+		ImageVO[] fileArray = gson.fromJson(vo.getFilelist(), ImageVO[].class);
+		
+		if(vo.getFilelist() == "") {
+			vo.setHasfile("N");
+		}else {
+			vo.setHasfile("Y");
+		}
 		
 		sqlSessionTemplate.update("notice.updateNotice", vo);
 		
-		/*
-		 * if(fileArray != null) { List<FileVO> fileList = Arrays.asList(fileArray);
-		 * System.out.println(vo.getNum());
-		 * 
-		 * for (FileVO fileVO : fileList) { fileVO.setBnum(vo.getNum());
-		 * sqlSessionTemplate.insert("file.insertFile", fileVO); } }
-		 */
+		 if(fileArray != null) { List<ImageVO> fileList = Arrays.asList(fileArray);
+		 
+			 for (ImageVO ImageVO : fileList) { 
+				 ImageVO.setBdiv(5);
+				 ImageVO.setBnum(vo.getNum());
+				 
+				 sqlSessionTemplate.insert("img.insertImg", ImageVO);
+			 } 
+		 }
+		
 	}
 	
 	@Transactional
-	public void insertNotice(NoticeVO vo) {
+	public void insertNotice(NoticeVO vo, HttpSession session) {
 		Gson gson = new Gson();
+		ImageVO[] fileArray = gson.fromJson(vo.getFilelist(), ImageVO[].class);
+		List<ImageVO> fileList = Arrays.asList(fileArray);
 		
-		/*
-		 * FileVO[] fileArray = gson.fromJson(vo.getFilelist(), FileVO[].class);
-		 * List<FileVO> fileList = Arrays.asList(fileArray);
-		 */
+		if(vo.getFilelist() == "[]") {
+			vo.setHasfile("N");
+		}else {
+			vo.setHasfile("Y");
+		}
 		
+		MemberVO account = (MemberVO) session.getAttribute("account");
 		
+		vo.setName(account.getName());
+		vo.setBdiv(5);
 		sqlSessionTemplate.insert("notice.insertNotice",vo);
+	
+		for (ImageVO ImageVO : fileList) { 
+			ImageVO.setBdiv(5);
+			ImageVO.setBnum(vo.getNum());
+			sqlSessionTemplate.insert("img.insertImg", ImageVO);
+			
+		}
+	}
+	
+	public void deleteImgAll(ImageVO fvo) {
+		sqlSessionTemplate.delete("img.deleteImg", fvo);
+	}
+	
+	@Transactional
+	public void deleteImg(ImageVO[] fvos) {
+		for (ImageVO ImageVO : fvos) {
+			sqlSessionTemplate.delete("img.deleteImg",ImageVO);
+		}
 		
-		System.out.println(vo.getNum());
-		/*
-		 * for (FileVO fileVO : fileList) { fileVO.setBnum(vo.getNum());
-		 * sqlSessionTemplate.insert("file.insertFile", fileVO);
-		 * 
-		 * }
-		 */
 	}
 }
