@@ -74,6 +74,7 @@ main section {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
 }
 /* 게시판 상단 슬라이더 영역 */
 main section #arti1 {
@@ -229,31 +230,26 @@ main section #arti2 #boardBox #board #boardTable thead tr th {
 	border-bottom: 1.2px solid #323232;
 }
 
-main section #arti2 #boardBox #board #boardTable tbody tr td:nth-child(2) img
-	{
+main section #arti2 #boardBox #board #boardTable tbody tr td:nth-child(2) img {
 	width: 180px;
 	height: 120px;
 }
 
-main section #arti2 #boardBox #board #boardTable tbody tr td:not(:nth-child(3))
-	{
+main section #arti2 #boardBox #board #boardTable tbody tr td:not(:nth-child(3)) {
 	text-align: center;
 	height: 100px;
 }
 
-main section #arti2 #boardBox #board #boardTable tbody tr td:nth-child(3) p
-	{
+main section #arti2 #boardBox #board #boardTable tbody tr td:nth-child(3) p {
 	font-size: 13px;
 }
 
-main section #arti2 #boardBox #board #boardTable tbody tr td:first-child
-	{
+main section #arti2 #boardBox #board #boardTable tbody tr td:first-child {
 	border-right: 1px solid black;
 	font-weight: bold;
 }
 
-main section #arti2 #boardBox #board #boardTable tbody tr td:not(:first-child)
-	{
+main section #arti2 #boardBox #board #boardTable tbody tr td:not(:first-child) {
 	border-bottom: 1px solid black;
 }
 /* 게시글 상태에 따른 처리 */
@@ -944,4 +940,120 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 }
 main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTable #content::placeholder {
 	font-size: 20px;
+}
+
+
+/* 반응형 처리 */
+/* 데스크탑 */
+@media ( max-width : 1900px) {
+	main section #arti1,
+	main section #arti2 {
+		width: 1250px;
+	}
+}
+@media ( max-width : 1560px) {
+
+	/* 실종, 목격 */
+	main section #arti1,
+	main section #arti2 {
+		width: 950px;
+	}
+	main section #arti2 #boardBox #board #boardTable tbody tr td {
+    	font-size: 13px;
+    	padding: 5px;
+	}
+	
+	/* 셀프전단지 */
+	main section #arti2 #boardBox #board #flyerBox #flyers a .flyer {
+    	height: 300px;
+	}
+	main section #arti2 #boardBox #board #flyerBox #flyers .flyer .flyerText {
+		font-size: 80%;
+	}
+}
+@media ( max-width : 1260px) {
+	main section #arti1,
+	main section #arti2 {
+		width: 650px;
+	}
+	main section #arti2 #boardBox #board #boardTable tbody tr td .pc,
+	main section #arti2 #boardBox #board #boardTable tbody tr td .pd,
+	main section #arti2 #boardBox #board #boardTable tbody tr td .pl {
+		display: none;
+	}
+	main section #arti2 #boardBox #board #boardTable #colDate {
+		width: 18%;
+	}
+	
+	/* 셀프전단지 */
+	main section #arti2 #boardBox #board #flyerBox #flyers {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* 태블릿 */
+@media ( max-width : 1000px) {
+	main {
+		flex-direction: column;
+	}
+	main nav {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		margin-bottom: 30px;
+		
+	}	
+}
+
+@media ( max-width : 780px) {
+	main section #arti1 {
+		width: 350px;
+	}
+	main section #arti2 {
+		width: 450px;
+	}
+	main section #arti2 #boardBox #board #boardTable:not(:first-child) {
+		width: 450px;
+	}	
+	main section #arti2 #boardBox #board #boardTable tbody tr td:nth-child(2) img {
+		width: 120px;
+		height: 90px;
+	}	
+	main section #arti2 #boardBox #board #boardTable thead tr th:nth-child(4),
+	main section #arti2 #boardBox #board #boardTable thead tr th:nth-child(5),
+	main section #arti2 #boardBox #board #boardTable tbody tr td:nth-child(4),
+	main section #arti2 #boardBox #board #boardTable tbody tr td:nth-child(5) {
+		display: none;
+	}
+	main section #arti2 #boardBox #board .searchBox #searchBtn {
+	    padding: 5px;
+	}
+	main section #arti2 #boardBox #board .searchBox #searchBtn:hover {
+		padding: 3px;
+		border: 2px solid #fbd157;
+	}
+	
+	/* 셀프전단지 */
+	main section #arti2 #boardBox #board #flyerBox #flyers {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	main section #arti2 #boardBox #board #writeBox {
+		margin-top: 20px;
+	}
+}
+
+/* 모바일 */
+@media ( max-width : 500px) {
+	main section {
+		flex: 2;
+	}
+	main section #arti1,
+	main section .buttonBox {
+		display: none;
+	}
+	main section #arti2 {
+		width: 450px;
+	}
+
+	
 }

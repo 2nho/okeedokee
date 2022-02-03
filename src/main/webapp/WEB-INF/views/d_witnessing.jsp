@@ -80,8 +80,8 @@
 									<col width="20%">
 									<col width="auto">
 									<col width="8%">
-									<col width="10%">
-									<col width="5%">
+									<col width="15%" id="colDate">
+									<%-- <col width="5%"> --%>
 								</colgroup>
 								<thead>
 									<tr>
@@ -90,7 +90,7 @@
 										<th>내용</th>
 										<th>작성자</th>
 										<th>작성일</th>
-										<th>조회수</th>
+										<!-- <th>조회수</th> -->
 									</tr>
 								</thead>
 								<tbody>
@@ -104,11 +104,11 @@
 											<c:forEach var="file" items="${filelist}">
 												<c:if test="${not loop_flag }">
 												<c:if test="${(list.hasimg eq 'Y') and (file.bnum == list.num)}">
-													<img src="media/img/${file.localName}" alt="" style="width: 180px; height: 120px;"/>
+													<img src="media/img/${file.localName}" alt=""/>
 													  <c:set var="loop_flag" value="true" />
 												</c:if>
 												<c:if test="${list.hasimg ne 'Y'}">
-													<img src="media/logo/mainLogo.png" alt="" style="width: 180px; height: 120px;"/>
+													<img src="media/logo/mainLogo.png" alt=""/>
 													  <c:set var="loop_flag" value="true" />
 												</c:if>
 												 </c:if>
@@ -116,18 +116,18 @@
 											</a>
 										</td>
 										<td>
-											<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${list.num}">
+											<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${list.num}" class="acontent">
 												<h4>${list.title }</h4>
 												<p><strong>성별</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${(list.sex == 'F')? "여":(list.sex == 'M')? "남":"미상"}</p>
 												<p><strong>견종</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.species }</p>
-												<p><strong>특징</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.characters}</p>
-												<p><strong>실종일</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.date}</p>
-												<p><strong>실종장소</strong>&nbsp;&nbsp;&nbsp;:&nbsp;${list.location}</p>
+												<p class="pc"><strong>특징</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.characters}</p>
+												<p class="pd"><strong>실종일</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.date}</p>
+												<p class="pl"><strong>실종장소</strong>&nbsp;&nbsp;&nbsp;:&nbsp;${list.location}</p>
 											</a>
 										</td>
 										<td>${list.id }</td>
 										<td>${list.createdate }</td>
-										<td>3</td>
+										<!-- <td>3</td> -->
 										<!-- 게시글 상태 처리용 -->
 										<input type="hidden" name="status" class="status" value="${list.status}" />
 									</tr>
