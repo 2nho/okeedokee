@@ -55,14 +55,13 @@
 			</when>
 		</choose>
 	</select>
-	<select id="monthMember" parameterType="memberVO"
-		resultType="String">
-		SELECT JSON_OBJECT('name',month(signupDay),'value',(SELECT COUNT(MONTH(signupDay)))) 
+	<select id="monthMember" resultType="map">
+		<!-- SELECT JSON_OBJECT('name',month(signupDay),'value',(SELECT COUNT(MONTH(signupDay)))) 
 		FROM member WHERE del LIKE 'N' 
-		GROUP BY Month(signupDay);
-		<!-- SELECT MONTH(signupDay) AS NAME, COUNT(MONTH(signupDay)) AS value
-		FROM member
 		GROUP BY Month(signupDay); -->
+		SELECT cast(MONTH(signupDay) as char) as name , cast(COUNT(MONTH(signupDay)) as char) AS value
+		FROM member
+		GROUP BY Month(signupDay);
 	</select>
 </mapper>
 

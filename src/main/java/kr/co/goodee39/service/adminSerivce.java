@@ -2,6 +2,7 @@ package kr.co.goodee39.service;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -158,7 +159,7 @@ public class adminSerivce {
 		model.addAttribute("report", sqlSessionTemplate.selectList("reporttbl.selectReport", vo));
 	}
 	// 각 달 가입한 멤버 
-	public void monthMember(Model model) {
-		model.addAttribute("map", sqlSessionTemplate.selectList("member.monthMember"));
+	public List<Map<String,String>> monthMember(Model model) {
+		return sqlSessionTemplate.selectList("member.monthMember");
 	}
 }

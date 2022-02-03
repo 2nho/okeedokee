@@ -1,6 +1,10 @@
 package kr.co.goodee39.controller;
 
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.goodee39.service.adminSerivce;
-import kr.co.goodee39.vo.MemberVO;
 
 @Controller
 @RequestMapping("/admin")
@@ -27,13 +30,14 @@ public class adminController {
 		service.NewMember(model);
 		service.selectMoney(model);
 		service.sumBBS(model);
-		service.monthMember(model);
+		
 		return "adminHome";
 	}
 	@PostMapping("/ajax")
-	public @ResponseBody ResponseEntity<String> ajax(@RequestBody Model model){
-		
-		return new ResponseEntity<String>("ajax 성공",HttpStatus.OK);
+	public @ResponseBody ResponseEntity<List<Map<String,String>>> getAjax(Model model){
+		List<Map<String, String>> list = service.monthMember(model);
+		System.out.println(list);
+		return new ResponseEntity<List<Map<String,String>>>(list,HttpStatus.OK);
 	}
 
 	@GetMapping("/adminMember")
