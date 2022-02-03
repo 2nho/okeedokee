@@ -1079,6 +1079,13 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 		padding: 4px 14px;
 		border: 1px solid #fbd157;
 	}
+	
+	/* 신고하기 */
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTable #reportUrl,
+	main section #arti2 #boardBox #boardContent #title,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTable #content {
+	    font-size: 95%;
+	}
 }
 
 /* 모바일 */

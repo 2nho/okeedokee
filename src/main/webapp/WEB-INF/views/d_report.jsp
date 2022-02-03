@@ -54,13 +54,13 @@
 											
 											<tr>
 												 <td>
-													<form:input path="title" name="title" id="title" required="required" placeholder="신고 제목을 입력해주세요."/>
+													<form:input path="title" name="title" id="title" required="required" placeholder="제목을 입력해주세요."/>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>
-													<form:textarea path="content" name="content" id="content" rows="20" cols="120" placeholder="신고 내용을 입력해주세요."></form:textarea><br/>
+													<form:textarea path="content" name="content" id="content" rows="20" cols="120" style="width: 100%; min-width: 150px;" placeholder="신고 내용을 입력해주세요."></form:textarea><br/>
 												</td>
 											</tr>
 											
