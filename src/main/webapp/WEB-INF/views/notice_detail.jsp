@@ -23,7 +23,7 @@ main section {
 
 main section article #noticeBoard {
 	height:620px;
-	margin: 25px 25px 0 25px;
+	margin: 20px 25px 0 25px;
 	padding: 25px;
 	border: 25px solid #f9f1c0;
     border-radius: 25px;
@@ -92,7 +92,19 @@ button:hover svg {
 button span {
   color: black;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 500;
+}
+
+#noticeBoardFiles{
+	position: relative;
+	top:70px;
+	border: 2px solid #FBD157;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#noticeBoardFiles a:hover{
+	text-decoration: underline;
 }
 </style>
 </head>
@@ -108,9 +120,12 @@ button span {
 						<h2>${NoticeVO.title }</h2>
 						<h4>${NoticeVO.name } | ${NoticeVO.date }</h4><br /><br />
 						<p>${NoticeVO.content }</p>
-						<c:forEach var="file" items="${filelist}">
-							<a href="${pageContext.request.contextPath }/downloadFile/${file.serverName}/${file.localName}">${file.localName}</a><br />
-						</c:forEach>
+						<div id="noticeBoardFiles">
+							<h3>첨부 파일 : </h3>
+							<c:forEach var="file" items="${filelist}">
+								<a href="${pageContext.request.contextPath }/downloadFile/${file.serverName}/${file.localName}">${file.localName}</a><br />
+							</c:forEach>
+						</div>
 					</div>
 					<div id="noticeButtons">
 						<button id="delete">

@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/joinCheck.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/validation.js"></script>
 <style type="text/css">
 /* 메인 */
 main {
@@ -28,8 +30,11 @@ main section {
 /* 네비게이션 */
 main nav #LoginNav {
 	width: 90%;
-	height: 350px;
-	background-color: #f9f1c0;
+    height: 650px;
+    background-color: #f9f1c0;
+    margin: 20px;
+    border-radius: 17px;
+    padding: 15px;
 }
 main nav #LoginNav #LoginTitle::after {
 	content: "";
@@ -37,6 +42,55 @@ main nav #LoginNav #LoginTitle::after {
 	width: 90%;
 	border-bottom: 2px solid black;
 }
+
+#arti1{
+	height: 680px;
+	margin: 20px 0 0 0;
+}
+
+#arti1 #SignupBoard{
+	width: 50%;
+	margin: 0 auto;
+    border: 25px solid #f9f1c0;
+    border-radius: 25px;
+    padding: 25px 25px 0 25px;;
+    min-width: 460px;
+}
+
+#arti1 #SignupBoard h1:nth-child(1)::after{
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+	margin-top: 10px;
+}
+
+#arti1 #SignupBoard form {
+	margin: 20px 0 0 0;
+}
+
+#arti1 #SignupBoard form input{
+	border : 1px solid #FBD157;
+	outline: none;
+}
+
+#arti1 #SignupBoard form #signupBtn{
+	position: relative;
+    left: 42%;
+    bottom: -65px;
+}
+
+#arti1 #SignupBoard form .valid,.invalid{
+	position:relative;
+	font-size: 0.8rem;
+	font-weight: bold;
+	margin-bottom: 9px;
+	left:10px;
+}
+
+.valid { color: green; } 
+.invalid { color: red; } }
+
 
 .button {
   width: 180px;
@@ -72,7 +126,7 @@ button:hover svg {
 button span {
   color: black;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 500;
 }
 </style>
 </head>
@@ -103,36 +157,76 @@ button span {
 				<div id="SignupBoard">
 					<h1>회원가입</h1>
 						<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath }/member/signupResult" method="POST">
-							아이디 : <form:input path="id"/><br />
-							비밀번호 : <form:password path="pw"/><br />
-							성명 : <form:input path="name"/><br />
+							<div>
+								*성명  <form:input path="name" class="chk"/><br />
+								<div class="invalid">성명을 입력하세요.</div>
+							</div>
+							
+							<div>
+								*아이디  <form:input path="id" class="chk"/>
+								<button type="button" id="chkid" style="height: 22px; ">중복확인</button>
+								<br />
+								<div class="invalid">아이디를 입력하세요.(영문 소문자, 숫자만 입력 가능)</div>
+							</div>
+							
+							<div>
+								*비밀번호  <form:password path="pw" class="chk"/><br />
+								<div class="invalid">비밀번호를 입력하세요.(영문 대/소문자, 숫자를 모두 포함)</div>
+							</div>
+							
+							<div>
+								*비밀번호 확인  <form:password path="chkpw" class="chk"/><br />
+								<div class="invalid">비밀번호를 동일하게 입력하세요.</div>
+							</div>
+							
 							
 							<!-- 주소 api 추가 예정 -->
-							주소 : <form:input path="address"/><br />
+							주소  <form:input path="address" /><br />
+							<div class="valid">주소를 입력하세요.</div>
 							
 							<!-- 이메일 인증 추가 예정 -->
-							이메일 : <form:input path="email"/><br />
+							이메일  <form:input path="email" />
+									<button type="button" id="auth" style="width:40px; height: 22px; line-height: 1;">
+								         <svg width="60px" height="20px" viewBox="0 0 180 60" class="border">
+								           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+								           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+								         </svg>
+								         <span>인증</span>
+									</button><br />
+									<div class="valid">이메일을 입력하세요.</div>
 							
-							<!-- 뒤 8자리만 입력하도록 변경 예정 -->
-							전화번호 : <form:input path="phNum"/><br />
-							반려동물 보유여부 : <form:radiobutton path="petOwn" value="Y"/>보유
-											<form:radiobutton path="petOwn" value="N"/>미보유<br />
+							<div>
+								전화번호  <form:input path="phNum" class="chk" placeholder="'-' 포함하여 입력해주십시오."/><br />
+								<div class="valid">전화번호를 입력하세요.</div>
+							</div>
 							
-							선호크기 : <form:checkbox path="size" value="대형"/>대형
-									<form:checkbox path="size" value="증형"/>중형
-									<form:checkbox path="size" value="소형"/>소형<br />
+							<div>
+								*반려동물 보유여부  <form:radiobutton path="petOwn" value="Y" class="chkra"/>보유
+												<form:radiobutton path="petOwn" value="N" class="chkra"/>미보유<br />
+								<div class="invalid">보유여부를 선택하세요.</div>
+							</div>
+							
+							<div>
+								*선호크기  <form:radiobutton path="size" value="b" class="chkra"/>대형
+										<form:radiobutton path="size" value="m" class="chkra"/>중형
+										<form:radiobutton path="size" value="s" class="chkra"/>소형
+										<form:radiobutton path="size" value="e" class="chkra"/>모두<br />
+								<div class="invalid">선호크기를를 선택하세요.</div>
+							</div>
 							
 							<form:button id="signupBtn">
-					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
-					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-					         </svg>
-					         <span>가입하기</span>
-					    </form:button>
+						         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
+						           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+						           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+						         </svg>
+						         <span>가입하기</span>
+						    </form:button>
+						    
 						</form:form>
 					
 					<div id="board"></div>
 				</div>
+				
 			</article>
 		</section>
 	</main>
@@ -140,5 +234,32 @@ button span {
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
+
+<script type="text/javascript">
+	$(function(){
+		
+		
+		$("#sign").click(function(){
+			location.href = "${pageContext.request.contextPath }/member/signUp";
+		});
+		
+		$("#auth").click(function(){
+			if(confirm("메일을 보내시겠습니까?")){
+				const email = $("#email");
+				$.ajax({
+					url : '${pageContext.request.contextPath}/auth',
+					data : email,
+					type : "post",
+					datatype: "text",
+					success : function(result){
+						console.log(result);
+
+					}
+				});
+			}
+			
+		});
+	});
+</script>
 </body>
 </html>

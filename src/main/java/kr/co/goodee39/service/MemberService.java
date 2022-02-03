@@ -1,5 +1,9 @@
 package kr.co.goodee39.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import javax.servlet.http.HttpSession;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -29,7 +33,19 @@ public class MemberService {
 	}
 	
 	public void setMember(MemberVO vo) {
+		vo.setLevel("U");
+		vo.setDel("N");
+		vo.setSignupDay(new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(new Date()));
 		sqlSessionTemplate.insert("member.insertMember", vo);
 	}
+	
+	public boolean memberIdCheck(String id) { 
+		
+		int result = sqlSessionTemplate.selectOne("member.idCheck", id);
+		System.out.println(result);
+		if(result==0) {return true;}
+		else {return false;}
+	}
+
 	
 }

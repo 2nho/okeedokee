@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <style>
 	main {
 	display: flex;
@@ -24,7 +24,7 @@ main section {
 
 main section article #noticeBoard {
 	height:620px;
-	margin: 25px 25px 0 25px;
+	margin: 20px 25px 0 25px;
 	padding: 25px;
 	border: 25px solid #f9f1c0;
     border-radius: 25px;
@@ -93,7 +93,7 @@ button:hover svg {
 button span {
   color: black;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 500;
 }
 </style>
 </head>
@@ -107,46 +107,41 @@ button span {
 					
 					
 					<div id="noticeBoard">
-						<h1>공지사항 쓰기</h1><br /><br />
+						<h1>공지사항 작성</h1><br /><br />
 						
 						<form:form modelAttribute="NoticeVO" action="${pageContext.request.contextPath}/Notice/create_result">
 							<ul>
 								<li><label for="title"></label><form:input path="title" 
 								style="width:100%; border:none; outline:none; background-color:#f9f1c0;
 										border-top:1px solid black; border-bottom:1px solid black;
-										font-size:1.5rem; padding:5px;"/></li>
-								<h4>${NoticeVO.name} | ${NoticeVO.date}</h4><br />
-								<li><form:textarea path="content" cols="145" rows="19"/></li>
+										font-size:1.5rem; padding:5px;" placeholder="제목"/></li>
+								<h4>작성자 : ${sessionScope.account.name}</h4><br />
+								<li><form:textarea path="content" cols="145" rows="19" 
+													style="resize:none; outline:none;"/></li>
 								<form:hidden path="num"/>
-								<%-- <form:hidden path="filelist"/> --%>
+								<form:hidden path="filelist"/>
 							</ul>
 						</form:form>
-						<c:forEach var="file" items="${filelist}">
-							<div class="file-item">
-								<a href="${pageContext.request.contextPath}/downloadFile/${file.localName}/${file.serverName}">${file.localName}</a>
-								<button data-num="${file.num}" class="deleteFile">삭제</button>
-							</div>
-						</c:forEach>
+
 						
-						<button class="alldelete" data-bnum="${NoticeVO.num}">전체삭제</button><br>
-						<label for="upload">파일 추가 :</label><input type="file" id="upload" name="upload" multiple>
-		
+						<br>
+						<label for="upload">파일 추가 :</label><input type="file" id="upload" name="upload" multiple><br>
 					</div>
 					
 					<div id="noticeButtons">
-						<button id="create">
-					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
-					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-					         </svg>
-					         <span>작성</span>
-					    </button>
 					    <button id="listMove">
 					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
 					         </svg>
 					         <span>목록</span>
+					    </button>
+				    	<button id="create">
+				         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
+				           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+				           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+				         </svg>
+				         <span>작성</span>
 					    </button>
 					</div>
 				</article>
@@ -158,11 +153,35 @@ button span {
 	</div>
 	<script>
 		$(function(){
-			$("#modify").click(function(){
-				$("#NoticeVO").submit();
-
+			$("#listMove").click(function(){
+				location.href = "${pageContext.request.contextPath}/Notice/main";
 			});
 			
+			$("#create").click(function(){
+				if(confirm("작성하시겠습니까?")){
+					const formData = new FormData();
+					const $upload = $("#upload");
+					let files = $upload[0].files;
+					for (let i = 0; i < files.length; i++) {
+						formData.append("uploadFile", files[i])
+					}
+					
+					$.ajax({
+						url : '${pageContext.request.contextPath}/Notice/uploadfile',
+						processData : false,
+						contentType : false,
+						data : formData,
+						type : "post",
+						datatype: "json",
+						success : function(result){
+							console.log(JSON.stringify(result));
+							$("#filelist").val(JSON.stringify(result));
+							$("#NoticeVO").submit();
+						}
+					});
+				}
+				
+			});
 		});
 	</script>
 </body>

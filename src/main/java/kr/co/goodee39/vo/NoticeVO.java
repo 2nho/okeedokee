@@ -6,10 +6,10 @@ public class NoticeVO {
 	private String content;
 	private String date;
 	private String name;
-	private String bdiv;
+	private int bdiv;
 	private String del;
-	private String report;
-	private String state;
+	private String hasfile;
+	private String filelist;
 	private int start;
 	private int count;
 	
@@ -47,18 +47,6 @@ public class NoticeVO {
 	public void setDel(String del) {
 		this.del = del;
 	}
-	public String getReport() {
-		return report;
-	}
-	public void setReport(String report) {
-		this.report = report;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
 	public int getStart() {
 		return start;
 	}
@@ -77,12 +65,24 @@ public class NoticeVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getBdiv() {
+	public int getBdiv() {
 		return bdiv;
 	}
-	public void setBdiv(String bdiv) {
+	public void setBdiv(int bdiv) {
 		this.bdiv = bdiv;
 	}
-
+	public String getHasfile() {
+		return hasfile;
+	}
+	public void setHasfile(String hasfile) {
+		this.hasfile = hasfile;
+	}
+	public String getFilelist() {
+		return filelist;
+	}
+	public void setFilelist(String filelist) {
+		this.filelist = filelist;
+	}
+	
 	
 }
