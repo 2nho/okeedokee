@@ -42,7 +42,7 @@ main section {
 
 /* article1 */
 main section article #noticeBoard {
-	margin: 25px 25px 0 25px;
+	margin: 20px 25px 0 25px;
 	padding: 25px;
 	border: 25px solid #f9f1c0;
     border-radius: 25px;
@@ -57,10 +57,10 @@ main section #arti1 #noticeBoard h1:nth-child(1)::after {
 }
 
 table thead tr th:nth-of-type(1) {width: 100px;}
-table thead tr th:nth-of-type(2) {width: 400px;}
-table thead tr th:nth-of-type(3) {width: 250px;}
-table thead tr th:nth-of-type(4) {width: 150px;}
-table thead tr th:nth-of-type(5) {width: 300px;}
+table thead tr th:nth-of-type(2) {width: 500px;}
+table thead tr th:nth-of-type(3) {width: 350px;}
+table thead tr th:nth-of-type(4) {width: 250px;}
+table thead tr th:nth-of-type(5) {width: 100px;}
 table thead tr:nth-child(1)::after {
 	content: "";
 	display: block;
@@ -83,6 +83,28 @@ table tr{
 #NoticePage{
 	margin-top:20px;
 	text-align: center;
+}
+
+#NoticePage a {
+	font-size:1.3rem;
+	color:black;
+	transition:0.7s;
+}
+
+#NoticePage span {
+	font-size:1.3rem;
+	color:#FBD157;
+	transition:0.7s;
+}
+
+#NoticePage a:hover {
+	transition:0.7s;
+	color: #FBD157;
+}
+
+#NoticePage input, select{
+	border : 1px solid #FBD157;
+	outline: none;
 }
 
 main section #arti1 #noticeButtons{
@@ -124,7 +146,7 @@ button:hover svg {
 button span {
   color: black;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 500
 }
 </style>
 </head>
@@ -147,7 +169,7 @@ button span {
 										<th>제목</th>
 										<th>작성일</th>
 										<th>작성자</th>
-										<th>비고</th>
+										<th>첨부파일</th>
 									</tr>
 								</thead>
 								
@@ -159,7 +181,14 @@ button span {
 												<td><a href="${pageContext.request.contextPath}/Notice/detail?num=${item.num}">${item.title }</a></td>
 												<td>${item.date }</td>
 												<td>이제승</td>
-												<td></td>
+												<td>
+													<c:if test="${item.hasfile == 'Y'}">
+														<p>유</p>
+													</c:if>
+													<c:if test="${item.hasfile == 'N'}">
+														<p>무</p>
+													</c:if>
+												</td>
 											</tr>
 										</c:forEach>
 									</tr>
@@ -169,7 +198,7 @@ button span {
 							<div id="NoticePage">
 								<c:choose>
 									<c:when test="${(minBlock-1) < 1 }">
-										<span>◀◀</span>
+										<!-- <span>◀</span> -->
 									</c:when>
 									<c:otherwise>
 										<a href="${pageContext.request.contextPath}/Notice/main?num=${minBlock-1}${query}">◀◀</a>
@@ -178,7 +207,7 @@ button span {
 								&nbsp;&nbsp;
 								<c:choose>
 									<c:when test="${num==1}">
-										<span>◀</span>
+										<!-- <span>◀◀</span> -->
 									</c:when>
 									<c:otherwise>
 										<a href="${pageContext.request.contextPath}/Notice/main?num=${num-1}${query}">◀</a>
@@ -201,7 +230,7 @@ button span {
 								
 								<c:choose>
 									<c:when test="${num==total }">
-										<span>▶</span>
+										<!-- <span>▶</span> -->
 									</c:when>
 									<c:otherwise>
 										<a href="${pageContext.request.contextPath}/Notice/main?num=${num+1}${query}">▶</a>		
@@ -210,12 +239,12 @@ button span {
 								&nbsp;&nbsp;
 								<c:choose>
 									<c:when test="${maxBlock > total }">
-										<span>▶▶</span>
+									<!-- 	<span>▶▶</span> -->
 									</c:when>
 									<c:otherwise>
 										<a href="${pageContext.request.contextPath}/Notice/main?num=${maxBlock+1}${query}">▶▶</a>
 									</c:otherwise>
-								</c:choose><br /><br />
+								</c:choose><br />
 								<%
 									if((title!=null)&&(content!=null)){%>
 										<select name="category" id="category">

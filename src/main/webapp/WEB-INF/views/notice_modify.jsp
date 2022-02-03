@@ -24,7 +24,7 @@ main section {
 
 main section article #noticeBoard {
 	height:620px;
-	margin: 25px 25px 0 25px;
+	margin: 20px 25px 0 25px;
 	padding: 25px;
 	border: 25px solid #f9f1c0;
     border-radius: 25px;
@@ -93,7 +93,7 @@ button:hover svg {
 button span {
   color: black;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 500;
 }
 </style>
 </head>
@@ -118,7 +118,7 @@ button span {
 								<h4>${NoticeVO.name } | ${NoticeVO.date }</h4><br />
 								<li><form:textarea path="content" cols="145" rows="19"/></li>
 								<form:hidden path="num"/>
-								<%-- <form:hidden path="filelist"/> --%>
+								<form:hidden path="filelist"/>
 							</ul>
 						</form:form>
 						<c:forEach var="file" items="${filelist}">
@@ -165,9 +165,77 @@ button span {
 	</div>
 	<script>
 		$(function(){
+			let flagSingle = false;
+			let flagAll = false;
+			let bnum = 0;
+			let num = [];
+			
+			$(".deleteFile").click(function(){
+				flagSingle = true;
+				num.push({num : this.dataset.num});
+				$(this).parent().remove();
+			});
+			
+			$(".alldelete").click(function(){
+				flagAll = true;
+				bnum = this.dataset.bnum;
+				$(".file-item").remove();
+			});
+			
+			
+			
 			$("#modify").click(function(){
-				$("#NoticeVO").submit();
-
+				if(confirm("정말로 수정하시겠습니까?")){
+					if(flagAll){
+						$.ajax({
+							url : '${pageContext.request.contextPath}/Notice/deleteFileAll',
+							data : JSON.stringify({bnum : bnum}),
+							type : "post",
+							contentType:"application/json; charset=utf-8",
+							datatype : "json",
+							success: function(result){
+								console.log(JSON.stringify(result));
+							}	
+						});	
+					}else if(flagSingle){
+						$.ajax({
+							url : '${pageContext.request.contextPath}/Notice/deleteFile',
+							data : JSON.stringify(num),
+							type : "post",
+							contentType:"application/json; charset=utf-8",
+							datatype : "json",
+							success: function(result){
+								console.log(JSON.stringify(result));
+							}
+						});		
+					}
+					
+					const formData = new FormData();
+					const $upload = $("#upload");
+					let files = $upload[0].files;
+					
+					if(files.length != 0){
+						for (var i = 0; i < files.length; i++) {
+							formData.append("uploadFile", files[i])	
+						}
+						
+						$.ajax({
+							url : '${pageContext.request.contextPath}/Notice/uploadfile',
+							processData : false,
+							contentType : false,
+							data : formData,
+							type : "post",
+							datatype : "json",
+							success: function(result){
+								$("#filelist").val(JSON.stringify(result));
+								console.log(result);
+								$("#NoticeVO").submit();
+							}
+						});
+					}else{
+						$("#NoticeVO").submit();
+					}
+				}
 			});
 			
 		});

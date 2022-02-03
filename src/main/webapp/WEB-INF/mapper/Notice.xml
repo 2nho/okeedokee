@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="selectNoticeList" parameterType="tvo" resultType="tvo">
-		select num, title, date, name, del
+		select num, title, date, name, del, hasfile, bdiv
 		from notice
 		where del = 'N'
 		
@@ -45,7 +45,7 @@
 	</select>
 	
 	<select id="selectNotice" parameterType="tvo" resultType="tvo">
-			select num, content, title, date, name, del
+			select num, content, title, date, name, del, hasfile, bdiv
 		from notice
 		where del = 'N'
 		and num=#{num}
@@ -56,6 +56,7 @@
 		<set>
 			<if test="title!=null">, title=#{title}</if>
 			<if test="content!=null">, content=#{content}</if>
+			<if test="hasfile!=null">, hasfile=#{hasfile}</if>
 		</set>
 		where num=#{num}
 	</update>
@@ -67,7 +68,7 @@
 	
 	<insert id="insertNotice" parameterType="tvo"
 		useGeneratedKeys="true" keyProperty="num">
-		insert into notice(title, content,  name, date)
-		values(#{title}, #{content}, #{name}, #{date})
+		insert into notice(title, content,  name, date, hasfile, bdiv)
+		values(#{title}, #{content}, #{name}, #{date}, #{hasfile}, #{bdiv})
 	</insert>
 </mapper>

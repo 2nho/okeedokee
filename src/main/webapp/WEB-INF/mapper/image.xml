@@ -22,7 +22,19 @@
 	
 	<delete id="deleteImg" parameterType="imgVO">
 		DELETE FROM imagetbl
-		WHERE num = #{num}
+		
+		<!-- 해당 게시글의 모든 파일을 삭제키 위해 bnum 조건을 추가. -->
+		<where>
+			<choose>
+				<when test="num != 0">
+					and num = #{num}
+				</when>
+				
+				<otherwise>
+					and bnum = #{bnum}
+				</otherwise>
+			</choose>
+		</where>
 	</delete>
 
 </mapper>
