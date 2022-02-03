@@ -72,9 +72,9 @@ main nav #LoginNav #LoginTitle::after {
 }
 
 #arti1 #SignupBoard form #signupBtn{
-	position: absolute;
-    left: 60%;
-    bottom: 161px;
+	position: relative;
+    left: 42%;
+    bottom: -65px;
 }
 
 #arti1 #SignupBoard form .valid,.invalid{
