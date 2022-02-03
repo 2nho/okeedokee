@@ -13,29 +13,7 @@ public class MemberVO {
 	private String level;
 	private String signupDay;
 	private String del;
-	
-	private int start;
-	private int count;
-	
-	public MemberVO() {
-		this.start = 0;
-		this.count = 10;
-	}
-	public int getStart() {
-		return start;
-	}
-
-	public void setStart(int start) {
-		this.start = start;
-	}
-
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
+	private String chkpw;
 	
 	// 순서
 	public int getMnum() {
@@ -64,7 +42,7 @@ public class MemberVO {
 	// 비밀번호
 	public String getPw() {
 		return pw;
-	} 
+	}
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
@@ -131,8 +109,17 @@ public class MemberVO {
 	public String getSignupDay() {
 		return signupDay;
 	}
-	public void setsignupDay(String signupDay) {
+	public void setSignupDay(String signupDay) {
 		this.signupDay = signupDay;
 	}
+	
+	// 패스워드 확인
+	public String getChkpw() {
+		return chkpw;
+	}
+	public void setChkpw(String chkpw) {
+		this.chkpw = chkpw;
+	}
+	
 	
 }

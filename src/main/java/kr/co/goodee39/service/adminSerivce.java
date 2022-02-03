@@ -32,7 +32,7 @@ public class adminSerivce {
 		LocalDate now = LocalDate.now();
 		// String date = now.getMonthValue()+""; 가능
 		String date = String.valueOf(now.getMonthValue());
-		vo.setsignupDay(date);
+		vo.setSignupDay(date);
 		// new class static 변수 사용 불가능
 		model.addAttribute("nMember", sqlSessionTemplate.selectOne("member.newMember", vo));
 	}
