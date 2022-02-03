@@ -13,6 +13,6 @@
 		<typeAlias type="kr.co.goodee39.vo.MemberVO" alias="memberVO"/>
 		<typeAlias type="kr.co.goodee39.vo.DonationVO" alias="DonaVO"/>
 		<typeAlias type="kr.co.goodee39.vo.reportVO" alias="repVO"/>
-		<typeAlias type="kr.co.goodee39.vo.reportVO" alias="volunteerVO"/>
+		<typeAlias type="kr.co.goodee39.vo.VolunteerVO" alias="VolunteerVO"/>
 	</typeAliases>
 </configuration>

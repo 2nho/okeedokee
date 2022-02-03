@@ -3,7 +3,7 @@ package kr.co.goodee39.vo;
 public class VolunteerVO {
 	private String title;
 	private int mnum;
-	private String date;
+	private String perid;
 	
 	public String getTitle() {
 		return title;
@@ -17,11 +17,11 @@ public class VolunteerVO {
 	public void setMnum(int mnum) {
 		this.mnum = mnum;
 	}
-	public String getDate() {
-		return date;
+	public String getPerid() {
+		return perid;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setPerid(String perid) {
+		this.perid = perid;
 	}
 	
-}
+	
