@@ -23,7 +23,7 @@ $(function(){
 			
 			$.ajax({ 
 				type: 'post', 
-				url: '${pageContext.request.contextPath}/member/idCheck', 
+				url: 'idCheck', 
 				data: {id: $id.val()}, 
 				success: function(data) { 
 					data = join.id_usable(data); 
