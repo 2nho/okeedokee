@@ -65,30 +65,9 @@ public class MypageController {
 
 		return "g_mypage_volunteer";
 	}
+	
+	//마이페이지의 신고 페이지는 전부 ReportController, ReportService에서 처리
 
-	// 신고내역 이동
-	@GetMapping("/reportList")
-	public String reportList(HttpSession session, reportVO vo, Model model) {
+	
 
-		service.selectReportList(session, vo, model);
-
-		return "g_mypage_report";
-	}
-
-	// 신고내역 글 읽기
-	@GetMapping("/readReport")
-	public String readReport(@RequestParam int num, HttpSession session, reportVO vo, Model model) {
-
-		service.selectReport(num, vo, session, model);
-
-		return "d_report_read";
-	}
-	//신고내역 삭제
-	@GetMapping("/isdeleteRpeort")
-	public String isdeleteRpeort(@RequestParam int num, reportVO vo) {
-		
-		service.deleteReport(num, vo);
-		
-		return "redirect:/reportList";
-	}
 }
