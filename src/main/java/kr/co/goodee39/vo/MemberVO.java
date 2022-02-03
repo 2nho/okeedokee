@@ -15,6 +15,29 @@ public class MemberVO {
 	private String del;
 	private String chkpw;
 	
+	private int start;
+	private int count;
+
+	public MemberVO() {
+		this.start = 0;
+		this.count = 10;
+	}
+	public int getStart() {
+		return start;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
 	// 순서
 	public int getMnum() {
 		return mnum;
