@@ -26,8 +26,11 @@ main section {
 /* 네비게이션 */
 main nav #LoginNav {
 	width: 90%;
-	height: 350px;
-	background-color: #f9f1c0;
+    height: 650px;
+    background-color: #f9f1c0;
+    margin: 20px;
+    border-radius: 17px;
+    padding: 15px;
 }
 main nav #LoginNav #LoginTitle::after {
 	content: "";
@@ -138,12 +141,12 @@ button span {
 			<article id="arti1">
 				<div id="LoginBoard">
 					<h1>로그인</h1><br />
-					<form action="${pageContext.request.contextPath }/member/login" method="post">
+					<form action="${pageContext.request.contextPath }/member/login" method="post" id="submit">
 						<ul>
 							<li><label for="id">아이디</label><input type="text" name="id" id="id" style="margin-left: 18px;"/></li>
 							<li><label for="password">비밀번호 </label><input type="password" name="pw" id="pw"/></li><br />
 							<li>
-								<button type="submit">
+								<button type="button" id="submitBtn">
 							         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
@@ -179,7 +182,19 @@ button span {
 			$("#sign").click(function(){
 				location.href = "${pageContext.request.contextPath }/member/signUp";
 			});
+			
+			$("#submitBtn").click(function(){
+				
+				if($("#id").val() == ""){
+					alert("아이디를 입력하세요.");
+				}else if($("#pw").val() == ""){
+					alert("비밀번호를 입력하세요.");
+				}else{ $("#submit").submit();}
+				
+			});
 		});
+		
+		
 	</script>
 </div>
 </body>

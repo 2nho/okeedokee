@@ -30,8 +30,11 @@ main section {
 /* 네비게이션 */
 main nav #LoginNav {
 	width: 90%;
-	height: 350px;
-	background-color: #f9f1c0;
+    height: 650px;
+    background-color: #f9f1c0;
+    margin: 20px;
+    border-radius: 17px;
+    padding: 15px;
 }
 main nav #LoginNav #LoginTitle::after {
 	content: "";
