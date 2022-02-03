@@ -81,6 +81,28 @@ public class ReportController {
 
 		return "d_report_read";
 	}
+	
+	//신고내역 수정이동
+	@GetMapping("/reviseReport")
+	public String reviseReport(
+			@RequestParam int num, 
+			HttpSession session, 
+			reportVO vo, 
+			Model model) {
+		
+		service.selectReport(num, vo, session, model);
+		
+		return "d_report_revise";
+	}
+	
+	//신고내역 수정제출
+	@GetMapping("/reviseReportResult")
+	public String reviseReportResult(reportVO vo) {
+		
+		service.updateReport(vo);
+		
+		return "redirect:/reportList";
+	}
 
 	// 신고내역 삭제
 	@GetMapping("/isdeleteReport")

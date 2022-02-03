@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,37 +30,36 @@
 				</div>
 				<!-- 신고 게시판 -->
 				<article id="arti2">
-					<div id="explanation"></div>
 					<div id="boardBox">
 						<div id="board">
 
-							<form:form modelAttribute="repVO" method="post"	action="reportResult" id="boardContent">
+							<form:form modelAttribute="reportVO" action="reviseReportResult" method="get" id="boardContent">
 								<label for="id">작성자&nbsp; |</label>
 								
 								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
-								<form:input path="id" type="text" name="id" id="id" readonly="true" value="${sessionScope.account.id}" />
-								<form:hidden path="mnum" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
-
+								<form:input path="id" type="text" name="id" id="id" readonly="true"/>
+								<form:hidden path="mnum" name="mnum" id="mnum"/>
+								<form:hidden path="num" name="num" id="num"/>
+								
 								<div id="informBox">
 									<div id="inform">
 
 										<table id="reportTable">
 											<tr>
 												<td id="reportUrl">
-													* 신고 게시글 : <a href="${boardUrl}">${(report.title == null)? (report.id+='님의 강아지를 찾습니다.'):report.title}</a>
-													<form:hidden path="url" value="${boardUrl}"/>
+													* 신고 게시글 : <a href="${reportVO.url}">${title}</a>
 												</td>		
 											</tr>
 											
 											<tr>
 												 <td>
-													<form:input path="title" name="title" id="title" required="required" placeholder="신고 제목을 입력해주세요."/>
+													<form:input path="title" name="title" id="title"/>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>
-													<form:textarea path="content" name="content" id="content" rows="20" cols="120" placeholder="신고 내용을 입력해주세요."></form:textarea><br/>
+													<form:textarea path="content" name="content" id="content" rows="20" cols="120"></form:textarea><br/>
 												</td>
 											</tr>
 											
@@ -68,7 +67,7 @@
 										
 									</div>
 								</div>
-								<form:hidden path="bdiv" value="1"/>
+								<form:hidden path="bdiv" name="bdiv" id="bdiv" value="1"/>
 							</form:form>
 							
 							<div class="submitBtnBox">
@@ -86,6 +85,5 @@
 	</div>
 
 	<script type="text/javascript" src="js/report.js"></script>
-
 </body>
 </html>

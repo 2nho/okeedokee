@@ -41,8 +41,8 @@
 								<input type="text" name="id" id="id" readonly="readonly" value="${sessionScope.account.id}" />
 								<input type="hidden" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
 								<div class="btnBox">
-									<a href="${pageContext.request.contextPath}/reviseReport?num=${report.num}">수정</a>
-									<a href="${pageContext.request.contextPath}/isdeleteReport?num=${report.num}">삭제</a>
+									<a href="${pageContext.request.contextPath}/reviseReport?num=${reportVO.num}">수정</a>
+									<a href="${pageContext.request.contextPath}/isdeleteReport?num=${reportVO.num}">삭제</a>
 								</div>
 								<div id="informBox">
 									<div id="inform">
@@ -50,19 +50,19 @@
 										<table id="reportTable">
 											<tr>
 												<td id="reportUrl">
-													* 신고 게시글 : <a href="${report.url}">${title}</a>
+													* 신고 게시글 : <a href="${reportVO.url}">${title}</a>
 												</td>		
 											</tr>
 											
 											<tr>
 												 <td>
-													<input name="title" id="title" value="${report.title}" readonly="readonly"/>
+													<input name="title" id="title" value="${reportVO.title}" readonly="readonly"/>
 												</td>
 											</tr>
 											
 											<tr>
 												<td>
-													<div id="content">${report.content}</div><br/>
+													<div id="content">${reportVO.content}</div><br/>
 												</td>
 											</tr>
 											
@@ -70,7 +70,7 @@
 										
 									</div>
 								</div>
-								<input type="hidden" name="bdiv" id="bdiv" value="1"/>
+								<input type="hidden" name="bdiv" id="bdiv" value="${reportVO.bdiv}"/>
 							</div>
 						</div>
 					</div>

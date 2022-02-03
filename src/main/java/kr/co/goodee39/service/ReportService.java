@@ -91,6 +91,8 @@ public class ReportService {
 	}
 	
 
+	//마이페이지 신고관련 기능
+	
 	//신고내역 가져오기
 	public void selectReportList(HttpSession session, reportVO vo, Model model) {
 		
@@ -121,21 +123,30 @@ public class ReportService {
 		//vo.setMnum(100);
 		
 		//view로 정보 가져가기
-		model.addAttribute("report", sqlSessionTemplate.selectOne("rep.selectReport", vo));
+		reportVO rvo = sqlSessionTemplate.selectOne("rep.selectReport", vo);
+		vo.setNum(rvo.getNum());
+		vo.setMnum(rvo.getMnum());
+		vo.setId(rvo.getId());
+		vo.setTitle(rvo.getTitle());
+		vo.setContent(rvo.getContent());
+		vo.setCreatedate(rvo.getCreatedate());
+		vo.setBdiv(rvo.getBdiv());
+		vo.setStart(rvo.getStart());
+		vo.setDel(rvo.getDel());
+		vo.setUrl(rvo.getUrl());
+		
 		
 		//게시글 제목 가져오기
-		reportVO result = sqlSessionTemplate.selectOne("rep.selectReport", vo);
-
-		int numPos = result.getUrl().indexOf("num=");
-		int numResult = Integer.parseInt(result.getUrl().substring(numPos+4));
+		int numPos = vo.getUrl().indexOf("num=");
+		int numResult = Integer.parseInt(vo.getUrl().substring(numPos+4));
 		System.out.println("글번호 나옴? : "+numResult);
 		
 		//자봉 글제목 가져오기
-		if(result.getUrl().contains("bdiv=2")) {
+		if(vo.getUrl().contains("bdiv=2")) {
 			
 		}
 		//실종 글제목 가져오기
-		else if(result.getUrl().contains("bdiv=3")) {
+		else if(vo.getUrl().contains("bdiv=3")) {
 			mnwVO mwvo = new mnwVO();
 			mwvo.setNum(numResult);
 			mnwVO title = sqlSessionTemplate.selectOne("miss.selectMissOne", mwvo);
@@ -143,19 +154,25 @@ public class ReportService {
 			
 		}
 		//목격 글제목 가져오기
-		else if(result.getUrl().contains("bdiv=4")) {
+		else if(vo.getUrl().contains("bdiv=4")) {
 			mnwVO mwvo = new mnwVO();
 			mwvo.setNum(numResult);
 			mnwVO title = sqlSessionTemplate.selectOne("witness.selectWitnessOne", mwvo);
 			model.addAttribute("title", title.getTitle());
 		}
 		//셀프 글제목 가져오기
-		else if(result.getUrl().contains("bdiv=7")) {
+		else if(vo.getUrl().contains("bdiv=7")) {
 			selfFlyerVO sfvo = new selfFlyerVO();
 			sfvo.setNum(numResult);
 			selfFlyerVO title = sqlSessionTemplate.selectOne("self.selectFlyer", sfvo);
 			model.addAttribute("title", title.getId()+"님의 강아지를 찾습니다.");
 		}
+	}
+	
+	//신고내역 수정
+	public void updateReport(reportVO vo) {
+		sqlSessionTemplate.update("rep.updateReport", vo);
+		
 	}
 	
 	
