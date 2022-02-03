@@ -38,10 +38,8 @@
 								<label for="id">작성자&nbsp; |</label>
 								
 								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
-								<!-- sessionScope.account.id -->
-								<input type="text" name="id" id="id" readonly="readonly" value="sessionId" />
-								<!--  sessionScope.account.mnum  -->
-								<input type="hidden" name="mnum" id="mnum" value="100" />
+								<input type="text" name="id" id="id" readonly="readonly" value="${sessionScope.account.id}" />
+								<input type="hidden" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
 
 								<div id="informBox">
 									<div id="inform">
