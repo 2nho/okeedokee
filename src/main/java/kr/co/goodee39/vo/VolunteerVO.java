@@ -24,4 +24,4 @@ public class VolunteerVO {
 		this.perid = perid;
 	}
 	
-	
+}
