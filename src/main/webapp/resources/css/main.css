@@ -1,0 +1,159 @@
+@charset "UTF-8";
+main nav {
+	flex: 1;
+}
+main nav #saveNav {
+	width: 250px;
+	height: 200px;
+	background-color: #f9f1c0;
+	padding: 10px;
+	border-radius: 15px 15px;
+}
+main nav #saveNav #saveTitle{
+	padding-bottom: 5px;
+}
+main nav #saveNav #saveTitle::after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+	padding-bottom: 5px;
+}
+main nav #saveSubTitle {
+	padding: 0 10px;
+}
+main nav #saveSubTitle a {
+	line-height: 40px;
+}
+main nav #saveSubTitle a:not(:last-child):after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid black;
+	margin: 5px 0;
+}
+main nav #saveSubTitle a#focus h4 {
+	background-color: RGB(251, 209, 87, .5);
+	border-radius: 10px 10px;
+	font-weight: 500;
+}
+main nav #saveSubTitle a h4 {
+	padding-left: 5px;
+	font-weight: 400;
+}
+main nav #saveSubTitle a:hover > h4 {
+	background-color: RGB(251, 209, 87, .5);
+	border-radius: 10px 10px;
+	font-weight: 500;
+}
+/* 게시판 영역 */
+main section {
+	flex: 9;
+	width: 100%;
+	height: 100%;
+	padding: 0 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.in {
+	border-bottom: 2px solid black;
+	text-align: center;
+}
+/* 지역명 */
+#selectcity {
+	text-align: left;	
+	border: none;
+	outline: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+#selectcity select {
+	background-color: #fbd157;
+	border: none;
+	outline: none;
+	font-weight: bold;
+}
+
+#selectcity select option {
+	background-color: #fbd157;
+}
+#valbtn{
+	width: 100%;
+	text-align: right;
+	margin-top: 20px;
+	
+}
+/* 버튼 색상 */
+.ClickBtn {
+	padding: 6px;
+	background-color: #fbd157;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+.ClickBtn:hover {
+	background-color: #f9f1c0;
+	padding: 5px;
+	border: 2px solid #fbd157;
+	
+}
+
+.btn{
+	background-color: #fbd157;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+/* 페이징 버튼*/
+#pagingBox {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
+	
+}
+
+#SupportNav {
+	text-align: center;
+	border-bottom: 1px solid #fbd157;
+}
+.text1 {
+	text-align: center;
+	margin-top: 180px;
+}
+
+.listup {
+	text-align: center;
+	border-bottom: 1px solid #fbd157;
+}
+
+#check_module {
+	padding: 6px;
+	background-color: #fbd157;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	cursor: pointer;
+	
+}
+
+
+
+#adminlist{
+	margin-left: 30px;
+}
+#admin3 button {
+	background-color: #fbd157;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+footer {
+	margin-top: 330px;
+}
