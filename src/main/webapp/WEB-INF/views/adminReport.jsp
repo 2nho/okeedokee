@@ -30,8 +30,8 @@
 				<div>
 					<h1>회원관리</h1>
 					<article class="article3">
-						<label for="search"><i class="fas fa-search"></i></label> 
-						<select name="category" id="category">
+						<label for="search"><i class="fas fa-search"></i></label> <select
+							name="category" id="category">
 							<option value="title">제목</option>
 							<option value="content">내용</option>
 							<option value="both">제목+내용</option>
@@ -47,7 +47,7 @@
 						<table>
 							<thead>
 								<tr>
-									<th><input type="checkbox" class="checkboxALL" /></th>
+									<th><input type="checkbox" class="checkboxAll" /></th>
 									<th>번호</th>
 									<th>제목</th>
 									<th>신고내용</th>
@@ -128,36 +128,43 @@
 		</main>
 	</div>
 	<script type="text/javascript">
-		      	$(function() {		
-					$("#search").click(function(){
-						let category = $("#category").val();
-						let text = $("#text").val();
-						
-						if(category == "title"){
-				      		location.href = "${pageContext.request.contextPath}/admin/adminReport?title="+text;
-				      	}else if(category == "content"){
-				      		location.href = "${pageContext.request.contextPath}/admin/adminReport?content="+text;
-				      	}else if(category == "both"){
-				      		location.href = "${pageContext.request.contextPath}/admin/adminReport?title="+text+"&content="+text;
-				      	}else if(category == "status"){
-				      		location.href = "${pageContext.request.contextPath}/admin/adminReport?status="+text;
-						}
-					});
-					$(function() {
-			    		// 전체 선택 클릭시 전부 선택 / 해제
-			    		$(".checkboxAll").change(function() {
-			    			$(".checkbox").prop("checked", $(this).prop("checked"));
-			    		});
+		$(function() {
+			$("#search")
+					.click(
+							function() {
+								let category = $("#category").val();
+								let text = $("#text").val();
 
-			    		// 4개 전부 체크시 전체 선택 체크 / 하나라도 체크 해제시 전체 선택 해제
-			    		$(".checkbox").click(function() {
-			    			if ($(".checkbox:checked").length == $(".checkbox").length) {
-			    				$(".checkboxAll").prop("checked", true);
-			    			} else {
-			    				$(".checkboxAll").prop("checked", false);
-			    			}
-			    		});
-				});
+								if (category == "title") {
+									location.href = "${pageContext.request.contextPath}/admin/adminReport?title="
+											+ text;
+								} else if (category == "content") {
+									location.href = "${pageContext.request.contextPath}/admin/adminReport?content="
+											+ text;
+								} else if (category == "both") {
+									location.href = "${pageContext.request.contextPath}/admin/adminReport?title="
+											+ text + "&content=" + text;
+								} else if (category == "status") {
+									location.href = "${pageContext.request.contextPath}/admin/adminReport?status="
+											+ text;
+								}
+							});
+		});
+		$(function() {
+			// 전체 선택 클릭시 전부 선택 / 해제
+			$(".checkboxAll").change(function() {
+				$(".checkbox").prop("checked", $(this).prop("checked"));
+			});
+
+			// 4개 전부 체크시 전체 선택 체크 / 하나라도 체크 해제시 전체 선택 해제
+			$(".checkbox").click(function() {
+				if ($(".checkbox:checked").length == $(".checkbox").length) {
+					$(".checkboxAll").prop("checked", true);
+				} else {
+					$(".checkboxAll").prop("checked", false);
+				}
+			});
+		});
 	</script>
 </body>
 </html>

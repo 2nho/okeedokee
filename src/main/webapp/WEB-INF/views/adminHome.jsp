@@ -7,6 +7,8 @@
 <title>adminHome</title>
 <link href="../css/layout.css" rel="stylesheet" />
 <link href="../css/adminHome.css" rel="stylesheet" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
@@ -31,11 +33,12 @@
 						<h2>회원수</h2>
 					</div>
 					<div>
-						<h1>${money}</h1>
+						<%-- <h1>${(money == null)? "0":money}</h1>  삼항도 가능하나 간단하게 연산자로 기본값 0가능--%>
+						<h1>${0+money}</h1>
 						<h2>이번달 후원금액</h2>
 					</div>
 					<div>
-					<!-- 게시글 count 더하기 -->
+						<!-- 게시글 count 더하기 -->
 						<h1>${missing+witness}</h1>
 						<h2>새실종/목격글</h2>
 					</div>
@@ -45,11 +48,32 @@
 					</div>
 				</div>
 				<div class="chart">
-				<!-- 가변을 위해 크기지정X -->
-				<svg viewBox="0 0 1200 300"></svg></div>
+					<!-- 가변을 위해 크기지정X -->
+					<svg viewBox="0 0 1200 300"></svg>
+					${map}
+				</div>
 			</section>
 		</main>
 	</div>
-	<script type="text/javascript" src="../js/chart.js"></script>
+	<script type="text/javascript">
+	$.ajax({
+		//요청을 보낼 주소
+		url : '${pageContext.request.contextPath}/admin/ajax',
+		// 넘길 데이터
+		data:  {},
+		// 데이터 전송 방법
+		type: "post",
+		// 전송할 데이터 타입
+        contentType: "application/json; charset=utf-8",
+        // 서버에서 받아올 데이터 형태
+        dataType: "text",
+        //성공시 결과값 매개변수로 받아서
+        success: function(result) {
+           console.log(result);
+           //d3를 여기다 구현 // makeGraph(result); 
+           }})
+</script>
+	<!-- <script type="text/javascript" src="../js/chart.js">
+	</script> -->
 </body>
 </html>

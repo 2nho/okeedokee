@@ -1,6 +1,8 @@
 package kr.co.goodee39.service;
 
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -154,5 +156,9 @@ public class adminSerivce {
 			model.addAttribute("status", status);
 		}
 		model.addAttribute("report", sqlSessionTemplate.selectList("reporttbl.selectReport", vo));
+	}
+	// 각 달 가입한 멤버 
+	public void monthMember(Model model) {
+		model.addAttribute("map", sqlSessionTemplate.selectList("member.monthMember"));
 	}
 }

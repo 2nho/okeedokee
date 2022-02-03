@@ -6,7 +6,8 @@
 
 <mapper namespace="member">
 	<!-- 탈퇴하지 않은 총 회원수 -->
-	<select id="totalMember" parameterType="memberVO" resultType="int">
+	<select id="totalMember" parameterType="memberVO"
+		resultType="int">
 		SELECT count(*)
 		FROM member
 		WHERE del like 'N'
@@ -17,8 +18,9 @@
 		FROM member
 		WHERE month(signupDay) like #{signupDay}
 	</select>
-	
-	<select id="allMember" parameterType="memberVO" resultType="memberVO">
+
+	<select id="allMember" parameterType="memberVO"
+		resultType="memberVO">
 		SELECT mnum,id,name,pw,email,level
 		FROM member
 		WHERE del like 'N'
@@ -36,7 +38,8 @@
 		order by mnum desc
 		limit #{start}, #{count}
 	</select>
-	<select id="CountMember" parameterType="memberVO" resultType="int">
+	<select id="CountMember" parameterType="memberVO"
+		resultType="int">
 		SELECT count(*)
 		FROM member
 		WHERE del like 'N'
@@ -51,6 +54,15 @@
 				and level like #{level}
 			</when>
 		</choose>
+	</select>
+	<select id="monthMember" parameterType="memberVO"
+		resultType="String">
+		SELECT JSON_OBJECT('name',month(signupDay),'value',(SELECT COUNT(MONTH(signupDay)))) 
+		FROM member WHERE del LIKE 'N' 
+		GROUP BY Month(signupDay);
+		<!-- SELECT MONTH(signupDay) AS NAME, COUNT(MONTH(signupDay)) AS value
+		FROM member
+		GROUP BY Month(signupDay); -->
 	</select>
 </mapper>
 

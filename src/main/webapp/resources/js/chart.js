@@ -8,7 +8,11 @@ const margin = {top: 40, left: 40, bottom: 40, right: 40};
 //const svg = d3.select('.chart').append('svg').style('width', width).style('height', height);
  const svg = d3.select('svg');
 // data를 db에서 뽑아와야함
-const data = [
+function makeGraph(data){
+	
+}
+//const data = ;   
+/*[
     {name: '1월', value: 10},
     {name: '2월', value: 29},
     {name: '3월', value: 32},
@@ -21,8 +25,7 @@ const data = [
     {name: '10월', value: 25},
     {name: '11월', value: 23},
     {name: '12월', value: 15}
-  ];
- 
+  ];*/
 /* data = [1, 2, 3, 4, 5] 값을 가지는 데이터가 있고
 
 출력하고자 하는 차트 SVG 너비가 100px이라고 하면,
