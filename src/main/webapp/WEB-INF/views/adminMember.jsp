@@ -64,7 +64,16 @@
 										<td>${item.id}</td>
 										<td>${item.pw}</td>
 										<td>${item.email}</td>
-										<td>${item.level}</td>
+										<td><select name="" id="">
+										<option value="dbc">${item.level}</option>
+										 <c:set var="level" value="${item.level}" scope="page"/>
+										<%-- <c:if test="${level eq 'member'}"><option value="dbp1">admin</option></c:if>
+										<c:if test="${level eq 'admin'}"><option value="dbp1">member</option></c:if> --%>
+										<c:choose>
+       									 <c:when test="${level eq 'member'}"><option value="dbp1">admin</option></c:when>         
+       									 <c:otherwise><option value="dbp1">member</option></c:otherwise>
+   										 </c:choose>
+										</select></td>
 									</tr>
 								</c:forEach>
 							</tbody>
