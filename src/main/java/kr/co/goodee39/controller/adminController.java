@@ -33,13 +33,17 @@ public class adminController {
 		
 		return "adminHome";
 	}
+	// 비동기 통신 차트
 	@PostMapping("/ajax")
 	public @ResponseBody ResponseEntity<List<Map<String,String>>> getAjax(Model model){
 		List<Map<String, String>> list = service.monthMember(model);
 		System.out.println(list);
 		return new ResponseEntity<List<Map<String,String>>>(list,HttpStatus.OK);
+		//service.monthMember(model);
+		//System.out.println(service.monthMember(model));
+		//return new ResponseEntity<List<Map<String,String>>>(service.monthMember(model),HttpStatus.OK);
 	}
-
+	// 비동기 통신 업데이트
 	@GetMapping("/adminMember")
 	public String adminMember(Model model, @RequestParam(defaultValue = "1") int num,
 			@RequestParam(defaultValue="") String id,
