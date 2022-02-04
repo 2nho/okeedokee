@@ -170,8 +170,6 @@ button span {
 						    
 						</ul>
 					</form>
-						
-					<div id="board"></div>
 				</div>
 			</article>
 		</section>

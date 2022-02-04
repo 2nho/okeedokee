@@ -71,8 +71,8 @@
 			<!-- 개인정보 변경 -->
 			<article id="arti1">
 				<div class="content">
-					<h1>개인정보변경</h1>
-					<!-- 여기서부터 작업 시작하세요 -->
+					<h1>개인정보 변경</h1>
+					
 					
 				</div>
 			</article>

@@ -149,8 +149,6 @@ button span {
 							</li>
 						</ul>
 					</form>
-						
-					<div id="board"></div>
 				</div>
 			</article>
 		</section>

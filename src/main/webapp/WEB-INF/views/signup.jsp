@@ -194,8 +194,6 @@ button span {
 						    </form:button>
 						    
 						</form:form>
-					
-					<div id="board"></div>
 				</div>
 				
 			</article>
