@@ -136,7 +136,7 @@ button span {
 					<h1>아이디찾기</h1><br />
 					<form action="${pageContext.request.contextPath }/member/findIdResult" method="post" id="submit">
 						<ul>
-							<li><label for="name">성명</label><input type="text" name="name" id="name" style="margin-left: 21px;"/></li>
+							<li><label for="name">성명</label><input type="text" name="name" id="name" style="margin-left: 18px;"/></li>
 							<li><label for="email">이메일 </label><input type="email" name="email" id="email"/></li>
 							<li>
 								<button type="button" id="submitBtn">

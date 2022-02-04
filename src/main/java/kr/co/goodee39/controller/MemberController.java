@@ -65,8 +65,6 @@ public class MemberController {
 	public @ResponseBody ResponseEntity<MemberVO> findIdResult(String name, String email) {
 
 		MemberVO vo1 = memberService.memberFindId(name, email);
-		
-		System.out.println(vo1.getId());
 		ResponseEntity<MemberVO> response = new ResponseEntity<MemberVO>(vo1,HttpStatus.OK);
 		
 		return response;
@@ -76,8 +74,6 @@ public class MemberController {
 	public @ResponseBody ResponseEntity<MemberVO> findIdResult(String name, String email, String id) {
 		
 		MemberVO vo1 = memberService.memberFindPw(name, email, id);
-		
-		System.out.println(vo1.getId());
 		ResponseEntity<MemberVO> response = new ResponseEntity<MemberVO>(vo1,HttpStatus.OK);
 		
 		return response;

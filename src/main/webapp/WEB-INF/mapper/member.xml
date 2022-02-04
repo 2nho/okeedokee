@@ -9,6 +9,21 @@
 		from member
 		WHERE id=#{id}
 	</select>
+	
+	<select id="findId" resultType="memberVO">
+		select id
+		from member
+		WHERE name=#{name}
+		and email=#{email}
+	</select>
+	
+	<select id="findPw" resultType="memberVO">
+		select id, pw, name, email, phNum 
+		from member
+		WHERE name=#{name}
+		and email=#{email}
+		and id=#{id}
+	</select>
 
 	<select id="selectMember" parameterType="memberVO" resultType="memberVO">
 		select mnum, id, pw, name, email, phNum
