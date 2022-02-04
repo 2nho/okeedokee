@@ -42,10 +42,28 @@ public class MemberService {
 	public boolean memberIdCheck(String id) { 
 		
 		int result = sqlSessionTemplate.selectOne("member.idCheck", id);
-		System.out.println(result);
+
 		if(result==0) {return true;}
 		else {return false;}
 	}
-
+	
+	public MemberVO memberFindId(String name, String email) { 
+		MemberVO vo = new MemberVO();
+		vo.setName(name);
+		vo.setEmail(email);
+		MemberVO vo1 = sqlSessionTemplate.selectOne("member.findId", vo);
+		
+		return vo1;
+	}
+	
+	public MemberVO memberFindPw(String name, String email, String id) { 
+		MemberVO vo = new MemberVO();
+		vo.setName(name);
+		vo.setEmail(email);
+		vo.setId(id);
+		MemberVO vo1 = sqlSessionTemplate.selectOne("member.findPw", vo);
+		
+		return vo1;
+	}
 	
 }

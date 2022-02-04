@@ -3,6 +3,8 @@ package kr.co.goodee39.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +21,7 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
-	// 테스트 페이지.
+
 	@GetMapping("/loginPage")
 	public String loginPage() {
 		return "login"; 
@@ -47,11 +49,38 @@ public class MemberController {
 		memberService.setMember(vo);
 		return "redirect:/member/loginPage";
 	}
-	
-	
+
 	@PostMapping("/idCheck")
 	public @ResponseBody boolean idCheck(String id) {
-		System.out.println(id);
 		return memberService.memberIdCheck(id);
 	}
+	
+	@GetMapping("/findId")
+	public String findId(MemberVO vo) {
+		
+		return "findId";
+	}
+	
+	@PostMapping("/findIdResult")
+	public @ResponseBody ResponseEntity<MemberVO> findIdResult(String name, String email) {
+
+		MemberVO vo1 = memberService.memberFindId(name, email);
+		
+		System.out.println(vo1.getId());
+		ResponseEntity<MemberVO> response = new ResponseEntity<MemberVO>(vo1,HttpStatus.OK);
+		
+		return response;
+	}
+	
+	@PostMapping("/findPwResult")
+	public @ResponseBody ResponseEntity<MemberVO> findIdResult(String name, String email, String id) {
+		
+		MemberVO vo1 = memberService.memberFindPw(name, email, id);
+		
+		System.out.println(vo1.getId());
+		ResponseEntity<MemberVO> response = new ResponseEntity<MemberVO>(vo1,HttpStatus.OK);
+		
+		return response;
+	}
+	
 }
