@@ -19,7 +19,7 @@
 
 /* main */
 main{
-	margin-bottom:68px;
+	margin-bottom:120px;
 }
 
 #arti1 {
@@ -165,16 +165,6 @@ button span {
 							주소  <form:input path="address" /><br />
 							<div class="valid">주소를 입력하세요.</div>
 							
-							<!-- 이메일 인증 추가 예정 -->
-							이메일  <form:input path="email" />
-									<button type="button" id="auth" style="width:40px; height: 22px; line-height: 1;">
-								         <svg width="60px" height="20px" viewBox="0 0 180 60" class="border">
-								           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-								           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-								         </svg>
-								         <span>인증</span>
-									</button><br />
-									<div class="valid">이메일을 입력하세요.</div>
 							
 							<div>
 								전화번호  <form:input path="phNum" class="chk" placeholder="'-' 포함하여 입력해주십시오."/><br />

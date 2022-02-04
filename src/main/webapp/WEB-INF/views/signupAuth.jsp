@@ -134,16 +134,24 @@ button span {
 			<article id="arti1">
 				<div id="LoginBoard">
 					<h1>회원가입</h1><br />
-					<form action="${pageContext.request.contextPath}/mail/findPwAuth" method="post" id="submit">
+					<form action="${pageContext.request.contextPath}/mail/signupAuth" method="post" id="submit">
 
-                            	<input type="email" name="e_mail" placeholder=" 이메일주소를 입력하세요. " size=""><br />
-                           	     <input type="hidden" name="hidden" id="hidden"/>
+                       	<input type="email" name="e_mail" placeholder=" 이메일주소를 입력하세요. " ><br />
+						<input type="input" name="authNum" id="authNum" placeholder=" 인증번호를 입력해주세요. " style="display:none;"/><br />
+
  						<button type="button" id="submitBtn">
 					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
 					         </svg>
 					         <span>인증 메일 보내기</span>
+					    </button>
+					    <button type="button" id="authBtn" style="display:none;">
+					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
+					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+					         </svg>
+					         <span>인증하기</span>
 					    </button><br />
  					</form>
 				</div>
@@ -161,35 +169,51 @@ button span {
 				let sepa = path.split('/');
 				let di = $("#LoginSubTitle").children('a');
 
-				for (var value of di) { 
+				for (let value of di) { 
 					if( window.location.pathname === value.pathname){
 						value.classList.add("thisPosition");
 					}
 				}
 			});
-
 			
+			let dice = null;
+			const $email = $('[name=e_mail]'); 
+			const $authNum = $('[name=authNum]'); 
 			$("#submitBtn").click(function(){
-				$($(this)).attr('disabled',true);
-				let $name = $('[name=name]'); 
-				let $id = $('[name=id]'); 
-				let $email = $('[name=e_mail]'); 
-				$.ajax({ 
-					type: 'post', 
-					url: '${pageContext.request.contextPath}/member/findPwResult', 
-					data: {name: $name.val(),email: $email.val(),id: $id.val()}, 
-					success: function(data) { 
-						$("#hidden").val(data.pw);
-						alert("이메일로 비밀번호를 발송했습니다. 확인해주십시오.");
-						$("#submit").submit();
-						
-					}, 
-					error: function() { 
-						alert("정보를 다시 확인해주십시오."); 
-						$("#submitBtn").attr('disabled',false);
-					}
-				});
-			});
+				if($email.val() != ""){
+					$($(this)).attr('disabled',true);
+					$.ajax({ 
+						type: 'post', 
+						url: '${pageContext.request.contextPath}/mail/signupAuth', 
+						data: {email: $email.val()}, 
+						success: function(data) { 
+							dice = data;
+							alert("이메일로 인증번호를 발송했습니다. 확인해주십시오.");
+							$("#authNum").css("display","block");
+							$("#authBtn").css("display","inline");
+							$("#submitBtn").css("display","none");
+							
+						}, 
+						error: function() { 
+							alert("정보를 다시 확인해주십시오."); 
+							$("#submitBtn").attr('disabled',false);
+						}
+					});
+				}else {
+					alert("이메일을 입력해주세요.");
+				}
+			});		
+			
+			$("#authBtn").click(function(){
+				console.log($authNum.val());
+				console.log(dice);
+				if($authNum.val() == dice){
+					alert("인증되었습니다.");
+					location.href = '${pageContext.request.contextPath}/member/signUp';
+				}else{
+					alert("인증번호를 다시 확인해주십시오.");
+				}
+			});	
 		});
 		
 		

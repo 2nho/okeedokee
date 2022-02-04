@@ -8,12 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MailController {
@@ -76,15 +78,14 @@ public class MailController {
 		return "signupAuth";
 	}
     
-    @RequestMapping( value = "/mail/signUp" , method=RequestMethod.POST )
-    public ModelAndView signupMailSending(HttpServletRequest request, String e_mail, String hidden, HttpServletResponse response_email) throws IOException {
-    	System.out.println(hidden+"1");
+    @RequestMapping( value = "/mail/signupAuth" , method=RequestMethod.POST )
+    public @ResponseBody ResponseEntity<Integer> signupMailSending(HttpServletRequest request, String email, String hidden, HttpServletResponse response_email) throws IOException {
         Random r = new Random();
         int dice = r.nextInt(4589362) + 49311; //이메일로 받는 인증코드 부분 (난수)
         
         String setfrom = "dlgkstjq623@gamil.com";
-        String tomail = request.getParameter("e_mail"); // 받는 사람 이메일
-        String title = "회원가입 인증 이메일 입니다."; // 제목
+        String tomail = request.getParameter("email"); // 받는 사람 이메일
+        String title = "OKEEDOKEE 회원가입 인증 이메일 입니다."; // 제목
         String content =
         
         System.getProperty("line.separator")+ //한줄씩 줄간격을 두기위해 작성
@@ -97,7 +98,7 @@ public class MailController {
         
         System.getProperty("line.separator")+
 
-        " 비밀번호는 " +dice+ " 입니다. "
+        " 인증번호는 " +dice+ " 입니다. "
         
         +System.getProperty("line.separator")+
         
@@ -108,8 +109,7 @@ public class MailController {
         
         try {
             MimeMessage message = mailSender.createMimeMessage();
-            MimeMessageHelper messageHelper = new MimeMessageHelper(message,
-                    true, "UTF-8");
+            MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
 
             messageHelper.setFrom(setfrom); // 보내는사람 생략하면 정상작동을 안함
             messageHelper.setTo(tomail); // 받는사람 이메일
@@ -121,13 +121,7 @@ public class MailController {
             System.out.println(e);
         }
         
-        ModelAndView mv = new ModelAndView();    //ModelAndView로 보낼 페이지를 지정하고, 보낼 값을 지정한다.
-        mv.setViewName("signUp");     //뷰의이름
-        mv.addObject("dice", dice);
-        
-        System.out.println("mv : "+mv);
-        
-        return mv;
-        
+        return new ResponseEntity<Integer>(dice, HttpStatus.OK);
     }
+
 }
