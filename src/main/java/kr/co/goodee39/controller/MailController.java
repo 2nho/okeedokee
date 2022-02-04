@@ -18,8 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MailController {
 
-	@Autowired // 서비스를 호출하기 위해서 의존성을 주입
-	JavaMailSender mailSender; // 메일 서비스를 사용하기 위해 의존성을 주입함.
+	@Autowired
+	JavaMailSender mailSender; 
 
 	@RequestMapping( value = "/member/findPw" , method=RequestMethod.GET )
 	public String findPwEmail() {
@@ -28,13 +28,11 @@ public class MailController {
 	
 	// mailSending 코드
     @RequestMapping( value = "/mail/findPwAuth" , method=RequestMethod.POST )
-    public ModelAndView passwordMailSending(HttpServletRequest request, String e_mail, String hidden, HttpServletResponse response_email) throws IOException {
-        Random r = new Random();
-        int dice = r.nextInt(4589362) + 49311; //이메일로 받는 인증코드 부분 (난수)
+    public String passwordMailSending(HttpServletRequest request, String e_mail, String hidden, HttpServletResponse response_email) throws IOException {
         
-        String setfrom = "dlgkstjq623@gamil.com";
+        String setfrom = "dlgkstjq623@gamil.com"; // root-context에 기입된 계정으로 메일 송신자가 정해짐
         String tomail = request.getParameter("e_mail"); // 받는 사람 이메일
-        String title = "회원가입 인증 이메일 입니다."; // 제목
+        String title = "OKEEDOKEE 비밀번호 찾기 메일 입니다."; // 제목
         String content =
         
         System.getProperty("line.separator")+ //한줄씩 줄간격을 두기위해 작성
@@ -53,7 +51,7 @@ public class MailController {
         
         System.getProperty("line.separator")+
         
-        "받으신 인증번호를 홈페이지에 입력해 주시면 다음으로 넘어갑니다."; // 내용
+        "받으신 비밀번호를 입력하시면 로그인이 됩니다."; // 내용
         
         
         try {
@@ -70,14 +68,10 @@ public class MailController {
             System.out.println(e);
         }
         
-        ModelAndView mv = new ModelAndView();  
-        mv.setViewName("redirect:/member/loginPage");  
-        mv.addObject("dice", dice);
-        
-        return mv;
+        return "redirect:/member/loginPage";
     }
     
-    @RequestMapping( value = "/member/signupAuth" , method=RequestMethod.GET )
+    @RequestMapping( value = "/member/signupAuthMove" , method=RequestMethod.GET )
 	public String signupEmail() {
 		return "signupAuth";
 	}
@@ -103,7 +97,7 @@ public class MailController {
         
         System.getProperty("line.separator")+
 
-        " 비밀번호는 " +hidden+ " 입니다. "
+        " 비밀번호는 " +dice+ " 입니다. "
         
         +System.getProperty("line.separator")+
         
@@ -128,7 +122,7 @@ public class MailController {
         }
         
         ModelAndView mv = new ModelAndView();    //ModelAndView로 보낼 페이지를 지정하고, 보낼 값을 지정한다.
-        mv.setViewName("email_injeung");     //뷰의이름
+        mv.setViewName("signUp");     //뷰의이름
         mv.addObject("dice", dice);
         
         System.out.println("mv : "+mv);
