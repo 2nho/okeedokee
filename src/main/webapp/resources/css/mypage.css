@@ -102,6 +102,11 @@ main section #arti1 .content h1::after {
 	width: 100%;
 	border-bottom: 2px solid black;
 }
+/* 개인정보 변경 */
+main section #arti1 .content #cpi{
+	
+	
+}
 
 
 /* 나의 신고 내역 */

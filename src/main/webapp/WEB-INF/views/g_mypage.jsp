@@ -72,8 +72,22 @@
 			<article id="arti1">
 				<div class="content">
 					<h1>개인정보 변경</h1>
-					<div>
-						
+					<div id="cpi">
+						<form action="${pageContext.request.contextPath }/member/findIdResult" method="post" id="submit">
+							<ul>
+								<li><label for="name">성명</label><input type="text" name="name" id="name" style="margin-left: 18px;"/></li>
+								<li><label for="email">이메일 </label><input type="email" name="email" id="email"/></li>
+								<li>
+									<button type="button" id="submitBtn">
+								         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
+								           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+								           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+								         </svg>
+								         <span>아이디 찾기</span>
+								    </button>
+								</li>
+							</ul>
+						</form>
 					</div>
 					
 				</div>
