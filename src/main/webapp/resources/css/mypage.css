@@ -105,10 +105,7 @@ main section #arti1 .content h1::after {
 
 
 /* 개인정보 변경 */
-main section #arti1 .content #cpi input{
-	border : 1px solid #FBD157;
-	outline: none;
-}
+
 
 main section #arti1 .content #cpi{
 	margin: 0 auto;
@@ -118,6 +115,17 @@ main section #arti1 .content #cpi{
     border-radius: 15px 15px;
     line-height: 2.5;
     background-color: #f9f1c0;
+}
+
+main section #arti1 .content #cpi form{
+	margin: 0 auto;
+    width: 240px;
+    text-align: center;	
+}
+
+main section #arti1 .content #cpi input{
+	border : 1px solid #FBD157;
+	outline: none;
 }
 
 

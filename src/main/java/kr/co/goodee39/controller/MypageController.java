@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.goodee39.service.MypageService;
+import kr.co.goodee39.vo.MemberVO;
 import kr.co.goodee39.vo.reportVO;
 
 @Controller
@@ -31,6 +33,18 @@ public class MypageController {
 		}
 		
 		return path;
+	}
+	
+	// 개인정보 변경 전 불러오기
+	@PostMapping("/cpi")
+	public String cpi(MemberVO vo, String cpi) {
+		return service.cpiMember(vo, cpi);
+	}
+	
+	// 개인정보 변경 페이지 이동
+	@PostMapping("/cpiModify")
+	public String cpiModify(MemberVO vo) {
+		return "g_mypage_cpi";
 	}
 
 	// 상담예약일 이동

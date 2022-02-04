@@ -109,7 +109,7 @@ button span {
 			<!-- 개인정보 변경 -->
 			<article id="arti1">
 				<div class="content">
-					<h1>개인정보 변경</h1>
+					<h1>${sessionScope.account.name} 님의 정보</h1>
 					<div id="cpi">
 						<form action="/okeedokee/member/" method="post" id="submit">
 							<ul>

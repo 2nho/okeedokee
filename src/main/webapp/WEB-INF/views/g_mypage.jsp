@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <link rel="icon" href="media/logo/favicon.ico">
-<link rel="stylesheet" href="css/mypage.css?sdf" />
+<link rel="stylesheet" href="css/mypage.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
-	.button {
+.button {
   width: 180px;
   height: 60px;
   position: absolute;
@@ -111,7 +111,7 @@ button span {
 				<div class="content">
 					<h1>개인정보 변경</h1>
 					<div id="cpi">
-						<form action="/okeedokee/member/cpi" method="post" id="submit">
+						<form action="/okeedokee/cpi" method="post" id="submit">
 							<ul>
 								<li><label for="id">아이디</label><input type="text" name="id" id="id" style="margin-left: 18px;"/></li>
 								<li><label for="pw">비밀번호 </label><input type="password" name="pw" id="pw"/></li>

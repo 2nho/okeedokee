@@ -79,11 +79,4 @@ public class MemberController {
 		return response;
 	}
 	
-	@PostMapping("/cpi")
-	public String cpi(MemberVO vo, String cpi, HttpSession session) {
-		return memberService.cpiMember(vo, cpi, session);
-	}
-	
-	
-	
 }
