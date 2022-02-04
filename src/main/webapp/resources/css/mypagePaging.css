@@ -21,6 +21,9 @@
 		flex-direction: column;
 		margin: auto 0;
 	}
+	main nav {
+		margin-bottom: 30px;
+	}
 	main nav .mypageNav {
 	    width: 100%;
 	    display: flex;
@@ -35,4 +38,25 @@
 	main nav .mypageSubTitle a h4 {
 		font-size: 90%;
 	}
+}
+
+@media ( max-width : 780px) {
+	main section #arti1 .content .reportList>table>thead>tr>th {
+	    font-size: 80%;
+	}
+	main section #arti1 .content .reportList>table>tbody>tr>td {
+	    font-size: 80%;
+	}
+	main section #arti1 .content .reportList>table>colgroup>#colDate {
+		width: 22%;
+	}
+	main section #arti1 .content .reportList>table>colgroup>#colStatus {
+		width: 17%;
+	}
+	main nav .mypageNav .mypageTitle h3 {
+		font-size: 72%;
+	}
+	main nav .mypageSubTitle a h4 {
+		font-size: 72%;
+	}	
 }

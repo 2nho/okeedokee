@@ -31,10 +31,10 @@
 				<br />
 				<div>
 					<div class="mypageTitle">
-						<h3>나의 상담 일정</h3>
+						<h3>나의 예약 일정</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="reservation" ><h4>상담 예약 내역</h4></a>
+						<a href="reservation" ><h4>방문 예약 내역</h4></a>
 					</div>
 				</div>
 				<br />

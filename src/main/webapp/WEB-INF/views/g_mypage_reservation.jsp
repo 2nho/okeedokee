@@ -31,16 +31,16 @@
 				<br />
 				<div>
 					<div class="mypageTitle">
-						<h3>나의 상담 일정</h3>
+						<h3>나의 예약 일정</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="reservation" id="focus"><h4>상담 예약 내역</h4></a>
+						<a href="reservation" id="focus"><h4>방문 예약 내역</h4></a>
 					</div>
 				</div>
 				<br />
 				<div>
 					<div class="mypageTitle">
-						<h3>나의 실종 • 목격 신고</h3>
+						<h3>나의 실종 • 목격</h3>
 					</div>
 					<div class="mypageSubTitle">
 						<a href="missingList" ><h4>실종 신고 내역</h4></a>
@@ -50,7 +50,7 @@
 				<br />
 				<div>
 					<div class="mypageTitle">
-						<h3>나의 기부 • 자원봉사</h3>
+						<h3>나의 기부 • 봉사</h3>
 					</div>
 					<div class="mypageSubTitle">
 						<a href="donationList" ><h4>기부 현황</h4></a>
@@ -69,10 +69,10 @@
 			</div>
 		</nav>
 		<section>
-			<!-- 상담 예약 내역 -->
+			<!-- 방문 예약 내역 -->
 			<article id="arti1">
 				<div class="content">
-					<h1>상담 예약 내역</h1>
+					<h1>방문 예약 내역</h1>
 					<!-- 여기서부터 작업 시작하세요 -->
 					
 				</div>
