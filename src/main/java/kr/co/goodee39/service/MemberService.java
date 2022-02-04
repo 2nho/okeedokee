@@ -66,4 +66,18 @@ public class MemberService {
 		return vo1;
 	}
 	
+	public String cpiMember(MemberVO vo, String cpi, HttpSession session) {
+		MemberVO vo1 = sqlSessionTemplate.selectOne("member.selectMember", vo);
+		String path = "";
+		
+		if(vo1 != null && cpi != null) {
+			path = "redirect:/okeedokee/g_mypage_cpi";
+			System.out.println("1");
+		}else {
+			path = "redirect:/mypage";
+			System.out.println("2");
+		}
+		return path;
+	}
+	
 }

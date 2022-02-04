@@ -113,9 +113,9 @@ button span {
 					<div id="cpi">
 						<form action="/okeedokee/member/cpi" method="post" id="submit">
 							<ul>
-							
-								<li><label for="id">아이디</label><input type="text" id="id" id="id" style="margin-left: 18px;"/></li>
+								<li><label for="id">아이디</label><input type="text" name="id" id="id" style="margin-left: 18px;"/></li>
 								<li><label for="pw">비밀번호 </label><input type="password" name="pw" id="pw"/></li>
+								<input type="hidden" name="cpi" value="cpi"/>
 								<li>
 									<button type="button" id="submitBtn">
 								         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">

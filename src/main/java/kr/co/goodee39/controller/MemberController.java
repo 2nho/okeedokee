@@ -80,9 +80,8 @@ public class MemberController {
 	}
 	
 	@PostMapping("/cpi")
-	public String cpi(MemberVO vo) {
-		
-		return "g_mypage_cpi";
+	public String cpi(MemberVO vo, String cpi, HttpSession session) {
+		return memberService.cpiMember(vo, cpi, session);
 	}
 	
 	

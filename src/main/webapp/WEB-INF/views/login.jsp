@@ -181,7 +181,7 @@ button span {
 		$(function(){
 			
 			$("#sign").click(function(){
-				location.href = "${pageContext.request.contextPath }/member/signupAuth";
+				location.href = "${pageContext.request.contextPath }/member/signupAuthMove";
 			}); 
 			
 			$("#submitBtn").click(function(){
