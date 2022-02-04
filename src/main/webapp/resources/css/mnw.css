@@ -929,6 +929,25 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 	main section #arti2 #boardBox #board #flyerBox #flyers .flyer .flyerText {
 		font-size: 80%;
 	}
+	/* 셀프전단지 읽기 */
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent #flyerTitle>h1 {
+	    font-size: 45px;
+	}
+	
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.imgBox {
+	    height: 450px;
+	    margin: 15px auto;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable tr {
+	    font-size: 20px;
+	    line-height: 80px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #petName, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #species, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #characters, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #location {
+	    font-size: 20px;
+	}
 }
 @media ( max-width : 1260px) {
 	/*실종 목격*/
@@ -952,6 +971,46 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 	/* 셀프전단지 */
 	main section #arti2 #boardBox #board #flyerBox #flyers {
 		grid-template-columns: repeat(2, 1fr);
+	}
+	/* 셀프전단지 읽기 */
+	main section #arti2 #boardBox #boardContent #title {
+	    font-size: 25px;
+	}
+	main section #arti2 #boardBox #board #boardContent label[for=id],
+	main section #arti2 #boardBox #board #boardContent #id {
+	    font-size: 16px;
+	}
+	main section #arti2 #boardBox #board #boardContent #printNshare #printBtn img {
+		width: 80%;
+		height: 80%;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent #flyerTitle {
+		height: 110px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent #flyerTitle>h1 {
+	    font-size: 30px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.imgBox {
+	    height: 400px;
+	    margin: 12px auto;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable tr {
+	    font-size: 15px;
+	    line-height: 70px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable tr td:first-child {
+		width: 25%;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #petName, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #species, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #characters, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #location,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:nth-child(2){
+	    font-size: 15px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:first-child,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:last-child {
+	    font-size: 20px;
 	}
 }
 
@@ -1024,6 +1083,27 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 	}
 	main section #arti2 #boardBox #board #writeBox {
 		margin-top: 20px;
+	}
+	/* 셀프전단지 읽기 */
+	main section #arti2 #boardBox #board #boardContent #informBox {
+		width: 100%;
+	}
+	main section #arti2 #boardBox #board {
+	    padding: 0;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.imgBox {
+	    height: 300px;
+	    margin: 10px auto;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable tr {
+	    font-size: 13px;
+	    line-height: 50px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #petName, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #species, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #characters, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #location {
+	    font-size: 13px;
 	}
 	/* 셀프전단지 만들기 */
 	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question {

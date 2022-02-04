@@ -48,17 +48,30 @@
 		font-size: 35px;
 	}
 	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.imgBox {
-		height: 300px;
+		height: 370px;
 	}
 	main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable {
 		border-spacing: 10px 5px;
 	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable tr{
+	    height: 80px;
+	}
 	main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable tr,
 	main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable tr td {
-		height: 5px;
+	    font-size: 23px;
 	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #petName, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #species, 
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #characters, 
 	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #location {
-		font-size: 25px;
+	    font-size: 23px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:nth-child(2){
+	    font-size: 20px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:first-child,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:last-child {
+	    font-size: 30px;
 	}
 	
 	/* 인쇄시 머릿글, 꼬릿글 지우기 */
