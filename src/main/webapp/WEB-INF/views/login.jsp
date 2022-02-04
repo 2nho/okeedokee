@@ -180,18 +180,6 @@ button span {
 	<script type="text/javascript">
 		$(function(){
 			
-			$(document).ready(function(){
-				let path = window.location.pathname;
-				let sepa = path.split('/');
-				let di = $("#LoginSubTitle").children('a');
-
-				for (var value of di) { 
-					if( window.location.pathname === value.pathname){
-						value.classList.add("thisPosition");
-					}
-				}
-			});
-			
 			$("#sign").click(function(){
 				location.href = "${pageContext.request.contextPath }/member/signupAuth";
 			}); 

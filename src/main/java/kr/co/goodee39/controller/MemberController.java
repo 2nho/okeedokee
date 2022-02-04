@@ -85,4 +85,6 @@ public class MemberController {
 		return "g_mypage_cpi";
 	}
 	
+	
+	
 }
