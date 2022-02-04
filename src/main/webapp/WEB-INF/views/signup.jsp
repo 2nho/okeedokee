@@ -19,7 +19,7 @@
 
 /* main */
 main{
-	margin-bottom:67px;
+	margin-bottom:68px;
 }
 
 #arti1 {

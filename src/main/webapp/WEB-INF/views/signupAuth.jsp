@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="icon" href="/okeedokee/media/logo/favicon.ico">
+<link rel="stylesheet" href="/okeedokee/css/loginpage.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style type="text/css">
 /* 메인 */
@@ -195,7 +197,7 @@ button span {
 					<h1>회원가입</h1><br />
 					<form action="${pageContext.request.contextPath}/mail/findPwAuth" method="post" id="submit">
 
-                            이메일 <input type="email" name="e_mail" placeholder="이메일주소를 입력하세요."><br />
+                            	<input type="email" name="e_mail" placeholder=" 이메일주소를 입력하세요. " size=""><br />
                            	     <input type="hidden" name="hidden" id="hidden"/>
  						<button type="button" id="submitBtn">
 					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
