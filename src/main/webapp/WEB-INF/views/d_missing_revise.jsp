@@ -130,7 +130,7 @@
 											</tr>
 										</table>
 										
-										<form:textarea path="content" name="content" id="content" rows="15" cols="100"></form:textarea><br/>
+										<form:textarea path="content" name="content" id="content" rows="15" cols="100" style="width: 100%; min-width: 150px;"></form:textarea><br/>
 									</div>
 								</div>
 								<form:hidden path="num"/>

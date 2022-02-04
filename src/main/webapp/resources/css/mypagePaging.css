@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/* 반응형 */
+/* 데스크탑 */
+@media ( max-width : 1260px) {
+	main section #arti1 .content .reportList>table>tbody>tr>td {
+	    font-size: 85%;
+	}
+	main section #arti1 .content .reportList>table>colgroup>#colDate {
+		width: 18%;
+	}
+	main section #arti1 .content .reportList>table>colgroup>#colStatus {
+		width: 15%;
+	}
+	
+}
+
+/* 태블릿 */
+@media ( max-width : 1000px) {
+	main {
+		flex-direction: column;
+		margin: auto 0;
+	}
+	main nav .mypageNav {
+	    width: 100%;
+	    display: flex;
+		justify-content: space-between;
+	}
+	main nav .mypageNav .mypageTitle {
+		display: inline;
+	}
+	main nav .mypageNav .mypageTitle h3 {
+		font-size: 90%;
+	}
+	main nav .mypageSubTitle a h4 {
+		font-size: 90%;
+	}
+}

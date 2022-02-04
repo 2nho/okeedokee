@@ -46,7 +46,9 @@
 							</c:when>
 							<c:otherwise>
 							<li>
-								<a href="/okeedokee/member/loginPage">로그인/회원가입</a>	
+								<a href="/okeedokee/member/loginPage">로그인
+								•
+								회원가입</a>	
 							</li>
 							</c:otherwise>
 						</c:choose>

@@ -13,7 +13,7 @@ main nav {
 
 /* 네비게이션 */
 main nav .mypageNav {
-	width: 100%;
+	width: 250px;
 	background-color: #f9f1c0;
 	padding: 20px 10px;
 	border-radius: 15px 15px;

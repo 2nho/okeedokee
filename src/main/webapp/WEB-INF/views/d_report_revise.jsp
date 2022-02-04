@@ -59,7 +59,7 @@
 											
 											<tr>
 												<td>
-													<form:textarea path="content" name="content" id="content" rows="20" cols="120"></form:textarea><br/>
+													<form:textarea path="content" name="content" id="content" rows="20" cols="120" style="width: 100%; min-width: 150px;"></form:textarea><br/>
 												</td>
 											</tr>
 											
