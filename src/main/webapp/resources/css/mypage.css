@@ -121,3 +121,70 @@ main section #arti1 .content .reportList>table>thead>tr>th {
 main section #arti1 .content .reportList>table>tbody>tr>td {
 	border-bottom: 1px solid rgba(0,0,0,.2);
 }
+
+
+/* 반응형 */
+/* 데스크탑 */
+@media ( max-width : 1260px) {
+	main section #arti1 .content .reportList>table>tbody>tr>td {
+	    font-size: 85%;
+	}
+	main section #arti1 .content .reportList>table>colgroup>#colDate {
+		width: 18%;
+	}
+	main section #arti1 .content .reportList>table>colgroup>#colStatus {
+		width: 15%;
+	}
+	
+}
+
+/* 태블릿 */
+@media ( max-width : 1000px) {
+	/* 마이페이지 메뉴 */
+	main {
+		flex-direction: column;
+		margin: auto 0;
+	}
+	main nav {
+		margin-bottom: 30px;
+	}
+	main nav .mypageNav {
+	    width: 100%;
+	    display: flex;
+		justify-content: space-between;
+	}
+	main nav .mypageNav .mypageTitle {
+		display: inline;
+	}
+	main nav .mypageNav .mypageTitle h3 {
+		font-size: 90%;
+	}
+	main nav .mypageSubTitle a h4 {
+		font-size: 90%;
+	}
+}
+
+@media ( max-width : 780px) {
+	/* 마이페이지 메뉴 */
+	main nav .mypageNav .mypageTitle h3 {
+		font-size: 72%;
+	}
+	main nav .mypageSubTitle a h4 {
+		font-size: 72%;
+	}	
+	/* 나의 신고 내역 */
+	main section #arti1 .content .reportList>table>thead>tr>th {
+	    font-size: 80%;
+	}
+	main section #arti1 .content .reportList>table>tbody>tr>td {
+	    font-size: 80%;
+	}
+	main section #arti1 .content .reportList>table>colgroup>#colDate {
+		width: 22%;
+	}
+	main section #arti1 .content .reportList>table>colgroup>#colStatus {
+		width: 17%;
+	}
+	
+}
+

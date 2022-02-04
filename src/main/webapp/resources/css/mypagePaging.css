@@ -17,6 +17,7 @@
 
 /* 태블릿 */
 @media ( max-width : 1000px) {
+	/* 마이페이지 메뉴 */
 	main {
 		flex-direction: column;
 		margin: auto 0;
@@ -41,6 +42,14 @@
 }
 
 @media ( max-width : 780px) {
+	/* 마이페이지 메뉴 */
+	main nav .mypageNav .mypageTitle h3 {
+		font-size: 72%;
+	}
+	main nav .mypageSubTitle a h4 {
+		font-size: 72%;
+	}	
+	/* 나의 신고 내역 */
 	main section #arti1 .content .reportList>table>thead>tr>th {
 	    font-size: 80%;
 	}
@@ -53,10 +62,5 @@
 	main section #arti1 .content .reportList>table>colgroup>#colStatus {
 		width: 17%;
 	}
-	main nav .mypageNav .mypageTitle h3 {
-		font-size: 72%;
-	}
-	main nav .mypageSubTitle a h4 {
-		font-size: 72%;
-	}	
+	
 }

@@ -8,7 +8,6 @@
 <title>OKEEDOKEE</title>
 <link rel="icon" href="media/logo/favicon.ico">
 <link rel="stylesheet" href="css/mypage.css" />
-<link rel="stylesheet" href="css/mypagePaging.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
