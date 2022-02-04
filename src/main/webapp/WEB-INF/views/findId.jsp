@@ -65,7 +65,6 @@ main nav #LoginNav div a:hover::after {
     border-radius: 15px;
 }
 
-
 /* main */
 #arti1 {
 	height: 680px;
@@ -86,6 +85,7 @@ main nav #LoginNav div a:hover::after {
     border: 25px solid #f9f1c0;
     border-radius: 25px;
     padding: 25px;
+    line-height: 2;
 }
 
 #arti1 #LoginBoard input{
@@ -126,7 +126,7 @@ main nav #LoginNav div a:hover::after {
   position: absolute;
 }
 button {
-  width: 60px;
+  width: 90px;
   height: 25px;
   cursor: pointer;
   background: transparent;
@@ -192,32 +192,20 @@ button span {
 		<section>
 			<article id="arti1">
 				<div id="LoginBoard">
-					<h1>로그인</h1><br />
-					<form action="${pageContext.request.contextPath }/member/login" method="post" id="submit">
+					<h1>아이디찾기</h1><br />
+					<form action="${pageContext.request.contextPath }/member/findIdResult" method="post" id="submit">
 						<ul>
-							<li><label for="id">아이디</label><input type="text" name="id" id="id" style="margin-left: 18px;"/></li>
-							<li><label for="password">비밀번호 </label><input type="password" name="pw" id="pw"/></li><br />
+							<li><label for="name">성명</label><input type="text" name="name" id="name" style="margin-left: 21px;"/></li>
+							<li><label for="email">이메일 </label><input type="email" name="email" id="email"/></li>
 							<li>
 								<button type="button" id="submitBtn">
 							         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
 							         </svg>
-							         <span>로그인</span>
+							         <span>아이디 찾기</span>
 							    </button>
-							    <button type="button" id="sign">
-							         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
-							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-							         </svg>
-							         <span>회원가입</span>
-								</button><br /><br />
 							</li>
-							<li>
-								<a href="findId">아이디 찾기</a>
-								<a href="findPw">비밀번호 찾기</a>
-							</li>	
-						    
 						</ul>
 					</form>
 						
@@ -244,17 +232,24 @@ button span {
 				}
 			});
 			
-			$("#sign").click(function(){
-				location.href = "${pageContext.request.contextPath }/member/signupAuth";
-			});
 			
 			$("#submitBtn").click(function(){
+				let $name = $('[name=name]'); 
+				let $email = $('[name=email]'); 
+				$.ajax({ 
+					type: 'post', 
+					url: '${pageContext.request.contextPath}/member/findIdResult', 
+					data: {name: $name.val(),email: $email.val()}, 
+					success: function(data) { 
+						alert("아이디는 "+data.id+"입니다");
+						location.href = "${pageContext.request.contextPath}/member/loginPage";
+					}, 
+					error: function() { 
+						alert("존재하지 않는 아이디입니다."); 
+					}
+				});
 				
-				if($("#id").val() == ""){
-					alert("아이디를 입력하세요.");
-				}else if($("#pw").val() == ""){
-					alert("비밀번호를 입력하세요.");
-				}else{ $("#submit").submit();}
+				
 				
 			});
 		});

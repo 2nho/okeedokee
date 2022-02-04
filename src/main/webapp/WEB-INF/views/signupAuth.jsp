@@ -65,7 +65,6 @@ main nav #LoginNav div a:hover::after {
     border-radius: 15px;
 }
 
-
 /* main */
 #arti1 {
 	height: 680px;
@@ -86,6 +85,7 @@ main nav #LoginNav div a:hover::after {
     border: 25px solid #f9f1c0;
     border-radius: 25px;
     padding: 25px;
+    line-height: 2;
 }
 
 #arti1 #LoginBoard input{
@@ -126,7 +126,7 @@ main nav #LoginNav div a:hover::after {
   position: absolute;
 }
 button {
-  width: 60px;
+  width: 130px;
   height: 25px;
   cursor: pointer;
   background: transparent;
@@ -179,7 +179,7 @@ button span {
 						</div>
 						<div id="LoginSubTitle">
 							<a href="loginPage">로그인</a>
-							<a href="signupAuth">회원가입</a>
+							<a href="signUp">회원가입</a>
 							<a href="findId">ID 찾기</a>
 							<a href="findPw">비밀번호 찾기</a>
 						</div>
@@ -192,36 +192,19 @@ button span {
 		<section>
 			<article id="arti1">
 				<div id="LoginBoard">
-					<h1>로그인</h1><br />
-					<form action="${pageContext.request.contextPath }/member/login" method="post" id="submit">
-						<ul>
-							<li><label for="id">아이디</label><input type="text" name="id" id="id" style="margin-left: 18px;"/></li>
-							<li><label for="password">비밀번호 </label><input type="password" name="pw" id="pw"/></li><br />
-							<li>
-								<button type="button" id="submitBtn">
-							         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
-							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-							         </svg>
-							         <span>로그인</span>
-							    </button>
-							    <button type="button" id="sign">
-							         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
-							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-							         </svg>
-							         <span>회원가입</span>
-								</button><br /><br />
-							</li>
-							<li>
-								<a href="findId">아이디 찾기</a>
-								<a href="findPw">비밀번호 찾기</a>
-							</li>	
-						    
-						</ul>
-					</form>
-						
-					<div id="board"></div>
+					<h1>회원가입</h1><br />
+					<form action="${pageContext.request.contextPath}/mail/findPwAuth" method="post" id="submit">
+
+                            이메일 <input type="email" name="e_mail" placeholder="이메일주소를 입력하세요."><br />
+                           	     <input type="hidden" name="hidden" id="hidden"/>
+ 						<button type="button" id="submitBtn">
+					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
+					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+					         </svg>
+					         <span>인증 메일 보내기</span>
+					    </button><br />
+ 					</form>
 				</div>
 			</article>
 		</section>
@@ -243,19 +226,28 @@ button span {
 					}
 				}
 			});
-			
-			$("#sign").click(function(){
-				location.href = "${pageContext.request.contextPath }/member/signupAuth";
-			});
+
 			
 			$("#submitBtn").click(function(){
-				
-				if($("#id").val() == ""){
-					alert("아이디를 입력하세요.");
-				}else if($("#pw").val() == ""){
-					alert("비밀번호를 입력하세요.");
-				}else{ $("#submit").submit();}
-				
+				$($(this)).attr('disabled',true);
+				let $name = $('[name=name]'); 
+				let $id = $('[name=id]'); 
+				let $email = $('[name=e_mail]'); 
+				$.ajax({ 
+					type: 'post', 
+					url: '${pageContext.request.contextPath}/member/findPwResult', 
+					data: {name: $name.val(),email: $email.val(),id: $id.val()}, 
+					success: function(data) { 
+						$("#hidden").val(data.pw);
+						alert("이메일로 비밀번호를 발송했습니다. 확인해주십시오.");
+						$("#submit").submit();
+						
+					}, 
+					error: function() { 
+						alert("정보를 다시 확인해주십시오."); 
+						$("#submitBtn").attr('disabled',false);
+					}
+				});
 			});
 		});
 		

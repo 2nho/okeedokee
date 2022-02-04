@@ -8,8 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/validation.js?dd"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/joinCheck.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/validation.js"></script>
+
 <style type="text/css">
 /* 메인 */
 main {
@@ -43,6 +44,32 @@ main nav #LoginNav #LoginTitle::after {
 	border-bottom: 2px solid black;
 }
 
+main nav #LoginNav div a{
+	display: block;
+	transition:0.5s;
+	padding:6px;
+	margin-top:10px;
+}
+
+main nav #LoginNav div a::after {
+	content: "";
+    display: block;
+    width: 0px;
+    border-bottom: 2px solid black;
+    margin-top: 1px;
+    transition: .5s ease;
+}
+
+main nav #LoginNav div a:hover::after {
+	width:15px;
+}
+
+.thisPosition{
+	background-color: rgba(233,199,199,0.8);
+    border-radius: 15px;
+}
+
+/* main */
 #arti1{
 	height: 680px;
 	margin: 20px 0 0 0;
@@ -140,16 +167,23 @@ button span {
 		<nav>
 			<!-- missing and witnessing 줄여서 mnw -->
 			<div id="LoginNav">
-				<div id="LoginTitle">
-					<h4>로그인/회원가입</h4>
-				</div>
-				<div id="LoginSubTitle">
-					<h5></h5>
-					<h5>로그인</h5>
-					<h5>회원가입</h5>
-					<h5>ID/비밀번호 찾기</h5>
-				</div>
-				
+				<c:choose>
+					<c:when test="${sessionScope.account.mnum != null}">
+					
+					</c:when>
+					
+					<c:otherwise>
+						<div id="LoginTitle">
+							<h4>로그인/회원가입</h4>
+						</div>
+						<div id="LoginSubTitle">
+							<a href="loginPage">로그인</a>
+							<a href="signupAuth">회원가입</a>
+							<a href="findId">ID 찾기</a>
+							<a href="findPw">비밀번호 찾기</a>
+						</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</nav>
 		<section>
@@ -158,24 +192,24 @@ button span {
 					<h1>회원가입</h1>
 						<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath }/member/signupResult" method="POST">
 							<div>
-								*성명  <form:input path="name" class="chk"/><br />
+								성명  <form:input path="name" class="chk"/><br />
 								<div class="invalid">성명을 입력하세요.</div>
 							</div>
 							
 							<div>
-								*아이디  <form:input path="id" class="chk"/>
+								아이디  <form:input path="id" class="chk"/>
 								<button type="button" id="chkid" style="height: 22px; ">중복확인</button>
 								<br />
 								<div class="invalid">아이디를 입력하세요.(영문 소문자, 숫자만 입력 가능)</div>
 							</div>
 							
 							<div>
-								*비밀번호  <form:password path="pw" class="chk"/><br />
+								비밀번호  <form:password path="pw" class="chk"/><br />
 								<div class="invalid">비밀번호를 입력하세요.(영문 대/소문자, 숫자를 모두 포함)</div>
 							</div>
 							
 							<div>
-								*비밀번호 확인  <form:password path="chkpw" class="chk"/><br />
+								비밀번호 확인  <form:password path="chkpw" class="chk"/><br />
 								<div class="invalid">비밀번호를 동일하게 입력하세요.</div>
 							</div>
 							
@@ -201,13 +235,13 @@ button span {
 							</div>
 							
 							<div>
-								*반려동물 보유여부  <form:radiobutton path="petOwn" value="Y" class="chkra"/>보유
+								반려동물 보유여부  <form:radiobutton path="petOwn" value="Y" class="chkra"/>보유
 												<form:radiobutton path="petOwn" value="N" class="chkra"/>미보유<br />
 								<div class="invalid">보유여부를 선택하세요.</div>
 							</div>
 							
 							<div>
-								*선호크기  <form:radiobutton path="size" value="b" class="chkra"/>대형
+								선호크기  <form:radiobutton path="size" value="b" class="chkra"/>대형
 										<form:radiobutton path="size" value="m" class="chkra"/>중형
 										<form:radiobutton path="size" value="s" class="chkra"/>소형
 										<form:radiobutton path="size" value="e" class="chkra"/>모두<br />
@@ -238,7 +272,21 @@ button span {
 <script type="text/javascript">
 	$(function(){
 		
+		$(document).ready(function(){
+			let path = window.location.pathname;
+			let sepa = path.split('/');
+			let di = $("#LoginSubTitle").children('a');
+
+			for (var value of di) { 
+				if( window.location.pathname === value.pathname){
+					value.classList.add("thisPosition");
+				}
+			}
+		});
 		
+		
+
+
 		$("#sign").click(function(){
 			location.href = "${pageContext.request.contextPath }/member/signUp";
 		});
@@ -257,7 +305,6 @@ button span {
 					}
 				});
 			}
-			
 		});
 	});
 </script>
