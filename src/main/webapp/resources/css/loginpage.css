@@ -85,39 +85,5 @@ main section #arti1 {
 	align-items: center;
 	border-radius: 15px 15px;
 }
-main section #arti1 .content {
-	width: 95%;
-	height: 90%;
-	background-color: #fff;
-	border-radius: 15px 15px;
-	padding: 20px;
-}
-main section #arti1 .content h1 {
-	font-size: 28px;
-	margin-bottom: 100px;
-}
-main section #arti1 .content h1::after {
-	content: "";
-	display: block;
-	width: 100%;
-	border-bottom: 2px solid black;
-}
 
 
-/* 나의 신고 내역 */
-main section #arti1 .content .myList {
-	width: 100%;
-}
-main section #arti1 .content .myList>table {
-	width: 100%;
-	text-align: center;
-	border-collapse: separate;
-	border-spacing: 0 10px;
-}
-
-main section #arti1 .content .myList>table>thead>tr>th {
-	border-bottom: 2px solid #323232;
-}
-main section #arti1 .content .myList>table>tbody>tr>td {
-	border-bottom: 1px solid rgba(0,0,0,.2);
-}

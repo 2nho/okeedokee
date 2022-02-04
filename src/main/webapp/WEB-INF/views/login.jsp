@@ -15,7 +15,7 @@
 
 /* main */
 main{
-	margin-bottom:300px;
+	margin-bottom:247px;
 }
 
 #arti1 {
@@ -31,12 +31,12 @@ main{
 }
 
 #arti1 #LoginBoard{
-	width: 50%;
+	width: 500px;
 	margin: 0 auto;
     border: 25px solid #f9f1c0;
     border-radius: 25px;
     padding: 25px;
-    margin-bottom:6px;
+    margin-bottom:21px;
 }
 
 #arti1 #LoginBoard input{
@@ -127,12 +127,12 @@ button span {
 						<h3>로그인/회원가입</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="loginPage" class="focus"><h4>로그인</h4></a>
+						<a href="loginPage" id="focus"><h4>로그인</h4></a>
 						<a href="signUp" ><h4>회원가입</h4></a>
 						<a href="findId" ><h4>아이디 찾기</h4></a>
 						<a href="findPw" ><h4>비밀번호 찾기</h4></a>
 					</div>
-					<br /><br /><br />
+					<br /><br /><br /><br />
 				</div>
 				<br />
 				

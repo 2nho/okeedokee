@@ -7,11 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="icon" href="${pageContext.request.contextPath }/media/logo/favicon.ico">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/mypage.css" />
+<link rel="icon" href="/okeedokee/media/logo/favicon.ico">
+<link rel="stylesheet" href="/okeedokee/css/loginpage.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/validation.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/joinCheck.js"></script>
+<script type="text/javascript" src="/okeedokee/js/validation.js"></script>
+<script type="text/javascript" src="/okeedokee/js/joinCheck.js"></script>
 
 <style type="text/css">
 /* 메인 */
@@ -27,11 +27,9 @@ main{
 }
 
 #arti1 #SignupBoard{
-	width: 50%;
+	width: 500px;
 	margin: 0 auto;
-    border: 25px solid #f9f1c0;
-    border-radius: 25px;
-    padding: 25px 25px 0 25px;;
+    padding: 15px 25px 0 25px;;
     min-width: 460px;
 }
 
@@ -128,7 +126,7 @@ button span {
 						<a href="findId" ><h4>아이디 찾기</h4></a>
 						<a href="findPw" ><h4>비밀번호 찾기</h4></a>
 					</div>
-					<br /><br /><br />
+					<br /><br /><br /><br />
 				</div>
 				<br />
 				

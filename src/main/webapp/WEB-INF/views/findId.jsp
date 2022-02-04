@@ -6,69 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="icon" href="/okeedokee/media/logo/favicon.ico">
+<link rel="stylesheet" href="/okeedokee/css/loginpage.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style type="text/css">
-/* 메인 */
-main {
-	display: flex;
-	flex-direction: row;
-}
 
-main nav {
-	flex: 3;
-}
-
-main section {
-	flex: 9;
-	width: 100%;
-	height: 100%;
-}
-
-/* 네비게이션 */
-main nav #LoginNav {
-	width: 90%;
-    height: 650px;
-    background-color: #f9f1c0;
-    margin: 20px;
-    border-radius: 17px;
-    padding: 15px;
-}
-main nav #LoginNav #LoginTitle::after {
-	content: "";
-	display: block;
-	width: 90%;
-	border-bottom: 2px solid black;
-}
-
-main nav #LoginNav div a{
-	display: block;
-	transition:0.5s;
-	padding:6px;
-	margin-top:10px;
-}
-
-main nav #LoginNav div a::after {
-	content: "";
-    display: block;
-    width: 0px;
-    border-bottom: 2px solid black;
-    margin-top: 1px;
-    transition: .5s ease;
-}
-
-main nav #LoginNav div a:hover::after {
-	width:15px;
-}
-
-.thisPosition{
-	background-color: rgba(233,199,199,0.8);
-    border-radius: 15px;
-}
 
 /* main */
+main{
+	margin-bottom:247px;
+}
+
 #arti1 {
-	height: 680px;
-	margin: 20px 0 0 0;
+	max-width:900px;
+	min-height: 394px;
 }
 
 #arti1 #LoginBoard h1:nth-child(1)::after{
@@ -80,11 +31,7 @@ main nav #LoginNav div a:hover::after {
 }
 
 #arti1 #LoginBoard{
-	width: 50%;
-	margin: 0 auto;
-    border: 25px solid #f9f1c0;
-    border-radius: 25px;
-    padding: 25px;
+	width: 300px;
     line-height: 2;
 }
 
@@ -166,26 +113,20 @@ button span {
 	
 	<main>
 		<nav>
-			<!-- missing and witnessing 줄여서 mnw -->
-			<div id="LoginNav">
-				<c:choose>
-					<c:when test="${sessionScope.account.mnum != null}">
-					
-					</c:when>
-					
-					<c:otherwise>
-						<div id="LoginTitle">
-							<h4>로그인/회원가입</h4>
-						</div>
-						<div id="LoginSubTitle">
-							<a href="loginPage">로그인</a>
-							<a href="signupAuth">회원가입</a>
-							<a href="findId">ID 찾기</a>
-							<a href="findPw">비밀번호 찾기</a>
-						</div>
-					</c:otherwise>
-					
-				</c:choose>
+			<div class="mypageNav">
+				<div>
+					<div class="mypageTitle">
+						<h3>로그인/회원가입</h3>
+					</div>
+					<div class="mypageSubTitle">
+						<a href="loginPage" id="focus"><h4>로그인</h4></a>
+						<a href="signUp" ><h4>회원가입</h4></a>
+						<a href="findId" ><h4>아이디 찾기</h4></a>
+						<a href="findPw" ><h4>비밀번호 찾기</h4></a>
+					</div>
+					<br /><br /><br /><br />
+				</div>
+				<br />
 				
 			</div>
 		</nav>
