@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
-<link rel="icon" href="media/logo/favicon.ico">
-<link rel="stylesheet" href="css/mypage.css?sdf" />
+<link rel="icon" href="/okeedokee/media/logo/favicon.ico">
+<link rel="stylesheet" href="/okeedokee/css/mypage.css?sdf" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
 	.button {
@@ -62,7 +62,7 @@ button span {
 						<h3>개인정보</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="mypage" id="focus"><h4>개인정보 변경</h4></a>
+						<a href="/okeedokee/mypage" id="focus"><h4>개인정보 변경</h4></a>
 					</div>
 				</div>
 				<br />
@@ -71,7 +71,7 @@ button span {
 						<h3>나의 예약 일정</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="reservation" ><h4>방문 예약 내역</h4></a>
+						<a href="/okeedokee/reservation" ><h4>방문 예약 내역</h4></a>
 					</div>
 				</div>
 				<br />
@@ -80,8 +80,8 @@ button span {
 						<h3>나의 실종 • 목격</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="missingList" ><h4>실종 신고 내역</h4></a>
-						<a href="witnessingList" ><h4>목격 신고 내역</h4></a>
+						<a href="/okeedokee/missingList" ><h4>실종 신고 내역</h4></a>
+						<a href="/okeedokee/witnessingList" ><h4>목격 신고 내역</h4></a>
 					</div>
 				</div>
 				<br />
@@ -90,8 +90,8 @@ button span {
 						<h3>나의 기부 • 봉사</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="donationList" ><h4>기부 현황</h4></a>
-						<a href="volunteerList" ><h4>자원봉사 현황</h4></a>
+						<a href="/okeedokee/donationList" ><h4>기부 현황</h4></a>
+						<a href="/okeedokee/volunteerList" ><h4>자원봉사 현황</h4></a>
 					</div>
 				</div>
 				<br />
@@ -100,7 +100,7 @@ button span {
 						<h3>나의 신고 내역</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="reportList" ><h4>신고 내역</h4></a>
+						<a href="/okeedokee/reportList" ><h4>신고 내역</h4></a>
 					</div>
 				</div>
 			</div>
@@ -111,9 +111,8 @@ button span {
 				<div class="content">
 					<h1>개인정보 변경</h1>
 					<div id="cpi">
-						<form action="/okeedokee/member/cpi" method="post" id="submit">
+						<form action="/okeedokee/member/" method="post" id="submit">
 							<ul>
-							
 								<li><label for="id">아이디</label><input type="text" id="id" id="id" style="margin-left: 18px;"/></li>
 								<li><label for="pw">비밀번호 </label><input type="password" name="pw" id="pw"/></li>
 								<li>
@@ -138,24 +137,6 @@ button span {
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
-<script>
-	$(function(){
-		
-		
-		$("#submitBtn").click(function(){
-			if($("#id").val() == "${sessionScope.account.id}"){
-				if($("#id").val() == ""){
-					alert("아이디를 입력하세요.");
-				}else if($("#pw").val() == ""){
-					alert("비밀번호를 입력하세요.");
-				}else{ $("#submit").submit();}
-			}else{
-				alert("아이디를 다시 확인해주십시오.");
-			}
-				
-		});
-	
-	});
-</script>
+
 </body>
 </html>

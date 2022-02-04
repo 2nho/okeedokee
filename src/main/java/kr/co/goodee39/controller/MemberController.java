@@ -79,4 +79,10 @@ public class MemberController {
 		return response;
 	}
 	
+	@PostMapping("/cpi")
+	public String cpi(MemberVO vo) {
+		
+		return "g_mypage_cpi";
+	}
+	
 }
