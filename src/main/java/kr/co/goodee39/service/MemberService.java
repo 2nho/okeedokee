@@ -27,7 +27,7 @@ public class MemberService {
 			// 동일한 id와 password가 있으면 아래 영역으로 보내라.
 			path = "redirect:/";
 		}else {
-			path = "redirect:/member/login";
+			path = "redirect:/member/loginPage";
 		}
 		return path;
 	}
