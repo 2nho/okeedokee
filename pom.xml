@@ -178,6 +178,27 @@
 		    <artifactId>json</artifactId>
 		    <version>20210307</version>
 		</dependency>
+		
+		<!-- mail 라이브러리 -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		
+		<!-- spring context support -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>5.2.0.RELEASE</version>
+		</dependency>
+		
+		<!-- mail 라이브러리 -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>1.6.2</version>
+		</dependency>
 
 
 	</dependencies>
