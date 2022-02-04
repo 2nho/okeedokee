@@ -264,7 +264,7 @@ main section #arti2 #boardBox #board #boardTable tbody tr.back::after {
 
 main section #arti2 #boardBox #board #boardTable tbody tr.end::after {
 	content: "종료";
-	color: black;
+	color: #fff;
 }
 
 main section #arti2 #boardBox #board #boardTable tbody tr.report::after
@@ -274,9 +274,8 @@ main section #arti2 #boardBox #board #boardTable tbody tr.report::after
 }
 
 main section #arti2 #boardBox #board #boardTable tbody tr.back::after,
-	main section #arti2 #boardBox #board #boardTable tbody tr.end::after,
-	main section #arti2 #boardBox #board #boardTable tbody tr.report::after
-	{
+main section #arti2 #boardBox #board #boardTable tbody tr.end::after,
+main section #arti2 #boardBox #board #boardTable tbody tr.report::after {
 	display: table;
 	position: absolute;
 	left: 0;
@@ -905,6 +904,9 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 /* 반응형 처리 */
 /* 데스크탑 */
 @media ( max-width : 1900px) {
+	main section {
+		padding: 0 15px;
+	}
 	main section #arti1,
 	main section #arti2 {
 		width: 1250px;
@@ -968,6 +970,21 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 	main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable #location {
 		width: 100%;
 	}
+	/* 실종 목격 글읽기 */
+	main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox {
+		height: 450px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot {
+	    height: 15px;
+	    width: 15px;
+	}
+	/* main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent p,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent p span,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent p b,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent p span,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent p b span {
+	    font-size: 50%;
+	} */
 	/* 셀프전단지 */
 	main section #arti2 #boardBox #board #flyerBox #flyers {
 		grid-template-columns: repeat(2, 1fr);
@@ -1064,6 +1081,11 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 		padding: 3px;
 		border: 2px solid #fbd157;
 	}
+	main section #arti2 #boardBox #board #boardTable tbody tr.back::after, 
+	main section #arti2 #boardBox #board #boardTable tbody tr.end::after, 
+	main section #arti2 #boardBox #board #boardTable tbody tr.report::after {
+	    width: 75%;
+	}
 	
 	/* 실종 목격 글쓰기 */
 	main section #arti1 #menuText span {
@@ -1091,6 +1113,14 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 	main section #arti2 #boardBox #board {
 	    padding: 0;
 	}
+	main section #arti2 #boardBox #board #boardContent .btnBox a {
+	    padding: 3px;
+	    font-size: 13px;
+	}
+	main section #arti2 #boardBox #board #boardContent .btnBox a:hover {
+		padding: 2px;
+		border: 1px solid #fbd157;
+	}
 	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.imgBox {
 	    height: 300px;
 	    margin: 10px auto;
@@ -1105,6 +1135,13 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #location {
 	    font-size: 13px;
 	}
+	/* main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent p,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent p span,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent p b,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent p span b,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent p b span {
+	    font-size: 30%;
+	} */
 	/* 셀프전단지 만들기 */
 	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker .question {
 	    width: 250px;

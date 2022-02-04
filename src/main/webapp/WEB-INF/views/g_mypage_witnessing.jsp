@@ -90,13 +90,24 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="miss" items="${list}">
+								<c:forEach var="witne" items="${list}">
 								<c:set var="i" value="${i+1}"/>
 								<tr>
 									<td>${i}</td>
-									<td><a href="read?bdiv=4&num=${miss.num}">${miss.title}</a></td>
-									<td>${miss.createdate}</td>
-									<td>${(miss.status == 'O')?	'공고':(miss.status == 'B')? '귀가':(miss.status == 'E')? '종료':'신고'}</td>
+									<td><a href="read?bdiv=4&num=${witne.num}">${witne.title}</a></td>
+									<td>${witne.createdate}</td>
+									<c:if test="${witne.status == 'O'}">
+									<td style="color:orange; font-weight: bold;">공고</td>
+									</c:if>
+									<c:if test="${witne.status == 'B'}">
+									<td style="color:green; font-weight: bold;">귀가</td>
+									</c:if>
+									<c:if test="${witne.status == 'E'}">
+									<td style="color:black; font-weight: bold;">종료</td>
+									</c:if>
+									<c:if test="${witne.status == 'R'}">
+									<td style="color:red; font-weight: bold;">신고</td>
+									</c:if>
 								</tr>
 								</c:forEach>
 								

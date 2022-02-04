@@ -96,7 +96,18 @@
 									<td>${i}</td>
 									<td><a href="read?bdiv=3&num=${miss.num}">${miss.title}</a></td>
 									<td>${miss.createdate}</td>
-									<td>${(miss.status == 'O')?	'공고':(miss.status == 'B')? '귀가':(miss.status == 'E')? '종료':'신고'}</td>
+									<c:if test="${miss.status == 'O'}">
+									<td style="color:orange; font-weight: bold;">공고</td>
+									</c:if>
+									<c:if test="${miss.status == 'B'}">
+									<td style="color:green; font-weight: bold;">귀가</td>
+									</c:if>
+									<c:if test="${miss.status == 'E'}">
+									<td style="color:black; font-weight: bold;">종료</td>
+									</c:if>
+									<c:if test="${miss.status == 'R'}">
+									<td style="color:red; font-weight: bold;">신고</td>
+									</c:if>
 								</tr>
 								</c:forEach>
 								

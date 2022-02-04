@@ -96,7 +96,12 @@
 									<td>${i}</td>
 									<td><a href="readReport?num=${rep.num}">${rep.title}</a></td>
 									<td>${rep.createdate}</td>
-									<td>${(rep.status eq 'N')? '답변대기':'답변완료'}</td>
+								<c:if test="${rep.status eq 'N'}">
+									<td style="color:red">답변대기</td>
+								</c:if>
+								<c:if test="${rep.status eq 'Y'}">
+									<td style="color:green">답변완료</td>
+								</c:if>
 								</tr>
 								</c:forEach>
 								
