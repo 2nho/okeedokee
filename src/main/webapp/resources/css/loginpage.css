@@ -1,0 +1,123 @@
+@charset "UTF-8";
+/* 메인 */
+main {
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+	margin-bottom: 80px;
+}
+/* 네비 */
+main nav {
+	flex: 1;
+}
+
+/* 네비게이션 */
+main nav .mypageNav {
+	width: 250px;
+	background-color: #f9f1c0;
+	padding: 20px 10px;
+	border-radius: 15px 15px;
+}
+
+main nav .mypageNav .mypageTitle {
+	padding-bottom: 5px;
+}
+
+main nav .mypageNav .mypageTitle::after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+	padding-bottom: 5px;
+}
+
+main nav .mypageSubTitle {
+	padding: 0 10px;
+}
+
+main nav .mypageSubTitle a {
+	line-height: 40px;
+}
+
+main nav .mypageSubTitle a:not(:last-child):after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid black;
+	margin: 5px 0;
+}
+
+main nav .mypageSubTitle a#focus h4 {
+	background-color: RGB(251, 209, 87, .5);
+	border-radius: 10px 10px;
+	font-weight: 500;
+}
+
+main nav .mypageSubTitle a h4 {
+	padding-left: 5px;
+	font-weight: 400;
+}
+
+main nav .mypageSubTitle a:hover>h4 {
+	background-color: RGB(251, 209, 87, .5);
+	border-radius: 10px 10px;
+	font-weight: 500;
+}
+/* 내용 영역 */
+main section {
+	flex: 9;
+	width: 100%;
+	height: 100%;
+	padding: 0 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* 기본 틀 */
+main section #arti1 {
+	width: 100%;
+	height: 100%;
+	background-color: #f9f1c0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px 15px;
+}
+main section #arti1 .content {
+	width: 95%;
+	height: 90%;
+	background-color: #fff;
+	border-radius: 15px 15px;
+	padding: 20px;
+}
+main section #arti1 .content h1 {
+	font-size: 28px;
+	margin-bottom: 100px;
+}
+main section #arti1 .content h1::after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+}
+
+
+/* 나의 신고 내역 */
+main section #arti1 .content .myList {
+	width: 100%;
+}
+main section #arti1 .content .myList>table {
+	width: 100%;
+	text-align: center;
+	border-collapse: separate;
+	border-spacing: 0 10px;
+}
+
+main section #arti1 .content .myList>table>thead>tr>th {
+	border-bottom: 2px solid #323232;
+}
+main section #arti1 .content .myList>table>tbody>tr>td {
+	border-bottom: 1px solid rgba(0,0,0,.2);
+}
