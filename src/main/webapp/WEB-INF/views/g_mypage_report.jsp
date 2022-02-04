@@ -73,7 +73,7 @@
 			<article id="arti1">
 				<div class="content">
 					<h1>신고 내역</h1>
-					<div class="reportList">
+					<div class="myList">
 						<table>
 							<colgroup>
 								<col width="5%">

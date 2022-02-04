@@ -105,20 +105,20 @@ main section #arti1 .content h1::after {
 
 
 /* 나의 신고 내역 */
-main section #arti1 .content .reportList {
+main section #arti1 .content .myList {
 	width: 100%;
 }
-main section #arti1 .content .reportList>table {
+main section #arti1 .content .myList>table {
 	width: 100%;
 	text-align: center;
 	border-collapse: separate;
 	border-spacing: 0 10px;
 }
 
-main section #arti1 .content .reportList>table>thead>tr>th {
+main section #arti1 .content .myList>table>thead>tr>th {
 	border-bottom: 2px solid #323232;
 }
-main section #arti1 .content .reportList>table>tbody>tr>td {
+main section #arti1 .content .myList>table>tbody>tr>td {
 	border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
@@ -126,13 +126,13 @@ main section #arti1 .content .reportList>table>tbody>tr>td {
 /* 반응형 */
 /* 데스크탑 */
 @media ( max-width : 1260px) {
-	main section #arti1 .content .reportList>table>tbody>tr>td {
+	main section #arti1 .content .myList>table>tbody>tr>td {
 	    font-size: 85%;
 	}
-	main section #arti1 .content .reportList>table>colgroup>#colDate {
+	main section #arti1 .content .myList>table>colgroup>#colDate {
 		width: 18%;
 	}
-	main section #arti1 .content .reportList>table>colgroup>#colStatus {
+	main section #arti1 .content .myList>table>colgroup>#colStatus {
 		width: 15%;
 	}
 	
@@ -173,16 +173,16 @@ main section #arti1 .content .reportList>table>tbody>tr>td {
 		font-size: 72%;
 	}	
 	/* 나의 신고 내역 */
-	main section #arti1 .content .reportList>table>thead>tr>th {
+	main section #arti1 .content .myList>table>thead>tr>th {
 	    font-size: 80%;
 	}
-	main section #arti1 .content .reportList>table>tbody>tr>td {
+	main section #arti1 .content .myList>table>tbody>tr>td {
 	    font-size: 80%;
 	}
-	main section #arti1 .content .reportList>table>colgroup>#colDate {
+	main section #arti1 .content .myList>table>colgroup>#colDate {
 		width: 22%;
 	}
-	main section #arti1 .content .reportList>table>colgroup>#colStatus {
+	main section #arti1 .content .myList>table>colgroup>#colStatus {
 		width: 17%;
 	}
 	

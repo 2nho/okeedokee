@@ -73,7 +73,36 @@
 				<div class="content">
 					<h1>실종 신고 내역</h1>
 					<!-- 여기서부터 작업 시작하세요 -->
-					
+					<div class="myList">
+						<table>
+							<colgroup>
+								<col width="5%">
+								<col width="auto">
+								<col width="15%" id="colDate">
+								<col width="10%" id="colStatus">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>순번</th>
+									<th>제목</th>
+									<th>작성일</th>
+									<th>처리상태</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="rep" items="${report}">
+								<c:set var="i" value="${i+1}"/>
+								<tr>
+									<td>${i}</td>
+									<td><a href="readReport?num=${rep.num}">${rep.title}</a></td>
+									<td>${rep.createdate}</td>
+									<td>${(rep.status eq 'N')? '답변대기':'답변완료'}</td>
+								</tr>
+								</c:forEach>
+								
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</article>
 			
