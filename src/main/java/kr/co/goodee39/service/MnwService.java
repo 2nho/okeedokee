@@ -25,7 +25,14 @@ public class MnwService {
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	//게시글 가져오기 및 페이징
-	public void selectMnw(int num, String id, String title, String content, int bdiv, Model model) {
+	public void selectMnw(
+			int num, 
+			String id, 
+			String title, 
+			String content, 
+			int bdiv, 
+			String myId,
+			Model model) {
 		
 		//페이징 처리시 첫 게시글 num설정 
 		mnwVO vo = new mnwVO();
@@ -56,9 +63,15 @@ public class MnwService {
 		//총 게시글 수 : 설정된 bdiv타입따라 쿼리 결정
 		int count = 0;
 		if(bdiv == 3) {
+			if(myId != "") {
+				vo.setId(myId);
+			}
 			count = sqlSessionTemplate.selectOne("miss.selectMissCount", vo); 
 		}
 		else if(bdiv == 4) {
+			if(myId != "") {
+				vo.setId(myId);
+			}
 			count = sqlSessionTemplate.selectOne("witness.selectWitnessCount", vo); 
 		}
 		

@@ -805,8 +805,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable,
-main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward {
 	width: 80%;
 	padding: 0;
 	margin: 30px auto;
@@ -825,8 +824,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable tr,
-main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:last-child
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#flyerReward li:last-child {
 	font-size: 30px;
 	font-weight: bold;
 	line-height: 100px;
@@ -852,42 +850,6 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerCont
 	width: 100%;
 }
 
-/* 전단지 프린트 설정 */
-@media print {
-	main section #arti2 {
-		background-color: transparent;
-		padding: 0;
-		margin: 0;
-	}
-	header, footer, nav,
-	main section #arti2 #boardBox #board #boardContent #title,
-	main section #arti2 #boardBox #board #boardContent #id, 
-	main section #arti2 #boardBox #board #boardContent #sessinId,
-	main section #arti2 #boardBox #board #boardContent .printNshare,
-	main section #arti2 #boardBox #board #boardContent .btnBox,
-	main section #arti2 #boardBox #board #boardContent #printNshare,
-	main section #arti2 #boardBox #board #boardContent #informBox #inform .comment {
-		display: none;
-		padding: 0;
-		margin: 0;
-	}
-	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent {
-		position: absolute;
-		top:0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		margin: auto 0;
-
-	}
-	/* 인쇄시 머릿글, 꼬릿글 지우기 */
-	@page {
-		margin: 0;
-	}
-	body {
-		margin: 1.6cm;
-	}
-}
 
 /* 셀프전단지 만들기 */
 main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerMaker {
@@ -936,6 +898,8 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTable #content::placeholder {
 	font-size: 20px;
 }
+
+
 
 
 /* 반응형 처리 */
@@ -1099,3 +1063,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #reportTab
 
 	
 }
+
+
+
+

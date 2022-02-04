@@ -90,13 +90,13 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="rep" items="${report}">
+								<c:forEach var="miss" items="${list}">
 								<c:set var="i" value="${i+1}"/>
 								<tr>
 									<td>${i}</td>
-									<td><a href="readReport?bdiv=3&num=${rep.num}">${rep.title}</a></td>
-									<td>${rep.createdate}</td>
-									<td>${(rep.status eq 'N')? '답변대기':'답변완료'}</td>
+									<td><a href="read?bdiv=3&num=${miss.num}">${miss.title}</a></td>
+									<td>${miss.createdate}</td>
+									<td>${(miss.status == 'O')?	'공고':(miss.status == 'B')? '귀가':(miss.status == 'E')? '종료':'신고'}</td>
 								</tr>
 								</c:forEach>
 								

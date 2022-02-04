@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+/* 전단지 프린트 설정 */
+@media print {
+	
+	main section #arti2 {
+		background-color: transparent;
+		padding: 0;
+		margin: 0;
+	}
+	header, footer, main nav,
+	main nav #mnwNav,
+	main section #arti2 #boardBox #board #boardContent #title,
+	main section #arti2 #boardBox #board #boardContent label[for=id], 
+	main section #arti2 #boardBox #board #boardContent #id, 
+	main section #arti2 #boardBox #board #boardContent #sessinId,
+	main section #arti2 #boardBox #board #boardContent .printNshare,
+	main section #arti2 #boardBox #board #boardContent .btnBox,
+	main section #arti2 #boardBox #board #boardContent #printNshare,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform .comment {
+		display: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	main section #arti2 #boardBox #board,
+	main section #arti2 #boardBox #board #boardContent #informBox {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 1100px;
+		page-break-before: avoid;
+		page-break-after: avoid;
+		-webkit-print-color-adjust:exact;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent #flyerTitle {
+		height: 100px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent #flyerTitle h1 {
+		font-size: 35px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>.imgBox {
+		height: 300px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable {
+		border-spacing: 10px 5px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable tr,
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #informTable tr td {
+		height: 5px;
+	}
+	main section #arti2 #boardBox #board #boardContent #informBox #inform #flyerContent>#informTable #location {
+		font-size: 25px;
+	}
+	
+	/* 인쇄시 머릿글, 꼬릿글 지우기 */
+	@page {
+		margin: 0;
+	}
+}

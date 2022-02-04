@@ -42,7 +42,9 @@ public class MnwController {
 
 		//게시판 구분
 		int bdiv = 3;
-		service.selectMnw(num, id, title, content, bdiv, model);
+		//마이페이지-실종글 작성 내역에 필요하나 여기선 필요 없으므로 공백처리
+		String myId = "";
+		service.selectMnw(num, id, title, content, bdiv, myId, model);
 
 		return "d_missing";
 	}
@@ -58,7 +60,9 @@ public class MnwController {
 		
 		//게시판 구분
 		int bdiv = 4;
-		service.selectMnw(num, id, title, content, bdiv, model);
+		//마이페이지-실종글 작성 내역에 필요하나 여기선 필요 없으므로 공백처리
+		String myId = "";
+		service.selectMnw(num, id, title, content, bdiv, myId, model);
 
 		return "d_witnessing";
 	}

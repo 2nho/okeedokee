@@ -73,7 +73,36 @@
 				<div class="content">
 					<h1>목격 신고 내역</h1>
 					<!-- 여기서부터 작업 시작하세요 -->
-					
+					<div class="myList">
+						<table>
+							<colgroup>
+								<col width="5%">
+								<col width="auto">
+								<col width="15%" id="colDate">
+								<col width="10%" id="colStatus">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>순번</th>
+									<th>제목</th>
+									<th>작성일</th>
+									<th>상태</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="miss" items="${list}">
+								<c:set var="i" value="${i+1}"/>
+								<tr>
+									<td>${i}</td>
+									<td><a href="read?bdiv=4&num=${miss.num}">${miss.title}</a></td>
+									<td>${miss.createdate}</td>
+									<td>${(miss.status == 'O')?	'공고':(miss.status == 'B')? '귀가':(miss.status == 'E')? '종료':'신고'}</td>
+								</tr>
+								</c:forEach>
+								
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</article>
 			
