@@ -41,6 +41,7 @@ public class MypageController {
 	}
 
 	// 실종, 목격내역 이동
+	/*
 	@GetMapping("/missingList")
 	public String missingList() {
 
@@ -52,6 +53,7 @@ public class MypageController {
 
 		return "g_mypage_witnessing";
 	}
+	*/
 
 	// 기부, 자원봉사 이동
 	@GetMapping("/donationList")

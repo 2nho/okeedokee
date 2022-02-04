@@ -30,10 +30,10 @@
 				<br />
 				<div>
 					<div class="mypageTitle">
-						<h3>나의 상담 일정</h3>
+						<h3>나의 예약 일정</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="reservation"><h4>상담 예약 내역</h4></a>
+						<a href="reservation"><h4>방문 예약 내역</h4></a>
 					</div>
 				</div>
 				<br />
@@ -86,7 +86,7 @@
 									<th>순번</th>
 									<th>제목</th>
 									<th>작성일</th>
-									<th>처리상태</th>
+									<th>상태</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -94,7 +94,7 @@
 								<c:set var="i" value="${i+1}"/>
 								<tr>
 									<td>${i}</td>
-									<td><a href="readReport?num=${rep.num}">${rep.title}</a></td>
+									<td><a href="readReport?bdiv=3&num=${rep.num}">${rep.title}</a></td>
 									<td>${rep.createdate}</td>
 									<td>${(rep.status eq 'N')? '답변대기':'답변완료'}</td>
 								</tr>
