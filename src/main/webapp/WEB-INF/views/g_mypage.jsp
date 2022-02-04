@@ -72,7 +72,9 @@
 			<article id="arti1">
 				<div class="content">
 					<h1>개인정보 변경</h1>
-					
+					<div>
+						
+					</div>
 					
 				</div>
 			</article>
