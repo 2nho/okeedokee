@@ -366,5 +366,16 @@ public class MnwService {
 		}
 	
 	}
+	
+	//게시글 댓글 수정
+	public void updateMnwCmt(mnwCmtVO vo) {
+		
+		if(vo.getBdiv() == 3) {
+			sqlSessionTemplate.update("missCmt.updateMissCmt", vo);
+		}
+		else if(vo.getBdiv() == 4) {
+			sqlSessionTemplate.update("witnessCmt.updateWitnessCmt", vo);
+		}
+	}
 	 
 }

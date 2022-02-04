@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -70,14 +71,13 @@ public class SelfFlyerController {
 		return "d_selfFlyer_read";
 	}
 
-	// 게시글 댓글 가져오기
+	// 전단지 댓글 가져오기
 	@GetMapping("/getFlyerComment/{num}/{bdiv}")
-	public ResponseEntity<List<mnwCmtVO>> getCommentList(@PathVariable int num, @PathVariable int bdiv) {
+	public ResponseEntity<List<mnwCmtVO>> getCommentList(@PathVariable int num) {
 
 		// 게시글 번호 num을 bnum으로 설정
 		mnwCmtVO cvo = new mnwCmtVO();
 		cvo.setBnum(num);
-		cvo.setBdiv(bdiv);
 
 		// service통해 코멘트 db긁어오기
 		List<mnwCmtVO> list = service.selectFlyerCmt(cvo);
@@ -88,12 +88,11 @@ public class SelfFlyerController {
 		return entity;
 	}
 
-	// 게시글 댓글 추가
+	// 전단지 댓글 추가
 	@PostMapping("/createFlyerComment")
 	public ResponseEntity<mnwCmtVO> createComment(@RequestBody mnwCmtVO vo, HttpSession session) {
 		System.out.println("코멘트 : " + vo.getCmt());
 		System.out.println("글번호 : " + vo.getBnum());
-		System.out.println("게시판구분 : " + vo.getBdiv());
 
 		//세션에서 id가져오기
 		MemberVO mvo = (MemberVO)session.getAttribute("account");
@@ -109,12 +108,11 @@ public class SelfFlyerController {
 		return entity;
 	}
 
-	// 게시글 댓글 삭제
+	// 전단지 댓글 삭제
 	@DeleteMapping("/deleteFlyerComment")
 	public ResponseEntity<String> deletetComment(@RequestBody mnwCmtVO vo, HttpSession session) {
 
 		System.out.println("어떤 댓글 삭제? : " + vo.getNum());
-		System.out.println("어디 게시판? : " + vo.getBdiv());
 		
 		//세션에서 id가져오기
 		MemberVO mvo = (MemberVO)session.getAttribute("account");
@@ -130,6 +128,27 @@ public class SelfFlyerController {
 
 		return entity;
 	}
+	
+	// 전단지 댓글 수정
+	@PatchMapping("/updateFlyerComment")
+	public ResponseEntity<mnwCmtVO> updateComment(@RequestBody mnwCmtVO vo, HttpSession session) {
+		
+		System.out.println("수정 코멘트 : "+vo.getCmt());
+		System.out.println("대상 댓글 : "+vo.getNum());
+		
+		//세션에서 id 가져오기
+		MemberVO mvo = (MemberVO)session.getAttribute("account");
+		vo.setId(mvo.getId());
+		
+		//수정 코멘트 db 반영
+		service.updateFlyerCmt(vo);
+		
+		ResponseEntity<mnwCmtVO> entity = new ResponseEntity<mnwCmtVO>(vo, HttpStatus.OK);
+		
+		return entity;
+		
+	}
+	
 
 	// 전단지 만들기 제출
 	@PostMapping("/createFlyerResult")

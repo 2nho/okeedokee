@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -296,6 +297,7 @@ public class MnwController {
 		//임시id : 후에 세션정보로 교체 필요
 		//vo.setId("sessionId");
 		
+		//코멘트 db에서 삭제
 		service.deleteMnwCmt(vo);
 		
 		String msg = "삭제 완.";
@@ -303,6 +305,28 @@ public class MnwController {
 		ResponseEntity<String> entity = new ResponseEntity<String>(msg, HttpStatus.OK);
 		
 		return entity;
+	}
+	
+	
+	//게시글 댓글 수정
+	@PatchMapping("/updateComment")
+	public ResponseEntity<mnwCmtVO> updateComment(@RequestBody mnwCmtVO vo, HttpSession session) {
+		
+		System.out.println("수정 코멘트 : "+vo.getCmt());
+		System.out.println("대상 게시판 : "+vo.getBdiv());
+		System.out.println("대상 댓글 : "+vo.getNum());
+		
+		//세션에서 id 가져오기
+		MemberVO mvo = (MemberVO)session.getAttribute("account");
+		vo.setId(mvo.getId());
+		
+		//수정 코멘트 db 반영
+		service.updateMnwCmt(vo);
+		
+		ResponseEntity<mnwCmtVO> entity = new ResponseEntity<mnwCmtVO>(vo, HttpStatus.OK);
+		
+		return entity;
+		
 	}
 	
 }

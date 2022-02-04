@@ -112,6 +112,12 @@ public class SelfFlyerService {
 
 		sqlSessionTemplate.insert("selfcmt.deleteSelfCmt", vo);
 	}
+	
+	// 전단지 댓글 수정
+	public void updateFlyerCmt(mnwCmtVO vo) {
+		
+		sqlSessionTemplate.update("selfcmt.updateSelfCmt", vo);
+	}
 
 	// 전단지 만들기 제출
 	public void insertFlyer(selfFlyerVO vo) {

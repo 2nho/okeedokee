@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,7 +45,8 @@ public class ReportController {
 		// 로그인 후 신고 가능
 		if (session.getAttribute("account") == null) {
 			path = "redirect:/member/loginPage";
-		} else if (session.getAttribute("account") != null) {
+		} 
+		else if (session.getAttribute("account") != null) {
 			// 이전 페이지 주소 받아오기
 			String boardUrl = request.getHeader("referer");
 			System.out.println(boardUrl);
@@ -182,6 +184,27 @@ public class ReportController {
 		ResponseEntity<String> entity = new ResponseEntity<String>(msg, HttpStatus.OK);
 		
 		return entity;
+	}
+	
+	
+	// 신고내역 댓글 추가
+	@PatchMapping("/updateRepCmt")
+	public ResponseEntity<mnwCmtVO> updateRepCmt(@RequestBody mnwCmtVO vo, HttpSession session) {
+
+		System.out.println("수정 코멘트 : " + vo.getCmt());
+		System.out.println("대상 댓글 : " + vo.getNum());
+
+		// 세션에서 id 가져오기
+		MemberVO mvo = (MemberVO) session.getAttribute("account");
+		vo.setId(mvo.getId());
+
+		// 수정 코멘트 db 반영
+		service.updateRepCmt(vo);
+
+		ResponseEntity<mnwCmtVO> entity = new ResponseEntity<mnwCmtVO>(vo, HttpStatus.OK);
+
+		return entity;
+
 	}
 
 }

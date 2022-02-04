@@ -473,16 +473,14 @@ main section #arti2 #boardBox #board #boardContent .btnBox a:hover {
 	border: 2px solid #fbd157;
 }
 /* 사진 슬라이드 */
-main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox {
 	width: 100%;
 	height: 600px;
 	overflow: hidden;
 	position: relative;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox img
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox img {
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -503,8 +501,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox im
 	animation: fade 0.5s;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox {
 	width: 100%;
 	height: 50px;
 	position: absolute;
@@ -515,8 +512,7 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .d
 	justify-content: center;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot {
 	cursor: pointer;
 	height: 20px;
 	width: 20px;
@@ -528,13 +524,11 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .d
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot.active,
-main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot:hover
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .imgBox .dotbox .dot:hover {
 	background-color: #fbd157;
 }
 /* content */
-main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform #readContent {
 	width: 100%;
 	height: 100%;
 	margin: 0 auto;
@@ -543,29 +537,25 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform #readConte
 }
 /* 댓글 */
 /* 댓글 작성 */
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment {
 	width: 100%;
 	height: 100%;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate #commentCreator
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate #commentCreator {
 	resize: none;
 	width: 100%;
 	height: 100%;
 	font-size: 20px;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox {
 	width: 100%;
 	display: flex;
 	justify-content: right;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit {
 	padding: 8px 10px;
 	background-color: #fbd157;
 	border: none;
@@ -575,43 +565,50 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .
 	cursor: pointer;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit:hover
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit:hover {
 	padding: 6px 8px;
 	background-color: #f9f1c0;
 	border: 2px solid #fbd157;
 }
-/* 댓글 리스트 및 삭제 */
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList
-	{
+/* 댓글 리스트 및 삭제, 수정 */
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList {
 	width: 100%;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt::before
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt::before {
 	content: "";
 	display: block;
 	border-bottom: 1px solid #fbd157;
 	width: 100%;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 }
-
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtWriter
-	{
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtEditor {
+	width: 100%;
+	resize: none;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtWriter {
 	display: inline;
 	background-color: #fbd157;
 }
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtBtns {
+	display: inline;
+}
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtDelete,
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtReport
-	{
-	padding: 5px;
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .editModify {
+	margin-right: 5px;
+}
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtDelete,
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtModify,
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtReport,
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .editModify,
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .editCancel {
+	padding: 6px;
 	background-color: #fbd157;
 	border: none;
 	outline: none;
@@ -621,9 +618,11 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #
 }
 
 main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtDelete:hover,
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtReport:hover
-	{
-	padding: 3px;
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtModify:hover,
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .cmtReport:hover,
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .editModify:hover,
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment #commentList .cmt .cmtInform .editCancel:hover {
+	padding: 4px;
 	background-color: #f9f1c0;
 	border: 2px solid #fbd157;
 }

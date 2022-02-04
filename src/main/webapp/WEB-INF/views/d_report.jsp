@@ -47,7 +47,7 @@
 										<table id="reportTable">
 											<tr>
 												<td id="reportUrl">
-													* 신고 게시글 : <a href="${boardUrl}">${(report.title == null)? (report.id+='님의 강아지를 찾습니다.'):report.title}</a>
+													* 신고 게시글 / 댓글 위치 : <a href="${boardUrl}">${(report.title == null)? (report.id+='님의 강아지를 찾습니다.'):report.title}</a>
 													<form:hidden path="url" value="${boardUrl}"/>
 												</td>		
 											</tr>

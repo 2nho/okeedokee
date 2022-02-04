@@ -219,5 +219,11 @@ public class ReportService {
 		sqlSessionTemplate.insert("repCmt.deleteRepCmt", vo);
 	
 	}
+	
+	// 전단지 댓글 수정
+	public void updateRepCmt(mnwCmtVO vo) {
+
+		sqlSessionTemplate.update("repCmt.updateRepCmt", vo);
+	}
 
 }

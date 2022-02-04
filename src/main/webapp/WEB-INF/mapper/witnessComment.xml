@@ -15,7 +15,7 @@
 	</select>
 	
 	<!-- 댓글 추가 -->
-	<insert id="insertWitnessCmt" parameterType="mnwCmtVO">
+	<insert id="insertWitnessCmt" parameterType="mnwCmtVO" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO witnesscmt(id, cmt, createdate, bnum)
 		VALUES(#{id}, #{cmt}, #{createdate}, #{bnum})	
 	</insert>
