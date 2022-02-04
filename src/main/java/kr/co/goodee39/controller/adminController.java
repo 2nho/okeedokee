@@ -44,6 +44,8 @@ public class adminController {
 		//return new ResponseEntity<List<Map<String,String>>>(service.monthMember(model),HttpStatus.OK);
 	}
 	// 비동기 통신 업데이트
+	
+	
 	@GetMapping("/adminMember")
 	public String adminMember(Model model, @RequestParam(defaultValue = "1") int num,
 			@RequestParam(defaultValue="") String id,
