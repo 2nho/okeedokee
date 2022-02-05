@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/Announcement_detail.css" />
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	d038fe03dc6e4e500c465865653e5635&libraries=services"></script>
 </head>
@@ -29,10 +30,10 @@
                                             <li>${dog.dog_kindCd}</li>
                                             <li>${dog.dog_sexCd}</li>
                                             <li>${dog.dog_age}</li>
+                                            <li>${dog.dog_specialMark}</li>
                                             <li>${dog.dog_processState}</li> 
                                             <li>${dog.dog_noticeSdt}</li>
                                             <li>${dog.dog_happenPlace}</li>
-                                            <li>${dog.dog_specialMark}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -44,7 +45,7 @@
                                 <div class="shelter-title">
                                     <h2>보호소 정보</h2>
                                 </div>
-                                <div class="shelter-detail" id="dog_${dog.dog_careNm}">
+                                <div class="shelter-detail" id="shelter_${dog.dog_careNm}">
                                     <ul>
                                     	<li>${dog.dog_careNm}</li>
                                         <li>${dog.dog_careAddr}</li>
@@ -55,8 +56,8 @@
                             </div>
                         </div>
                         <div class="Announcement-btn">
-                            <div class="button">
-                                <button class="btn">
+                            <div class="button" id="reservation_button">
+                                <button class="btn" id="reservation_btn">
                                 <svg width="150px" height="40px" viewBox="0 0 150 40" class="border">
                                     <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                                     <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
@@ -64,8 +65,8 @@
                                 <span>방문예약</span>
                                 </button>
                             </div>
-                            <div class="button">
-                                <button class="btn">
+                            <div class="button" id="question_button">
+                                <button class="btn" id="question_btn">
                                 <svg width="150px" height="40px" viewBox="0 0 150 40" class="border">
                                     <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
                                     <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
