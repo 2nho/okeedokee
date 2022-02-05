@@ -110,7 +110,7 @@ button span {
 			<article id="arti1">
 				<div class="content">
 					<h1>${sessionScope.account.name} 님의 정보</h1>
-					<div id="cpi">
+					<div id="cpiModify">
 						<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath }/member/signupResult" method="POST">
 							
 								성명  <form:input path="name" class="chk" value="${sessionScope.account.name}"/><br />
