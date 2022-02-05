@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/layout.css" />
+<link rel="stylesheet" type="text/css" href="/okeedokee/css/layout.css" />
 </head>
 <body>
 	<header>
@@ -14,7 +14,7 @@
 				<div class="nav1-pagelink">
 					<ul>
 						<li><a href="/okeedokee/Introduction">소개</a></li>
-						<li><a href="/okeedokee/Announcement_detail">유기견
+						<li><a href="/okeedokee/Announcement">유기견
 						공고</a></li>
 						<li><a href="/okeedokee/missing">실종
 						•

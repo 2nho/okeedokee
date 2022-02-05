@@ -66,6 +66,13 @@ public class MemberService {
 		return vo1;
 	}
 	
-	
+	public MemberVO memberFindCpi(String id, String pw) { 
+		MemberVO vo = new MemberVO();
+		vo.setId(id);
+		vo.setPw(pw);
+		MemberVO vo1 = sqlSessionTemplate.selectOne("member.selectMember", vo);
+		
+		return vo1;
+	}
 	
 }

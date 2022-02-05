@@ -119,21 +119,18 @@ button span {
 								<br />
 
 								비밀번호  <form:password path="pw" class="chk"/><br />
-								<div class="invalid">비밀번호를 입력하세요.(영문 대/소문자, 숫자를 모두 포함)</div>
 
 								비밀번호 확인  <form:password path="chkpw" class="chk"/><br />
-
-							
 							
 								<!-- 주소 api 추가 예정 -->
 								주소  <form:input path="address" value="${sessionScope.account.address}" /><br />
 		
-								이메일  <form:input path="address" value="${sessionScope.account.address}" /><br />
+								이메일  <form:input path="email" value="${sessionScope.account.email}" /><br />
 
 								전화번호  <form:input path="phNum" class="chk" placeholder="'-' 포함하여 입력해주십시오." value="${sessionScope.account.phNum}"/><br />
 
 								반려동물 보유여부  <form:radiobutton path="petOwn" id="pet1" value="Y" class="chkra"/>보유
-												<form:radiobutton path="petOwn" id="pet2" value="N" class="chkra"/>미보유<br />
+											  <form:radiobutton path="petOwn" id="pet2" value="N" class="chkra"/>미보유<br />
 
 								선호크기  <form:radiobutton path="size" id="size1" value="b" class="chkra"/>대형
 										<form:radiobutton path="size" id="size2" value="m" class="chkra"/>중형
@@ -143,19 +140,19 @@ button span {
 						
 					</div>
 					<div id="cpiModifyBtns">
-						<button type="button" id="submitBtn">
+						<button type="button" id="modifyBtn">
 					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
 					         </svg>
 					         <span>변경하기</span>
 					    </button>
-					    <button type="button" id="submitBtn">
+					    <button type="button" id="deleteBtn">
 					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
 					         </svg>
-					         <span>삭제하기</span>
+					         <span>탈퇴하기</span>
 					    </button>
 				    </div>
 				</div>
@@ -168,24 +165,43 @@ button span {
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
 	<script>
-		$(function(){
-			$("#id").attr("readonly",true);
+	$(function(){
+		$("#id").attr("readonly",true);
 
-			($("#pet1").val()=="Y")? $("#pet1").prop('checked', true) : $("#pet2").prop('checked', true);
-			
-			if("${sessionScope.account.size}" == "b"){
-				$("#size1").prop('checked', true);
-			}else if("${sessionScope.account.size}" == "m"){
-				$("#size2").prop('checked', true);
-			}else if("${sessionScope.account.size}" == "s"){
-				$("#size3").prop('checked', true);
+		($("#pet1").val()=="Y")? $("#pet1").prop('checked', true) : $("#pet2").prop('checked', true);
+		
+		if("${sessionScope.account.size}" == "b"){
+			$("#size1").prop('checked', true);
+		}else if("${sessionScope.account.size}" == "m"){
+			$("#size2").prop('checked', true);
+		}else if("${sessionScope.account.size}" == "s"){
+			$("#size3").prop('checked', true);
+		}else{
+			$("#size4").prop('checked', true);
+		}
+		
+		$("#modifyBtn").click(function(){
+			let $id = $('[name=id]'); 
+			let $pw = $('[name=pw]');
+			let $chkpw = $('[name=chkpw]');
+			if($pw.val()==$chkpw.val()){
+				$.ajax({ 
+					type: 'post', 
+					url: '${pageContext.request.contextPath}/member/findCpi', 
+					data: {id: $id.val(),pw: $pw.val()}, 
+					success: function(data) { 
+						alert("아이디는 "+data.id+"입니다");
+						/* location.href = "${pageContext.request.contextPath}/member/loginPage"; */
+					}, 
+					error: function() { 
+						alert("존재하지 않는 아이디입니다."); 
+					}
+				});
 			}else{
-				$("#size4").prop('checked', true);
+				alert("비밀번호를 확신해주세요.");
 			}
-			
-			
-			
 		});
+	});
 	</script>
 </body>
 </html>
