@@ -190,7 +190,30 @@ button span {
 					url: '${pageContext.request.contextPath}/member/findCpi', 
 					data: {id: $id.val(),pw: $pw.val()}, 
 					success: function(data) { 
+						alert("정보가 변경되었습니다.");
 						$("#submit").submit();
+					}, 
+					error: function() { 
+						alert("존재하지 않는 아이디입니다.");
+					}
+				});
+			}else{
+				alert("비밀번호를 확신해주세요.");
+			}
+		});
+		
+		$("#deleteBtn").click(function(){
+			let $id = $('[name=id]'); 
+			let $pw = $('[name=pw]');
+			let $chkpw = $('[name=chkpw]');
+			if($pw.val()==$chkpw.val()){
+				$.ajax({ 
+					type: 'post', 
+					url: '${pageContext.request.contextPath}/member/findCpi', 
+					data: {id: $id.val(),pw: $pw.val()}, 
+					success: function(data) { 
+						alert("탈퇴가 완료되었습니다.");
+						location.href="${pageContext.request.contextPath}/member/cpiDelete"
 					}, 
 					error: function() { 
 						alert("존재하지 않는 아이디입니다."); 

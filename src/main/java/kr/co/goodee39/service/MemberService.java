@@ -75,12 +75,14 @@ public class MemberService {
 		return vo1;
 	}
 
-	public void memberUpdateCpi(MemberVO vo) {
-		System.out.println(vo.getAddress());
-		System.out.println(vo.getId());
-		System.out.println(vo.getPetOwn());
-		System.out.println(vo.getPw());
+	public void memberUpdateCpi(MemberVO vo, HttpSession session) {
+
 		sqlSessionTemplate.update("member.updateMember", vo);
+		MemberVO vo1 = sqlSessionTemplate.selectOne("member.selectMember", vo);
+		session.setAttribute("account", vo1);
 	}
 	
+	public void memberDeleteCpi(MemberVO vo) {
+		sqlSessionTemplate.update("member.deleteMember", vo);
+	}
 }

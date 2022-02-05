@@ -43,21 +43,21 @@
 		update member
 		<set>
 			<if test="name!=null">name=#{name}</if>
-			<if test="pw!=null">pw=#{pw}</if>
-			<if test="address!=null">address=#{address}</if>
-			<if test="email!=null">email=#{email}</if>
-			<if test="phNum!=null">phNum=#{phNum}</if>
-			<if test="petOwn!=null">petOwn=#{petOwn}</if>
-			<if test="size!=null">size=#{size}</if>
+			<if test="pw!=null">, pw=#{pw}</if>
+			<if test="address!=null">, address=#{address}</if>
+			<if test="email!=null">, email=#{email}</if>
+			<if test="phNum!=null">, phNum=#{phNum}</if>
+			<if test="petOwn!=null">, petOwn=#{petOwn}</if>
+			<if test="size!=null">, size=#{size}</if>
 		</set>
 		where  id=#{id}
 	</update>
 	
-	<delete id="deleteMember" parameterType="memberVO">
-		delete 
-		from member 
+	<update id="deleteMember" parameterType="memberVO">
+		update member 
+		set del='Y' 
 		where id=#{id}
-	</delete>
+	</update>
 	
 	
 </mapper>

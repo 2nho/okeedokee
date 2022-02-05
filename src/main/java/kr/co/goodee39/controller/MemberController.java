@@ -79,6 +79,8 @@ public class MemberController {
 		return response;
 	}
 	
+	
+	//cpi(Change your personal information)
 	@PostMapping("/findCpi")
 	public @ResponseBody ResponseEntity<MemberVO> findCpi(String id, String pw) {
 
@@ -89,10 +91,16 @@ public class MemberController {
 	}
 	
 	@PostMapping("/cpiUpdate")
-	public String cpiUpdate(MemberVO vo) {
-		memberService.memberUpdateCpi(vo);
+	public String cpiUpdate(MemberVO vo, HttpSession session) {
+		memberService.memberUpdateCpi(vo, session);
 		
 		return "redirect:/";
 	}
 	
+	@GetMapping("/cpiDelete")
+	public String cpiDelete(MemberVO vo) {
+		memberService.memberDeleteCpi(vo);
+		
+		return "redirect:/member/logout";
+	}
 }
