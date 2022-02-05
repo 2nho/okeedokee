@@ -83,11 +83,16 @@ public class MemberController {
 	public @ResponseBody ResponseEntity<MemberVO> findCpi(String id, String pw) {
 
 		MemberVO vo1 = memberService.memberFindCpi(id, pw);
-		System.out.println(vo1.getId());
-		System.out.println(vo1.getName());
 		ResponseEntity<MemberVO> response = new ResponseEntity<MemberVO>(vo1,HttpStatus.OK);
 		
 		return response;
+	}
+	
+	@PostMapping("/cpiUpdate")
+	public String cpiUpdate(MemberVO vo) {
+		memberService.memberUpdateCpi(vo);
+		
+		return "redirect:/";
 	}
 	
 }

@@ -54,7 +54,9 @@
 	</update>
 	
 	<delete id="deleteMember" parameterType="memberVO">
-		delete from member where id=#{id}
+		delete 
+		from member 
+		where id=#{id}
 	</delete>
 	
 	

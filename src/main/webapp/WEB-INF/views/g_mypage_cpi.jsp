@@ -111,7 +111,7 @@ button span {
 				<div class="content">
 					<h1>${sessionScope.account.name} 님의 정보</h1>
 					<div id="cpiModify">
-						<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath }/member/signupResult" method="POST">
+						<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath }/member/cpiUpdate" method="POST" id="submit">
 							
 								성명  <form:input path="name" class="chk" value="${sessionScope.account.name}"/><br />
 
@@ -190,8 +190,7 @@ button span {
 					url: '${pageContext.request.contextPath}/member/findCpi', 
 					data: {id: $id.val(),pw: $pw.val()}, 
 					success: function(data) { 
-						alert("아이디는 "+data.id+"입니다");
-						/* location.href = "${pageContext.request.contextPath}/member/loginPage"; */
+						$("#submit").submit();
 					}, 
 					error: function() { 
 						alert("존재하지 않는 아이디입니다."); 
