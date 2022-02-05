@@ -730,7 +730,7 @@ main section #arti2 #boardBox #board #flyerBox #flyers a .flyer.back:after {
 }
 main section #arti2 #boardBox #board #flyerBox #flyers a .flyer.end:after {
 	content: "종료";
-	color: black;
+	color: #fff;
 }
 main section #arti2 #boardBox #board #flyerBox #flyers a .flyer.report:after {
 	content: "신고된 글입니다.";

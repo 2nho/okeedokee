@@ -72,7 +72,7 @@ public class SelfFlyerController {
 	}
 
 	// 전단지 댓글 가져오기
-	@GetMapping("/getFlyerComment/{num}/{bdiv}")
+	@GetMapping("/getFlyerComment/{num}")
 	public ResponseEntity<List<mnwCmtVO>> getCommentList(@PathVariable int num) {
 
 		// 게시글 번호 num을 bnum으로 설정

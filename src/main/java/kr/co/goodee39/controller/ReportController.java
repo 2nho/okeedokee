@@ -155,7 +155,7 @@ public class ReportController {
 		MemberVO mvo = (MemberVO)session.getAttribute("account");
 		vo.setId(mvo.getId());
 		//임시id : 후에 세션정보로 교체 필요
-		//vo.setId("sessionId");
+		//vo.setId("sessionId");  
 		
 		//코멘트 db추가
 		service.insertRepCmt(vo);
