@@ -1,7 +1,6 @@
 package kr.co.goodee39.controller;
 
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.goodee39.service.adminSerivce;
+import kr.co.goodee39.vo.MemberVO;
 
 @Controller
 @RequestMapping("/admin")
@@ -35,16 +36,22 @@ public class adminController {
 	}
 	// 비동기 통신 차트
 	@PostMapping("/ajax")
-	public @ResponseBody ResponseEntity<List<Map<String,String>>> getAjax(Model model){
-		List<Map<String, String>> list = service.monthMember(model);
+	public @ResponseBody ResponseEntity<List<Map<String,String>>> getAjax(){
+		List<Map<String, String>> list = service.monthMember();
 		System.out.println(list);
 		return new ResponseEntity<List<Map<String,String>>>(list,HttpStatus.OK);
 		//service.monthMember(model);
 		//System.out.println(service.monthMember(model));
 		//return new ResponseEntity<List<Map<String,String>>>(service.monthMember(model),HttpStatus.OK);
 	}
-	// 비동기 통신 업데이트
 	
+	// 비동기 통신 업데이트 *******************
+	 @PatchMapping("/updateLevel") 
+	 public ResponseEntity<MemberVO> updateLevel(@RequestBody MemberVO vo) { 
+	    service.updateLevel(vo); 
+		ResponseEntity<MemberVO> entity = new ResponseEntity<MemberVO>(vo, HttpStatus.OK);
+		return entity;}
+	 
 	
 	@GetMapping("/adminMember")
 	public String adminMember(Model model, @RequestParam(defaultValue = "1") int num,

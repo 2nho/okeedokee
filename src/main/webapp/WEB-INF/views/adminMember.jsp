@@ -181,20 +181,21 @@
 				 		/* var index1 = $(this).index("[name=choiceLevel]");
 				 		console.log(index1); */
 				 		
-				 		var num = $("[name=num]").eq(index).text();
-				 		console.log(num);
-				 		
+				 		var mnum = $("[name=num]").eq(index).text();
+				 		console.log(mnum);
+				 		//FormData 랑 변수명 동일시 금지! 에러남
 				 		var formData = new FormData();
-				 		formData.append('num',num);
+				 		formData.append('mnum',mnum);
 				 		formData.append('level',level);
+				 		console.log(formData);
 				 		
 
 				 		
-						/* 	$.ajax({
+							$.ajax({
 								//요청을 보낼 주소
 								url : '${pageContext.request.contextPath}/admin/updateLevel',
 								// 전송할 데이터 level값하고 num값을 보내야함
-								data: formdata,
+								data: JSON.stringify(formData),
 								// 데이터 전송 방법
 								type: "post",
 								// 전송할 데이터 타입
@@ -203,12 +204,12 @@
 						        dataType: "json",
 						        //성공시 결과값 매개변수로 받아서
 						        success: function(result) {
-
+						        	console.log("성공");
 						        },
 						        error: function(err){
 						        	console.log(err);	
 						        }
-						        }); */
+						        }); 
 					});
 		});
 	

@@ -1,7 +1,6 @@
 package kr.co.goodee39.service;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -159,7 +158,12 @@ public class adminSerivce {
 		model.addAttribute("report", sqlSessionTemplate.selectList("reporttbl.selectReport", vo));
 	}
 	// 각 달 가입한 멤버 
-	public List<Map<String,String>> monthMember(Model model) {
+	public List<Map<String,String>> monthMember() {
 		return sqlSessionTemplate.selectList("member.monthMember");
 	}
+	
+	public void updateLevel(MemberVO vo) {
+		 sqlSessionTemplate.update("member.updateLevel",vo);
+	}
+	 
 }
