@@ -187,7 +187,7 @@ public class ReportController {
 	}
 	
 	
-	// 신고내역 댓글 추가
+	// 신고내역 댓글 수정
 	@PatchMapping("/updateRepCmt")
 	public ResponseEntity<mnwCmtVO> updateRepCmt(@RequestBody mnwCmtVO vo, HttpSession session) {
 

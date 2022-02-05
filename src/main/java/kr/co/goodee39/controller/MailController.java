@@ -32,7 +32,7 @@ public class MailController {
     @RequestMapping( value = "/mail/findPwAuth" , method=RequestMethod.POST )
     public String passwordMailSending(HttpServletRequest request, String e_mail, String hidden, HttpServletResponse response_email) throws IOException {
         
-        String setfrom = "dlgkstjq623@gamil.com"; // root-context에 기입된 계정으로 메일 송신자가 정해짐
+        String setfrom = "scteamokdk@gamil.com"; // root-context에 기입된 계정으로 메일 송신자가 정해짐
         String tomail = request.getParameter("e_mail"); // 받는 사람 이메일
         String title = "OKEEDOKEE 비밀번호 찾기 메일 입니다."; // 제목
         String content =
@@ -41,7 +41,7 @@ public class MailController {
         
         System.getProperty("line.separator")+
                 
-        "안녕하세요 회원님 OKEEDOKEE를 찾아주셔서 감사합니다"
+        "<h1>안녕하세요 회원님 OKEEDOKEE를 찾아주셔서 감사합니다</h1>"
         
         +System.getProperty("line.separator")+
         
@@ -83,7 +83,7 @@ public class MailController {
         Random r = new Random();
         int dice = r.nextInt(4589362) + 49311; //이메일로 받는 인증코드 부분 (난수)
         
-        String setfrom = "dlgkstjq623@gamil.com";
+        String setfrom = "scteamokdk@gamil.com";
         String tomail = request.getParameter("email"); // 받는 사람 이메일
         String title = "OKEEDOKEE 회원가입 인증 이메일 입니다."; // 제목
         String content =
