@@ -14,17 +14,26 @@
 		FROM misstbl
 		WHERE isdelete = "N"
 		<choose>
-			<when test="id != null">
+			<when test="id != null and title == null and content == null">
 				AND id LIKE #{id}
 			</when>
-			<when test="title != null and content != null">
+			<when test="id == null and title != null and content != null">
 				AND (title LIKE #{title} or content LIKE #{content})
 			</when>
-			<when test="title != null and content == null">
+			<when test="id == null and title != null and content == null">
 				AND title LIKE #{title}
 			</when>
-			<when test="title == null and content != null">
+			<when test="id == null and title == null and content != null">
 				AND content LIKE #{content}
+			</when>
+			<when test="id != null and title != null and content == null">
+				AND (id LIKE #{id} and title LIKE #{title})
+			</when>
+			<when test="id != null and title == null and content != null">
+				AND (id LIKE #{id} and content LIKE #{content})
+			</when>
+			<when test="id != null and title != null and content != null">
+				AND (id LIKE #{id} and (title LIKE #{title} or content LIKE #{content}))
 			</when>
 		</choose>
 		ORDER BY num DESC

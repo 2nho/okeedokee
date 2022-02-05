@@ -1,66 +1,45 @@
 @charset "UTF-8";
 
-/* 반응형 */
-/* 데스크탑 */
-@media ( max-width : 1260px) {
-	main section #arti1 .content .reportList>table>tbody>tr>td {
-	    font-size: 85%;
-	}
-	main section #arti1 .content .reportList>table>colgroup>#colDate {
-		width: 18%;
-	}
-	main section #arti1 .content .reportList>table>colgroup>#colStatus {
-		width: 15%;
-	}
-	
+/* 나의 실종, 목격 */
+/* 페이징 css */
+main section #arti1 .content .myList>#pagingBox,
+main section #arti1 .content .myList>.searchBox {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
 }
 
-/* 태블릿 */
-@media ( max-width : 1000px) {
-	/* 마이페이지 메뉴 */
-	main {
-		flex-direction: column;
-		margin: auto 0;
-	}
-	main nav {
-		margin-bottom: 30px;
-	}
-	main nav .mypageNav {
-	    width: 100%;
-	    display: flex;
-		justify-content: space-between;
-	}
-	main nav .mypageNav .mypageTitle {
-		display: inline;
-	}
-	main nav .mypageNav .mypageTitle h3 {
-		font-size: 90%;
-	}
-	main nav .mypageSubTitle a h4 {
-		font-size: 90%;
-	}
+main section #arti1 .content .myList>#pagingBox .paging {
+	color: #fbd157;
+}
+
+main section #arti1 .content .myList>.searchBox #searchType, 
+main section #arti1 .content .myList>.searchBox #search {
+	margin-right: 10px;
+}
+
+main section #arti1 .content .myList>.searchBox #searchBtn {
+	border: none;
+	outline: none;
+	background-color: #fbd157;
+	padding: 10px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+main section #arti1 .content .myList>.searchBox #searchBtn:hover {
+	background-color: #f9f1c0;
+	padding: 8px;
+	border: 2px solid #fbd157;
 }
 
 @media ( max-width : 780px) {
-	/* 마이페이지 메뉴 */
-	main nav .mypageNav .mypageTitle h3 {
-		font-size: 72%;
+	main section #arti1 .content .myList>.searchBox #searchBtn {
+	    padding: 5px;
 	}
-	main nav .mypageSubTitle a h4 {
-		font-size: 72%;
+	main section #arti1 .content .myList>.searchBox #searchBtn:hover {
+		padding: 3px;
+		border: 2px solid #fbd157;
 	}	
-	/* 나의 신고 내역 */
-	main section #arti1 .content .reportList>table>thead>tr>th {
-	    font-size: 80%;
-	}
-	main section #arti1 .content .reportList>table>tbody>tr>td {
-	    font-size: 80%;
-	}
-	main section #arti1 .content .reportList>table>colgroup>#colDate {
-		width: 22%;
-	}
-	main section #arti1 .content .reportList>table>colgroup>#colStatus {
-		width: 17%;
-	}
-	
 }

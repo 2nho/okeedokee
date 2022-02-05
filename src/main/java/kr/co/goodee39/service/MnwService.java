@@ -42,7 +42,6 @@ public class MnwService {
 		// 검색결과 추려내기 및 페이징 버튼 반영 쿼리
 		String query = "";
 
-		System.out.println("서비스 : "+title);
 		
 		if (!id.equals("")) {
 			vo.setId("%" + id + "%");
@@ -85,8 +84,6 @@ public class MnwService {
 		
 		//bdiv타입 따라 가져갈 게시글 쿼리 선택
 		if(bdiv == 3) {
-			System.out.println("검색어 : "+vo.getTitle());
-
 			model.addAttribute("list", sqlSessionTemplate.selectList("miss.selectMiss", vo));
 		}
 		else if(bdiv == 4) {

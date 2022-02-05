@@ -119,8 +119,8 @@ button span {
 						<h3>로그인/회원가입</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="loginPage" id="focus"><h4>로그인</h4></a>
-						<a href="signupAuthMove" ><h4>회원가입</h4></a>
+						<a href="loginPage" ><h4>로그인</h4></a>
+						<a href="signupAuthMove" id="focus"><h4>회원가입</h4></a>
 						<a href="findId" ><h4>아이디 찾기</h4></a>
 						<a href="findPw" ><h4>비밀번호 찾기</h4></a>
 					</div>
