@@ -294,8 +294,8 @@ main section #arti2 #boardBox #board #boardTable tbody tr.report::after {
 
 /* 게시판 페이징 버튼 */
 /*게시글 검색*/
-main section #arti2 #boardBox #board #pagingBox, main section #arti2 #boardBox #board .searchBox
-	{
+main section #arti2 #boardBox #board #pagingBox, 
+main section #arti2 #boardBox #board .searchBox {
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -306,8 +306,8 @@ main section #arti2 #boardBox #board #pagingBox .paging {
 	color: #fbd157;
 }
 
-main section #arti2 #boardBox #board .searchBox #searchType, main section #arti2 #boardBox #board .searchBox #search
-	{
+main section #arti2 #boardBox #board .searchBox #searchType, 
+main section #arti2 #boardBox #board .searchBox #search {
 	margin-right: 10px;
 }
 

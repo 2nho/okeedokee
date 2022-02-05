@@ -71,45 +71,44 @@
 		<section>
 			<!-- 신고 내역 -->
 			<article id="arti1">
-				<div class="content">
-					<h1>신고 내역</h1>
-					<div class="myList">
-						<table>
-							<colgroup>
-								<col width="5%">
-								<col width="auto">
-								<col width="15%" id="colDate">
-								<col width="10%" id="colStatus">
-							</colgroup>
-							<thead>
-								<tr>
-									<th>순번</th>
-									<th>제목</th>
-									<th>작성일</th>
-									<th>처리상태</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="rep" items="${report}">
-								<c:set var="i" value="${i+1}"/>
-								<tr>
-									<td>${i}</td>
-									<td><a href="readReport?num=${rep.num}">${rep.title}</a></td>
-									<td>${rep.createdate}</td>
-								<c:if test="${rep.status eq 'N'}">
-									<td style="color:red">답변대기</td>
-								</c:if>
-								<c:if test="${rep.status eq 'Y'}">
-									<td style="color:green">답변완료</td>
-								</c:if>
-								</tr>
-								</c:forEach>
-								
-							</tbody>
-						</table>
+					<div class="content">
+						<h1>신고 내역</h1>
+						<div class="myList">
+							<table>
+								<colgroup>
+									<col width="5%">
+									<col width="auto">
+									<col width="15%" id="colDate">
+									<col width="10%" id="colStatus">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>순번</th>
+										<th>제목</th>
+										<th>작성일</th>
+										<th>처리상태</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="rep" items="${report}">
+										<c:set var="i" value="${i+1}" />
+										<tr>
+											<td>${i}</td>
+											<td><a href="readReport?num=${rep.num}">${rep.title}</a></td>
+											<td>${rep.createdate}</td>
+											<c:if test="${rep.status eq 'N'}">
+												<td style="color: red">답변대기</td>
+											</c:if>
+											<c:if test="${rep.status eq 'Y'}">
+												<td style="color: green">답변완료</td>
+											</c:if>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
 					</div>
-				</div>
-			</article>
+				</article>
 		</section>
 	</main>
 	

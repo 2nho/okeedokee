@@ -8,6 +8,7 @@
 <title>OKEEDOKEE</title>
 <link rel="icon" href="media/logo/favicon.ico">
 <link rel="stylesheet" href="css/mypage.css" />
+<link rel="stylesheet" href="css/mypageSizing.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
@@ -73,57 +74,115 @@
 				<div class="content">
 					<h1>목격 신고 내역</h1>
 					<!-- 여기서부터 작업 시작하세요 -->
-					<div class="myList">
-						<table>
-							<colgroup>
-								<col width="5%">
-								<col width="auto">
-								<col width="15%" id="colDate">
-								<col width="10%" id="colStatus">
-							</colgroup>
-							<thead>
-								<tr>
-									<th>순번</th>
-									<th>제목</th>
-									<th>작성일</th>
-									<th>상태</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="witne" items="${list}">
-								<c:set var="i" value="${i+1}"/>
-								<tr>
-									<td>${i}</td>
-									<td><a href="read?bdiv=4&num=${witne.num}">${witne.title}</a></td>
-									<td>${witne.createdate}</td>
-									<c:if test="${witne.status == 'O'}">
-									<td style="color:orange; font-weight: bold;">공고</td>
-									</c:if>
-									<c:if test="${witne.status == 'B'}">
-									<td style="color:green; font-weight: bold;">귀가</td>
-									</c:if>
-									<c:if test="${witne.status == 'E'}">
-									<td style="color:black; font-weight: bold;">종료</td>
-									</c:if>
-									<c:if test="${witne.status == 'R'}">
-									<td style="color:red; font-weight: bold;">신고</td>
-									</c:if>
-								</tr>
+						<div class="myList">
+							<table>
+								<colgroup>
+									<col width="5%">
+									<col width="auto">
+									<col width="15%" id="colDate">
+									<col width="10%" id="colStatus">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>순번</th>
+										<th>제목</th>
+										<th>작성일</th>
+										<th>상태</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="witne" items="${list}">
+										<c:set var="i" value="${i+1}" />
+										<tr>
+											<td>${i}</td>
+											<td><a href="read?bdiv=4&num=${witne.num}">${witne.title}</a></td>
+											<td>${witne.createdate}</td>
+											<c:if test="${witne.status == 'O'}">
+												<td style="color: orange; font-weight: bold;">공고</td>
+											</c:if>
+											<c:if test="${witne.status == 'B'}">
+												<td style="color: green; font-weight: bold;">귀가</td>
+											</c:if>
+											<c:if test="${witne.status == 'E'}">
+												<td style="color: black; font-weight: bold;">종료</td>
+											</c:if>
+											<c:if test="${witne.status == 'R'}">
+												<td style="color: red; font-weight: bold;">신고</td>
+											</c:if>
+										</tr>
+									</c:forEach>
+
+								</tbody>
+							</table>
+							<div id="pagingBox">
+								<!-- 왼쪽 페이지 블럭 이동 -->
+								<c:choose>
+									<c:when test="${(minBlock - 1 ) < 1}"></c:when>
+									<c:otherwise>
+										<a href="${pageContext.request.contextPath}/witnessingList?num=${minBlock-1}${query}" class="paging">◀◀</a>
+									</c:otherwise>
+								</c:choose>
+								&nbsp;&nbsp;&nbsp;
+								<!-- 왼쪽 페이지 이동 -->
+								<c:choose>
+									<c:when test="${num == 1}"></c:when>
+									<c:otherwise>
+										<a href="${pageContext.request.contextPath }/witnessingList?num=${num-1}${query}" class="paging">◀</a>
+									</c:otherwise>
+								</c:choose>
+								&nbsp;&nbsp;
+								<!-- 페이지별 선택 이동 -->
+								<c:forEach begin="${minBlock}"
+									end="${(total < maxBlock)? total:maxBlock }" step="1" var="i">
+									<c:choose>
+										<c:when test="${num == i}">
+											<span class="paging"><strong>&nbsp;${i}&nbsp;</strong></span>
+										</c:when>
+										<c:otherwise>
+											<a href="${pageContext.request.contextPath}/witnessingList?num=${i}${query}">&nbsp;${i}&nbsp;</a>
+										</c:otherwise>
+									</c:choose>
 								</c:forEach>
-								
-							</tbody>
-						</table>
+								&nbsp;&nbsp;
+								<!-- 오른쪽 페이지 이동 -->
+								<c:choose>
+									<c:when test="${num == total}"></c:when>
+									<c:otherwise>
+										<a href="${pageContext.request.contextPath }/witnessingList?num=${num+1}${query}" class="paging">▶</a>
+									</c:otherwise>
+								</c:choose>
+								&nbsp;&nbsp;&nbsp;
+								<!-- 오른쪽 페이지 블럭 이동 -->
+								<c:choose>
+									<c:when test="${maxBlock >= total }"></c:when>
+									<c:otherwise>
+										<a href="${pageContext.request.contextPath}/witnessingList?num=${maxBlock+1}${query}" class="paging">▶▶</a>
+									</c:otherwise>
+								</c:choose>
+							</div>
+							<!-- 검색 -->
+							<div class="searchBox">
+								<!-- 게시판 구분용 -->
+								<input type="hidden" name="bdiv" id="bdiv" value="4" /> 
+								<select name="searchType" id="searchType">
+									<option value="title">제목</option>
+									<option value="content">내용</option>
+									<option value="both">제목+내용</option>
+								</select> 
+								<input type="text" id="search" name="search" placeholder="검색어를 입력해주세요" />
+								<button type="button" id="searchBtn">검색</button>
+							</div>
+						</div>
 					</div>
-				</div>
 			</article>
-			
-			
 		</section>
 	</main>
 	
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
+
+<script type="text/javascript" src="js/mnwMypage.js"></script>
 
 </body>
 </html>
