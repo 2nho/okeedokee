@@ -47,9 +47,10 @@ public class adminController {
 	
 	// 비동기 통신 업데이트 *******************
 	 @PatchMapping("/updateLevel") 
-	 public ResponseEntity<MemberVO> updateLevel(@RequestBody MemberVO vo) { 
+	 public @ResponseBody ResponseEntity<MemberVO> updateLevel(@RequestBody MemberVO vo) { 
 	    service.updateLevel(vo); 
 		ResponseEntity<MemberVO> entity = new ResponseEntity<MemberVO>(vo, HttpStatus.OK);
+		System.out.println(entity);
 		return entity;}
 	 
 	

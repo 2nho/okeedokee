@@ -59,7 +59,7 @@
 								<c:forEach var="item" items="${list}">
 									<tr>
 										<td><input type="checkbox" class="checkbox" /></td>
-										<td name="num">${item.mnum}</td>
+										<td name="mnum">${item.mnum}</td>
 										<td>${item.name}</td>
 										<td>${item.id}</td>
 										<td>${item.pw}</td>
@@ -181,7 +181,7 @@
 				 		/* var index1 = $(this).index("[name=choiceLevel]");
 				 		console.log(index1); */
 				 		
-				 		var mnum = $("[name=num]").eq(index).text();
+				 		var mnum = $("[name=mnum]").eq(index).text();
 				 		console.log(mnum);
 				 		//FormData 랑 변수명 동일시 금지! 에러남
 				 		var formData = new FormData();
@@ -194,8 +194,8 @@
 							$.ajax({
 								//요청을 보낼 주소
 								url : '${pageContext.request.contextPath}/admin/updateLevel',
-								// 전송할 데이터 level값하고 num값을 보내야함
-								data: JSON.stringify(formData),
+								// 전송할 데이터 level값하고 mnum값을 보내야함
+								data: formData,
 								// 데이터 전송 방법
 								type: "post",
 								// 전송할 데이터 타입
