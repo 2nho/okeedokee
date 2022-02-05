@@ -213,7 +213,7 @@ button span {
 					data: {id: $id.val(),pw: $pw.val()}, 
 					success: function(data) { 
 						alert("탈퇴가 완료되었습니다.");
-						location.href="${pageContext.request.contextPath}/member/cpiDelete"
+						location.href="${pageContext.request.contextPath}/member/cpiDelete?id="+data.id;
 					}, 
 					error: function() { 
 						alert("존재하지 않는 아이디입니다."); 

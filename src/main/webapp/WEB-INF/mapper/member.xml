@@ -28,7 +28,8 @@
 	<select id="selectMember" parameterType="memberVO" resultType="memberVO">
 		select mnum, id, pw, name, email, phNum, size, petOwn, address
 		from member
-		where id = #{id}
+		where del="N"
+		and id = #{id}
 		and pw = #{pw}
 	</select>
 	
@@ -53,11 +54,11 @@
 		where  id=#{id}
 	</update>
 	
-	<update id="deleteMember" parameterType="memberVO">
+	<delete id="deleteMember" parameterType="memberVO">
 		update member 
 		set del='Y' 
 		where id=#{id}
-	</update>
+	</delete>
 	
 	
 </mapper>

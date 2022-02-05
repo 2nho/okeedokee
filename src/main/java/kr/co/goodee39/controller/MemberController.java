@@ -98,8 +98,8 @@ public class MemberController {
 	}
 	
 	@GetMapping("/cpiDelete")
-	public String cpiDelete(MemberVO vo) {
-		memberService.memberDeleteCpi(vo);
+	public String cpiDelete(String id) {
+		memberService.memberDeleteCpi(id);
 		
 		return "redirect:/member/logout";
 	}

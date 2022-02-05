@@ -82,7 +82,9 @@ public class MemberService {
 		session.setAttribute("account", vo1);
 	}
 	
-	public void memberDeleteCpi(MemberVO vo) {
+	public void memberDeleteCpi(String id) {
+		MemberVO vo = new MemberVO();
+		vo.setId(id);
 		sqlSessionTemplate.update("member.deleteMember", vo);
 	}
 }
