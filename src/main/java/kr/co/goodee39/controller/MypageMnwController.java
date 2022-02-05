@@ -27,6 +27,7 @@ public class MypageMnwController {
 			HttpSession session,
 			Model model) {
 		
+		System.out.println("컨트롤로 : "+title);
 
 		//게시판 구분
 		int bdiv = 3;

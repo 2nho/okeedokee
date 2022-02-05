@@ -42,18 +42,17 @@ public class MnwService {
 		// 검색결과 추려내기 및 페이징 버튼 반영 쿼리
 		String query = "";
 
+		System.out.println("서비스 : "+title);
+		
 		if (!id.equals("")) {
-			// model.addAttribute("id", id);
 			vo.setId("%" + id + "%");
 			query += "&id=" + id;
 		}
 		if (!title.equals("")) {
-			// model.addAttribute("title", title);
 			vo.setTitle("%" + title + "%");
 			query += "&title=" + title;
 		}
 		if (!content.equals("")) {
-			// model.addAttribute("content", content);
 			vo.setContent("%" + content + "%");
 			query += "&content=" + content;
 		}
@@ -61,6 +60,7 @@ public class MnwService {
 		
 		
 		//총 게시글 수 : 설정된 bdiv타입따라 쿼리 결정
+		//마이페이지 : id설정해서 본인 작성글만 긁어가기
 		int count = 0;
 		if(bdiv == 3) {
 			if(myId != "") {
@@ -85,6 +85,8 @@ public class MnwService {
 		
 		//bdiv타입 따라 가져갈 게시글 쿼리 선택
 		if(bdiv == 3) {
+			System.out.println("검색어 : "+vo.getTitle());
+
 			model.addAttribute("list", sqlSessionTemplate.selectList("miss.selectMiss", vo));
 		}
 		else if(bdiv == 4) {

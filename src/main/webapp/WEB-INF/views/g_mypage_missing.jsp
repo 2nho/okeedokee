@@ -119,7 +119,7 @@
 									<c:when test="${(minBlock - 1 ) < 1}"></c:when>
 									<c:otherwise>
 										<a
-											href="${pageContext.request.contextPath}/missing?num=${minBlock-1}${query}"
+											href="${pageContext.request.contextPath}/missingList?num=${minBlock-1}${query}"
 											class="paging">◀◀</a>
 									</c:otherwise>
 								</c:choose>
@@ -129,7 +129,7 @@
 									<c:when test="${num == 1}"></c:when>
 									<c:otherwise>
 										<a
-											href="${pageContext.request.contextPath }/missing?num=${num-1}${query}"
+											href="${pageContext.request.contextPath }/missingList?num=${num-1}${query}"
 											class="paging">◀</a>
 									</c:otherwise>
 								</c:choose>
@@ -143,7 +143,7 @@
 										</c:when>
 										<c:otherwise>
 											<a
-												href="${pageContext.request.contextPath}/missing?num=${i}${query}">&nbsp;${i}&nbsp;</a>
+												href="${pageContext.request.contextPath}/missingList?num=${i}${query}">&nbsp;${i}&nbsp;</a>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
@@ -153,7 +153,7 @@
 									<c:when test="${num == total}"></c:when>
 									<c:otherwise>
 										<a
-											href="${pageContext.request.contextPath }/missing?num=${num+1}${query}"
+											href="${pageContext.request.contextPath }/missingList?num=${num+1}${query}"
 											class="paging">▶</a>
 									</c:otherwise>
 								</c:choose>
@@ -163,7 +163,7 @@
 									<c:when test="${maxBlock >= total }"></c:when>
 									<c:otherwise>
 										<a
-											href="${pageContext.request.contextPath}/missing?num=${maxBlock+1}${query}"
+											href="${pageContext.request.contextPath}/missingList?num=${maxBlock+1}${query}"
 											class="paging">▶▶</a>
 									</c:otherwise>
 								</c:choose>
