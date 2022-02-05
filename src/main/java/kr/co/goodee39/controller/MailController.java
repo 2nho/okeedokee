@@ -92,7 +92,7 @@ public class MailController {
         
         System.getProperty("line.separator")+
                 
-        "안녕하세요 회원님 저희 홈페이지를 찾아주셔서 감사합니다"
+        "안녕하세요 회원님 OKEEDOKEE 홈페이지를 찾아주셔서 감사합니다"
         
         +System.getProperty("line.separator")+
         
