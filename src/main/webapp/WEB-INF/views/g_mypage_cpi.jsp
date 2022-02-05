@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <link rel="icon" href="/okeedokee/media/logo/favicon.ico">
-<link rel="stylesheet" href="/okeedokee/css/mypage.css?sdf" />
+<link rel="stylesheet" href="/okeedokee/css/mypage.css?sdsdsd" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
 .button {
@@ -128,6 +128,7 @@ button span {
 								<!-- 주소 api 추가 예정 -->
 								주소  <form:input path="address" value="${sessionScope.account.address}" /><br />
 		
+								이메일  <form:input path="address" value="${sessionScope.account.address}" /><br />
 
 								전화번호  <form:input path="phNum" class="chk" placeholder="'-' 포함하여 입력해주십시오." value="${sessionScope.account.phNum}"/><br />
 
@@ -139,7 +140,24 @@ button span {
 										<form:radiobutton path="size" id="size3" value="s" class="chkra"/>소형
 										<form:radiobutton path="size" id="size4" value="e" class="chkra"/>모두<br />
 						</form:form>
+						
 					</div>
+					<div id="cpiModifyBtns">
+						<button type="button" id="submitBtn">
+					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
+					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+					         </svg>
+					         <span>변경하기</span>
+					    </button>
+					    <button type="button" id="submitBtn">
+					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
+					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+					         </svg>
+					         <span>삭제하기</span>
+					    </button>
+				    </div>
 				</div>
 			</article>
 			
@@ -151,7 +169,7 @@ button span {
 </div>
 	<script>
 		$(function(){
-			 $("#id").attr("readonly",true);
+			$("#id").attr("readonly",true);
 
 			($("#pet1").val()=="Y")? $("#pet1").prop('checked', true) : $("#pet2").prop('checked', true);
 			
@@ -164,6 +182,8 @@ button span {
 			}else{
 				$("#size4").prop('checked', true);
 			}
+			
+			
 			
 		});
 	</script>
