@@ -61,8 +61,13 @@
 		GROUP BY Month(signupDay); -->
 		SELECT cast(MONTH(signupDay) as char) as name , cast(COUNT(MONTH(signupDay)) as char) AS value
 		FROM member
-		GROUP BY Month(signupDay);
+		GROUP BY Month(signupDay)
 	</select>
+	<update id="updateLevel" parameterType="memberVO">
+		UPDATE member 
+		Set level = #{level}
+		WHERE mnum=#{mnum}
+	</update>
 </mapper>
 
 
