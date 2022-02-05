@@ -43,7 +43,7 @@ public class MypageController {
 	
 	// 개인정보 변경 페이지 이동
 	@PostMapping("/cpiModify")
-	public String cpiModify(MemberVO vo) {
+	public String cpiModify() {
 		return "g_mypage_cpi";
 	}
 

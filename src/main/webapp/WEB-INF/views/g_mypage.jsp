@@ -112,7 +112,7 @@ button span {
 					<h1>개인정보 변경</h1>
 					<div id="cpi">
 						<form action="/okeedokee/cpi" method="post" id="submit">
-							<ul>
+							<ul style=" text-align: center;">
 								<li><label for="id">아이디</label><input type="text" name="id" id="id" style="margin-left: 18px;"/></li>
 								<li><label for="pw">비밀번호 </label><input type="password" name="pw" id="pw"/></li>
 								<input type="hidden" name="cpi" value="cpi"/>

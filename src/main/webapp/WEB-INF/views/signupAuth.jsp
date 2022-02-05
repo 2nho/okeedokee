@@ -205,11 +205,9 @@ button span {
 			});		
 			
 			$("#authBtn").click(function(){
-				console.log($authNum.val());
-				console.log(dice);
 				if($authNum.val() == dice){
 					alert("인증되었습니다.");
-					location.href = '${pageContext.request.contextPath}/member/signUp';
+					location.href = '${pageContext.request.contextPath}/member/signUp?email='+$email.val();
 				}else{
 					alert("인증번호를 다시 확인해주십시오.");
 				}

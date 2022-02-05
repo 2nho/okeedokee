@@ -26,7 +26,7 @@
 	</select>
 
 	<select id="selectMember" parameterType="memberVO" resultType="memberVO">
-		select mnum, id, pw, name, email, phNum
+		select mnum, id, pw, name, email, phNum, size, petOwn, address
 		from member
 		where id = #{id}
 		and pw = #{pw}

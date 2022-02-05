@@ -137,6 +137,7 @@ button span {
 			<article id="arti1">
 				<div id="SignupBoard">
 					<h1>회원가입</h1>
+					<p>${email}</p>
 						<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath }/member/signupResult" method="POST">
 							<div>
 								성명  <form:input path="name" class="chk"/><br />
@@ -165,7 +166,7 @@ button span {
 							주소  <form:input path="address" /><br />
 							<div class="valid">주소를 입력하세요.</div>
 							
-							
+							<form:input path="email" style="display:none;"/>
 							<div>
 								전화번호  <form:input path="phNum" class="chk" placeholder="'-' 포함하여 입력해주십시오."/><br />
 								<div class="valid">전화번호를 입력하세요.</div>
@@ -194,8 +195,7 @@ button span {
 						    </form:button>
 						    
 						</form:form>
-				</div>
-				
+					</div>
 			</article>
 		</section>
 	</main>

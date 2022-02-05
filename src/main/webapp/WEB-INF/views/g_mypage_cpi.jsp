@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/okeedokee/css/mypage.css?sdf" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
-	.button {
+.button {
   width: 180px;
   height: 60px;
   position: absolute;
@@ -111,23 +111,35 @@ button span {
 				<div class="content">
 					<h1>${sessionScope.account.name} 님의 정보</h1>
 					<div id="cpi">
-						<form action="/okeedokee/member/" method="post" id="submit">
-							<ul>
-								<li><label for="id">아이디</label><input type="text" id="id" id="id" style="margin-left: 18px;"/></li>
-								<li><label for="pw">비밀번호 </label><input type="password" name="pw" id="pw"/></li>
-								<li>
-									<button type="button" id="submitBtn">
-								         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
-								           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-								           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-								         </svg>
-								         <span>변경하기</span>
-								    </button>
-								</li>
-							</ul>
-						</form>
+						<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath }/member/signupResult" method="POST">
+							
+								성명  <form:input path="name" class="chk" value="${sessionScope.account.name}"/><br />
+
+								아이디  <form:input path="id" id="id" class="chk" value="${sessionScope.account.id}" />
+								<br />
+
+								비밀번호  <form:password path="pw" class="chk"/><br />
+								<div class="invalid">비밀번호를 입력하세요.(영문 대/소문자, 숫자를 모두 포함)</div>
+
+								비밀번호 확인  <form:password path="chkpw" class="chk"/><br />
+
+							
+							
+								<!-- 주소 api 추가 예정 -->
+								주소  <form:input path="address" value="${sessionScope.account.address}" /><br />
+		
+
+								전화번호  <form:input path="phNum" class="chk" placeholder="'-' 포함하여 입력해주십시오." value="${sessionScope.account.phNum}"/><br />
+
+								반려동물 보유여부  <form:radiobutton path="petOwn" id="pet1" value="Y" class="chkra"/>보유
+												<form:radiobutton path="petOwn" id="pet2" value="N" class="chkra"/>미보유<br />
+
+								선호크기  <form:radiobutton path="size" id="size1" value="b" class="chkra"/>대형
+										<form:radiobutton path="size" id="size2" value="m" class="chkra"/>중형
+										<form:radiobutton path="size" id="size3" value="s" class="chkra"/>소형
+										<form:radiobutton path="size" id="size4" value="e" class="chkra"/>모두<br />
+						</form:form>
 					</div>
-					
 				</div>
 			</article>
 			
@@ -137,6 +149,23 @@ button span {
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
+	<script>
+		$(function(){
+			 $("#id").attr("readonly",true);
 
+			($("#pet1").val()=="Y")? $("#pet1").prop('checked', true) : $("#pet2").prop('checked', true);
+			
+			if("${sessionScope.account.size}" == "b"){
+				$("#size1").prop('checked', true);
+			}else if("${sessionScope.account.size}" == "m"){
+				$("#size2").prop('checked', true);
+			}else if("${sessionScope.account.size}" == "s"){
+				$("#size3").prop('checked', true);
+			}else{
+				$("#size4").prop('checked', true);
+			}
+			
+		});
+	</script>
 </body>
 </html>
