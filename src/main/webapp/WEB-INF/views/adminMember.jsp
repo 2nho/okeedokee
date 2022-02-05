@@ -30,13 +30,13 @@
 				<div>
 					<h1>회원관리</h1>
 					<article class="article3">
-							<label for="search"><i class="fas fa-search"></i></label>
-							 <select name="choice" id="choice">
-								<option value="id">아이디</option>
-								<option value="email">이메일</option>
-								<option value="level">구분</option>
-							</select> <input type="text" id="text" />
-							<button id="search">검색</button>
+						<label for="search"><i class="fas fa-search"></i></label> <select
+							name="choice" id="choice">
+							<option value="id">아이디</option>
+							<option value="email">이메일</option>
+							<option value="level">구분</option>
+						</select> <input type="text" id="text" />
+						<button id="search">검색</button>
 					</article>
 					<article class="article1">
 						<h3>회원리스트</h3>
@@ -59,20 +59,24 @@
 								<c:forEach var="item" items="${list}">
 									<tr>
 										<td><input type="checkbox" class="checkbox" /></td>
-										<td>${item.mnum}</td>
+										<td name="num">${item.mnum}</td>
 										<td>${item.name}</td>
 										<td>${item.id}</td>
 										<td>${item.pw}</td>
 										<td>${item.email}</td>
-										<td><select name="" id="">
-										<option value="dbc">${item.level}</option>
-										 <c:set var="level" value="${item.level}" scope="page"/>
-										<%-- <c:if test="${level eq 'member'}"><option value="dbp1">admin</option></c:if>
+										<td><select name="choiceLevel" id="choiceLevel">
+												<option value="${item.level}" id="mainLevel">${item.level}</option>
+												<c:set var="level" value="${item.level}" scope="page" />
+												<%-- <c:if test="${level eq 'member'}"><option value="dbp1">admin</option></c:if>
 										<c:if test="${level eq 'admin'}"><option value="dbp1">member</option></c:if> --%>
-										<c:choose>
-       									 <c:when test="${level eq 'member'}"><option value="dbp1">admin</option></c:when>         
-       									 <c:otherwise><option value="dbp1">member</option></c:otherwise>
-   										 </c:choose>
+												<c:choose>
+													<c:when test="${level eq 'U'}">
+														<option value="A">A</option>
+													</c:when>
+													<c:otherwise>
+														<option value="U">U</option>
+													</c:otherwise>
+												</c:choose>
 										</select></td>
 									</tr>
 								</c:forEach>
@@ -129,6 +133,7 @@
 									href="${pageContext.request.contextPath}/admin/adminMember?num=${maxBlock+1}${query}">▶▶</a>
 							</c:otherwise>
 						</c:choose>
+						<button id="modify">수정</button>
 					</article>
 				</div>
 			</section>
@@ -164,6 +169,49 @@
 		    			}
 		    		});
 		    	});
+		      	
+		    	$(function() {		
+		    		$("[name=choiceLevel]").change(function(){
+						let level = $(this).val();
+				 		console.log(level);			 		
+				 		
+				 		var index = $("[name=choiceLevel]").index(this);
+				 		console.log(index);
+				 		// 위랑 같음 제이쿼리 홈페이지 index() 참고 
+				 		/* var index1 = $(this).index("[name=choiceLevel]");
+				 		console.log(index1); */
+				 		
+				 		var num = $("[name=num]").eq(index).text();
+				 		console.log(num);
+				 		
+				 		var formData = new FormData();
+				 		formData.append('num',num);
+				 		formData.append('level',level);
+				 		
+
+				 		
+						/* 	$.ajax({
+								//요청을 보낼 주소
+								url : '${pageContext.request.contextPath}/admin/updateLevel',
+								// 전송할 데이터 level값하고 num값을 보내야함
+								data: formdata,
+								// 데이터 전송 방법
+								type: "post",
+								// 전송할 데이터 타입
+						        contentType: "application/json; charset=utf-8",
+						        // 서버에서 받아올 데이터 형태
+						        dataType: "json",
+						        //성공시 결과값 매개변수로 받아서
+						        success: function(result) {
+
+						        },
+						        error: function(err){
+						        	console.log(err);	
+						        }
+						        }); */
+					});
+		});
+	
 	</script>
 </body>
 </html>
