@@ -185,9 +185,12 @@
 				 		console.log(mnum);
 				 		//FormData 랑 변수명 동일시 금지! 에러남
 				 		var formData = new FormData();
-				 		formData.append('mnum',mnum);
+				 		
+				 		formData.set('mnum',mnum);
 				 		formData.append('level',level);
-				 		console.log(formData);
+				 		
+				 		// 값이빔..
+				 		console.log(JSON.stringify(formData));
 				 		
 
 				 		
