@@ -2,6 +2,8 @@ package kr.co.goodee39.vo;
 
 public class ReservationVO {
 	
+	private String content;
+	private String reserDate;
 	private String kindCd;
 	private String sexCd;
 	private String age;
@@ -14,6 +16,23 @@ public class ReservationVO {
 	private String careAddr;
 	private String careTel;
 	private String chargeNm; 
+
+	
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getReserDate() {
+		return reserDate;
+	}
+
+	public void setReserDate(String reserDate) {
+		this.reserDate = reserDate;
+	}
 
 	public String getKindCd() {
 		return kindCd;

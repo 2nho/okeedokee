@@ -184,7 +184,7 @@ button span {
 			let $id = $('[name=id]'); 
 			let $pw = $('[name=pw]');
 			let $chkpw = $('[name=chkpw]');
-			if($pw.val()==$chkpw.val()){
+			if(($pw.val() != "") &&($pw.val()==$chkpw.val())){
 				$.ajax({ 
 					type: 'post', 
 					url: '${pageContext.request.contextPath}/member/findCpi', 
@@ -198,7 +198,7 @@ button span {
 					}
 				});
 			}else{
-				alert("비밀번호를 확신해주세요.");
+				alert("비밀번호를 확인해주세요.");
 			}
 		});
 		
@@ -206,7 +206,7 @@ button span {
 			let $id = $('[name=id]'); 
 			let $pw = $('[name=pw]');
 			let $chkpw = $('[name=chkpw]');
-			if($pw.val()==$chkpw.val()){
+			if(($pw.val() != "") &&($pw.val()==$chkpw.val())){
 				$.ajax({ 
 					type: 'post', 
 					url: '${pageContext.request.contextPath}/member/findCpi', 
@@ -220,7 +220,7 @@ button span {
 					}
 				});
 			}else{
-				alert("비밀번호를 확신해주세요.");
+				alert("비밀번호를 확인해주세요.");
 			}
 		});
 	});
