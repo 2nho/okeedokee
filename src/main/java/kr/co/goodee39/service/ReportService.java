@@ -200,7 +200,7 @@ public class ReportService {
 	
 	
 	//신고내역  댓글 등록
-	public void insertRepCmt(mnwCmtVO vo) {
+	public void insertRepCmt(mnwCmtVO vo, MemberVO level) {
 		
 		String today = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(new Date());
 		vo.setCreatedate(today);
@@ -210,7 +210,13 @@ public class ReportService {
 		System.out.println(vo.getBnum());
 		
 		sqlSessionTemplate.insert("repCmt.insertRepCmt", vo);
-
+		
+		//ADMIN계정 댓글 작성시 답변완료 처리
+		if(level.getLevel().equals("A")) {
+			reportVO rvo = new reportVO();
+			rvo.setNum(vo.getBnum());
+			sqlSessionTemplate.update("rep.updateRepStatus", rvo);
+		}
 	}
 	  
 	

@@ -146,7 +146,7 @@ public class ReportController {
 	
 	// 신고내역 댓글 추가
 	@PostMapping("/createRepCmt")
-	public ResponseEntity<mnwCmtVO> createRepCmt(@RequestBody mnwCmtVO vo, HttpSession session) {
+	public ResponseEntity<mnwCmtVO> createRepCmt(@RequestBody mnwCmtVO vo, HttpSession session, MemberVO level) {
 		System.out.println("코멘트 : "+vo.getCmt());
 		System.out.println("글번호 : "+vo.getBnum());
 		System.out.println("게시판구분 : "+vo.getBdiv());
@@ -157,8 +157,11 @@ public class ReportController {
 		//임시id : 후에 세션정보로 교체 필요
 		//vo.setId("sessionId");  
 		
+		//댓글 작성자 회원 레벨 체크 : admin(A)레벨 댓글 작성시 답변완료 처리 위함
+		level.setLevel(mvo.getLevel());
+		
 		//코멘트 db추가
-		service.insertRepCmt(vo);
+		service.insertRepCmt(vo, level);
 		
 		ResponseEntity<mnwCmtVO> entity = new ResponseEntity<mnwCmtVO>(vo, HttpStatus.OK);
 		

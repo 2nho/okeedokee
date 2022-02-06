@@ -27,7 +27,16 @@ public class MypageController {
 		
 		// 로그인 정보 없을 시 로그인 페이지로 이동 : 연동시 수정 필수
 		if (session.getAttribute("account") != null) {
-			path = "g_mypage";
+			
+			MemberVO mvo = (MemberVO) session.getAttribute("account");
+			
+			if(mvo.getLevel().equals("U")) {
+				path = "g_mypage";
+			}
+			else if(mvo.getLevel().equals("A")) {
+				path = "redirect:/admin/adminHome";
+			}
+			
 		} else if (session.getAttribute("account") == null) {
 			path = "redirect:/member/loginPage";
 		}
