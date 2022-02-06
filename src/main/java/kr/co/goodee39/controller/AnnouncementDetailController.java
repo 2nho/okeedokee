@@ -267,7 +267,7 @@ public class AnnouncementDetailController {
 	@PostMapping("/Announcement/reservationMove")
 	public String reservationMove(@ModelAttribute("rvo") ReservationVO vo, Model model) {
 		model.addAttribute("vo", vo);
-		return "l_reservation_create";
+		return "g_mypage_reservation_create";
 	}
 	
 }
