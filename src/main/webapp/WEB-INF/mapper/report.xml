@@ -52,4 +52,12 @@
 		WHERE num = #{num}
 	</delete>
 	
+	
+	<!-- 신고글 Status 수정 -->
+	<update id="updateRepStatus" parameterType="repVO">
+		UPDAET reporttbl
+		SET status = 'Y'
+		WHERE num = #{num}
+	</update>
+	
 </mapper>
