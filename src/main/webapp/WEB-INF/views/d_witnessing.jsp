@@ -116,13 +116,13 @@
 											</a>
 										</td>
 										<td>
-											<a href="${pageContext.request.contextPath}/read?bdiv=3&num=${list.num}" class="acontent">
+											<a href="${pageContext.request.contextPath}/read?bdiv=4&num=${list.num}" class="acontent">
 												<h4>${list.title }</h4>
 												<p><strong>성별</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${(list.sex == 'F')? "여":(list.sex == 'M')? "남":"미상"}</p>
 												<p><strong>견종</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.species }</p>
 												<p class="pc"><strong>특징</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.characters}</p>
-												<p class="pd"><strong>실종일</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.date}</p>
-												<p class="pl"><strong>실종장소</strong>&nbsp;&nbsp;&nbsp;:&nbsp;${list.location}</p>
+												<p class="pd"><strong>목격일</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;${list.date}</p>
+												<p class="pl"><strong>목격장소</strong>&nbsp;&nbsp;&nbsp;:&nbsp;${list.location}</p>
 											</a>
 										</td>
 										<td>${list.id }</td>
