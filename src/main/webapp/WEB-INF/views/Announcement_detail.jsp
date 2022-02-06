@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
-		
+
 		 <section>
             <div class="main-container">
                 <div class="main-content">
