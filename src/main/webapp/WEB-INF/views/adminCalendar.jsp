@@ -35,9 +35,9 @@ body {
 					center : 'title',
 					right : 'dayGridMonth' // ,timeGridWeek,timeGridDay 는 사용안함
 				},
-				//initialDate:  초기 보여줄 날짜 값 
+				//initialDate:  초기 보여줄 날짜 값 지정 X
 				navLinks : true,
-				selectable : true,
+				selectable : true, // 드래그로 날짜설정가능
 				selectMirror : true,
 				select : function(arg) {
 					var title = prompt('일정을 입력해주세요');
@@ -46,7 +46,7 @@ body {
 							title : title,
 							start : arg.start,
 							end : arg.end,
-							allDay : arg.allDay
+							allDay : arg.allDay // Boolean (true or false), arg안에 allDay 기본값 true 내장(다른 내장값 써도 boolean이라 true) 
 						})
 					}
 					calendar.unselect();
@@ -56,11 +56,12 @@ body {
 						arg.event.remove()
 					}
 				},
-				editable : true,
-				dayMaxEvents : true, // allow "more" link when too many events
+				editable : true, // 날짜조정 스크롤바로 가능
+				dayMaxEvents : true, // true시 이벤트가 많을 경우 more
 				events : [ {
 					title : '이벤트',
-					start : '2022-02-07'
+					start : '2022-02-07',
+					end : '2022-02-09'    // 8일까지만 스크롤
 				} ]
 			});
 			calendar.render();
