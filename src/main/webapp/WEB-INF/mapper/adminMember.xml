@@ -65,10 +65,7 @@
 	</select>
 	<update id="updateLevel" parameterType="memberVO">
 		UPDATE member 
-		<set>
-			<if test="level!=null"> level = #{level}</if>	
-		</set>
-		<!-- Set level = #{level} -->
+		Set level = #{level}
 		WHERE mnum = #{mnum}
 	</update>
 </mapper>

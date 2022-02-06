@@ -185,9 +185,12 @@
 				 		console.log(mnum);
 				 		//FormData 랑 변수명 동일시 금지! 에러남
 				 		var formData = new FormData();
-				 		formData.append('mnum',mnum);
+				 		
+				 		formData.set('mnum',mnum);
 				 		formData.append('level',level);
-				 		console.log(formData);
+				 		
+				 		// 값이빔..
+				 		console.log(JSON.stringify(formData));
 				 		
 
 				 		
@@ -195,15 +198,15 @@
 								//요청을 보낼 주소
 								url : '${pageContext.request.contextPath}/admin/updateLevel',
 								// 전송할 데이터 level값하고 mnum값을 보내야함
-								data: formData,
+								data: JSON.stringify(formData),
 								// 데이터 전송 방법
-								type: "post",
+								type: "PATCH",
 								// 전송할 데이터 타입
 						        contentType: "application/json; charset=utf-8",
 						        // 서버에서 받아올 데이터 형태
 						        dataType: "json",
 						        //성공시 결과값 매개변수로 받아서
-						        success: function(result) {
+						        success: function(result) {						        
 						        	console.log("성공");
 						        },
 						        error: function(err){

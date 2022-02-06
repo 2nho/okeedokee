@@ -49,8 +49,9 @@ public class adminController {
 	 @PatchMapping("/updateLevel") 
 	 public @ResponseBody ResponseEntity<MemberVO> updateLevel(@RequestBody MemberVO vo) { 
 	    service.updateLevel(vo); 
+	    System.out.println(vo.getMnum());
+	    System.out.println(vo.getLevel());
 		ResponseEntity<MemberVO> entity = new ResponseEntity<MemberVO>(vo, HttpStatus.OK);
-		System.out.println(entity);
 		return entity;}
 	 
 	
