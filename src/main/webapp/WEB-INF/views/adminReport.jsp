@@ -61,7 +61,7 @@
 									<tr>
 										<td><input type="checkbox" class="checkbox" /></td>
 										<td>${item.num}</td>
-										<td>${item.title}</td>
+										<td><a href="${pageContext.request.contextPath}/report/#">${item.title}</a></td>
 										<td>${item.content}</td>
 										<td>${item.id}</td>
 										<td>${item.createdate}</td>
