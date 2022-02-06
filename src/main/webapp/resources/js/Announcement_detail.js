@@ -63,3 +63,8 @@ $(document).ready(function() {
     //초기 init render
     init_Announcement_detail();
 });
+
+// 상담예약 페이지 이동
+$("#reservation_button").click(function() {
+	$("#reservationSubmit").submit();
+});

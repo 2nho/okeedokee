@@ -6,14 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 import org.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +23,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kr.co.goodee39.service.ApiService;
-import kr.co.goodee39.vo.NoticeVO;
+import kr.co.goodee39.vo.ReservationVO;
 
 @Controller
 public class AnnouncementDetailController {
@@ -36,7 +34,7 @@ public class AnnouncementDetailController {
 	
 	@RequestMapping(value = "/Announcement/Announcement_detail", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public ModelAndView Announcement_detail(HttpServletRequest request) {
+    public ModelAndView Announcement_detail(HttpServletRequest request, Model model) {
 		
 		HashMap<String, Object> hashMap = new HashMap<String, Object>();
 		
@@ -72,6 +70,11 @@ public class AnnouncementDetailController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("Announcement_detail");
 		modelAndView.addObject("dog", hashMap);
+		
+		// 이제승_commit form 태그 사용하기 위해 추가
+		ReservationVO rvo = new ReservationVO();
+		model.addAttribute("rvo", rvo);
+
         return modelAndView;
     }
 	
@@ -259,6 +262,12 @@ public class AnnouncementDetailController {
 		return resultMap;
 	}
 	
-	
+	// 상담예약 페이지 이동
+	@PostMapping("/Announcement/reservationMove")
+	public String reservationMove(ReservationVO vo, Model model) {
+		System.out.println(vo.getDogImg());
+		model.addAttribute("vo", vo);
+		return "reservation";
+	}
 	
 }

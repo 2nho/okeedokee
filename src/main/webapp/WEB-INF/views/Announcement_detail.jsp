@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,15 +57,32 @@
                             </div>
                         </div>
                         <div class="Announcement-btn">
-                            <div class="button" id="reservation_button">
-                                <button class="btn" id="reservation_btn">
-                                <svg width="150px" height="40px" viewBox="0 0 150 40" class="border">
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                                </svg>
-                                <span>방문예약</span>
-                                </button>
-                            </div>
+                            <!-- 상담 예약 데이터 form (이제승) -->
+                        	<form:form modelAttribute="rvo" action="reservationMove" method="POST" id="reservationSubmit" >
+	                           <form:hidden path="kindCd" value="${dog.dog_kindCd}"/>
+	                           <form:hidden path="sexCd" value="${dog.dog_sexCd}"/>
+	                           <form:hidden path="age" value="${dog.dog_age}"/>
+	                           <form:hidden path="specialMark" value="${dog.dog_specialMark}"/>
+	                           <form:hidden path="processState" value="${dog.dog_processState}"/>
+	                           <form:hidden path="noticeSdt" value="${dog.dog_noticeSdt}"/>
+	                           <form:hidden path="happenPlace" value="${dog.dog_happenPlace}"/>
+	                           <form:hidden path="dogImg" value="${dog.dog_img}"/>
+	                           <form:hidden path="careNm" value="${dog.dog_careNm}"/>
+	                           <form:hidden path="careAddr" value="${dog.dog_careAddr}"/>
+	                           <form:hidden path="careTel" value="${dog.dog_careTel}"/>
+	                           <form:hidden path="chargeNm" value="${dog.dog_chargeNm}"/>
+	                         
+	                            <div class="button" id="reservation_button">
+	                                <button class="btn" id="reservation_btn">
+	                                <svg width="150px" height="40px" viewBox="0 0 150 40" class="border">
+	                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+	                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+	                                </svg>
+	                                <span>방문예약</span>
+	                                </button>
+	                            </div>
+                           	</form:form>
+                           	<!-- 상담 예약 데이터 form (이제승) -->
                         </div>
 	                    <div class="main-content-map">
 	                        <div class="map-api" id="map">
