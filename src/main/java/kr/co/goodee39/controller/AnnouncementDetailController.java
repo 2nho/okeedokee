@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -264,7 +265,7 @@ public class AnnouncementDetailController {
 	
 	// 상담예약 페이지 이동
 	@PostMapping("/Announcement/reservationMove")
-	public String reservationMove(ReservationVO vo, Model model) {
+	public String reservationMove(@ModelAttribute("rvo") ReservationVO vo, Model model) {
 		model.addAttribute("vo", vo);
 		return "l_reservation_create";
 	}
