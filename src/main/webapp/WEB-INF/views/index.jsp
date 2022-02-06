@@ -25,6 +25,7 @@
 	<br />
 	<a href="admin/adminHome">관리자페이지</a>
 	<a href="admin/adminMember">관리자 회원관리</a> <a href="admin/adminReport">관리자 신고관리</a>
+	<a href="admin/adminCalendar">관리자 일정관리</a>
 	<a href="Announcement">유기견공고</a>
 	<a href="Announcement_detail">유기견공고</a>
 	<a href="Save">후원/자원봉사 페이지</a>

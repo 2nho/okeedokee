@@ -72,4 +72,9 @@ public class adminController {
 		return "adminReport";
 	}
 
+	@GetMapping("/adminCalendar")
+	public String adminCalendar() {
+		
+	return "adminCalendar";
+	}
 }
