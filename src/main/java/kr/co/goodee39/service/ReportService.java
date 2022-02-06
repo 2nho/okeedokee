@@ -217,6 +217,9 @@ public class ReportService {
 			rvo.setNum(vo.getBnum());
 			sqlSessionTemplate.update("rep.updateRepStatus", rvo);
 		}
+		else if(level.getLevel().equals("U")) {
+			System.out.println("작동은 하네");
+		}
 	}
 	  
 	
