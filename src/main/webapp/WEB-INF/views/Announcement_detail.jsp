@@ -45,7 +45,7 @@
                                 <div class="shelter-title">
                                     <h2>보호소 정보</h2>
                                 </div>
-                                <div class="shelter-detail" id="shelter_${dog.dog_careNm}">
+                                <div class="shelter-detail" id="${dog.dog_careNm}">
                                     <ul>
                                     	<li>${dog.dog_careNm}</li>
                                         <li>${dog.dog_careAddr}</li>
@@ -65,21 +65,12 @@
                                 <span>방문예약</span>
                                 </button>
                             </div>
-                            <div class="button" id="question_button">
-                                <button class="btn" id="question_btn">
-                                <svg width="150px" height="40px" viewBox="0 0 150 40" class="border">
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                                </svg>
-                                <span>문의하기</span>
-                                </button>
-                            </div>
                         </div>
-                    </div>
-                    <div class="main-content-map">
-                        <div class="map-api" id="map">
-                            
-                        </div>
+	                    <div class="main-content-map">
+	                        <div class="map-api" id="map">
+	                            
+	                        </div>
+	                    </div>
                     </div>
                 </div>
             </div>

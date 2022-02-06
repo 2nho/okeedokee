@@ -7,7 +7,7 @@ var init_Announcement_detail = function () {
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = {
 	        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-	        level: 3 // 지도의 확대 레벨
+	        level: 5 // 지도의 확대 레벨
 	    };  
 	
 	// 지도를 생성합니다    
@@ -17,10 +17,11 @@ var init_Announcement_detail = function () {
 	var ps = new kakao.maps.services.Places(); 
 	
 	// 키워드로 장소를 검색합니다
-	var dogId = $("#dog_${dog.dog_careNm}").text();
-	var splitDogId = dogId.split('_');
-	var arrDoagPrams = new Array();
-	ps.keywordSearch('이태원 맛집', placesSearchCB); 
+	var dogId = $(".shelter-detail").attr('id');
+	var splitDogId = dogId.split(':');
+	
+	
+	ps.keywordSearch("'" + splitDogId[1] + "'", placesSearchCB);
 	
 	// 키워드 검색 완료 시 호출되는 콜백함수 입니다
 	function placesSearchCB (data, status, pagination) {
