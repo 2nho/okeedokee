@@ -195,15 +195,15 @@
 								//요청을 보낼 주소
 								url : '${pageContext.request.contextPath}/admin/updateLevel',
 								// 전송할 데이터 level값하고 mnum값을 보내야함
-								data: formData,
+								data: JSON.stringify(formData),
 								// 데이터 전송 방법
-								type: "post",
+								type: "PATCH",
 								// 전송할 데이터 타입
 						        contentType: "application/json; charset=utf-8",
 						        // 서버에서 받아올 데이터 형태
 						        dataType: "json",
 						        //성공시 결과값 매개변수로 받아서
-						        success: function(result) {
+						        success: function(result) {						        
 						        	console.log("성공");
 						        },
 						        error: function(err){
