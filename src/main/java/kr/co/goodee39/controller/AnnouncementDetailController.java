@@ -265,7 +265,6 @@ public class AnnouncementDetailController {
 	// 상담예약 페이지 이동
 	@PostMapping("/Announcement/reservationMove")
 	public String reservationMove(ReservationVO vo, Model model) {
-		System.out.println(vo.getDogImg());
 		model.addAttribute("vo", vo);
 		return "l_reservation_create";
 	}
