@@ -267,7 +267,7 @@ public class AnnouncementDetailController {
 	public String reservationMove(ReservationVO vo, Model model) {
 		System.out.println(vo.getDogImg());
 		model.addAttribute("vo", vo);
-		return "reservation";
+		return "l_reservation_create";
 	}
 	
 }
