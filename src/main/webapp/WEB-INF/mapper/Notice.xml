@@ -45,7 +45,7 @@
 	</select>
 	
 	<select id="selectNotice" parameterType="tvo" resultType="tvo">
-			select num, content, title, date, name, del, hasfile, bdiv
+		select num, content, title, date, name, del, hasfile, bdiv
 		from notice
 		where del = 'N'
 		and num=#{num}

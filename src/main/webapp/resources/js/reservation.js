@@ -43,6 +43,19 @@ $(document).ready(function() {
 });
 
 $(function() {
+	
+	$("#listMove").click(function(){
+		location.href = "/okeedokee/reservation";
+	});
+	
+	$("#createReser").click(function(){
+		$("#submitCreate").submit();
+	});
+	
+	$("#modifyReser").click(function(){
+		location.href="/okeedokee/reservationModify"
+	});
+	
     $("#openInfo").click(function(){
 		$('.main-content-info').fadeIn( 1000 );
 		$(".main-content-info").css("display","flex");
@@ -51,5 +64,5 @@ $(function() {
 	$("#closeInfo").click(function(){
 		$('.main-content-info').fadeOut(1000);
 	});
-	
 });
+

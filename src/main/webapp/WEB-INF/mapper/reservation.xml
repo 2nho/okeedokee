@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="selectReserList" parameterType="rvo" resultType="rvo">
-		select rnum, mnum, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, 
+		select rnum, mnum, bdiv, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, 
 			   happenPlace, dogImg, careNm, careAddr, careTel, chargeNm
 		from reservation
 		where del = 'N'
@@ -46,10 +46,10 @@
 	</select>
 	
 	<select id="selectReser" parameterType="rvo" resultType="rvo">
-		select num, content, title, date, name, del, hasfile, bdiv
+		select rnum, mnum, bdiv, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, happenPlace, dogImg, careNm, careAddr, careTel, chargeNm
 		from reservation
 		where del = 'N'
-		and num=#{num}
+		and rnum=#{rnum}
 	</select>
 	
 	<update id="updateReser" parameterType="rvo">
@@ -69,9 +69,9 @@
 	
 	<insert id="insertReser" parameterType="rvo"
 		useGeneratedKeys="true" keyProperty="rnum">
-		insert into reservation(mnum, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, 
+		insert into reservation(mnum, bdiv, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, 
 								happenPlace, dogImg, careNm, careAddr, careTel, chargeNm)
-		values(#{mnum}, #{reserName}, #{content}, #{reserDate}, #{kindCd}, #{sexCd}, #{age}, #{specialMark}, #{processState}, 
+		values(#{mnum}, #{bdiv}, #{reserName}, #{content}, #{reserDate}, #{kindCd}, #{sexCd}, #{age}, #{specialMark}, #{processState}, 
 				#{noticeSdt}, #{happenPlace}, #{dogImg}, #{careNm}, #{careAddr}, #{careTel}, #{chargeNm})
 	</insert>
 </mapper>

@@ -54,8 +54,6 @@ public class NoticeService {
 	}
 	
 	public void selectNotice(Model model, NoticeVO vo) {
-//		vo = sqlSessionTemplate.selectOne("bbs.selectBBS",vo);
-//		model.addAttribute("NoticeVO", vo);
 		NoticeVO vo2 = sqlSessionTemplate.selectOne("notice.selectNotice",vo);
 		vo.setContent(vo2.getContent());
 		vo.setTitle(vo2.getTitle());
