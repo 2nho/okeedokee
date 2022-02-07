@@ -91,6 +91,7 @@
 									<input type="hidden" name="sessionId" id="sessionId" value="${sessionScope.account.id}" />
 									<input type="hidden" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
 									<input type="hidden" name="bnum" id="bnum" value="${volta.num}" />
+									<input type="hidden" name="phNum" id="phNum" value="${volta.phNum}" />
 									<div class="cmtSubmitBox">
 										<button type="button" id="cmtSubmit">신청</button>
 									</div>

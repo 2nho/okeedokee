@@ -7,15 +7,15 @@
 
 	<!-- 회원 자원봉사 리스트 가져오기 -->
 	<select id="selectVolte" parameterType="volteVO" resultType="volteVO">
-		SELECT num, mnum, id, bnum, careName, dateFrom, dateTo, createdate
+		SELECT num, mnum, id, bnum, careName, dateFrom, dateTo, createdate, phNum
 		FROM volunteer
 		WHERE mnum = #{mnum}
 	</select>
 	
 	<!-- 회원 자원봉사 리스트 가져오기 -->
 	<insert id="insertVolte" parameterType="volteVO">
-		INSERT INTO volunteer(mnum, bnum, id, careName, dateFrom, dateTo)
-		VALUES(#{mnum}, #{bnum}, #{id}, #{careName}, #{dateFrom}, #{dateTo})
+		INSERT INTO volunteer(mnum, id, bnum, careName, dateFrom, dateTo, createdate, phNum)
+		VALUES(#{mnum}, #{id}, #{bnum}, #{careName}, #{dateFrom}, #{dateTo}, #{createdate}, #{phNum})
 	</insert>
 	
 </mapper>

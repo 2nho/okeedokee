@@ -10,6 +10,7 @@ public class volunteerVO {
 	private int dateFrom;
 	private int dateTo;
 	private String createdate;
+	private String phNum;
 	private int start;
 	private int count;
 	
@@ -81,6 +82,14 @@ public class volunteerVO {
 
 	public void setCreatedate(String createdate) {
 		this.createdate = createdate;
+	}
+
+	public String getPhNum() {
+		return phNum;
+	}
+
+	public void setPhNum(String phNum) {
+		this.phNum = phNum;
 	}
 
 	public int getStart() {

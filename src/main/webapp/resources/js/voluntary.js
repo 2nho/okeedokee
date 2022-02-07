@@ -9,11 +9,11 @@ function getCmmt() {
 	const num = document.querySelector("#bnum").value;
 
 	console.log(num);
-	console.log("getVolta/" + num);
+	console.log("getVolte/" + num);
 
 	//게시글에 해당하는 댓글 보여지게 만들기
 	$.ajax({
-		url: "getVolta/" + num ,
+		url: "getVolte/" + num ,
 		type: "GET",
 		dataType: "json",
 		success: function(data) {
@@ -45,9 +45,14 @@ function getCmmt() {
 				date.innerText = item.createdate;
 				date.classList.add("cmtDate");
 
-				//댓글 내용
+				//봉사할 기간
 				const p = document.createElement("p");
-				p.innerText = item.cmt;
+				p.innerText = "신청 기간 : " + item.dateFrom + " ~ " +item.dateTo;
+				p.classList.add("cmtContent");
+				
+				//연락처
+				const ph = document.createElement("p");
+				ph.innerText = "연락처 : " + item.phNum;
 				p.classList.add("cmtContent");
 
 
@@ -71,7 +76,7 @@ function getCmmt() {
 
 							//ajax를 통해 전달
 							$.ajax({
-								url: "deleteComment",
+								url: "deleteVolte",
 								type: "DELETE",
 								data: JSON.stringify(commentData),
 								contentType: "application/json; charset=utf-8",
@@ -87,113 +92,7 @@ function getCmmt() {
 
 					//div안에 생성된 버튼 삽입
 					div3.append(delBtn);
-						
-					//수정 버튼
-					const modiBtn = document.createElement("button");
-					modiBtn.classList.add("cmtModify");
-					modiBtn.innerText = "수정";
 					
-					modiBtn.addEventListener("click", function(){
-						//수정 textarea를 위한 설정
-						//const editBox = document.createElement("div");
-						const editor = document.createElement("textarea");
-						editor.cols = "200";
-						editor.rows = "5";
-						editor.classList.add("cmtEditor");
-						
-						//댓글 내용 p를 가져와 textarea에 삽입
-						editor.value = p.innerText;
-						//댓글 수정 완료 버튼 
-						const editModify = document.createElement("button");
-						editModify.classList.add("editModify");
-						editModify.innerText = "수정완료";
-						//댓글 수정 취소
-						const editCancel = document.createElement("button");
-						editCancel.classList.add("editCancel");
-						editCancel.innerText = "수정취소";
-						
-						//textarea를 기존 댓글 자리에 넣기
-						p.append(editor);
-						
-						//수정완료, 수정취소 버튼을 삭제/수정 자리에 넣기
-						div3.append(editModify);
-						div3.append(editCancel);
-						
-						//기존 댓글 p 다음에 editor 넣기
-						p.after(editor);
-						//div는 숨기기
-						p.style.display = "none";
-						modiBtn.style.display = "none";
-						delBtn.style.display = "none";
-						
-						//댓글 수정 취소 버튼 이벤트
-						editCancel.addEventListener("click", function(){
-							//기존 댓글창, 수정, 삭제 버튼 되돌리기
-							p.style.display = "block";
-							modiBtn.style.display = "inline";
-							delBtn.style.display = "inline";
-							//수정완료, 수정취소, 수정창 지우기
-							editModify.remove();
-							editCancel.remove();
-							editor.remove();
-						});
-						
-						//댓글 수정 완료
-						editModify.addEventListener("click", function(){
-							if(confirm("댓글을 수정하시겠습니까?")) {
-								let modiCmt = editor.value;
-								console.log(modiCmt);
-								
-								const modiData = { cmt:modiCmt, num:item.num, bdiv: bdiv }
-								
-								$.ajax({
-									url: "updateComment",
-									type: "PATCH",
-									data: JSON.stringify(modiData),
-									contentType: "application/json; charset=uft-8",
-									dataType: "json",
-									success: function(data){
-										console.log(data);
-										//수정된 댓글 내용으로 바꾸기
-										p.innerText = data.cmt;
-										//기존 댓글창, 수정, 삭제 버튼 되돌리기
-										p.style.display = "block";
-										modiBtn.style.display = "inline";
-										delBtn.style.display = "inline";
-										//수정완료, 수정취소, 수정창 지우기
-										editModify.remove();
-										editCancel.remove();
-										editor.remove();
-									}
-									
-								});
-							}
-						});
-					});
-					
-					//div안에 생성된 수정 버튼 삽입
-					div3.append(modiBtn);
-				}
-
-
-				if (userId != item.id) {
-					//신고버튼
-					const report = document.createElement("button");
-					report.classList.add("cmtReport");
-					report.innerText = "신고";
-
-					report.addEventListener("click", function(){
-						let yn = confirm("해당 댓글을 신고하시겠습니까?");
-						console.log(yn);
-
-						//신고 true면
-						if (yn) {
-							//console.log("report?bdiv="+bdiv+"&num="+num);
-							location.href = "report?bdiv="+bdiv+"&num="+num;
-						}
-					});
-
-					div3.append(report);
 				}
 
 				//div안에 생성된 내용 삽입
@@ -204,6 +103,7 @@ function getCmmt() {
 				div.append(div2);
 				div.append(date);
 				div.append(p);
+				div.append(ph);
 
 				//commentList안에 div추가
 				commentList.append(div);
@@ -219,17 +119,21 @@ function submitCmt() {
 	const submitCmt = document.querySelector("#cmtSubmit");
 
 	submitCmt.addEventListener("click", function() {
-		let cmt = document.querySelector("#commentCreator").value;
+		let dateFrom = document.querySelector("#dateFrom").value;
+		let dateTo = document.querySelector("#dateTo").value;
+		let id = document.querySelector("#id").value;
+		let mnum = document.querySelector("#mnum").value;
 		let bnum = document.querySelector("#bnum").value;
-		let bdiv = document.querySelector("#bdiv").value;
+		let phNum = document.querySelector("#phNum").value;
 
-		console.log(cmt);
+		console.log(dateFrom);
+		console.log(dateTo);
 
-		if (cmt.length > 0) {
-			let commentData = { cmt, bnum, bdiv };
+		if (dateFrom.length > 0 && dateTo.length > 0) {
+			let commentData = { mnum, id, bnum, dateFrom, dateTo, phNum };
 
 			$.ajax({
-				url: "createComment",
+				url: "createVolte",
 				type: "POST",
 				data: JSON.stringify(commentData),
 				contentType: "application/json; charset=utf-8",
@@ -260,9 +164,9 @@ function submitCmt() {
 					date.innerText = data.createdate;
 					date.classList.add("cmtDate");
 
-					//댓글 내용
+					//신청일 내용
 					const p = document.createElement("p");
-					p.innerText = data.cmt;
+					p.innerText = data.dateFrom + " ~ " + data.dateTo;
 					p.classList.add("cmtContent");
 
 					//삭제버튼
