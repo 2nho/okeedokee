@@ -20,10 +20,10 @@
 			<aside>
 				<ul>
 					<li><h2>관리자모드</h2></li>
-					<li><h3>Home</h3></li>
+					<li><h3><a href="adminHome">Home</a></h3></li>
 					<li><h3 class="red">회원관리</h3></li>
-					<li><h3>신고관리</h3></li>
-					<li><h3>일정관리</h3></li>
+					<li><h3><a href="adminReport">신고관리</a></h3></li>
+					<li><h3><a href="adminCalendar">일정관리</a></h3></li>
 				</ul>
 			</aside>
 			<section>
@@ -184,6 +184,7 @@
 				 		var mnum = $("[name=mnum]").eq(index).text();
 				 		console.log(mnum);
 				 		//FormData 랑 변수명 동일시 금지! 에러남
+				 		// formdata로는 데이터가 안넘어감
 				 		var formData = new FormData();
 				 		
 				 		formData.set('mnum',mnum);
@@ -191,14 +192,14 @@
 				 		
 				 		// 값이빔..
 				 		console.log(JSON.stringify(formData));
-				 		
-
+				 		// 구조분해할당
+						var data1 =	{mnum ,level};
 				 		
 							$.ajax({
 								//요청을 보낼 주소
 								url : '${pageContext.request.contextPath}/admin/updateLevel',
 								// 전송할 데이터 level값하고 mnum값을 보내야함
-								data: JSON.stringify(formData),
+								data: JSON.stringify(data1),
 								// 데이터 전송 방법
 								type: "PATCH",
 								// 전송할 데이터 타입

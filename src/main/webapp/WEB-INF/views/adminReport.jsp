@@ -20,10 +20,10 @@
 			<aside>
 				<ul>
 					<li><h2>관리자모드</h2></li>
-					<li><h3>Home</h3></li>
-					<li><h3>회원관리</h3></li>
+					<li><h3><a href="adminHome">Home</a></h3></li>
+					<li><h3><a href="adminMember">회원관리</a></h3></li>
 					<li><h3 class="red">신고관리</h3></li>
-					<li><h3>일정관리</h3></li>
+					<li><h3><a href="adminCalendar"></a>일정관리</h3></li>
 				</ul>
 			</aside>
 			<section>
@@ -61,7 +61,8 @@
 									<tr>
 										<td><input type="checkbox" class="checkbox" /></td>
 										<td>${item.num}</td>
-										<td><a href="${pageContext.request.contextPath}/report/#">${item.title}</a></td>
+										<td><a href="${pageContext.request.contextPath}/readReport?num=${item.num}"
+                                         >${item.title}</a></td>
 										<td>${item.content}</td>
 										<td>${item.id}</td>
 										<td>${item.createdate}</td>

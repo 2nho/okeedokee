@@ -43,4 +43,10 @@
 			</when>
 		</choose>
 	</select>
+	<select id="getReport" parameterType="memberVO" resultType="int">
+		SELECT 
+		FROM member
+		WHERE 
+	</select>
+	
 </mapper>
