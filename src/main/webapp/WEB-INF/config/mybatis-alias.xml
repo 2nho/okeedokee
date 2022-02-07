@@ -16,5 +16,6 @@
 		<typeAlias type="kr.co.goodee39.vo.VolunteerVO" alias="VolunteerVO"/>
 		<typeAlias type="kr.co.goodee39.vo.ReservationVO" alias="rvo"/>
 		<typeAlias type="kr.co.goodee39.vo.voluntaryVO" alias="voltaVO"/>
+		<typeAlias type="kr.co.goodee39.vo.calendarVO" alias="cVO"/>
 	</typeAliases>
 </configuration>
