@@ -78,8 +78,9 @@ a {
 }
 
 .shelter-info {
+	width : 500px;
+	height : auto;
     padding-top: 20px;
-    border-top: 2px solid black;
 }
 
 .shelter-detail {
