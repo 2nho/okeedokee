@@ -75,10 +75,13 @@ body {
 					$.ajax({
 						url: '${pageContext.request.contextPath}/admin/select',
 						type:"Get",
-						contentType: "application/json; charset=utf-8",
+						//contentType: "application/json; charset=utf-8", 넘기는 데이터 없으니 필요없음
 						dataType: "json",
 						success: function(result) {
-					        console.log(result);
+							 $.each(result, function(index, value){
+								   console.log(index);
+								   console.log(value);
+							  });
 						 },
 						 error: function(err){
 					        	console.log(err);	

@@ -99,6 +99,8 @@ public class adminController {
 	@GetMapping("/select")
 	public @ResponseBody ResponseEntity<List<calendarVO>> selectC() {
 		//cservice.selectC(vo);
+		// 서비스에서 List<calendarVO> 로 리턴하니 컨트롤러에서도 List<calendarVO>로 받아줘야 돌아간다.
+		// vo는 필요가 없으니 뻬ㅐ고 @requestbody도 받는값이 없으니 뺀다
 		List<calendarVO> select = cservice.selectC();
 		ResponseEntity<List<calendarVO>> entity = new ResponseEntity<List<calendarVO>>(select,HttpStatus.OK);
 		return entity;
