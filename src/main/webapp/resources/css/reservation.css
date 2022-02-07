@@ -49,29 +49,29 @@ table tr{
 	border-bottom: 1px dotted black;
 }
 
-#NoticePage{
+#reserBBSPage{
 	margin-top:20px;
 	text-align: center;
 }
 
-#NoticePage a {
+#reserBBSPage a {
 	font-size:1.3rem;
 	color:black;
 	transition:0.7s;
 }
 
-#NoticePage span {
+#reserBBSPage span {
 	font-size:1.3rem;
 	color:#FBD157;
 	transition:0.7s;
 }
 
-#NoticePage a:hover {
+#reserBBSPage a:hover {
 	transition:0.7s;
 	color: #FBD157;
 }
 
-#NoticePage input, select{
+#reserBBSPage input, select{
 	border : 1px solid #FBD157;
 	outline: none;
 }

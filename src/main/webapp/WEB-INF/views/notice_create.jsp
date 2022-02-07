@@ -8,65 +8,8 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="/okeedokee/css/notice.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
-<style>
-	main {
-	display: flex;
-	flex-direction: row;
-}
-
-main section {
-	width: 1200px;
-	height: 680px;
-	margin: auto;
-}
-
-/* article1 */
-
-main section article #noticeBoard {
-	height:620px;
-	margin: 20px 25px 0 25px;
-	padding: 25px;
-	border: 25px solid #f9f1c0;
-    border-radius: 25px;
-    overflow: auto;
-}
-
-main section #arti1 #noticeBoard h1:nth-child(1)::after {
-	content: "";
-	display: block;
-	width: 100%;
-	border-bottom: 2px solid black;
-	margin-top: 10px;
-}
-
-main section #arti1 #noticeBoard h2{
-	background-color: #f9f1c0;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-}
-
-main section #arti1 #noticeBoard h4{
-	border-bottom: 1px solid black;
-	padding:5px;
-}
-
-main section #arti1 #noticeBoard p{
-	padding:10px;
-}
-
-main section #arti1 #noticeButtons{
-	text-align: end;
-    margin: 5px 60px 0 0px;
-}
-
-#noticeBoard::-webkit-scrollbar{width: 15px;}
-#noticeBoard::-webkit-scrollbar-track {background-color:white;}
-#noticeBoard::-webkit-scrollbar-thumb {background-color:#FBD157;border-radius: 10px;}
-#noticeBoard::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
-width:16px;height:16px;background:#f1ef79;} 
-
-</style>
 </head>
 <body>
 	<div class="totalContainer">
@@ -75,9 +18,9 @@ width:16px;height:16px;background:#f1ef79;}
 		<main>
 			<section>
 				<article id="arti1">
-					<div id="noticeBoard">
+					<div id="noticeCreateBoard">
 						<h1>공지사항 작성</h1><br /><br />
-						<form:form modelAttribute="NoticeVO" action="${pageContext.request.contextPath}/Notice/create_result">
+						<form:form modelAttribute="NoticeVO" action="/okeedokee/Notice/create_result">
 							<ul>
 								<li><label for="title"></label><form:input path="title" 
 								style="width:100%; border:none; outline:none; background-color:#f9f1c0;
@@ -117,38 +60,6 @@ width:16px;height:16px;background:#f1ef79;}
 	
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
-	<script>
-		$(function(){
-			$("#listMove").click(function(){
-				location.href = "${pageContext.request.contextPath}/Notice/main";
-			});
-			
-			$("#createNotice").click(function(){
-				if(confirm("작성하시겠습니까?")){
-					const formData = new FormData();
-					const $upload = $("#upload");
-					let files = $upload[0].files;
-					for (let i = 0; i < files.length; i++) {
-						formData.append("uploadFile", files[i])
-					}
-					
-					$.ajax({
-						url : '${pageContext.request.contextPath}/Notice/uploadfile',
-						processData : false,
-						contentType : false,
-						data : formData,
-						type : "post",
-						datatype: "json",
-						success : function(result){
-							console.log(JSON.stringify(result));
-							$("#filelist").val(JSON.stringify(result));
-							$("#NoticeVO").submit();
-						}
-					});
-				}
-				
-			});
-		});
-	</script>
+	<script type="text/javascript" src="/okeedokee/js/notice.js"></script>
 </body>
 </html>

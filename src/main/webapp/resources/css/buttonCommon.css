@@ -22,7 +22,8 @@ button span {
   font-weight: 500
 }
 
-#createNotice,#listMove,#createReser,#modifyReser,#deleteReser,#modifyReserResult {
+#createNotice,#listMove,#createReser,#modifyReser,#deleteReser,#modifyReserResult
+,#createNoticeMove,#modifyNotice,#deleteNotice,#modifyNoticeResult,.alldelete {
   width: 90px;
   height: 30px;
   cursor: pointer;
@@ -73,15 +74,22 @@ svg {
   transition: 1s ease-in-out;
 }
 
-button:hover, #createNotice:hover, #listMove:hover,#createReser:hover,
-#openInfo:hover,#closeInfo:hover,#modifyReser:hover,#deleteReser:hover,
-#modifyReserResult:hover {
+button:hover, #createNotice:hover, #listMove:hover, #createReser:hover,
+#openInfo:hover, #closeInfo:hover, #modifyReser:hover, #deleteReser:hover,
+#modifyReserResult:hover, #createNoticeMove:hover, #modifyNotice:hover,
+#deleteNotice:hover, #modifyNoticeResult:hover, .alldelete:hover {
   transition: 1s ease-in-out;
   background: #FBD157;
 }
 
-button:hover, #createNotice:hover, #listMove:hover,#createReser:hover,
-#openInfo:hover, #closeInfo:hover,#modifyReser:hover,#deleteReser:hover,
-#modifyReserResult:hover svg {
-  stroke-dashoffset: -480;
+button:hover, #createNotice:hover, #listMove:hover, #createReser:hover,
+#openInfo:hover, #closeInfo:hover, #modifyReser:hover, #deleteReser:hover,
+#modifyReserResult:hover, #createNoticeMove:hover, #modifyNotice:hover,
+#deleteNotice:hover, #modifyNoticeResult:hover, .alldelete:hover svg {
+   stroke-dashoffset: -480;
+}
+
+main section #arti1 #noticeButtons{
+	text-align: end;
+    margin: 5px 60px 0 0px;
 }

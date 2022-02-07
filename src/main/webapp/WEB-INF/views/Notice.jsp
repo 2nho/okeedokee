@@ -27,97 +27,10 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="/okeedokee/css/notice.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
-<style type="text/css">
-/* 메인 */
-main {
-	display: flex;
-	flex-direction: row;
-}
-
-main section {
-	width: 1200px;
-	height: 680px;
-	margin: auto;
-}
-
-/* article1 */
-main section article #noticeBoard {
-	margin: 20px 25px 0 25px;
-	padding: 25px;
-	border: 25px solid #f9f1c0;
-    border-radius: 25px;
-}
-
-main section #arti1 #noticeBoard h1:nth-child(1)::after {
-	content: "";
-	display: block;
-	width: 100%;
-	border-bottom: 2px solid black;
-	margin-top: 10px;
-}
-
-table thead tr th:nth-of-type(1) {width: 100px;}
-table thead tr th:nth-of-type(2) {width: 500px;}
-table thead tr th:nth-of-type(3) {width: 350px;}
-table thead tr th:nth-of-type(4) {width: 250px;}
-table thead tr th:nth-of-type(5) {width: 100px;}
-table thead tr:nth-child(1)::after {
-	content: "";
-	display: block;
-	width: 100%;
-	border-bottom: 2px solid black;
-}
-
-table {
-	text-align: center;
-	border-bottom: 1px solid black;
-	border-collapse: collapse;
-}
-
-table tr{
-	line-height:35px;
-	text-align: center;
-	border-bottom: 1px dotted black;
-}
-
-#NoticePage{
-	margin-top:20px;
-	text-align: center;
-}
-
-#NoticePage a {
-	font-size:1.3rem;
-	color:black;
-	transition:0.7s;
-}
-
-#NoticePage span {
-	font-size:1.3rem;
-	color:#FBD157;
-	transition:0.7s;
-}
-
-#NoticePage a:hover {
-	transition:0.7s;
-	color: #FBD157;
-}
-
-#NoticePage input, select{
-	border : 1px solid #FBD157;
-	outline: none;
-}
-
-main section #arti1 #noticeButtons{
-	text-align: end;
-    margin: 5px 60px 0 0px;
-}
-
-
-</style>
 </head>
 <body>
-
 	<div class="totalContainer">
 		<!-- 헤더 불러오기 -->
 		<jsp:include page="/WEB-INF/views/layout/header.jsp" />
@@ -144,7 +57,7 @@ main section #arti1 #noticeButtons{
 										<c:forEach var="item" items="${list}">
 											<tr>
 												<td>${item.num }</td>
-												<td><a href="${pageContext.request.contextPath}/Notice/detail?num=${item.num}">${item.title }</a></td>
+												<td><a href="/okeedokee/Notice/detail?num=${item.num}">${item.title }</a></td>
 												<td>${item.date }</td>
 												<td>이제승</td>
 												<td>
@@ -161,13 +74,13 @@ main section #arti1 #noticeButtons{
 								</tbody>
 							</table>
 							
-							<div id="NoticePage">
+							<div id="NoticeBBS">
 								<c:choose>
 									<c:when test="${(minBlock-1) < 1 }">
 										<!-- <span>◀</span> -->
 									</c:when>
 									<c:otherwise>
-										<a href="${pageContext.request.contextPath}/Notice/main?num=${minBlock-1}${query}">◀◀</a>
+										<a href="/okeedokee/Notice/main?num=${minBlock-1}${query}">◀◀</a>
 									</c:otherwise>
 								</c:choose>
 								&nbsp;&nbsp;
@@ -176,7 +89,7 @@ main section #arti1 #noticeButtons{
 										<!-- <span>◀◀</span> -->
 									</c:when>
 									<c:otherwise>
-										<a href="${pageContext.request.contextPath}/Notice/main?num=${num-1}${query}">◀</a>
+										<a href="/okeedokee/Notice/main?num=${num-1}${query}">◀</a>
 									</c:otherwise>
 								</c:choose>
 								
@@ -189,7 +102,7 @@ main section #arti1 #noticeButtons{
 										</c:when>
 										<c:otherwise>
 											<!-- 계산된 값으로 페이지 재 호출 -->
-											<a href="${pageContext.request.contextPath}/Notice/main?num=${i}${query}">${i }</a>
+											<a href="/okeedokee/Notice/main?num=${i}${query}">${i }</a>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
@@ -199,7 +112,7 @@ main section #arti1 #noticeButtons{
 										<!-- <span>▶</span> -->
 									</c:when>
 									<c:otherwise>
-										<a href="${pageContext.request.contextPath}/Notice/main?num=${num+1}${query}">▶</a>		
+										<a href="/okeedokee/Notice/main?num=${num+1}${query}">▶</a>		
 									</c:otherwise>
 								</c:choose>
 								&nbsp;&nbsp;
@@ -208,7 +121,7 @@ main section #arti1 #noticeButtons{
 									<!-- 	<span>▶▶</span> -->
 									</c:when>
 									<c:otherwise>
-										<a href="${pageContext.request.contextPath}/Notice/main?num=${maxBlock+1}${query}">▶▶</a>
+										<a href="/okeedokee/Notice/main?num=${maxBlock+1}${query}">▶▶</a>
 									</c:otherwise>
 								</c:choose><br />
 								<%
@@ -248,7 +161,7 @@ main section #arti1 #noticeButtons{
 						</div>
 					</div>
 					<div id="noticeButtons">
-					    <button id="createNotice">
+					    <button id="createNoticeMove">
 					         <svg width="90px" height="30px" viewBox="0 0 90 30" class="border">
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
@@ -263,28 +176,6 @@ main section #arti1 #noticeButtons{
 		<!-- 푸터 불러오기 -->
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
-	
-	<script>
-		$(function(){
-			$("#createNotice").click(function(){
-				location.href = "${pageContext.request.contextPath}/Notice/notice_create";
-			});
-			
-			$("#search").click(function(){
-				let category = $("#category").val();
-				let text = $("#text").val();
-				
-				if(category == "title"){
-					location.href = "${pageContext.request.contextPath}/Notice/main?title="+text;
-				}else if(category == "content"){
-					location.href = "${pageContext.request.contextPath}/Notice/main?content="+text;
-				}else if(category == "both"){
-					location.href = "${pageContext.request.contextPath}/Notice/main?content="+text+"&title="+text;
-				}
-				
-				
-			});
-		});
-	</script>
+	<script type="text/javascript" src="/okeedokee/js/notice.js"></script>
 </body>
 </html>
