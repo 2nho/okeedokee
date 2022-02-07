@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,104 +23,89 @@
 						<h3>후원 / 자원봉사</h3>
 					</div>
 					<div id="saveSubTitle">
-						<a href="Save" id="focus"><h4>자원봉사</h4></a> 
-						<a href="donation"><h4>후원하기</h4></a> 
+						<a href="Save" id="focus"><h4>자원봉사</h4></a> <a href="donation"><h4>후원하기</h4></a>
 					</div>
 				</div>
 			</nav>
 
-			<div id="volunteerNav">
-				<div class="in">
-					<h1>자원봉사 신청하기</h1>
-				</div>
-			</div>
-			
-			<div class="clearfix">
-				<img alt="" src="media/logo/mainLogo.png">
-			</div>
-			
-			<table width="685" border="0" style="margin-left: auto; margin-right: auto;">
+			<section>
+				<article id="arti2">
+					<div id="boardBox">
+						<h1>자원봉사 신청하기</h1>
 
-				<tr>
-					<td width="152">제목</td>
-					<td width="220">구디아카데미 쉼터 자원 봉사자모집</td>
-				</tr>
-				<tr>
-					<td width="116">단체 및 시설 이름</td>
-					<td width="202">서울시 유기견보호회</td>
-				</tr>
-				<tr>
-					<td width="116">주소</td>
-					<td width="202">서울시 땡땡시 떙떙구</td>
-				</tr>
-				<tr>
-					<td width="116">시설 연락처</td>
-					<td width="202">010-0000-0000</td>
-				</tr>
-				<tr>
-					<td width="116">모집 기간</td>
-					<td width="202">상시 모집</td>
-				</tr>
-				<tr>
-					<td width="116">봉사 활동기간</td>
-					<td width="202">2022-01-14 ~ 2022-02-09</td>
-				</tr>
-			</table>
+						<div id="btnBox">
+							<c:if test="${sessionScope.account.level eq 'A'}">
+								<a
+									href="${pageContext.request.contextPath}/reviseVol?num=${volta.num}">수정</a>
+								<a
+									href="${pageContext.request.contextPath}/deleteVol?num=${volta.num}">삭제</a>
+							</c:if>
+						</div>
 
-			
+						<div id="adminlist">
+							<table>
+								<colgroup>
+									<col style="width: 40%;" />
+									<col style="width: auto;" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<td>제목</td>
+										<td><input type="text" name="title" size="50"
+											maxlength="50" value="${volta.title}"></td>
+									</tr>
+									<tr>
+										<td>보호소 이름</td>
+										<td><input type="text" name="careName" id="careName"
+											size="50" maxlength="50" value="${volta.careName}" readonly="readonly"></td>
+									</tr>
+									<tr>
+										<td>보호소 연락처</td>
+										<td><input type="text" name="phNum" id="phNum" size="50"
+											maxlength="12" value="${volta.phNum}" readonly="readonly"></td>
+									</tr>
+									<tr>
+										<td>보호소 주소</td>
+										<td><input type="text" name="addr" id="addr" size="50"
+											maxlength="50" value="${volta.addr}" readonly="readonly"></td>
+									</tr>
+									<tr>
+										<td>상세설명</td>
+										<td><textarea name="detailText" id="detailText" rows="10"
+												cols="50" readonly="readonly">${volta.detailText}</textarea></td>
+									</tr>
+									<tr>
+										<td>활동기간</td>
+										<td><input type="date" id="dateFrom" name="dateFrom"
+											value="${volta.dateFrom}" readonly="readonly"> <span> ~ </span> 
+											<input type="date" id="dateTo" name="dateTo" value="${volta.dateTo}" readonly="readonly">
+										</td>
+									</tr>
+								</tbody>
+							</table>
 
-			<table width="685" style="margin-left: auto; margin-right: auto;">
-				<tr>
-					<td>상세 내용</td>
-					<td width="571" valign="top" style="padding-top: 7px;">안녕하세요<br>
-						구디아카데미 쉼터에 자원봉사하실 분을 모집합니다.<br> 장소는 서울시에 있습니다.<br> 하는일은
-						000입니다.<br></td>
-				</tr>
-			</table>
-			<h2 style="text-align: center;">신청자 리스트</h2>
-			<table style="margin-left: auto; margin-right: auto;">
-				<colgroup>
-					<col width="100px" />
-					<col width="200px" />
-					<col width="100px" />
-					<col width="200px" />
-				</colgroup>
-				<thead>
-					<tr>
-						<th>이름</th>
-						<th>전화번호</th>
-						<th>이메일</th>
-						<th>신청일</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>예시 이름</td>
-						<td>예시 전화번호</td>
-						<td>예시 이메일</td>
-						<td>예시 신청일<a href="#" role="button" class="btn btn-info">삭제</a></td>
-					</tr>
-					
-				<thead>
-					<tr>
-						<th>이름</th>
-						<th>전화번호</th>
-						<th>이메일</th>
-						<th>신청일</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>예시 이름</td>
-						<td>예시 전화번호</td>
-						<td>예시 이메일</td>
-						<td>예시 신청일</td>
-					</tr>
-				</tbody>
-				
-			</table>
-			<a href="#" role="button" class="btn out-info2">수정하기</a>
-			<button type="submit" class="btn submit" style="text-align: right;">신청하기</button>
+							<div class="comment">
+								<div class="commentCreate">
+									<input type="date" name="dateFrom" id="dateFrom" min="${volta.dateFrom }" max="${volta.dateTo}" />
+									<input type="date" name="dateTo" id="dateTo"  min="${volta.dateFrom }" max="${volta.dateTo}" />
+									<input type="hidden" name="num" id="num" value="${sessionScope.account.mnum}" />
+									<input type="hidden" name="bnum" id="bnum" value="${volta.num}" />
+									<div class="cmtSubmitBox">
+										<button type="button" id="cmtSubmit">신청</button>
+									</div>
+								</div>
+								<br />
+								<h3>신청내역</h3>
+								<hr />
+								<br />
+								<div class="commentList" id="commentList"></div>
+
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+
 		</main>
 
 

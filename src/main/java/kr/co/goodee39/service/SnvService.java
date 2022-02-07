@@ -63,7 +63,22 @@ public class SnvService {
 		model.addAttribute("minBlock", minBlock);
 		model.addAttribute("maxBlock", maxBlock);
 	}
+	
+	//봉사자 모집글 1개 가져오기
+	public void selectVoluntary(int num, Model model) {
+		
+		voluntaryVO vo = new voluntaryVO();
+		vo.setNum(num);
+		
+		model.addAttribute("volta", sqlSessionTemplate.selectOne("volta.selectVoltaOne", vo));
+	}
 
+	
+	//관리자의 봉사자 모집 리스트 등록
+	public void insertVoluntaryList(voluntaryVO vo) {
+		sqlSessionTemplate.insert("volta.insertVoltaList", vo);
+	}
+	
 	// 기부 테이블에 기부내역 등록하기
 	public void insertDonation(DonationVO vo) {
 		sqlSessionTemplate.insert("dona.insertDona", vo);

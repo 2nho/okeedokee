@@ -13,7 +13,7 @@
 		<typeAlias type="kr.co.goodee39.vo.MemberVO" alias="memberVO"/>
 		<typeAlias type="kr.co.goodee39.vo.DonationVO" alias="DonaVO"/>
 		<typeAlias type="kr.co.goodee39.vo.reportVO" alias="repVO"/>
-		<typeAlias type="kr.co.goodee39.vo.VolunteerVO" alias="VolunteerVO"/>
+		<typeAlias type="kr.co.goodee39.vo.volunteerVO" alias="volteVO"/>
 		<typeAlias type="kr.co.goodee39.vo.ReservationVO" alias="rvo"/>
 		<typeAlias type="kr.co.goodee39.vo.voluntaryVO" alias="voltaVO"/>
 		<typeAlias type="kr.co.goodee39.vo.calendarVO" alias="cVO"/>
