@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="/okeedokee/css/reservation.css" />
+<script type="text/javascript" src="/okeedokee/smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+<link rel="stylesheet" href="/okeedokee/css/reservation.css?eargaerg" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 
 </head>
@@ -18,11 +19,11 @@
 	<!-- 헤더 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
 		<main>
-			<section>
+			<section class="reserCreate">
 				<article id="arti1">
 					<div id="reserBoard">
 						<h1>방문 예약 신청</h1>
-						<form:form modelAttribute="rvo" action="${pageContext.request.contextPath}/reservationCreate" type="POST" id="submitCreate">
+						<form:form modelAttribute="rvo" action="/okeedokee/reservationCreate" type="POST" id="submitCreate">
 							<form:hidden path="mnum" value="${sessionScope.account.mnum}"/>
 							<form:hidden path="kindCd" value="${vo.kindCd}"/>
 							<form:hidden path="sexCd" value="${vo.sexCd}"/>
@@ -51,10 +52,11 @@
 								<li><h3>${vo.careNm}</h3></li>
 								<li><h3>${vo.careTel}</h3></li>
 								<li><h3>상담사전정보 : </h3></li>
-								<form:textarea path="content" cols="70" rows="10" 
+								<li style="position: absolute;"><form:textarea path="content" cols="70" rows="10" id="content" name="content"
 								style="resize:none; outline:none; position: relative; bottom: 100px;}"
-								placeHolder="상담 사전 정보를 입력해주세요."/>
-								<img src="${vo.dogImg}" alt="">
+								placeHolder="상담 사전 정보를 입력해주세요."/><img src="${vo.dogImg}" alt=""></li>
+								
+								
 							</ul>
 						</form:form>
 						<div class="main-content-info">
@@ -113,7 +115,7 @@
 					         </svg>
 					         <span>목록</span>
 					    </button>
-				    	<button id="createReser">
+				    	<button id="createReser" onclick="submitPost()">
 				         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 				           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 				           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
@@ -128,6 +130,6 @@
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
-<script type="text/javascript" src="/okeedokee/js/reservation.js"></script>
+<script type="text/javascript" src="/okeedokee/js/reservation.js?sdfwesdfsdfrf"></script>
 </body>
 </html>

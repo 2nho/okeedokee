@@ -19,7 +19,7 @@
 <link rel="icon" href="media/logo/favicon.ico">
 <link rel="stylesheet" href="css/mypage.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="/okeedokee/css/reservation.css?sdfasdfsdf" />
+<link rel="stylesheet" href="/okeedokee/css/reservation.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 </head>
 <body>

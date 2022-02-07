@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="/okeedokee/smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <link rel="stylesheet" href="/okeedokee/css/reservation.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 
@@ -18,7 +19,7 @@
 	<!-- 헤더 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
 		<main>
-			<section>
+			<section class="reserCreate">
 				<article id="arti1">
 					<div id="reserBoard">
 						<h1>방문 예약 상세</h1>
@@ -40,10 +41,9 @@
 								<li><h3>${rvo.careNm}</h3></li>
 								<li><h3>${rvo.careTel}</h3></li>
 								<li><h3>상담사전정보 : </h3></li>
-								<textarea path="content" cols="70" rows="10" readonly
-				     			style="resize:none; outline:none; position: relative; bottom: 100px;">${rvo.content}</textarea>
-								  
-								<img src="${rvo.dogImg}" alt="">
+								<li style="position: absolute;"><textarea path="content" cols="70" rows="10" readonly id="content" name="content" 
+				     			>${rvo.content}</textarea>
+				     			<img src="${rvo.dogImg}" alt=""></li>
 							</ul>
 						</form:form>
 						<div class="main-content-info">

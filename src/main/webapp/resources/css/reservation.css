@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+
 main {
 	display: flex;
 	flex-direction: row;
@@ -7,7 +9,7 @@ main {
 
 main section {
 	width: 1200px;
-	height: 680px;
+	height: 775px;
 	margin: auto;
 }
 
@@ -16,6 +18,7 @@ main .reserBBS {
 	height: 730px;
 	margin: auto;
 }
+
 
 /* 상담예약 게시판 */
 main section article #reserBBSBoard {
@@ -86,7 +89,7 @@ main section #arti1 #noticeButtons{
 /* 상담예약 생성 */
 
 main section article #reserBoard {
-	height:620px;
+	height:708px;
 	margin: 20px 25px 0 25px;
 	padding: 25px;
 	border: 25px solid #f9f1c0;
@@ -107,6 +110,10 @@ main section #arti1 #reserBoard h1:nth-child(1)::after {
 	margin-top: 10px;
 }
 
+main section #arti1 #reserBoard #submitModify iframe {
+	pointer-events: none
+}
+
 main section #arti1 #reserBoard ul {
 	background-color: #f9f1c0;
 	border-radius: 15px 15px;
@@ -117,12 +124,12 @@ main section #arti1 #reserBoard form img {
 	width: 300px;
 	height: 300px;
 	position: relative;
-	bottom:100px;
-	left: 100px;
+	bottom: 350px;
+    left: 630px;
 }
 
 main section #arti1 #reserBoard form ul{
-    height: 444px;
+    height: 520px;
 }
 
 main section #arti1 #reserBoard form ul input{
