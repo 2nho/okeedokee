@@ -100,7 +100,11 @@ public class MypageController {
 		return "redirect:/reservation";
 	}
 	
-	
+	@GetMapping("/reservationDelete")
+	public String delNotice(ReservationVO vo) {
+		service.deleteReser(vo);
+		return "redirect:/reservation";
+	}
 
 	// 실종, 목격내역 이동
 	/*

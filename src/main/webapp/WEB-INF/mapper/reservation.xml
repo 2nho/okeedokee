@@ -65,7 +65,7 @@
 	
 	<delete id="deleteReser" parameterType="rvo">
 		<!-- 실제 지우는 것이 아닌 isdelete의 신호만 바꾸주어서 select 하지 못하도록 함 -->
-		update reservation set del='Y' where num=#{num}
+		update reservation set del='Y' where rnum=#{rnum} and mnum=#{mnum}
 	</delete>
 	
 	<insert id="insertReser" parameterType="rvo"

@@ -5,7 +5,7 @@ let init_Reservation = function () {
 	today.setMonth(today.getMonth() + 1); 
 	let dateResult = getDateZeroPadding(today.getMonth(), today.getDate());
 	todayResult = today.getFullYear() + '-' + dateResult.monthResult + '-' + dateResult.dateResult;
-	if("#reserDate" == ""){
+	if($("#reserDate").val() == ""){
 		$('#reserDate').val(todayResult);
 	}
 	
@@ -46,6 +46,8 @@ $(document).ready(function() {
 
 $(function() {
 	const modifyRnum = $("#modifyRnum").val();
+	const deleteMnum = $("#deleteMnum").val();
+	console.log(deleteMnum);
 	
 	$("#listMove").click(function(){
 		location.href = "/okeedokee/reservation";
@@ -56,11 +58,16 @@ $(function() {
 			$("#submitCreate").submit();
 		}
 	});
-	
-	
+
 	$("#modifyReser").click(function(){
 		if(confirm("수정하시겠습니까?")){
 			location.href = "/okeedokee/reservationModify?rnum="+modifyRnum;
+		}
+	});
+	
+	$("#deleteReser").click(function(){
+		if(confirm("삭제하시겠습니까?")){
+			location.href = "/okeedokee/reservationDelete?rnum="+modifyRnum+"&mnum="+deleteMnum;
 		}
 	});
 	

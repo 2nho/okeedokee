@@ -59,6 +59,7 @@ public class MypageService {
 	public void selectReser(ReservationVO vo) {
 		ReservationVO vo2 = sqlSessionTemplate.selectOne("reservation.selectReser", vo);
 		vo.setRnum(vo2.getRnum());
+		vo.setMnum(vo2.getMnum());
 		vo.setReserName(vo2.getReserName());
 		vo.setContent(vo2.getContent());
 		vo.setReserDate(vo2.getReserDate());
@@ -77,5 +78,9 @@ public class MypageService {
 
 	public void updateReser(ReservationVO vo) {
 		sqlSessionTemplate.update("reservation.updateReser", vo);
+	}
+
+	public void deleteReser(ReservationVO vo) {
+		sqlSessionTemplate.delete("reservation.deleteReser",vo);
 	}
 }
