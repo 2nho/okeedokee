@@ -117,10 +117,11 @@ public class ReportService {
 		//게시글 번호 설정
 		vo.setNum(num);
 		
-		//번호만 설정해도 나오지만 예방차원에서 멤버넘버 설정
-		MemberVO mvo = (MemberVO)session.getAttribute("account");
-		//vo.setMnum(mvo.getMnum());
 		
+		//번호만 설정해도 나오지만 예방차원에서 멤버넘버 설정
+		//MemberVO mvo = (MemberVO)session.getAttribute("account");
+		//vo.setMnum(mvo.getMnum());
+			
 		//임시 mnum설정
 		//vo.setMnum(100);
 		

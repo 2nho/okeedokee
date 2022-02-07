@@ -12,7 +12,7 @@
 		SELECT num, mnum, id, title, content, createdate, bdiv, status, del, url
 		FROM reporttbl
 		<where>
-			<if test="mnum != null">mnum = #{mnum}</if>
+			<if test="mnum != 0">mnum = #{mnum}</if>
 			<if test="id != null">AND id = #{id}</if>
 			<if test="status != null">AND status = #{status}</if>
 			<if test="del != null">AND del = #{del}</if>
@@ -25,7 +25,7 @@
 		FROM reporttbl
 		<where>
 			<if test="num != null">num = #{num}</if>
-			<if test="mnum != null">AND mnum = #{mnum}</if>
+			<if test="mnum != 0">AND mnum = #{mnum}</if>
 		</where>
 	</select>
 	
@@ -55,7 +55,7 @@
 	
 	<!-- 신고글 Status 수정 -->
 	<update id="updateRepStatus" parameterType="repVO">
-		UPDAET reporttbl
+		UPDATE reporttbl
 		SET status = 'Y'
 		WHERE num = #{num}
 	</update>

@@ -38,7 +38,7 @@
 								<label for="id">작성자&nbsp; |</label>
 								
 								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
-								<input type="text" name="id" id="id" readonly="readonly" value="${sessionScope.account.id}" />
+								<input type="text" name="id" id="id" readonly="readonly" value="${reportVO.id}" />
 								<input type="hidden" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
 								<div class="btnBox">
 									<a href="${pageContext.request.contextPath}/reviseReport?num=${reportVO.num}">수정</a>

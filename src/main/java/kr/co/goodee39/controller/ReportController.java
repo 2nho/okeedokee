@@ -88,6 +88,7 @@ public class ReportController {
 			reportVO vo, 
 			Model model) {
 
+		System.out.println("컨트 글번호: "+num);
 		service.selectReport(num, vo, session, model);
 
 		return "d_report_read";
@@ -159,7 +160,7 @@ public class ReportController {
 		
 		//댓글 작성자 회원 레벨 체크 : admin(A)레벨 댓글 작성시 답변완료 처리 위함
 		level.setLevel(mvo.getLevel());
-		
+
 		//코멘트 db추가
 		service.insertRepCmt(vo, level);
 		
