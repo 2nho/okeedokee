@@ -82,11 +82,6 @@
 		</main>
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
-	<script>
-		$(function() {
-			
-		});
-	</script>
 	<script type="text/javascript" src="/okeedokee/js/notice.js"></script>
 </body>
 </html>
