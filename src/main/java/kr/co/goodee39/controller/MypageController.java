@@ -138,11 +138,13 @@ public class MypageController {
 		return "g_mypage_donation";
 	}
 
+	/*
 	@GetMapping("/volunteerList")
 	public String volunteerList() {
 
 		return "g_mypage_volunteer";
 	}
+	*/
 	
 	//마이페이지의 신고 페이지는 전부 ReportController, ReportService에서 처리
 
