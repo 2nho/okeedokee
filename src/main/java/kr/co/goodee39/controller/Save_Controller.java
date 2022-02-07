@@ -1,5 +1,7 @@
 package kr.co.goodee39.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +21,7 @@ import kr.co.goodee39.service.SnvService;
 import kr.co.goodee39.vo.DonationVO;
 import kr.co.goodee39.vo.MemberVO;
 import kr.co.goodee39.vo.voluntaryVO;
+import kr.co.goodee39.vo.volunteerVO;
 
 @Controller
 public class Save_Controller {
@@ -26,8 +31,11 @@ public class Save_Controller {
 
 	// 후원, 자원봉사 메뉴 이동
 	@GetMapping("/Save")
-	public String Save(@RequestParam(defaultValue = "1") int num, @RequestParam(defaultValue = "") String careName,
-			@RequestParam(defaultValue = "") String addr, Model model) {
+	public String Save(
+			@RequestParam(defaultValue = "1") int num, 
+			@RequestParam(defaultValue = "") String careName,
+			@RequestParam(defaultValue = "") String addr,
+			Model model) {
 
 		service.selectVoltaList(num, careName, addr, model);
 
@@ -55,7 +63,8 @@ public class Save_Controller {
 	public String addVolta(@ModelAttribute("voltaVO") voluntaryVO vo) {
 
 		/*
-		 * System.out.println("8개 잘왔니?"); // 잘옴 System.out.println("1."+vo.getId());
+		 * System.out.println("8개 잘왔니?"); // 잘옴 
+		 * System.out.println("1."+vo.getId());
 		 * System.out.println("2."+vo.getTitle());
 		 * System.out.println("3."+vo.getCareName());
 		 * System.out.println("4."+vo.getAddr());
@@ -74,7 +83,10 @@ public class Save_Controller {
 
 	// 자원봉사 신청하기 페이지로 이동
 	@GetMapping("/voluntary")
-	public String voluntary(@RequestParam int num, Model model, HttpSession session) {
+	public String voluntary(
+			@RequestParam int num, 
+			Model model, 
+			HttpSession session) {
 		
 		String path = "";
 
@@ -91,6 +103,65 @@ public class Save_Controller {
 		return path;
 
 	}
+	
+	
+	
+	//봉사자 모집 댓글 가져오기
+	@GetMapping("/getVolte/{bnum}")
+	public ResponseEntity<List<volunteerVO>> getVolte(@PathVariable int bnum) {
+		
+		//게시글 번호 num을 bnum으로 설정
+		volunteerVO vvo = new volunteerVO();
+		vvo.setBnum(bnum);
+		
+		//service통해 코멘트 db긁어오기
+		List<volunteerVO> list = service.selectVolteCmt(vvo);
+		
+		//리턴타입 변수에 결과 담기 (단, status가 ok인 상황에서만!)
+		ResponseEntity<List<volunteerVO>> entity = new ResponseEntity<List<volunteerVO>>(list, HttpStatus.OK);
+		
+		return entity;
+	}
+	
+	
+	//봉사자 모집 댓글 추가
+	@PostMapping("/createVolte")
+	public ResponseEntity<volunteerVO> createComment(@RequestBody volunteerVO vo) {
+
+		System.out.println("횐번호 : "+vo.getMnum());
+		System.out.println("아이디 : "+vo.getId());
+		System.out.println("글번호 : "+vo.getBnum());
+		System.out.println("봉사시작 : "+vo.getDateFrom());
+		System.out.println("봉사끝 : "+vo.getDateTo());
+		System.out.println("폰번호 : "+vo.getPhNum());
+		
+		//코멘트 db추가
+		service.insertVolteCmt(vo);
+		
+		ResponseEntity<volunteerVO> entity = new ResponseEntity<volunteerVO>(vo, HttpStatus.OK);
+		
+		return entity;
+	}
+	
+	//봉사자 모집 댓글 삭제
+	@DeleteMapping("/deleteVolte")
+	public ResponseEntity<volunteerVO> deletetComment(@RequestBody volunteerVO vo, HttpSession session) {
+		
+		System.out.println("어떤 댓글 삭제? : "+vo.getNum());
+		
+		//세션에서 id정보 가져오기
+		MemberVO mvo = (MemberVO)session.getAttribute("account");
+		vo.setMnum(mvo.getMnum());
+		
+		//코멘트 db에서 삭제
+		service.deleteVolteCmt(vo);
+		
+		ResponseEntity<volunteerVO> entity = new ResponseEntity<volunteerVO>(vo, HttpStatus.OK);
+		
+		return entity;
+	}
+	
+	
 
 	// 후원하기 메뉴로 이동
 	@GetMapping("/donation")

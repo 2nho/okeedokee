@@ -7,8 +7,8 @@ public class volunteerVO {
 	private String id;
 	private int bnum;
 	private String careName;
-	private int dateFrom;
-	private int dateTo;
+	private String dateFrom;
+	private String dateTo;
 	private String createdate;
 	private String phNum;
 	private int start;
@@ -59,19 +59,19 @@ public class volunteerVO {
 		this.careName = careName;
 	}
 
-	public int getDateFrom() {
+	public String getDateFrom() {
 		return dateFrom;
 	}
 
-	public void setDateFrom(int dateFrom) {
+	public void setDateFrom(String dateFrom) {
 		this.dateFrom = dateFrom;
 	}
 
-	public int getDateTo() {
+	public String getDateTo() {
 		return dateTo;
 	}
 
-	public void setDateTo(int dateTo) {
+	public void setDateTo(String dateTo) {
 		this.dateTo = dateTo;
 	}
 	

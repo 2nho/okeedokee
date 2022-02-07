@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/snv.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -76,8 +78,8 @@
 									</tr>
 									<tr>
 										<td>활동기간</td>
-										<td><input type="date" id="dateFrom" name="dateFrom"
-											value="${volta.dateFrom}" readonly="readonly"> <span> ~ </span> 
+										<td><input type="date" id="dateFrom" name="dateFrom" value="${volta.dateFrom}" readonly="readonly"> 
+											<span> ~ </span> 
 											<input type="date" id="dateTo" name="dateTo" value="${volta.dateTo}" readonly="readonly">
 										</td>
 									</tr>
@@ -86,12 +88,12 @@
 
 							<div class="comment">
 								<div class="commentCreate">
-									<input type="date" name="dateFrom" id="dateFrom" min="${volta.dateFrom }" max="${volta.dateTo}" />
-									<input type="date" name="dateTo" id="dateTo"  min="${volta.dateFrom }" max="${volta.dateTo}" />
+									<input type="date" name="dateFrom1" id="dateFrom1" min="${volta.dateFrom}" max="${volta.dateTo}" title="${volta.dateFrom}"/>
+									<input type="date" name="dateTo1" id="dateTo1"  min="${volta.dateFrom}" max="${volta.dateTo}" title="${volta.dateTo}"/>
+									<input type="hidden" name="phNum" id="phNum" value="${volta.phNum}" />
 									<input type="hidden" name="sessionId" id="sessionId" value="${sessionScope.account.id}" />
 									<input type="hidden" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
 									<input type="hidden" name="bnum" id="bnum" value="${volta.num}" />
-									<input type="hidden" name="phNum" id="phNum" value="${volta.phNum}" />
 									<div class="cmtSubmitBox">
 										<button type="button" id="cmtSubmit">신청</button>
 									</div>
@@ -116,6 +118,7 @@
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
 
+<script type="text/javascript" src="js/voluntary.js"></script>
 
 </body>
 </html>

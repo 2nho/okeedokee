@@ -1,19 +1,20 @@
 package kr.co.goodee39.service;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import kr.co.goodee39.vo.DonationVO;
-import kr.co.goodee39.vo.mnwVO;
+import kr.co.goodee39.vo.mnwCmtVO;
 import kr.co.goodee39.vo.voluntaryVO;
+import kr.co.goodee39.vo.volunteerVO;
 
 @Service
 public class SnvService {
@@ -53,7 +54,7 @@ public class SnvService {
 		// 페이지 범위 최후숫자
 		int maxBlock = (((num - 1) / 5) + 1) * 5;
 
-		//view단으로 리스트 가져가기
+		// view단으로 리스트 가져가기
 		model.addAttribute("list", sqlSessionTemplate.selectList("volta.selectVolta", vo));
 
 		// view단으로 설정 가져가기
@@ -63,22 +64,41 @@ public class SnvService {
 		model.addAttribute("minBlock", minBlock);
 		model.addAttribute("maxBlock", maxBlock);
 	}
-	
-	//봉사자 모집글 1개 가져오기
+
+	// 봉사자 모집글 1개 가져오기
 	public void selectVoluntary(int num, Model model) {
-		
+
 		voluntaryVO vo = new voluntaryVO();
 		vo.setNum(num);
-		
+
 		model.addAttribute("volta", sqlSessionTemplate.selectOne("volta.selectVoltaOne", vo));
 	}
 
-	
-	//관리자의 봉사자 모집 리스트 등록
+	// 봉사자 모집 댓글 가져오기
+	public List<volunteerVO> selectVolteCmt(volunteerVO vo) {
+		return sqlSessionTemplate.selectList("volte.selectVolte", vo);
+	}
+
+	// 봉사자 모집 댓글 추가
+	public void insertVolteCmt(volunteerVO vo) {
+		//오늘 날짜 추가(사실 기본값 CURDATE라서 없어도 됨)
+		String today = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(new Date());
+		vo.setCreatedate(today);
+
+		sqlSessionTemplate.insert("volte.insertVolte", vo);
+
+	}
+	// 봉사자 모집 댓글 삭제 및 아예 리스트 삭제
+	public void deleteVolteCmt(volunteerVO vo) {
+		
+		sqlSessionTemplate.delete("volte.deleteVolte", vo);
+	}
+
+	// 관리자의 봉사자 모집 리스트 등록
 	public void insertVoluntaryList(voluntaryVO vo) {
 		sqlSessionTemplate.insert("volta.insertVoltaList", vo);
 	}
-	
+
 	// 기부 테이블에 기부내역 등록하기
 	public void insertDonation(DonationVO vo) {
 		sqlSessionTemplate.insert("dona.insertDona", vo);
