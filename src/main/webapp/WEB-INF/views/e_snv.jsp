@@ -23,8 +23,8 @@
 						<h3>후원 / 자원봉사</h3>
 					</div>
 					<div id="saveSubTitle">
-						<a href="Sav" id="focus"><h4>자원봉사</h4></a> 
-						<a href="supporting"><h4>보호소 후원하기</h4></a>
+						<a href="Save" id="focus"><h4>자원봉사</h4></a> 
+						<a href="donation"><h4>후원하기</h4></a>
 					</div>
 				</div>
 			</nav>
@@ -32,14 +32,14 @@
 			<!-- 게시판 -->
 			<div id="volunteerNav">
 				<div class="in">
-					<h1>기부 • 봉사 신청하기</h1>
+					<h1>자원봉사 신청하기</h1>
 				</div>
 			</div>
 			
 			<div id="volList">
 				<div id="valbtn">
 					<c:if test="${sessionScope.account.level eq 'A'}">
-					<a href="VolunteeList">
+					<a href="addVoluntary">
 						<button class="ClickBtn">자원봉사 등록하기</button>
 					</a>
 					</c:if>
@@ -58,13 +58,12 @@
 							<th>단체명</th>
 							<th>지역</th>
 							<th>등록일</th>
-							<!-- <th>사진</th> -->
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<th>1</th>
-							<td><a href="MemberSave">구디아카데미</a></td>
+							<td><a href="voluntary">구디아카데미</a></td>
 							<td>서울</td>
 							<td>2022-01-20</td>
 						</tr>

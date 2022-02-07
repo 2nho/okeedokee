@@ -22,8 +22,8 @@
 						<h3>후원 / 자원봉사</h3>
 					</div>
 					<div id="saveSubTitle">
-						<a href="Sav" id="focus"><h4>자원봉사</h4></a> 
-						<a href="supporting"><h4>보호소 후원하기</h4></a>
+						<a href="Save" id="focus"><h4>자원봉사</h4></a> 
+						<a href="donation"><h4>후원하기</h4></a>
 					</div>
 				</div>
 			</nav>
@@ -46,37 +46,37 @@
 							<!-- 관리자 -->
 							<td>관리자</td>
 							<td>
-								<input type="text" name="subject" size="50" maxlength="50" value="${sessionScope.account.id}" readonly>
+								<input type="text" name="id" size="50" maxlength="50" value="${sessionScope.account.id}" readonly>
 							</td>
 						</tr>
 						<tr>
 							<td>제목</td>
 							<td>
-								<input type="text" name="subject" size="50" maxlength="50">
+								<input type="text" name="title" size="50" maxlength="50">
 							</td>
 						</tr>
 						<tr>
 							<td>보호소 이름</td>
 							<td>
-								<input type="text" name="subject" size="50" maxlength="50">
+								<input type="text" name="name" id="name" size="50" maxlength="50">
 							</td>
 						</tr>
 						<tr>
 							<td>보호소 연락처</td>
 							<td>
-								<input type="text" name="subject" size="50"	maxlength="50">
+								<input type="text" name="phNum" id="phNum" size="50" maxlength="11">
 							</td>
 						</tr>
 						<tr>
 							<td>보호소 주소</td>
 							<td>
-								<input type="text" name="subject" size="50" maxlength="50">
+								<input type="text" name="addr" id="addr" size="50" maxlength="50">
 							</td>
 						</tr>
 						<tr>
 							<td>상세설명</td>
 							<td>
-								<textarea name="detailExp" rows="10" cols="50"></textarea>
+								<textarea name="detailText" id="detailText" rows="10" cols="50"></textarea>
 							</td>
 						</tr>
 						<tr>
@@ -84,22 +84,25 @@
 							<td>
 								<input type="date" id="dateFrom" name="dateFrom">
 								<span> ~ </span>
-								<input type="date" id="dateTO" name="dateTO">
+								<input type="date" id="dateTo" name="dateTo">
 							</td>
 						</tr>
 						<tr>
 							<td>사진첨부</td>
-							<td><a href="#">사진 추가하기</a> <a href="#">사진 삭제하기</a>
+							<td>
+								<a href="#">사진 추가하기</a> 
+								<a href="#">사진 삭제하기</a>
 								<div id="fifl1">
 									<input type="file" name="file">
 								</div></td>
 						</tr>
 					</tbody>
 				</table>
+				<div id="admin3" align="center">
+					<button>등록하기</button>
+				</div>
 			</div>
-			<div id="admin3" align="center">
-				<button>등록하기</button>
-			</div>
+			
 		</main>
 
 

@@ -13,16 +13,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.goodee39.service.MypageService;
+import kr.co.goodee39.service.SnvService;
+import kr.co.goodee39.vo.DonationVO;
 import kr.co.goodee39.vo.MemberVO;
-import kr.co.goodee39.vo.NoticeVO;
 import kr.co.goodee39.vo.ReservationVO;
-import kr.co.goodee39.vo.reportVO;
 
 @Controller
 public class MypageController {
 
 	@Autowired
 	MypageService service;
+	
+	@Autowired
+	SnvService service2;
 	
 
 	// 마이페이지 이동
@@ -125,8 +128,13 @@ public class MypageController {
 
 	// 기부, 자원봉사 이동
 	@GetMapping("/donationList")
-	public String donationList() {
+	public String donationList(HttpSession session, DonationVO vo, Model model) {
 
+		MemberVO mvo = (MemberVO)session.getAttribute("account");
+		vo.setMnum(mvo.getMnum());
+		
+		service2.selectDonationOne(vo, model);
+		
 		return "g_mypage_donation";
 	}
 

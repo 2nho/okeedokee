@@ -22,8 +22,8 @@
 						<h3>후원 / 자원봉사</h3>
 					</div>
 					<div id="saveSubTitle">
-						<a href="Sav" id="focus"><h4>자원봉사</h4></a> 
-						<a href="supporting"><h4>보호소 후원하기</h4></a> 
+						<a href="Save" id="focus"><h4>자원봉사</h4></a> 
+						<a href="donation"><h4>후원하기</h4></a> 
 					</div>
 				</div>
 			</nav>

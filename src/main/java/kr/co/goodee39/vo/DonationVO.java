@@ -5,6 +5,7 @@ public class DonationVO {
 	private int mnum;
 	private String date;
 	private String donation;
+	
 	public int getNum() {
 		return num;
 	}
