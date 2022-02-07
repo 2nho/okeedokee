@@ -13,16 +13,13 @@ main section {
 
 main .reserBBS {
 	width: 1200px;
-	height: 900px;
+	height: 730px;
 	margin: auto;
 }
 
 /* 상담예약 게시판 */
 main section article #reserBBSBoard {
-	margin: 20px 25px 0 25px;
-	padding: 25px;
-	border: 25px solid #f9f1c0;
-    border-radius: 25px;
+	width: 100%;
 }
 
 table thead tr th:nth-of-type(1) {width: 100px;}
@@ -30,6 +27,7 @@ table thead tr th:nth-of-type(2) {width: 500px;}
 table thead tr th:nth-of-type(3) {width: 350px;}
 table thead tr th:nth-of-type(4) {width: 250px;}
 table thead tr th:nth-of-type(5) {width: 100px;}
+
 table thead tr:nth-child(1)::after {
 	content: "";
 	display: block;
@@ -39,7 +37,7 @@ table thead tr:nth-child(1)::after {
 
 table {
 	text-align: center;
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid black;
 	border-collapse: collapse;
 }
 
@@ -47,6 +45,10 @@ table tr{
 	line-height:35px;
 	text-align: center;
 	border-bottom: 1px dotted black;
+}
+
+table tr:nth-last-of-type(1){
+	border-bottom: 2px solid black;
 }
 
 #reserBBSPage{
