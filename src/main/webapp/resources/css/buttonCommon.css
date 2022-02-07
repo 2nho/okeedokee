@@ -22,7 +22,7 @@ button span {
   font-weight: 500
 }
 
-#createNotice,#listMove,#createReser {
+#createNotice,#listMove,#createReser,#modifyReser,#deleteReser,#modifyReserResult {
   width: 90px;
   height: 30px;
   cursor: pointer;
@@ -72,10 +72,16 @@ svg {
   stroke-dashoffset: 150;
   transition: 1s ease-in-out;
 }
-button:hover, #createNotice:hover, #listMove:hover,#createReser:hover,#openInfo:hover,#closeInfo:hover {
+
+button:hover, #createNotice:hover, #listMove:hover,#createReser:hover,
+#openInfo:hover,#closeInfo:hover,#modifyReser:hover,#deleteReser:hover,
+#modifyReserResult:hover {
   transition: 1s ease-in-out;
   background: #FBD157;
 }
-button:hover, #createNotice:hover, #listMove:hover,#createReser:hover,#openInfo:hover, #closeInfo:hover svg {
+
+button:hover, #createNotice:hover, #listMove:hover,#createReser:hover,
+#openInfo:hover, #closeInfo:hover,#modifyReser:hover,#deleteReser:hover,
+#modifyReserResult:hover svg {
   stroke-dashoffset: -480;
 }

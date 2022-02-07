@@ -4,6 +4,7 @@ public class ReservationVO {
 	
 	private int rnum;
 	private int mnum;
+	private int bdiv;
 	private String reserName;
 	private String content;
 	private String reserDate;
@@ -39,6 +40,16 @@ public class ReservationVO {
 
 	public void setRnum(int rnum) {
 		this.rnum = rnum;
+	}
+
+
+	public int getBdiv() {
+		return bdiv;
+	}
+
+
+	public void setBdiv(int bdiv) {
+		this.bdiv = bdiv;
 	}
 
 

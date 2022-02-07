@@ -96,7 +96,7 @@ main section #arti1 .content h1 {
 	font-size: 28px;
 	margin-bottom: 100px;
 }
-main section #arti1 .content h1::after {
+main section #arti1 .content>h1::after {
 	content: "";
 	display: block;
 	width: 100%;
@@ -148,6 +148,58 @@ main section #arti1 .content #cpiModify input{
 	outline: none;
 }
 
+/* 나의 실종, 목격 */
+/* 페이징 css */
+main section #arti1 .content .myList>#pagingBox,
+main section #arti1 .content .myList>.searchBox {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
+}
+
+main section #arti1 .content .myList>#pagingBox .paging {
+	color: #fbd157;
+}
+
+main section #arti1 .content .myList>.searchBox #searchType, 
+main section #arti1 .content .myList>.searchBox #search {
+	margin-right: 10px;
+}
+
+main section #arti1 .content .myList>.searchBox #searchBtn {
+	border: none;
+	outline: none;
+	background-color: #fbd157;
+	padding: 10px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+main section #arti1 .content .myList>.searchBox #searchBtn:hover {
+	background-color: #f9f1c0;
+	padding: 8px;
+	border: 2px solid #fbd157;
+}
+
+/* 후원, 봉사 */
+/* 후원 */
+main section #arti1 .content #donaAmount {
+	width: 100%;
+	display: flex;
+	flex-direction:column;
+	justify-content: right;
+	align-items: flex-end;
+	text-align: right;
+}
+main section #arti1 .content #donaAmount #amount {
+	width: 60%;
+	background-color: #FBD157;
+	font-size: 50px;
+	font-weight: bold;
+	padding: 10px;
+	border-radius: 15px 15px;
+}
 
 /* 나의 신고 내역 */
 main section #arti1 .content .myList {
@@ -227,9 +279,17 @@ main section #arti1 .content .myList>table>tbody>tr>td {
 	main section #arti1 .content .myList>table>colgroup>#colDate {
 		width: 22%;
 	}
+	/* 실종 목격 */
 	main section #arti1 .content .myList>table>colgroup>#colStatus {
 		width: 17%;
 	}
+		main section #arti1 .content .myList>.searchBox #searchBtn {
+	    padding: 5px;
+	}
+	main section #arti1 .content .myList>.searchBox #searchBtn:hover {
+		padding: 3px;
+		border: 2px solid #fbd157;
+	}	
 	
 }
 

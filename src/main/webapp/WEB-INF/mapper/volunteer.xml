@@ -7,7 +7,7 @@
 
 	<!-- 회원 자원봉사 리스트 가져오기 -->
 	<select id="selectVolunTeer" parameterType="VolunteerVO" resultType="VolunteerVO">
-		SELECT title, mnum, date 
+		SELECT title, mnum, perid 
 		FROM volunteer
 		WHERE mnum = #{mnum}
 	</select>

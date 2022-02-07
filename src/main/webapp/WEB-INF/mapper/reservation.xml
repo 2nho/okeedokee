@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="selectReserList" parameterType="rvo" resultType="rvo">
-		select rnum, mnum, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, 
+		select rnum, mnum, bdiv, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, 
 			   happenPlace, dogImg, careNm, careAddr, careTel, chargeNm
 		from reservation
 		where del = 'N'
@@ -46,32 +46,33 @@
 	</select>
 	
 	<select id="selectReser" parameterType="rvo" resultType="rvo">
-		select num, content, title, date, name, del, hasfile, bdiv
+		select rnum, mnum, bdiv, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, happenPlace, dogImg, careNm, careAddr, careTel, chargeNm
 		from reservation
 		where del = 'N'
-		and num=#{num}
+		and rnum=#{rnum}
 	</select>
 	
 	<update id="updateReser" parameterType="rvo">
 		update reservation
 		<set>
-			<if test="title!=null">, title=#{title}</if>
+			<if test="reserName!=null">, reserName=#{reserName}</if>
 			<if test="content!=null">, content=#{content}</if>
-			<if test="hasfile!=null">, hasfile=#{hasfile}</if>
+			<if test="reserDate!=null">, reserDate=#{reserDate}</if>
 		</set>
-		where num=#{num}
+		where rnum=#{rnum}
+		and mnum=#{mnum}
 	</update>
 	
 	<delete id="deleteReser" parameterType="rvo">
 		<!-- 실제 지우는 것이 아닌 isdelete의 신호만 바꾸주어서 select 하지 못하도록 함 -->
-		update reservation set del='Y' where num=#{num}
+		update reservation set del='Y' where rnum=#{rnum} and mnum=#{mnum}
 	</delete>
 	
 	<insert id="insertReser" parameterType="rvo"
 		useGeneratedKeys="true" keyProperty="rnum">
-		insert into reservation(mnum, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, 
+		insert into reservation(mnum, bdiv, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, 
 								happenPlace, dogImg, careNm, careAddr, careTel, chargeNm)
-		values(#{mnum}, #{reserName}, #{content}, #{reserDate}, #{kindCd}, #{sexCd}, #{age}, #{specialMark}, #{processState}, 
+		values(#{mnum}, #{bdiv}, #{reserName}, #{content}, #{reserDate}, #{kindCd}, #{sexCd}, #{age}, #{specialMark}, #{processState}, 
 				#{noticeSdt}, #{happenPlace}, #{dogImg}, #{careNm}, #{careAddr}, #{careTel}, #{chargeNm})
 	</insert>
 </mapper>

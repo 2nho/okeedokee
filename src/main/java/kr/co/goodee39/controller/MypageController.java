@@ -6,21 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.goodee39.service.MypageService;
+import kr.co.goodee39.service.SnvService;
+import kr.co.goodee39.vo.DonationVO;
 import kr.co.goodee39.vo.MemberVO;
 import kr.co.goodee39.vo.ReservationVO;
-import kr.co.goodee39.vo.reportVO;
 
 @Controller
 public class MypageController {
 
 	@Autowired
 	MypageService service;
+	
+	@Autowired
+	SnvService service2;
 	
 
 	// 마이페이지 이동
@@ -69,6 +74,14 @@ public class MypageController {
 		return "g_mypage_reservation"; 
 	}
 	
+	// 상담 예약 상세
+	@GetMapping("/reservationDetail")
+	public String reservationDetail(@ModelAttribute("rvo") ReservationVO vo) {
+		service.selectReser(vo);
+		return "g_mypage_reservation_detail";
+	}
+		
+	
 	// 상담 예약 생성
 	@PostMapping("/reservationCreate")
 	public String reservationCreate(ReservationVO vo) {
@@ -76,6 +89,27 @@ public class MypageController {
 		return "redirect:/reservation";
 	}
 	
+	// 상담 예약 수정
+	@GetMapping("/reservationModify")
+	public String reservationModify(@ModelAttribute("rvo") ReservationVO vo, int rnum) {
+		vo.setRnum(rnum);
+		service.selectReser(vo);
+		return "g_mypage_reservation_modify";
+	}
+	
+	// 상담 예약 수정완료
+	@PostMapping("/reservationModifyResult")
+	public String reservationModifyResult(ReservationVO vo) {
+		service.updateReser(vo);
+		return "redirect:/reservation";
+	}
+	
+	// 상담 예약 삭제
+	@GetMapping("/reservationDelete")
+	public String delNotice(ReservationVO vo) {
+		service.deleteReser(vo);
+		return "redirect:/reservation";
+	}
 
 	// 실종, 목격내역 이동
 	/*
@@ -94,8 +128,13 @@ public class MypageController {
 
 	// 기부, 자원봉사 이동
 	@GetMapping("/donationList")
-	public String donationList() {
+	public String donationList(HttpSession session, DonationVO vo, Model model) {
 
+		MemberVO mvo = (MemberVO)session.getAttribute("account");
+		vo.setMnum(mvo.getMnum());
+		
+		service2.selectDonationOne(vo, model);
+		
 		return "g_mypage_donation";
 	}
 

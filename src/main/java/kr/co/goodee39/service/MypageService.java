@@ -30,6 +30,7 @@ public class MypageService {
 
 	@Transactional
 	public void reserCreateService(ReservationVO vo) {
+		vo.setBdiv(6);
 		sqlSessionTemplate.insert("reservation.insertReser", vo);
 	}
 
@@ -54,5 +55,32 @@ public class MypageService {
 		model.addAttribute("maxBlock", maxBlock);
 		model.addAttribute("minBlock", minBlock);
 	}
-	
+
+	public void selectReser(ReservationVO vo) {
+		ReservationVO vo2 = sqlSessionTemplate.selectOne("reservation.selectReser", vo);
+		vo.setRnum(vo2.getRnum());
+		vo.setMnum(vo2.getMnum());
+		vo.setReserName(vo2.getReserName());
+		vo.setContent(vo2.getContent());
+		vo.setReserDate(vo2.getReserDate());
+		vo.setKindCd(vo2.getKindCd());
+		vo.setSexCd(vo2.getSexCd());
+		vo.setAge(vo2.getAge());
+		vo.setSpecialMark(vo2.getSpecialMark());
+		vo.setNoticeSdt(vo2.getNoticeSdt());
+		vo.setHappenPlace(vo2.getHappenPlace());
+		vo.setDogImg(vo2.getDogImg());
+		vo.setCareNm(vo2.getCareNm());
+		vo.setCareAddr(vo2.getCareAddr());
+		vo.setCareTel(vo2.getCareTel());
+		vo.setChargeNm(vo2.getChargeNm());
+	}
+
+	public void updateReser(ReservationVO vo) {
+		sqlSessionTemplate.update("reservation.updateReser", vo);
+	}
+
+	public void deleteReser(ReservationVO vo) {
+		sqlSessionTemplate.delete("reservation.deleteReser",vo);
+	}
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
+<!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
+<mapper namespace="volta">
+
+	<!-- 봉사처 리스트 -->
+	<select id="selectVolta" parameterType="voltaVO" resultType="voltaVO">
+		SELECT num, id, title, careName, addr, phNum, detailText, dateFrom, dateTo
+		FROM voluntarytbl
+		<choose>
+			<when test="careName != null and addr == null">
+				WHERE careName LIKE #{careName}
+			</when>
+			<when test="careName == null and addr != null">
+				WHERE addr LIKE #{addr}
+			</when>
+			<when test="careName != null and addr != null">
+				WHERE careName LIKE #{careName} or addr LIKE #{addr}
+			</when>
+		</choose>
+		ORDER BY num DESC
+		LIMIT #{start}, #{count}
+	</select>
+	
+	<!-- 총 게시글 수 구하기 -->
+	<select id="selectVoltaCnt" parameterType="voltaVO" resultType="int" >
+		SELECT count(*)
+		FROM voluntarytbl
+		<choose>
+			<when test="careName != null and addr == null">
+				WHERE careName LIKE #{careName}
+			</when>
+			<when test="careName == null and addr != null">
+				WHERE addr LIKE #{addr}
+			</when>
+			<when test="careName != null and addr != null">
+				WHERE careName LIKE #{careName} or addr LIKE #{addr}
+			</when>
+		</choose>
+	</select>
+	
+	<!-- 봉사처 1개 가져오기 -->
+	<select id="selectVoltaOne" parameterType="voltaVO" resultType="voltaVO">
+		SELECT num, id, title, careName, addr, phNum, detailText, dateFrom, dateTo
+		FROM voluntarytbl
+		<where>
+			<if test="num != 0">num = #{num}</if>
+		</where>
+	</select>
+
+</mapper>
