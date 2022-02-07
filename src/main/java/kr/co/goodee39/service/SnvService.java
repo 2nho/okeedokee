@@ -108,9 +108,15 @@ public class SnvService {
 	public void selectDonationOne(DonationVO vo, Model model) {
 
 		// 단위 ,로 변환
-		int dAmount = sqlSessionTemplate.selectOne("dona.selectMyDona", vo);
-		DecimalFormat formatter = new DecimalFormat("###,###");
-		String donationAmt = formatter.format(dAmount);
+		String donationAmt = "";
+		if(sqlSessionTemplate.selectOne("dona.selectMyDona", vo) != null) {
+			int dAmount = sqlSessionTemplate.selectOne("dona.selectMyDona", vo);
+			DecimalFormat formatter = new DecimalFormat("###,###");
+			donationAmt = formatter.format(dAmount);
+		}
+		else {
+			donationAmt = "0";
+		}
 
 		model.addAttribute("donationAmt", donationAmt);
 

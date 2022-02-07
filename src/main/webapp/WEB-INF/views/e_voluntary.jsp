@@ -90,7 +90,7 @@
 								<div class="commentCreate">
 									<input type="date" name="dateFrom1" id="dateFrom1" min="${volta.dateFrom}" max="${volta.dateTo}" title="${volta.dateFrom}"/>
 									<input type="date" name="dateTo1" id="dateTo1"  min="${volta.dateFrom}" max="${volta.dateTo}" title="${volta.dateTo}"/>
-									<input type="hidden" name="phNum" id="phNum" value="${volta.phNum}" />
+									<input type="hidden" name="phNum1" id="phNum1" value="${sessionScope.account.phNum}" />
 									<input type="hidden" name="sessionId" id="sessionId" value="${sessionScope.account.id}" />
 									<input type="hidden" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
 									<input type="hidden" name="bnum" id="bnum" value="${volta.num}" />
@@ -103,7 +103,6 @@
 								<hr />
 								<br />
 								<div class="commentList" id="commentList"></div>
-
 							</div>
 						</div>
 					</div>

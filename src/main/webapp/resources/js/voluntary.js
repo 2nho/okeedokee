@@ -52,8 +52,25 @@ function getCmmt() {
 				
 				//연락처
 				const ph = document.createElement("p");
-				ph.innerText = "연락처 : " + item.phNum;
-				p.classList.add("cmtContent");
+				ph.classList.add("cmtContent");
+				
+				//연락처 마스킹 처리
+				if(userId == item.id) {
+					ph.innerText = "연락처 : " + item.phNum;
+				}
+				else if(userId != item.id) {
+					var pattern = /^(\d{3})-?(\d{1,2})\d{2}-?\d(\d{3})$/;
+			        var result = "";			
+			        var match = pattern.exec(item.phNum);
+			        
+			        if(match) {
+			            result = match[1]+"-"+match[2]+"**-*"+match[3];
+			        } else {
+			            result = "***";
+			        }
+			        
+					ph.innerText = "연락처 : " + result;
+				}
 
 
 				//본인이 작성한 댓글의 삭제버튼만 나타나도록
@@ -125,7 +142,7 @@ function submitCmt() {
 		let careName = document.querySelector("#careName").value;
 		let dateFrom = document.querySelector("#dateFrom1").value;
 		let dateTo = document.querySelector("#dateTo1").value;
-		let phNum = document.querySelector("#phNum").value;
+		let phNum = document.querySelector("#phNum1").value;
 
 		console.log(dateFrom);
 		console.log(dateTo);
@@ -169,6 +186,7 @@ function submitCmt() {
 					p.innerText = "신청기간 : " + data.dateFrom + " ~ " + data.dateTo;
 					p.classList.add("cmtContent");
 
+					
 					//연락처
 					const ph = document.createElement("p");
 					ph.innerText = "연락처 : " + data.phNum;
