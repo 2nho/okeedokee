@@ -76,6 +76,6 @@ button:hover, #createNotice:hover, #listMove:hover,#createReser:hover,#openInfo:
   transition: 1s ease-in-out;
   background: #FBD157;
 }
-button:hover, #createNotice:hover, #listMove:hover,#createReser:hover,#openInfo:hover,,#closeInfo:hover svg {
+button:hover, #createNotice:hover, #listMove:hover,#createReser:hover,#openInfo:hover, #closeInfo:hover svg {
   stroke-dashoffset: -480;
 }

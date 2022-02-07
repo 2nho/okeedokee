@@ -2,6 +2,9 @@ package kr.co.goodee39.vo;
 
 public class ReservationVO {
 	
+	private int rnum;
+	private int mnum;
+	private String reserName;
 	private String content;
 	private String reserDate;
 	private String kindCd;
@@ -16,8 +19,48 @@ public class ReservationVO {
 	private String careAddr;
 	private String careTel;
 	private String chargeNm; 
+	private String del;
+	
+	private int start;
+	private int count;
+	
+	
+	
+	public ReservationVO() {
+		this.start = 0;
+		this.count = 10;
+	}
 
 	
+	public int getRnum() {
+		return rnum;
+	}
+
+
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
+
+
+	public int getMnum() {
+		return mnum;
+	}
+
+
+	public void setMnum(int mnum) {
+		this.mnum = mnum;
+	}
+
+	public String getReserName() {
+		return reserName;
+	}
+
+
+	public void setReserName(String reserName) {
+		this.reserName = reserName;
+	}
+
+
 	public String getContent() {
 		return content;
 	}
@@ -128,6 +171,34 @@ public class ReservationVO {
 
 	public void setChargeNm(String chargeNm) {
 		this.chargeNm = chargeNm;
+	}
+
+	public String getDel() {
+		return del;
+	}
+
+	public void setDel(String del) {
+		this.del = del;
+	}
+
+
+	public int getStart() {
+		return start;
+	}
+
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+
+	public int getCount() {
+		return count;
+	}
+
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 	
 	

@@ -11,7 +11,45 @@ main section {
 	margin: auto;
 }
 
-/* article1 */
+main .reserBBS {
+	width: 1200px;
+	height: 900px;
+	margin: auto;
+}
+
+/* 상담예약 게시판 */
+main section article #reserBBSBoard {
+	margin: 20px 25px 0 25px;
+	padding: 25px;
+	border: 25px solid #f9f1c0;
+    border-radius: 25px;
+}
+
+table thead tr th:nth-of-type(1) {width: 100px;}
+table thead tr th:nth-of-type(2) {width: 500px;}
+table thead tr th:nth-of-type(3) {width: 350px;}
+table thead tr th:nth-of-type(4) {width: 250px;}
+table thead tr th:nth-of-type(5) {width: 100px;}
+table thead tr:nth-child(1)::after {
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+}
+
+table {
+	text-align: center;
+	border-bottom: 1px solid black;
+	border-collapse: collapse;
+}
+
+table tr{
+	line-height:35px;
+	text-align: center;
+	border-bottom: 1px dotted black;
+}
+
+/* 상담예약 생성 */
 
 main section article #reserBoard {
 	height:620px;
@@ -47,6 +85,14 @@ main section #arti1 #reserBoard form img {
 	position: relative;
 	bottom:100px;
 	left: 100px;
+}
+
+main section #arti1 #reserBoard form ul{
+    height: 444px;
+}
+
+main section #arti1 #reserBoard form ul h3{
+    border: 1px solid #FBD157;
 }
 
 main section #arti1 #reserButtons{
@@ -116,3 +162,4 @@ main section #arti1 #reserButtons{
 #reserBoard::-webkit-scrollbar-thumb {background-color:#FBD157;border-radius: 10px;}
 #reserBoard::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
 width:16px;height:16px;background:#f1ef79;} 
+

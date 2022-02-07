@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="reservation">
+	<select id="selectReserCount" parameterType="rvo" resultType="int">
+		<!-- 전체 행 개수 가져오기 -->
+		select count(*)
+		from reservation
+		where del = 'N'
+		
+		<!-- 검색 동적 쿼리 조건을 통해서 색인 -->
+		<!-- <choose>
+			<when test="title != null and content != null">
+				and (title like #{title} or content like #{content})
+			</when>
+			<when test="title == null and content != null">
+				and content like #{content}
+			</when>
+			<when test="title != null and content == null">
+				and title like #{title}
+			</when>
+		</choose> -->
+	</select>
+	
+	<select id="selectReserList" parameterType="rvo" resultType="rvo">
+		select rnum, mnum, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, 
+			   happenPlace, dogImg, careNm, careAddr, careTel, chargeNm
+		from reservation
+		where del = 'N'
+		
+		<!-- <choose>
+			<when test="title != null and content != null">
+				and (title like #{title} or content like #{content})
+			</when>
+			<when test="title == null and content != null">
+				and content like #{content}
+			</when>
+			<when test="title != null and content == null">
+				and title like #{title}
+			</when>
+		</choose> -->
+			order by rnum desc		
+			limit #{start}, #{count}
+	</select>
+	
+	<select id="selectReser" parameterType="rvo" resultType="rvo">
+		select num, content, title, date, name, del, hasfile, bdiv
+		from reservation
+		where del = 'N'
+		and num=#{num}
+	</select>
+	
+	<update id="updateReser" parameterType="rvo">
+		update reservation
+		<set>
+			<if test="title!=null">, title=#{title}</if>
+			<if test="content!=null">, content=#{content}</if>
+			<if test="hasfile!=null">, hasfile=#{hasfile}</if>
+		</set>
+		where num=#{num}
+	</update>
+	
+	<delete id="deleteReser" parameterType="rvo">
+		<!-- 실제 지우는 것이 아닌 isdelete의 신호만 바꾸주어서 select 하지 못하도록 함 -->
+		update reservation set del='Y' where num=#{num}
+	</delete>
+	
+	<insert id="insertReser" parameterType="rvo"
+		useGeneratedKeys="true" keyProperty="rnum">
+		insert into reservation(mnum, reserName, content, reserDate, kindCd, sexCd, age, specialMark, processState, noticeSdt, 
+								happenPlace, dogImg, careNm, careAddr, careTel, chargeNm)
+		values(#{mnum}, #{reserName}, #{content}, #{reserDate}, #{kindCd}, #{sexCd}, #{age}, #{specialMark}, #{processState}, 
+				#{noticeSdt}, #{happenPlace}, #{dogImg}, #{careNm}, #{careAddr}, #{careTel}, #{chargeNm})
+	</insert>
+</mapper>

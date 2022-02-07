@@ -7,10 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.goodee39.service.MypageService;
 import kr.co.goodee39.vo.MemberVO;
+import kr.co.goodee39.vo.ReservationVO;
 import kr.co.goodee39.vo.reportVO;
 
 @Controller
@@ -18,6 +21,7 @@ public class MypageController {
 
 	@Autowired
 	MypageService service;
+	
 
 	// 마이페이지 이동
 	@GetMapping("/mypage")
@@ -55,13 +59,23 @@ public class MypageController {
 	public String cpiModify() {
 		return "g_mypage_cpi";
 	}
-
+	
+	
 	// 상담예약일 이동
-	@GetMapping("/reservation")
-	public String reservation() {
-
-		return "g_mypage_reservation";
+	@RequestMapping(value="/reservation", method=RequestMethod.GET)
+	public String getNoticeList(Model model, @RequestParam(defaultValue = "1") int num,
+											@RequestParam(defaultValue = "") String content) {
+		service.selectReserList(model, num, content);
+		return "g_mypage_reservation"; 
 	}
+	
+	// 상담 예약 생성
+	@PostMapping("/reservationCreate")
+	public String reservationCreate(ReservationVO vo) {
+		service.reserCreateService(vo);
+		return "redirect:/reservation";
+	}
+	
 
 	// 실종, 목격내역 이동
 	/*

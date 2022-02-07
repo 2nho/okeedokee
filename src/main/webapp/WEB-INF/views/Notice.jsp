@@ -27,6 +27,7 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 <style type="text/css">
 /* 메인 */
 main {
@@ -112,42 +113,7 @@ main section #arti1 #noticeButtons{
     margin: 5px 60px 0 0px;
 }
 
-.button {
-  width: 180px;
-  height: 60px;
-  position: absolute;
-}
-button {
-  width: 60px;
-  height: 25px;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid #FBD157;
-  outline: none;
-  transition: 1s ease-in-out;
-}
-svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: 1s ease-in-out;
-}
-button:hover {
-  transition: 1s ease-in-out;
-  background: #FBD157;
-}
-button:hover svg {
-  stroke-dashoffset: -480;
-}
-button span {
-  color: black;
-  font-size: 15px;
-  font-weight: 500
-}
+
 </style>
 </head>
 <body>
@@ -283,7 +249,7 @@ button span {
 					</div>
 					<div id="noticeButtons">
 					    <button id="createNotice">
-					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
+					         <svg width="90px" height="30px" viewBox="0 0 90 30" class="border">
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
 					         </svg>

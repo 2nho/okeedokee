@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 <style>
 	main {
 	display: flex;
@@ -59,42 +60,12 @@ main section #arti1 #noticeButtons{
     margin: 5px 60px 0 0px;
 }
 
-.button {
-  width: 180px;
-  height: 60px;
-  position: absolute;
-}
-button {
-  width: 60px;
-  height: 25px;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid #FBD157;
-  outline: none;
-  transition: 1s ease-in-out;
-}
-svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: 1s ease-in-out;
-}
-button:hover {
-  transition: 1s ease-in-out;
-  background: #FBD157;
-}
-button:hover svg {
-  stroke-dashoffset: -480;
-}
-button span {
-  color: black;
-  font-size: 15px;
-  font-weight: 500;
-}
+#noticeBoard::-webkit-scrollbar{width: 15px;}
+#noticeBoard::-webkit-scrollbar-track {background-color:white;}
+#noticeBoard::-webkit-scrollbar-thumb {background-color:#FBD157;border-radius: 10px;}
+#noticeBoard::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
+width:16px;height:16px;background:#f1ef79;} 
+
 </style>
 </head>
 <body>
@@ -104,11 +75,8 @@ button span {
 		<main>
 			<section>
 				<article id="arti1">
-					
-					
 					<div id="noticeBoard">
 						<h1>공지사항 작성</h1><br /><br />
-						
 						<form:form modelAttribute="NoticeVO" action="${pageContext.request.contextPath}/Notice/create_result">
 							<ul>
 								<li><label for="title"></label><form:input path="title" 
@@ -122,7 +90,6 @@ button span {
 								<form:hidden path="filelist"/>
 							</ul>
 						</form:form>
-
 						
 						<br>
 						<label for="upload">파일 추가 :</label><input type="file" id="upload" name="upload" multiple><br>
@@ -136,18 +103,17 @@ button span {
 					         </svg>
 					         <span>목록</span>
 					    </button>
-				    	<button id="create">
+				    	<button id="createNotice">
 				         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 				           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 				           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
 				         </svg>
-				         <span>작성</span>
+				         <span>작성 완료</span>
 					    </button>
 					</div>
 				</article>
 			</section>
 		</main>
-		
 	
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
@@ -157,7 +123,7 @@ button span {
 				location.href = "${pageContext.request.contextPath}/Notice/main";
 			});
 			
-			$("#create").click(function(){
+			$("#createNotice").click(function(){
 				if(confirm("작성하시겠습니까?")){
 					const formData = new FormData();
 					const $upload = $("#upload");
