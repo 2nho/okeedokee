@@ -55,11 +55,12 @@
 	<update id="updateReser" parameterType="rvo">
 		update reservation
 		<set>
-			<if test="title!=null">, title=#{title}</if>
+			<if test="reserName!=null">, reserName=#{reserName}</if>
 			<if test="content!=null">, content=#{content}</if>
-			<if test="hasfile!=null">, hasfile=#{hasfile}</if>
+			<if test="reserDate!=null">, reserDate=#{reserDate}</if>
 		</set>
-		where num=#{num}
+		where rnum=#{rnum}
+		and mnum=#{mnum}
 	</update>
 	
 	<delete id="deleteReser" parameterType="rvo">

@@ -5,7 +5,9 @@ let init_Reservation = function () {
 	today.setMonth(today.getMonth() + 1); 
 	let dateResult = getDateZeroPadding(today.getMonth(), today.getDate());
 	todayResult = today.getFullYear() + '-' + dateResult.monthResult + '-' + dateResult.dateResult;
-	$('#reserDate').val(todayResult);
+	if("#reserDate" == ""){
+		$('#reserDate').val(todayResult);
+	}
 	
 }
 
@@ -43,17 +45,29 @@ $(document).ready(function() {
 });
 
 $(function() {
+	const modifyRnum = $("#modifyRnum").val();
 	
 	$("#listMove").click(function(){
 		location.href = "/okeedokee/reservation";
 	});
 	
 	$("#createReser").click(function(){
-		$("#submitCreate").submit();
+		if(confirm("방문 예약하시겠습니까?")){
+			$("#submitCreate").submit();
+		}
 	});
 	
+	
 	$("#modifyReser").click(function(){
-		location.href="/okeedokee/reservationModify"
+		if(confirm("수정하시겠습니까?")){
+			location.href = "/okeedokee/reservationModify?rnum="+modifyRnum;
+		}
+	});
+	
+	$("#modifyReserResult").click(function(){
+		if(confirm("수정 완료하시겠습니까?")){
+			$("#submitModifyResult").submit();
+		}
 	});
 	
     $("#openInfo").click(function(){
