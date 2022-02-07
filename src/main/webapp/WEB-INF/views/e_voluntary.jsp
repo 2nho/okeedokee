@@ -88,7 +88,8 @@
 								<div class="commentCreate">
 									<input type="date" name="dateFrom" id="dateFrom" min="${volta.dateFrom }" max="${volta.dateTo}" />
 									<input type="date" name="dateTo" id="dateTo"  min="${volta.dateFrom }" max="${volta.dateTo}" />
-									<input type="hidden" name="num" id="num" value="${sessionScope.account.mnum}" />
+									<input type="hidden" name="sessionId" id="sessionId" value="${sessionScope.account.id}" />
+									<input type="hidden" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
 									<input type="hidden" name="bnum" id="bnum" value="${volta.num}" />
 									<div class="cmtSubmitBox">
 										<button type="button" id="cmtSubmit">신청</button>

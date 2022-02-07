@@ -4,10 +4,12 @@ public class volunteerVO {
 
 	private int num;
 	private int mnum;
+	private String id;
 	private int bnum;
 	private String careName;
 	private int dateFrom;
 	private int dateTo;
+	private String createdate;
 	private int start;
 	private int count;
 	
@@ -30,6 +32,14 @@ public class volunteerVO {
 
 	public void setMnum(int mnum) {
 		this.mnum = mnum;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public int getBnum() {
@@ -62,6 +72,15 @@ public class volunteerVO {
 
 	public void setDateTo(int dateTo) {
 		this.dateTo = dateTo;
+	}
+	
+
+	public String getCreatedate() {
+		return createdate;
+	}
+
+	public void setCreatedate(String createdate) {
+		this.createdate = createdate;
 	}
 
 	public int getStart() {
