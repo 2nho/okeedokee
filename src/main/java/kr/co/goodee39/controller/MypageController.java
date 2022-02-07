@@ -94,12 +94,14 @@ public class MypageController {
 		return "g_mypage_reservation_modify";
 	}
 	
+	// 상담 예약 수정완료
 	@PostMapping("/reservationModifyResult")
 	public String reservationModifyResult(ReservationVO vo) {
 		service.updateReser(vo);
 		return "redirect:/reservation";
 	}
 	
+	// 상담 예약 삭제
 	@GetMapping("/reservationDelete")
 	public String delNotice(ReservationVO vo) {
 		service.deleteReser(vo);

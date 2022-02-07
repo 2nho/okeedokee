@@ -49,6 +49,38 @@ table tr{
 	border-bottom: 1px dotted black;
 }
 
+#NoticePage{
+	margin-top:20px;
+	text-align: center;
+}
+
+#NoticePage a {
+	font-size:1.3rem;
+	color:black;
+	transition:0.7s;
+}
+
+#NoticePage span {
+	font-size:1.3rem;
+	color:#FBD157;
+	transition:0.7s;
+}
+
+#NoticePage a:hover {
+	transition:0.7s;
+	color: #FBD157;
+}
+
+#NoticePage input, select{
+	border : 1px solid #FBD157;
+	outline: none;
+}
+
+main section #arti1 #noticeButtons{
+	text-align: end;
+    margin: 5px 60px 0 0px;
+}
+
 /* 상담예약 생성 */
 
 main section article #reserBoard {
