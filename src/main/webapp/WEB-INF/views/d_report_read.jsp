@@ -40,6 +40,8 @@
 								<!-- !!!!!!!!!!!세션 아이디/회원번호로 수정 필!!!!!!!!!!!!!! -->
 								<input type="text" name="id" id="id" readonly="readonly" value="${reportVO.id}" />
 								<input type="hidden" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
+								<input type="hidden" name="sessionId" id="sessionId" value="${sessionScope.account.id}" />
+								<input type="hidden" name="level" id="level" value="${sessionScope.account.level}" />
 								<div class="btnBox">
 									<a href="${pageContext.request.contextPath}/reviseReport?num=${reportVO.num}">수정</a>
 									<a href="${pageContext.request.contextPath}/isdeleteReport?num=${reportVO.num}">삭제</a>

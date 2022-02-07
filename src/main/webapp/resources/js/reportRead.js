@@ -19,6 +19,9 @@ function getCmmt() {
 
 			for (const item of data) {
 
+				//삭제버튼 보여주기 위해 세션 회원 아이디 가져오기
+				let userId = document.querySelector("#sessionId").value;
+
 				//순수JS 동적쿼리로 댓글 보여지게 하기
 				const commentList = document.querySelector("#commentList");
 				const div = document.createElement("div");
@@ -45,7 +48,7 @@ function getCmmt() {
 				p.classList.add("cmtContent");
 			
 
-
+				if (userId == item.id) {
 				//삭제버튼
 				const delBtn = document.createElement("button");
 				delBtn.classList.add("cmtDelete");
@@ -166,7 +169,7 @@ function getCmmt() {
 
 				//div안에 생성된 수정 버튼 삽입
 				div3.append(modiBtn);
-				
+				}
 
 				//div안에 생성된 내용 삽입
 				//버튼이 먼저 삽입됐기 때문에 버튼 위로 추가
