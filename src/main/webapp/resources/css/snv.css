@@ -148,15 +148,6 @@ main section {
 #money1 option {
 	text-align: center;
 }
-#check_module {
-	padding: 6px;
-	background-color: #fbd157;
-	border: none;
-	outline: none;
-	font-weight: bold;
-	cursor: pointer;
-}
-
 
 .clearfix {
 	width: 100%;
@@ -222,4 +213,24 @@ main section {
 	justify-content:center;
 	align-content: center;
 	margin: 50px 0;
+}
+
+#donaAmount {
+	font-size: 20px;
+}
+
+#check_moduleBox {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	margin-top: 30px;
+}
+#check_module {
+	padding: 6px;
+	background-color: #fbd157;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 20px;
 }

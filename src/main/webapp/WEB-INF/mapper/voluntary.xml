@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
+<!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
+<mapper namespace="volta">
+
+	<!-- 봉사처 리스트, 봉사처 정보 1개 가져오기 -->
+	<select id="selectVolta" parameterType="voltaVO" resultType="voltaVO">
+		SELECT num, id, title, careName, addr, phNum, detailText, dateFrom, dateTo
+		FROM voluntarytbl
+	</select>
+	
+	<!-- 총 게시글 수 구하기 -->
+	<select id="selectVoltaCnt" parameterType="voltaVO" resultType="int" >
+		SELECT count(*)
+		FROM voluntarytbl
+		<choose>
+			<when test="title == null and careName != null and addr != null">
+				AND (careName LIKE #{careName} or addr LIKE #{addr})
+			</when>
+			<when test="title != null and careName == null and addr == null">
+				AND title LIKE #{title}
+			</when>
+			<when test="title == null and careName != null and addr == null">
+				AND careName LIKE #{careName}
+			</when>
+			<when test="title == null and careName == null and addr != null">
+				AND addr LIKE #{addr}
+			</when>
+		</choose>
+	</select>
+
+</mapper>

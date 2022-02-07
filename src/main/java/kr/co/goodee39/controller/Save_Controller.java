@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.goodee39.service.SnvService;
 import kr.co.goodee39.vo.DonationVO;
@@ -24,7 +25,15 @@ public class Save_Controller {
 
 	// 후원, 자원봉사 메뉴 이동
 	@GetMapping("/Save")
-	public String Save() {
+	public String Save(
+			@RequestParam(defaultValue = "1") int num,
+			@RequestParam(defaultValue = "") String title,
+			@RequestParam(defaultValue = "") String careName,
+			@RequestParam(defaultValue = "") String addr,
+			Model model) {
+		
+		service.selectVoltaList(num, title, careName, addr, model);
+		
 		return "e_snv";
 	}
 

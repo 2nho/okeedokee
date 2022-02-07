@@ -55,12 +55,14 @@
 										<option value="40">40,000</option>
 										<option value="50">50,000</option>
 									</select>
-									<button id="check_module" type="button">후원하기</button>
 								</p>
 							</td>
 						</tr>
 					</tbody>
 				</table>
+				<div id="check_moduleBox">
+					<button id="check_module" type="button">후원하기</button>
+				</div>
 			</div>
 		</main>
 

@@ -58,7 +58,7 @@
 						<tr>
 							<td>보호소 이름</td>
 							<td>
-								<input type="text" name="name" id="name" size="50" maxlength="50">
+								<input type="text" name="careName" id="careName" size="50" maxlength="50">
 							</td>
 						</tr>
 						<tr>
@@ -87,7 +87,7 @@
 								<input type="date" id="dateTo" name="dateTo">
 							</td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<td>사진첨부</td>
 							<td>
 								<a href="#">사진 추가하기</a> 
@@ -95,7 +95,7 @@
 								<div id="fifl1">
 									<input type="file" name="file">
 								</div></td>
-						</tr>
+						</tr> -->
 					</tbody>
 				</table>
 				<div id="admin3" align="center">
