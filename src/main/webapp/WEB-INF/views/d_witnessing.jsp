@@ -170,7 +170,6 @@
 							<!-- 검색 -->
 							<div class="searchBox">
 								<!-- 게시판 구분용 -->
-								<input type="hidden" name="bdiv" id="bdiv" value="4" />
 								<select name="searchType" id="searchType">
 									<option value="id">작성자</option>
 									<option value="title">제목</option>
