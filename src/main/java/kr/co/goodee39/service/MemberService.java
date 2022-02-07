@@ -1,9 +1,12 @@
 package kr.co.goodee39.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -18,16 +21,30 @@ public class MemberService {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	public String getMember(MemberVO vo, HttpSession session) {
+	public String getMember(MemberVO vo, HttpSession session, HttpServletResponse response) throws IOException{
 		MemberVO vo1 = sqlSessionTemplate.selectOne("member.selectMember", vo);
 		String path = "";
 		if(vo1 != null) {
 			// account 세션 등록
 			session.setAttribute("account", vo1);
 			// 동일한 id와 password가 있으면 아래 영역으로 보내라.
-			path = "redirect:/";
+			response.setContentType("text/html; charset=UTF-8");
+			// out 인스턴스 생성
+			PrintWriter out = response.getWriter();
+			// alert 메시지 생성 및 이동 경로 설정
+			String hello = "님 반갑습니다.";
+			out.println("<script>alert('안녕하세요. OKEEDOKEE 입니다.'); location.href='/okeedokee/';</script>");
+			// 출력
+			out.flush();
 		}else {
-			path = "redirect:/member/loginPage";
+			// 데이터 처리 타입
+			response.setContentType("text/html; charset=UTF-8");
+			// out 인스턴스 생성
+			PrintWriter out = response.getWriter();
+			// alert 메시지 생성 및 이동 경로 설정
+			out.println("<script>alert('로그인에 실패했습니다.'); location.href='/okeedokee/member/loginPage';</script>");
+			// 출력
+			out.flush();
 		}
 		return path;
 	}

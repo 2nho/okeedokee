@@ -1,5 +1,10 @@
 package kr.co.goodee39.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,12 +22,20 @@ public class MypageService {
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	
-	public String cpiMember(MemberVO vo, String cpi) {
+	public String cpiMember(MemberVO vo, String cpi, HttpServletResponse response) throws IOException{
 		MemberVO vo1 = sqlSessionTemplate.selectOne("member.selectMember", vo);
 		String path = "";
 		if(vo1 != null && cpi != null) {
 			path = "forward:/cpiModify";
 		}else {
+			// 데이터 처리 타입
+			response.setContentType("text/html; charset=UTF-8");
+			// out 인스턴스 생성
+			PrintWriter out = response.getWriter();
+			// alert 메시지 생성 및 이동 경로 설정
+			out.println("<script>alert('비밀번호를 확인해주세요.'); location.href='/okeedokee/mypage';</script>");
+			// 출력
+			out.flush();
 			path = "redirect:/mypage";
 		}
 		return path;

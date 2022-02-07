@@ -1,5 +1,9 @@
 package kr.co.goodee39.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,8 +62,8 @@ public class MypageController {
 
 	// 개인정보 변경 전 불러오기
 	@PostMapping("/cpi")
-	public String cpi(MemberVO vo, String cpi) {
-		return service.cpiMember(vo, cpi);
+	public String cpi(MemberVO vo, String cpi, HttpServletResponse response) throws IOException{
+		return service.cpiMember(vo, cpi, response);
 	}
 
 	// 개인정보 변경 페이지 이동
