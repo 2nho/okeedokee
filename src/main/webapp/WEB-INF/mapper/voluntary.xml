@@ -7,10 +7,23 @@
 <!-- 매핑된 SQL 구문 살펴보기에서 가져옴 -->
 <mapper namespace="volta">
 
-	<!-- 봉사처 리스트, 봉사처 정보 1개 가져오기 -->
+	<!-- 봉사처 리스트 -->
 	<select id="selectVolta" parameterType="voltaVO" resultType="voltaVO">
 		SELECT num, id, title, careName, addr, phNum, detailText, dateFrom, dateTo
 		FROM voluntarytbl
+		<choose>
+			<when test="careName != null and addr == null">
+				WHERE careName LIKE #{careName}
+			</when>
+			<when test="careName == null and addr != null">
+				WHERE addr LIKE #{addr}
+			</when>
+			<when test="careName != null and addr != null">
+				WHERE careName LIKE #{careName} or addr LIKE #{addr}
+			</when>
+		</choose>
+		ORDER BY num DESC
+		LIMIT #{start}, #{count}
 	</select>
 	
 	<!-- 총 게시글 수 구하기 -->
@@ -18,19 +31,25 @@
 		SELECT count(*)
 		FROM voluntarytbl
 		<choose>
-			<when test="title == null and careName != null and addr != null">
-				AND (careName LIKE #{careName} or addr LIKE #{addr})
+			<when test="careName != null and addr == null">
+				WHERE careName LIKE #{careName}
 			</when>
-			<when test="title != null and careName == null and addr == null">
-				AND title LIKE #{title}
+			<when test="careName == null and addr != null">
+				WHERE addr LIKE #{addr}
 			</when>
-			<when test="title == null and careName != null and addr == null">
-				AND careName LIKE #{careName}
-			</when>
-			<when test="title == null and careName == null and addr != null">
-				AND addr LIKE #{addr}
+			<when test="careName != null and addr != null">
+				WHERE careName LIKE #{careName} or addr LIKE #{addr}
 			</when>
 		</choose>
+	</select>
+	
+	<!-- 봉사처 1개 가져오기 -->
+	<select id="selectVoltaOne" parameterType="voltaVO" resultType="voltaVO">
+		SELECT num, id, title, careName, addr, phNum, detailText, dateFrom, dateTo
+		FROM voluntarytbl
+		<where>
+			<if test="num != 0">num = #{num}</if>
+		</where>
 	</select>
 
 </mapper>

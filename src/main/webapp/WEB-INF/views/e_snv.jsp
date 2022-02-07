@@ -48,9 +48,9 @@
 				<table id="col1">
 					<colgroup>
 						<col style="width: 5%;" />
+						<col style="width: 15%;" />
 						<col style="width: auto;" />
 						<col style="width: 20%;" />
-						<col style="width: 25%;" />
 					</colgroup>
 					<thead>
 						<tr bgcolor="#f9f1c0">
@@ -61,12 +61,11 @@
 						</tr>
 					</thead>
 					<c:forEach var="vt" items="${list}">
-					<c:set var="i" value="${i+1}"/>
 					<tbody>
 						<tr>
-							<th>${i }</th>
-							<td><a href="voluntary">${vt.careName }</a></td>
-							<td>${vt.addr }</td>
+							<th>${vt.num }</th>
+							<td><a href="voluntary?num=${vt.num }">${vt.careName }</a></td>
+							<td><a href="voluntary?num=${vt.num }">${vt.addr }</a></td>
 							<td>${vt.dateFrom} ~ ${vt.dateTo}</td>
 						</tr>
 					</tbody>
@@ -121,9 +120,9 @@
 				<!-- 검색 -->
 				<div class="searchBox">
 					<select name="searchType" id="searchType">
-						<option value="title">제목</option>
 						<option value="careName">보호소</option>
 						<option value="addr">주소</option>
+						<option value="both">보호소+주소</option>
 					</select> 
 					<input type="text" id="search" name="search" placeholder="검색어를 입력해주세요" />
 					<button type="button" id="searchBtn">검색</button>
@@ -144,5 +143,7 @@
 	</script>
 	<script async src="https://cloudturing.chat/v1.0/chat.js"></script>
 	<!-- End CLOUDTURING -->
+	
+	<script type="text/javascript" src="js/snv.js"></script>
 </body>
 </html>

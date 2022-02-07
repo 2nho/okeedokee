@@ -180,8 +180,35 @@ main section {
 	border-bottom: 1px solid #ddd;
 }
 
-/*자원봉사 등록*/
+.searchBox {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
+}
 
+#pagingBox .paging {
+	color: #fbd157;
+}
+.searchBox #searchType, 
+.searchBox #search {
+	margin-right: 10px;
+}
+.searchBox #searchBtn {
+	border: none;
+	outline: none;
+	background-color: #fbd157;
+	padding: 10px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.searchBox #searchBtn:hover {
+	background-color: #f9f1c0;
+	padding: 8px;
+	border: 2px solid #fbd157;
+}
+
+/*자원봉사 등록*/
 #adminlist {
 	width: 100%;
 	margin-bottom: 50px;

@@ -22,7 +22,7 @@ public class SnvService {
 	SqlSessionTemplate sqlSessionTemplate;
 
 	// 봉사자 모집 리스트 가져오기
-	public void selectVoltaList(int num, String title, String careName, String addr, Model model) {
+	public void selectVoltaList(int num, String careName, String addr, Model model) {
 
 		// 페이징 처리시 첫 게시글 num설정
 		voluntaryVO vo = new voluntaryVO();
@@ -31,16 +31,12 @@ public class SnvService {
 		// 검색결과 추려내기 및 페이징 버튼 반영 쿼리
 		String query = "";
 
-		if (!title.equals("")) {
-			vo.setTitle("%" + title + "%");
-			query += "&title=" + title;
-		}
 		if (!careName.equals("")) {
 			vo.setCareName("%" + careName + "%");
 			query += "&careName=" + careName;
 		}
 		if (!addr.equals("")) {
-			vo.setAddr(addr);
+			vo.setAddr("%" + addr + "%");
 			query += "&addr=" + addr;
 		}
 
