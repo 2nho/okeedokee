@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/Announcement.css" />
 </head>
 <body>
@@ -88,18 +89,6 @@
         var dogData = new Array();
         var json = {};
 
-        // var json = {
-        //         kindCd : "${item.kindCd}"
-        //         , orgNm : "${item.orgNm}"
-        //         , age : "${item.age}"
-        //         , sexCd : "${item.sexCd}"
-        //         , happenDt : "${item.happenDt}"
-        //         , careNm : "${item.careNm}"
-        //         , happenPlace : "${item.happenPlace}"
-        //         , popfile : "${item.popfile}"
-        // };
-
-        //Map convert To JSON..
         <c:forEach items="${result.item}" var="item">
         	json = {};
             json.desertionNo = "${item.desertionNo}";
@@ -120,7 +109,7 @@
             dogData.push(json);
         </c:forEach>
         
-        //var dogData = '<c:out value="${dog_data}" />';
+       
     </script>
 	<script src="js/Announcement.js" type="text/javascript"></script>
 	<script src="js/common.js" type="text/javascript"></script>

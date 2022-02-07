@@ -187,18 +187,101 @@ a {
     font-size: 1.5rem;
 }
 
+.missing-sighting {
+	font-size : 1.5rem;
+	display : flex;
+	flex-direction: row nowrap;
+	margin-top : 30px;
+}
+
+.missing-title {
+    color : #FBD157;
+	padding-right : 10px;
+	border-right : 5px solid #FBD157;
+    cursor: pointer;
+}
+
+.sighting-title {
+	padding-left : 10px;
+    color: #F9F1C0;
+    cursor: pointer;
+}
+
 .find-dog-content {
     margin-top: 30px;
     width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
 }
 
-.find-dog-content table tr td {
-    width: 300px;
+.sighting-dog-content {
+	margin-top: 30px;
+    width: 1000px;
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+}
+
+.find-dog-info {
+    width: 460px;
+    height: 250px;
+    padding: 20px;
+    border: 1px solid black;
+    margin: 20px 50px;
+    display: flex;
+    flex-direction: row nowrap;
+    align-items: center;
+}
+
+.sighting-dog-info {
+	 width: 460px;
+    height: 250px;
+    padding: 20px;
+    border: 1px solid black;
+    margin: 20px 50px;
+    display: flex;
+    flex-direction: row nowrap;
+    align-items: center;
+}
+
+.find-info-img {
+    width: 200px;
     height: 200px;
-    padding: 30px;
-    border: 2px solid black;
 }
 
-.find-dog-content table tr td img {
+.sighting-info-img {
+    width: 200px;
+    height: 200px;
+}
+
+.find-info-img img {
     width: 100%;
+    height: 200px;
+}
+
+.sighting-info-img img {
+    width: 100%;
+    height: 200px;
+}
+
+.find-info-content {
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+ .sighting-info-content {
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+
+.find-info-content p {
+    padding: 3px 0;
+}
+
+.sighting-info-content p {
+    padding: 3px 0;
 }

@@ -13,11 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kr.co.goodee39.service.ApiService;
+import kr.co.goodee39.service.MainService;
+import kr.co.goodee39.service.MnwService;
 
 @Controller
 public class MainController {
@@ -25,11 +28,31 @@ public class MainController {
 	@Autowired
 	ApiService service;
 	
+//	@Autowired
+//	MnwService MnwService;
+	
+	@Autowired
+	MainService MainService;
+	
+	
 	@GetMapping("/main")
-	public String Main(HttpServletRequest request, Model model) {
+	public String Main(HttpServletRequest request, Model model,
+						@RequestParam(defaultValue = "1") int num,
+						@RequestParam(defaultValue = "") String id,
+						@RequestParam(defaultValue = "") String title,
+						@RequestParam(defaultValue = "") String content) {
+
+        
+        List<HashMap<String, Object>> resultSightingList = MainService.selectSighting("4");
+		List<HashMap<String, Object>> resultMissingList  = MainService.selectMissing("3");
+		
 
 		//최종 산출물을 담기 위한 변수 설정
 		Map<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("Missing", resultMissingList);
+		resultMap.put("Sighting", resultSightingList);
+
+		
 
 		try {
 			//constroller에서 받아온 xmlFile 
@@ -84,63 +107,69 @@ public class MainController {
 	            			item.get(i).put("sexCd", "암컷");
 	            		} else {;}
 	            		
-	            		if ("[개] 슈나우져".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "슈나우져");
-	            		} else if ("[개] 믹스견".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "믹스견");
-	            		} else if ("[개] 진도견".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "진도견");
-	            		} else if ("[개] 프렌치 불독".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "프렌치 불독");
-	            		} else if ("[개] 푸들".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "푸들");
-	            		} else if ("[개] 포메라니안".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "포메라니안");
-	            		} else if ("[개] 비숑 프리제".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "비숑 프리제");
-	            		} else if ("[개] 말티즈".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "말티즈");
-	            		} else if ("[개] 시베리안 허스키".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "시베리안 허스키");
-	            		} else if ("[개] 알라스칸 말라뮤트".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "알라스칸 말라뮤트");
-	            		} else if ("[개] 시츄".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "시츄");
-	            		} else if ("[개] 골든 리트리버".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "골든 리트리버");
-	            		} else if ("[개] 저먼 포인터".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "저먼 포인터");
-	            		} else if ("[개] 라브라도 리트리버".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "라브라도 리트리버");
-	            		} else if ("[개] 미니어처 핀셔".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "미니어처 핀셔");
-	            		} else if ("[개] 베들링턴 테리어".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "베들링턴 테리어");
-	            		} else if ("[개] 아메리칸불리".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "아메리칸불리");
-	            		} else if ("[개] 베들링턴 테리어".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "베들링턴 테리어");
-	            		} else if ("[개] 말라뮤트".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "말라뮤트");
-	            		} else if ("[개] 사모예드".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "사모예드");
-	            		} else if ("[개] 웰시 코기 펨브로크".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "미니어처 핀셔");
-	            		} else if ("[개] 요키 믹스".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "요키 믹스");
-	            		} else if ("[개] 보르조이".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "보르조이");
-	            		} else if ("[개] 시바".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "시바");
-	            		} else if ("[개] 보더 콜리".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "보더 콜리");
-	            		} else if ("[개] 치와와".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "치와와");
-	            		} else if ("[개] ".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "");
-	            		} else if ("[개] ".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
-	            			item.get(i).put("kindCd", "");
-	            		} else {;}
+            			if ("[개] 슈나우져".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "슈나우져");
+                		} else if ("[개] 믹스견".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "믹스견");
+                		} else if ("[개] 진도견".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "진도견");
+                		} else if ("[개] 프렌치 불독".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "프렌치 불독");
+                		} else if ("[개] 푸들".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "푸들");
+                		} else if ("[개] 포메라니안".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "포메라니안");
+                		} else if ("[개] 비숑 프리제".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "비숑 프리제");
+                		} else if ("[개] 말티즈".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "말티즈");
+                		} else if ("[개] 시베리안 허스키".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "시베리안 허스키");
+                		} else if ("[개] 알라스칸 말라뮤트".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "알라스칸 말라뮤트");
+                		} else if ("[개] 시츄".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "시츄");
+                		} else if ("[개] 골든 리트리버".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "골든 리트리버");
+                		} else if ("[개] 저먼 포인터".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "저먼 포인터");
+                		} else if ("[개] 라브라도 리트리버".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "라브라도 리트리버");
+                		} else if ("[개] 미니어처 핀셔".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "미니어처 핀셔");
+                		} else if ("[개] 베들링턴 테리어".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "베들링턴 테리어");
+                		} else if ("[개] 아메리칸불리".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "아메리칸불리");
+                		} else if ("[개] 베들링턴 테리어".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "베들링턴 테리어");
+                		} else if ("[개] 말라뮤트".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "말라뮤트");
+                		} else if ("[개] 사모예드".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "사모예드");
+                		} else if ("[개] 웰시 코기 펨브로크".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "미니어처 핀셔");
+                		} else if ("[개] 요키 믹스".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "요키 믹스");
+                		} else if ("[개] 보르조이".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "보르조이");
+                		} else if ("[개] 시바".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "시바");
+                		} else if ("[개] 보더 콜리".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "보더 콜리");
+                		} else if ("[개] 치와와".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "치와와");
+                		} else if ("[개] 올드 잉글리쉬 쉽독".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "올드 잉글리쉬 쉽독");
+                		} else if ("[개] 포인터".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "포인터");
+                		} else if ("[개] 닥스훈트".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+    	            		item.get(i).put("kindCd", "닥스훈트");
+                		} else if ("[개] 웰시코기 믹스".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "웰시코기 믹스");
+                		} else if ("[개] 스피츠".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+                			item.get(i).put("kindCd", "스피츠");
+    	            	} else {;}
 	            		
 	            		if ("2010(년생)".equalsIgnoreCase(item.get(i).get("age").toString())) {
 	            			item.get(i).put("age", "13살");
@@ -181,6 +210,7 @@ public class MainController {
             	} else {;}
             }
 
+
             //뽑아온 내용 최종 산출물 변수에 담아주기
             resultMap.put("Result", "0000");
             resultMap.put("numOfRows", body.get("numOfRows"));
@@ -189,13 +219,14 @@ public class MainController {
             resultMap.put("item", item);
             
             //view로 가져가기
-            model.addAttribute("result", resultMap);
+            //model.addAttribute("result", resultMap);
 
-			
+            model.addAttribute("result", resultMap);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return "main/main";
 	}
 }

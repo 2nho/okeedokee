@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/main/main.css" />
 </head>
 <body>
@@ -89,8 +90,91 @@
                     <div class="find-dog-title">
                         <h1>가족을 찾고 있어요</h1>
                     </div>
-                    <div class="find-dog-content">
-                        <p>안녕하세요</p>
+                  	<div class="missing-sighting">
+                        <div class="missing-title" id="missing_title">
+                            <h2>실종</h2>
+                            <c:forEach var="Missing" items="${result.Missing}" >
+                            	<div class="find-info-content">
+		                            	<p>${Missing.title}</p>
+		                                <p>성별 : ${(Missing.sex == 'F')? "여":(Missing.sex == 'M')? "남":"미상"}</p>
+		                                <p>견종 : ${Missing.species }</p>
+		                                <p>특징 : ${Missing.characters}</p>
+		                                <p>실종일 : ${Missing.date}</p>
+		                                <p>실종장소 : ${Missing.location}</p>
+		                           </div>
+                            </c:forEach>
+                        </div>
+                        <div class="sighting-title" id="sighting_title">
+                            <h2>목격</h2>
+                        </div>
+                    </div>
+                    <div class="find-dog-content" id="find_dog_content">
+                    	<c:forEach var="Missing" items="${result.resultMissingList}" >
+	                        <div class="find-dog-info">
+	                            <div class="find-info-img">
+	                               <a href="${pageContext.request.contextPath}/read?bdiv=3&num=${Missing.num}">
+										<!-- 저장된 파일 가져오기 -->
+										<c:set var="loop_flag" value="false" />
+										<c:forEach var="file" items="${filelist}">
+											<c:if test="${not loop_flag }">
+											<c:if test="${(Missing.hasimg eq 'Y') and (file.bnum == Missing.num)}">
+												<img src="media/img/${file.localName}" alt=""/>
+												  <c:set var="loop_flag" value="true" />
+											</c:if>
+											<c:if test="${Missing.hasimg ne 'Y'}">
+												<img src="media/logo/mainLogo.png" alt=""/>
+												  <c:set var="loop_flag" value="true" />
+											</c:if>
+											</c:if>
+										</c:forEach>
+									</a>
+	                            </div>
+	                            <a href="${pageContext.request.contextPath}/read?bdiv=3&num=${Missing.num}" class="acontent">
+		                           <div class="find-info-content">
+		                            	<p>${Missing.title}</p>
+		                                <p>성별 : ${(Missing.sex == 'F')? "여":(Missing.sex == 'M')? "남":"미상"}</p>
+		                                <p>견종 : ${Missing.species }</p>
+		                                <p>특징 : ${Missing.characters}</p>
+		                                <p>실종일 : ${Missing.date}</p>
+		                                <p>실종장소 : ${Missing.location}</p>
+		                           </div>
+		                         </a>
+	                        </div>
+                    	</c:forEach>
+                    </div>
+                    <div class="sighting-dog-content" id="sighting_dog_content">
+                    	<c:forEach var="Sighting" items="${result.resultSightingList}">
+                     	<div class="sighting-dog-info">
+                     		<div class="sighting-info-img">
+                     			<a href="${pageContext.request.contextPath}/read?bdiv=4&num=${Sighting.num}">
+							<!-- 저장된 파일 가져오기 -->
+							<c:set var="loop_flag" value="false" />
+							<c:forEach var="file" items="${filelist}">
+								<c:if test="${not loop_flag }">
+								<c:if test="${(Sighting.hasimg eq 'Y') and (file.bnum == Sighting.num)}">
+									<img src="media/img/${file.localName}" alt=""/>
+									  <c:set var="loop_flag" value="true" />
+								</c:if>
+								<c:if test="${Sighting.hasimg ne 'Y'}">
+									<img src="media/logo/mainLogo.png" alt=""/>
+									  <c:set var="loop_flag" value="true" />
+								</c:if>
+								 </c:if>
+							</c:forEach>
+						</a>
+                     		</div>
+                     		<div class="sighting-info-content">
+                      		<a href="${pageContext.request.contextPath}/read?ibdiv=4&num=${Sighting.num}">
+                      			<p>${Sighting.title }</p>
+                      			<p>성별 : ${(Sighting.sex == 'F')? "여":(Sighting.sex == 'M')? "남":"미상"}</p>
+                      			<p>견종 : ${Sighting.species }</p>
+                      			<p>특징 : ${Sighting.characters}</p>
+                      			<p>목격일 : ${Sighting.date}</p>
+                      			<p>목격장소 : ${Sighting.location}</p>
+                      		</a>
+                     		</div>
+                     	</div>
+                    	</c:forEach>
                     </div>
                 </div>
             </div>

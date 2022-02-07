@@ -198,7 +198,6 @@ var bindDogData = function (i_init, i_data) {
 		var arrDogDataResult = [];
 
 		for (var i = 0; i < doaData.length; i++) {
-			debugger;
 
 			if (Number(strSplitStartDateResult) <= Number(doaData[i].noticeSdt) && Number(strSplitEndDateResult) >= Number(doaData[i].noticeSdt)) {
 				if ('' == strSearchField) {

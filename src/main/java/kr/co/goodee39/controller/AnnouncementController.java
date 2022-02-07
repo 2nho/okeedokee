@@ -148,6 +148,10 @@ public class AnnouncementController {
 		            			item.get(i).put("kindCd", "포인터");
 		            		} else if ("[개] 닥스훈트".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
 			            		item.get(i).put("kindCd", "닥스훈트");
+		            		} else if ("[개] 웰시코기 믹스".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+		            			item.get(i).put("kindCd", "웰시코기 믹스");
+		            		} else if ("[개] 스피츠".equalsIgnoreCase(item.get(i).get("kindCd").toString())) {
+		            			item.get(i).put("kindCd", "스피츠");
 			            	} else {;}
 		            		
 		            		if ("2010(년생)".equalsIgnoreCase(item.get(i).get("age").toString())) {

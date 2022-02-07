@@ -29,14 +29,14 @@ var init_main = function () {
 		  , splitTargetId =  targetId.split('_')
 		  , strTargetDesertionNo = splitTargetId[1];
 		
-		$('#' + 'img_' + strTargetDesertionNo).css("border-radius", "0");
+		$('#' + 'dog_img_' + strTargetDesertionNo).css("border-radius", "0");
         $('#' + strTargetDesertionNo).css("display", "flex");
 	}, function() {
 		var targetId = $(this).attr('id')
 		  , splitTargetId =  targetId.split('_')
 		  , strTargetDesertionNo = splitTargetId[1];
 
-		$('#' + 'img_' + strTargetDesertionNo).css("border-radius", "30px");
+		$('#' + 'dog_img_' + strTargetDesertionNo).css("border-radius", "30px");
 		$('#' + strTargetDesertionNo).css("display", "none");
 	});
 	
@@ -141,6 +141,20 @@ var init_main = function () {
 
 		page_move('/okeedokee/Announcement/Announcement_detail', arrDoagPrams);
 		
+	});
+	
+	$('#missing_title').on("click", function () {		
+		$('#missing_title').css('color', '#FBD157');
+		$('#sighting_title').css('color', '#F9F1C0');
+		$('.sighting-dog-content').css('display', 'none');
+		$('.find-dog-content').css('display', 'grid');
+	});
+	
+	$('#sighting_title').on("click", function () {
+		$('#sighting_title').css("color", "#FBD157");
+		$('#missing_title').css("color", "#F9F1C0");
+		$('.sighting-dog-content').css('display', 'grid');
+		$('.find-dog-content').css('display', 'none');
 	});
 
 

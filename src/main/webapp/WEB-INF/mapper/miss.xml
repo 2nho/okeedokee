@@ -99,4 +99,51 @@
 		WHERE num = #{num}
 	</update>
 	
+	<select id="selectSighting" parameterType="int" resultType="java.util.HashMap">
+		select t1.num
+		     , t1.mnum
+		     , t1.id
+		     , t1.title
+		     , t1.species
+		     , t1.sex
+		     , t1.characters
+		     , t1.date
+		     , t1.location
+		     , t1.content
+		     , t1.createdate
+		     , t1.bdiv
+		     , t1.isdelete
+		     , t1.hasimg
+		     , t1.status
+		     , t2.serverName
+		     , t2.localName
+		  from okeedokee.witnesstbl as t1
+		  left outer join okeedokee.imagetbl as t2
+		    on (t1.num = t2.bnum and t1.bdiv = t2.bdiv)
+		 where t1.bdiv = #{bdiv}
+	</select>
+	<select id="selectMissing" parameterType="int" resultType="java.util.HashMap">
+		select t3.num
+		     , t3.mnum
+		     , t3.id
+		     , t3.title
+		     , t3.species
+		     , t3.sex
+		     , t3.`characters`
+		     , t3.`date`
+		     , t3.location
+		     , t3.content
+		     , t3.createdate
+		     , t3.bdiv
+		     , t3.isdelete
+		     , t3.hasimg
+		     , t3.status
+		     , t2.serverName
+		     , t2.localName
+			from okeedokee.misstbl as t3
+			left outer join okeedokee.imagetbl as t2
+			on (t3.num = t2.bnum and t3.bdiv = t2.bdiv)
+			where t3.bdiv = #{bdiv}
+			;
+	</select>
 </mapper>

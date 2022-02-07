@@ -115,7 +115,7 @@ svg {
 }
 
 .main-content-profile {
-    flex: 1.5;
+    flex: 1.6;
     margin-right: 10px;
     overflow: auto;
     display: grid;
@@ -161,6 +161,11 @@ svg {
     height: 200px;
 }
 
+.profile-info {
+	width : 220px;
+	padding : 10px;
+}
+
 .profile-photo img {
     width: 200px;
     height: 200px;
@@ -168,4 +173,69 @@ svg {
 
 .key {
 	display : none;
+}
+
+@media (min-width : 1650px) {
+
+    .main-content-profile {
+    	flex : 1.5;
+        grid-template-columns : repeat(4, 220px);
+    }
+
+    .search-data {
+        width: 600px;
+        height : 160px;
+    }
+
+    .date-search {
+        margin-bottom: 10px;
+    }
+
+    .date-search input {
+        width: 200px;
+        height: 42px;
+        font-size: 1.2rem;
+    }
+
+    #search_category {
+    	width : 100px;
+        font-size : 1.2rem;
+        padding : 5px;
+    }
+    
+    #search {
+    	font-size : 1.2rem;
+    	width : 250px;
+    	padding : 5px;
+    }
+    
+    .button {
+    width: 100px;
+    height: 42px;
+	}
+	  
+	.btn {
+	    width: 100px;
+    	height: 42px;
+	    cursor: pointer;
+	}
+	  
+	.btn span {
+	    font-size: 1.2rem;
+	}
+	
+	.border {
+		width : 100px;
+		height : 42px;
+	}
+    
+    
+}
+
+@media (min-width : 2500px) {
+	
+	.main-content-profile {
+    	flex : 1.5;
+        grid-template-columns : repeat(6, 220px);
+    }
 }

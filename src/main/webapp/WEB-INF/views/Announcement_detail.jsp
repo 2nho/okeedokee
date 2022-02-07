@@ -46,9 +46,9 @@
                                 <div class="shelter-title">
                                     <h2>보호소 정보</h2>
                                 </div>
-                                <div class="shelter-detail" id="${dog.dog_careNm}">
+                                <div class="shelter-detail" id="${dog.dog_careAddr}">
                                     <ul>
-                                    	<li>${dog.dog_careNm}</li>
+                                    	<li class="shelter-name" id="${dog.dog_careNm}">${dog.dog_careNm}</li>
                                         <li>${dog.dog_careAddr}</li>
                                         <li>${dog.dog_careTel}</li>
                                         <li>${dog.dog_chargeNm}</li>
@@ -57,6 +57,33 @@
                             </div>
                         </div>
                         <div class="Announcement-btn">
+                        	<div class="button" id="road_search">
+                                <button class="btn" id="road_search_btn">
+                                <svg width="150px" height="40px" viewBox="0 0 150 40" class="border">
+                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                                </svg>
+                                <span>길찾기</span>
+                                </button>
+                            </div>
+                        	<div class="button" id="map_enlargement">
+                                <button class="btn" id="enlargement_btn">
+                                <svg width="150px" height="40px" viewBox="0 0 150 40" class="border">
+                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                                </svg>
+                                <span>지도 확대하기</span>
+                                </button>
+                            </div>
+                        	<div class="button" id="map_reduction">
+                                <button class="btn" id="reduction_btn">
+                                <svg width="150px" height="40px" viewBox="0 0 150 40" class="border">
+                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                                </svg>
+                                <span>지도 축소하기</span>
+                                </button>
+                            </div>
                             <!-- 상담 예약 데이터 form (이제승) -->
                         	<form:form modelAttribute="rvo" action="reservationMove" method="POST" id="reservationSubmit" >
 	                           <form:hidden path="kindCd" value="${dog.dog_kindCd}"/>
@@ -90,6 +117,11 @@
 	                        </div>
 	                    </div>
                     </div>
+                    <div class="enlargement-map">
+                        <div class="map-enlargement" id="map2">
+                            
+                        </div>
+	                </div>
                 </div>
             </div>
         </section>

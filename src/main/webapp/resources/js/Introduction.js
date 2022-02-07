@@ -1,14 +1,14 @@
 var init_Introduction = function () {
 
 	$("#btn").on("click", function () {
-		ajaxPageFunction ('GET', 'main');
+		location.href = "${pageContext.request.contextPath}/main";
 	});
 }
 
 $(document).ready(function() {
 	
     //초기 init render
-    init_Introduction();
+    //init_Introduction();
 
 	
 });

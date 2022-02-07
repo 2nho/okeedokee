@@ -22,6 +22,10 @@ public class ApiService {
 			StringBuilder urlBuilder = new StringBuilder("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic");
 			// 인증키 설정
 			urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=QWmRBRgQFVjPLxlHE0NTfMfwlmHMGKmPqTeI1D%2BPhZO2gQzZpIR0ycYZCtH%2BN7p8W7amKDhwRqHFzjCfSU%2Fvzw%3D%3D");
+			//유기날짜 시작
+			
+			//유기날짜 종료
+			
 			// 축종 : 견(417000)
 			urlBuilder.append("&" + URLEncoder.encode("upkind", "UTF-8") + "=" + URLEncoder.encode("417000", "UTF-8"));
 			// 출력 페이지 수

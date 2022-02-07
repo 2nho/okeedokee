@@ -81,6 +81,12 @@
         </section>
 	</div>
 	
+	<script type="text/javascript">
+		$("#btn").on("click", function () {
+			location.href = "${pageContext.request.contextPath}/main";
+		});
+	</script>
+	
 	<script src="js/Introduction.js" type="text/javascript"></script>
 	<script src="js/common.js" type="text/javascript"></script>
 </body>
