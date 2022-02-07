@@ -102,7 +102,7 @@
 					         </svg>
 					         <span>목록</span>
 					    </button>
-				    	<button id="modifyReserResult">
+				    	<button id="modifyReserResult" onclick="submitPost()">
 				         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 				           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 				           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
