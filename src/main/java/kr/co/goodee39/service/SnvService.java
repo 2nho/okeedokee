@@ -93,6 +93,11 @@ public class SnvService {
 		
 		sqlSessionTemplate.delete("volte.deleteVolte", vo);
 	}
+	
+	//마이페이지 봉사 신청 리스트 가져오기
+	public void selectVolteList(volunteerVO vo, Model model) {
+		model.addAttribute("list", sqlSessionTemplate.selectList("volte.selectVolte", vo));
+	}
 
 	// 관리자의 봉사자 모집 리스트 등록
 	public void insertVoluntaryList(voluntaryVO vo) {

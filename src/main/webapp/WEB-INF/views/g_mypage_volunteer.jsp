@@ -84,30 +84,19 @@
 								<thead>
 									<tr>
 										<th>순번</th>
-										<th>제목</th>
-										<th>작성일</th>
-										<th>상태</th>
+										<th>보호소</th>
+										<th>봉사기간</th>
+										<th>신청일</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="miss" items="${list}">
+									<c:forEach var="vt" items="${list}">
 										<c:set var="i" value="${i+1}" />
 										<tr>
 											<td>${i}</td>
-											<td><a href="read?bdiv=3&num=${miss.num}">${miss.title}</a></td>
-											<td>${miss.createdate}</td>
-											<c:if test="${miss.status == 'O'}">
-												<td style="color: orange; font-weight: bold;">공고</td>
-											</c:if>
-											<c:if test="${miss.status == 'B'}">
-												<td style="color: green; font-weight: bold;">귀가</td>
-											</c:if>
-											<c:if test="${miss.status == 'E'}">
-												<td style="color: black; font-weight: bold;">종료</td>
-											</c:if>
-											<c:if test="${miss.status == 'R'}">
-												<td style="color: red; font-weight: bold;">신고</td>
-											</c:if>
+											<td><a href="voluntary?num=${vt.num}">${vt.careName}</a></td>
+											<td>${vt.dateFrom} ~ ${vt.dateTo}</td>
+											<td>${vt.createdate}</td>
 										</tr>
 									</c:forEach>
 

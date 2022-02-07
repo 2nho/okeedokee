@@ -24,7 +24,7 @@ import kr.co.goodee39.vo.voluntaryVO;
 import kr.co.goodee39.vo.volunteerVO;
 
 @Controller
-public class Save_Controller {
+public class SaveController {
 
 	@Autowired
 	SnvService service;
@@ -80,6 +80,7 @@ public class Save_Controller {
 	}
 
 	// 자봉 리스트 수정하기
+	// 자봉 리스트 삭제하기
 
 	// 자원봉사 신청하기 페이지로 이동
 	@GetMapping("/voluntary")
