@@ -55,7 +55,7 @@ public class NoticeController {
 			// out 인스턴스 생성
 			PrintWriter out = response.getWriter();
 			// alert 메시지 생성 및 이동 경로 설정
-			out.println("<script>alert('로그인을 해주세요.'); location.href='/okeedokee/main';</script>");
+			out.println("<script>alert('로그인을 해주세요.'); location.href='/okeedokee/member/loginPage';</script>");
 			// 출력
 			out.flush();
 		}
