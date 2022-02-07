@@ -93,23 +93,13 @@
                   	<div class="missing-sighting">
                         <div class="missing-title" id="missing_title">
                             <h2>실종</h2>
-                            <c:forEach var="Missing" items="${result.Missing}" >
-                            	<div class="find-info-content">
-		                            	<p>${Missing.title}</p>
-		                                <p>성별 : ${(Missing.sex == 'F')? "여":(Missing.sex == 'M')? "남":"미상"}</p>
-		                                <p>견종 : ${Missing.species }</p>
-		                                <p>특징 : ${Missing.characters}</p>
-		                                <p>실종일 : ${Missing.date}</p>
-		                                <p>실종장소 : ${Missing.location}</p>
-		                           </div>
-                            </c:forEach>
                         </div>
                         <div class="sighting-title" id="sighting_title">
                             <h2>목격</h2>
                         </div>
                     </div>
                     <div class="find-dog-content" id="find_dog_content">
-                    	<c:forEach var="Missing" items="${result.resultMissingList}" >
+                    	<c:forEach var="Missing" items="${result.Missing}" >
 	                        <div class="find-dog-info">
 	                            <div class="find-info-img">
 	                               <a href="${pageContext.request.contextPath}/read?bdiv=3&num=${Missing.num}">
@@ -143,7 +133,7 @@
                     	</c:forEach>
                     </div>
                     <div class="sighting-dog-content" id="sighting_dog_content">
-                    	<c:forEach var="Sighting" items="${result.resultSightingList}">
+                    	<c:forEach var="Sighting" items="${result.Sighting}">
                      	<div class="sighting-dog-info">
                      		<div class="sighting-info-img">
                      			<a href="${pageContext.request.contextPath}/read?bdiv=4&num=${Sighting.num}">
