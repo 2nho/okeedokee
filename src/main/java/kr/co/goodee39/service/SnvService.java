@@ -1,5 +1,7 @@
 package kr.co.goodee39.service;
 
+import java.text.DecimalFormat;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +31,13 @@ public class SnvService {
 	
 	//회원별 총 기부금액
 	public void selectDonationOne(DonationVO vo, Model model) {
-		model.addAttribute("donationAmt", sqlSessionTemplate.selectOne("dona.selectMyDona", vo));
+	
+		//단위 ,로 변환
+		int dAmount = sqlSessionTemplate.selectOne("dona.selectMyDona", vo);		
+		DecimalFormat formatter = new DecimalFormat("###,###");
+		String donationAmt = formatter.format(dAmount);
+		
+		model.addAttribute("donationAmt", donationAmt);
 		
 	}
 	
