@@ -23,12 +23,12 @@
 				</div>
 			</div>
 			<div class="header-logo">
-				<img src="/okeedokee/media/logo/mainLogo.png" alt="로고" />
+				<a href="/okeedokee/main"><img src="/okeedokee/media/logo/mainLogo.png" alt="로고" /></a>
 			</div>
 			<div class="nav2">
 				<div class="nav2-pagelink">
 					<ul> 
-						<li><a href="">후원
+						<li><a href="/okeedokee/Save">후원
 						•
 						봉사</a></li>
 						<li><a href="/okeedokee/Notice/main">공지
