@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -195,11 +197,12 @@ footer {
 		</div>
 		</div>
 		
-		
+								
 		<div id="adminlist">
 		<table width="762" border="0">
 			<tbody>
 				<tr>
+				<!-- 관리자 -->
 				<td height="25">
 					등록인
 				</td>
