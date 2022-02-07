@@ -41,7 +41,7 @@
                 <!-- notice support  -->
                  <div class="main-link">
                     <div class="main-link-img1">
-                    	<a href="">                    	
+                    	<a href="/okeedokee/Notice/main">                    	
                         <img src="media/main/main-link1.jpg" alt="">
                     	</a>
                     </div>
@@ -51,7 +51,7 @@
                         </a>
                     </div>
                     <div class="main-link-img3">
-						<a href="">
+						<a href="/okeedokee/Announcement">
 	                        <img src="media/main/main-link3.jpg" alt="">
 						</a>	
                     </div>
@@ -61,7 +61,7 @@
                         <h1>내 근처 아이 알아보기</h1>
                     </div>
                     <div class="nearby-dog-content">
-                    	<c:forEach var="dog" items="${result.item}" begin="1" end="20" varStatus="status">                   		
+                    	<c:forEach var="dog" items="${result.item}" begin="0" end="19" varStatus="status">                   		
                     			<div class="nearby-dog-div" id="nearby_${dog.desertionNo}">                    			
 		                        <div class="nearby-dog-img">
 		                            <img alt="" src="${dog.popfile}" id="dog_img_${dog.desertionNo}" class="profilePhoto">
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div class="find-dog-content" id="find_dog_content">
-                    	<c:forEach var="Missing" items="${result.Missing}" >
+                    	<c:forEach var="Missing" items="${result.Missing}" begin="0" end="5" varStatus="status">
 	                        <div class="find-dog-info">
 	                            <div class="find-info-img">
 	                               <a href="${pageContext.request.contextPath}/read?bdiv=3&num=${Missing.num}">
@@ -133,35 +133,35 @@
                     	</c:forEach>
                     </div>
                     <div class="sighting-dog-content" id="sighting_dog_content">
-                    	<c:forEach var="Sighting" items="${result.Sighting}">
+                    	<c:forEach var="Sighting" items="${result.Sighting}" begin="0" end="5" varStatus="status">
                      	<div class="sighting-dog-info">
                      		<div class="sighting-info-img">
                      			<a href="${pageContext.request.contextPath}/read?bdiv=4&num=${Sighting.num}">
-							<!-- 저장된 파일 가져오기 -->
-							<c:set var="loop_flag" value="false" />
-							<c:forEach var="file" items="${filelist}">
-								<c:if test="${not loop_flag }">
-								<c:if test="${(Sighting.hasimg eq 'Y') and (file.bnum == Sighting.num)}">
-									<img src="media/img/${file.localName}" alt=""/>
-									  <c:set var="loop_flag" value="true" />
-								</c:if>
-								<c:if test="${Sighting.hasimg ne 'Y'}">
-									<img src="media/logo/mainLogo.png" alt=""/>
-									  <c:set var="loop_flag" value="true" />
-								</c:if>
-								 </c:if>
-							</c:forEach>
-						</a>
+									<!-- 저장된 파일 가져오기 -->
+									<c:set var="loop_flag" value="false" />
+									<c:forEach var="file" items="${filelist}">
+										<c:if test="${not loop_flag }">
+										<c:if test="${(Sighting.hasimg eq 'Y') and (file.bnum == Sighting.num)}">
+											<img src="media/img/${file.localName}" alt=""/>
+											  <c:set var="loop_flag" value="true" />
+										</c:if>
+										<c:if test="${Sighting.hasimg ne 'Y'}">
+											<img src="media/logo/mainLogo.png" alt=""/>
+											  <c:set var="loop_flag" value="true" />
+										</c:if>
+										 </c:if>
+									</c:forEach>
+								</a>
                      		</div>
                      		<div class="sighting-info-content">
-                      		<a href="${pageContext.request.contextPath}/read?ibdiv=4&num=${Sighting.num}">
-                      			<p>${Sighting.title }</p>
-                      			<p>성별 : ${(Sighting.sex == 'F')? "여":(Sighting.sex == 'M')? "남":"미상"}</p>
-                      			<p>견종 : ${Sighting.species }</p>
-                      			<p>특징 : ${Sighting.characters}</p>
-                      			<p>목격일 : ${Sighting.date}</p>
-                      			<p>목격장소 : ${Sighting.location}</p>
-                      		</a>
+	                      		<a href="${pageContext.request.contextPath}/read?bdiv=4&num=${Sighting.num}">
+	                      			<p>${Sighting.title }</p>
+	                      			<p>성별 : ${(Sighting.sex == 'F')? "여":(Sighting.sex == 'M')? "남":"미상"}</p>
+	                      			<p>견종 : ${Sighting.species }</p>
+	                      			<p>특징 : ${Sighting.characters}</p>
+	                      			<p>목격일 : ${Sighting.date}</p>
+	                      			<p>목격장소 : ${Sighting.location}</p>
+	                      		</a>
                      		</div>
                      	</div>
                     	</c:forEach>
