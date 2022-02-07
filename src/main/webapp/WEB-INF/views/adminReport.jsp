@@ -23,7 +23,7 @@
 					<li><h3><a href="adminHome">Home</a></h3></li>
 					<li><h3><a href="adminMember">회원관리</a></h3></li>
 					<li><h3 class="red">신고관리</h3></li>
-					<li><h3><a href="adminCalendar"></a>일정관리</h3></li>
+					<li><h3><a href="adminCalendar">일정관리</a></h3></li>
 				</ul>
 			</aside>
 			<section>

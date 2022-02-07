@@ -165,5 +165,4 @@ public class adminSerivce {
 	public void updateLevel(MemberVO vo) {
 		 sqlSessionTemplate.update("member.updateLevel",vo);
 	}
-	 
 }

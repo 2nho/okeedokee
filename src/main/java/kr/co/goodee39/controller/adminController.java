@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,13 +19,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.goodee39.service.adminSerivce;
+import kr.co.goodee39.service.calendarService;
 import kr.co.goodee39.vo.MemberVO;
+import kr.co.goodee39.vo.calendarVO;
 
 @Controller
 @RequestMapping("/admin")
 public class adminController {
 	@Autowired
 	adminSerivce service;
+	@Autowired
+	calendarService cservice;
 	@GetMapping("/adminHome")
 	public String adminHome(Model model) {
 		service.TotalMember(model);
@@ -38,7 +43,7 @@ public class adminController {
 	@PostMapping("/ajax")
 	public @ResponseBody ResponseEntity<List<Map<String,String>>> getAjax(){
 		List<Map<String, String>> list = service.monthMember();
-		System.out.println(list);
+		//System.out.println(list);
 		return new ResponseEntity<List<Map<String,String>>>(list,HttpStatus.OK);
 		//service.monthMember(model);
 		//System.out.println(service.monthMember(model));
@@ -49,8 +54,8 @@ public class adminController {
 	 @PatchMapping("/updateLevel") 
 	 public @ResponseBody ResponseEntity<MemberVO> updateLevel(@RequestBody MemberVO vo) { 
 	    service.updateLevel(vo); 
-	    System.out.println(vo.getMnum());
-	    System.out.println(vo.getLevel());
+	   // System.out.println(vo.getMnum());
+	   // System.out.println(vo.getLevel());
 		ResponseEntity<MemberVO> entity = new ResponseEntity<MemberVO>(vo, HttpStatus.OK);
 		return entity;}
 	 
@@ -73,8 +78,29 @@ public class adminController {
 	}
 
 	@GetMapping("/adminCalendar")
-	public String adminCalendar() {
+	public String adminCalendar(calendarVO vo) {
 		
 	return "adminCalendar";
+	}
+	// 달력 삭제
+	@DeleteMapping("/delete")
+	public @ResponseBody ResponseEntity<calendarVO> deleteC(@RequestBody calendarVO vo) {
+		cservice.deleteC(vo);
+		ResponseEntity<calendarVO> entity = new ResponseEntity<calendarVO>(vo,HttpStatus.OK);
+		return entity;
+	}
+	// 달력 추가
+	@PatchMapping("/insert")
+	public @ResponseBody ResponseEntity<calendarVO> insertC(@RequestBody calendarVO vo) {
+		cservice.insertC(vo);
+		ResponseEntity<calendarVO> entity = new ResponseEntity<calendarVO>(vo,HttpStatus.OK);
+		return entity;
+	}
+	@GetMapping("/select")
+	public @ResponseBody ResponseEntity<List<calendarVO>> selectC() {
+		//cservice.selectC(vo);
+		List<calendarVO> select = cservice.selectC();
+		ResponseEntity<List<calendarVO>> entity = new ResponseEntity<List<calendarVO>>(select,HttpStatus.OK);
+		return entity;
 	}
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="calendar">
+	<insert id="insertC" parameterType="cVO">
+		insert into calendar(title, start,end)
+		values(#{title},#{start},#{end})
+	</insert>
+	<delete id="deleteC" parameterType="cVO">
+		delete from calendar 
+		where num = #{num}
+	</delete>
+	<select id="selectC" parameterType="cVO" resultType="cVO">
+		SELECT num,title,start,end
+		FROM calendar
+	</select>
+</mapper>

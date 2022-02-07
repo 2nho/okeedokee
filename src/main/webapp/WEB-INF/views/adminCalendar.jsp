@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>adminCalendar</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/ko.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
@@ -48,6 +50,17 @@ body {
 							end : arg.end,
 							allDay : arg.allDay // Boolean (true or false), arg안에 allDay 기본값 true 내장(다른 내장값 써도 boolean이라 true) 
 						})
+						console.log({title,start:arg.startStr,end:arg.endStr});
+						$.ajax({
+							type:"PATCH",
+							url:'${pageContext.request.contextPath}/admin/insert',
+							 contentType: "application/json; charset=utf-8",
+							 dataType: "json",
+							data : JSON.stringify({title,start:arg.startStr,end:arg.endStr}),
+							success : function(result) {
+								alert((result));
+							}
+						})
 					}
 					calendar.unselect();
 				},
@@ -58,11 +71,20 @@ body {
 				},
 				editable : true, // 날짜조정 스크롤바로 가능
 				dayMaxEvents : true, // true시 이벤트가 많을 경우 more
-				events : [ {
-					title : '이벤트',
-					start : '2022-02-07',
-					end : '2022-02-09'    // 8일까지만 스크롤
-				} ]
+				events :[
+					$.ajax({
+						url: '${pageContext.request.contextPath}/admin/select',
+						type:"Get",
+						contentType: "application/json; charset=utf-8",
+						dataType: "json",
+						success: function(result) {
+					        console.log(result);
+						 },
+						 error: function(err){
+					        	console.log(err);	
+					        }
+					})
+				]	
 			});
 			calendar.render();
 		});
