@@ -215,7 +215,7 @@
 						        	} else {
 						        		alert("관리자에서 일반회원으로 변경")
 						        	}
-						        	
+						        	//sweatalert 필요시 사용
 						        },
 						        error: function(err){
 						        	console.log(err);	
