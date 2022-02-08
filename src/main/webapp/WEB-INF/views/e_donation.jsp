@@ -76,6 +76,21 @@
 		<!-- 푸터 불러오기 -->
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
+	
+	
+	
+	<!-- 챗봇 코드 -->
+	<script>
+		window.dyc = {
+			chatbotUid : "9431422cef3497f7"
+		};
+	</script>
+	<script async src="https://cloudturing.chat/v1.0/chat.js"></script>
+	<!-- End CLOUDTURING -->
+	<!-- 챗봇 코드 -->
+	
+	
+	<!-- 결제 -->
 	<script>
 		$("#check_module").click(function() {
 			//후원금액 0원 이상일때만
