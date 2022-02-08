@@ -166,8 +166,21 @@ public class SaveController {
 
 	// 후원하기 메뉴로 이동
 	@GetMapping("/donation")
-	public String donation() {
-		return "e_donation";
+	public String donation(HttpSession session) {
+		
+		String path = "";
+
+		MemberVO mvo = (MemberVO) session.getAttribute("account");
+		
+		if (mvo != null) {
+			
+			path = "e_donation";
+		} 
+		else {
+			path = "redirect:/member/loginPage";
+		}
+
+		return path;
 	}
 
 	// 기부금 db처리
