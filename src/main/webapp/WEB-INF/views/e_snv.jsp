@@ -47,10 +47,10 @@
 
 							<table id="col1">
 								<colgroup>
-									<col style="width: 5%;" />
-									<col style="width: 15%;" />
+									<col style="width: 5%;" id="colNo"/>
+									<col style="width: 24%;" id="colCare"/>
 									<col style="width: auto;" />
-									<col style="width: 20%;" />
+									<col style="width: 22%;" id="colPer" />
 								</colgroup>
 								<thead>
 									<tr bgcolor="#f9f1c0">
@@ -66,7 +66,9 @@
 											<th>${vt.num }</th>
 											<td><a href="voluntary?num=${vt.num }">${vt.careName }</a></td>
 											<td><a href="voluntary?num=${vt.num }">${vt.addr }</a></td>
-											<td>${vt.dateFrom}~${vt.dateTo}</td>
+											<td id="period">${vt.dateFrom}
+											 ~ 
+											 ${vt.dateTo}</td>
 										</tr>
 									</tbody>
 								</c:forEach>

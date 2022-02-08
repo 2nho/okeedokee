@@ -434,3 +434,77 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .
 	cursor: pointer;
 	font-size: 20px;
 }
+
+
+/*반응형*/
+/*데스크탑*/
+@media ( max-width : 1560px) {
+	/* 봉사 */
+	#volList #col1 tbody th, 
+	#volList #col1 tbody tr td {
+		font-size: 80%;
+	}
+	
+	
+}	
+
+@media ( max-width : 1260px) {
+	/* 봉사 */
+	#volList #col1 {
+		width: 125%;
+	}
+	#volList #col1 thead tr th:nth-child(3),
+	#volList #col1 tbody tr td:nth-child(3) {
+		display: none;
+	}
+	main section #arti2 #boardBox #volList #col1 #colCare {
+		width: 40%  !important;
+	}
+}
+
+/* 태블릿 */
+@media ( max-width : 1000px) {
+	/* 봉사 */
+	main {
+		flex-direction: column;
+	}	
+	main nav {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		margin-bottom: 30px;
+		
+	}	
+}
+
+@media ( max-width : 780px) {
+	/* 봉사 */
+	body {
+		overflow-x: hidden; 
+	}
+	main section {
+		padding: 0 10px;
+	}
+	#volList #col1 tbody tr td#period {
+		white-space: pre-line;
+	}
+	main section #arti2 #boardBox #volList .searchBox #searchBtn {
+	    padding: 5px;
+	}
+	main section #arti2 #boardBox #volList .searchBox #searchBtn:hover {
+		padding: 3px;
+		border: 2px solid #fbd157;
+	}
+	/* 봉사 */
+	#money1 tbody td p select {
+		font-size: 16px;
+	}
+	#check_module {
+		padding: 4px;
+		font-size: 16px;
+	}
+}
+
+/* 모바일 */
+@media ( max-width : 500px) {
+}

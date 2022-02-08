@@ -116,11 +116,7 @@
 		function addDonation() {
 			//기부금액
 			let donation = $('#donaAmount').val();
-			let mnum = $
-			{
-				sessionScope.account.mnum
-			}
-			;
+			let mnum = ${sessionScope.account.mnum};
 
 			//기부날짜
 			var today = new Date();
@@ -129,11 +125,7 @@
 			var day = ('0' + today.getDate()).slice(-2);
 			var date = year + '-' + month + '-' + day;
 
-			let donaData = {
-				donation : donation,
-				mnum : mnum,
-				date : date
-			};
+			let donaData = { donation : donation, mnum : mnum, date : date };
 
 			$.ajax({
 				url : "addDonation",
