@@ -241,8 +241,24 @@ main section #arti2 #boardBox>h1::after {
 #adminlist table tr {
 	height: 20px;
 }
+#adminlist table tbody tr td:first-child {
+	font-weight: bold;
+	background-color: #fbd157;
+}
+#adminlist table tbody tr td:nth-child(2) input,
+#adminlist table tbody tr td:nth-child(2) textarea {
+	background-color: #f9f1c0;
+	border: none;
+	outline: none;
+	font-size: 15px;
+}
+#adminlist table tbody tr td:last-child {
+	display: flex;
+	justify-content: space-between;
+}
 #adminlist table tr td #detailText {
 	width: 100%;
+	height: 100%;
 	resize: none;
 }
 #admin3 {
@@ -288,21 +304,25 @@ main section #arti2 #boardBox>h1::after {
 	width: 100%;
 	height: 100%;
 }
-
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate #commentCreator {
-	resize: none;
+.comment .commentCreate p {
+	text-align: right;
+}
+.comment .commentCreate #formBox {
 	width: 100%;
 	height: 100%;
 	font-size: 20px;
+	display: flex;
+	justify-content: flex-end;
+	padding: 10px 0;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox {
+.comment .commentCreate .cmtSubmitBox {
 	width: 100%;
 	display: flex;
 	justify-content: right;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit {
+.comment .commentCreate .cmtSubmitBox #cmtSubmit {
 	padding: 8px 10px;
 	background-color: #fbd157;
 	border: none;
@@ -312,12 +332,12 @@ main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .
 	cursor: pointer;
 }
 
-main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit:hover {
+.comment .commentCreate .cmtSubmitBox #cmtSubmit:hover {
 	padding: 6px 8px;
 	background-color: #f9f1c0;
 	border: 2px solid #fbd157;
 }
-/* 댓글 리스트 및 삭제, 수정 */
+/* 댓글 리스트 및 삭제 */
 .comment #commentList {
 	width: 100%;
 }

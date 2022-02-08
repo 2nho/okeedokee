@@ -79,14 +79,43 @@ public class SaveController {
 		return "redirect:/Save";
 	}
 
-	// 자봉 리스트 수정하기
+	// 자봉 리스트 수정페이지 이동
+	@GetMapping("/reviseVolta")
+	public String reviseVolta(
+			@RequestParam int num, 
+			@ModelAttribute("voltaVO") voluntaryVO vo) {
+		
+		service.selectVoluntary(num, vo);
+		
+		return "e_voluntary_revise";
+	}
+	
+	// 자봉 리스트 수정 완료
+	@PostMapping("/reviseVoltaResult")
+	public String reviseVoltaResult(
+			@RequestParam int num,
+			@ModelAttribute("voltaVO") voluntaryVO vo) {
+		
+		service.updateVoluntary(num, vo);
+
+		return "redirect:/Save";
+	}
+	
+	
 	// 자봉 리스트 삭제하기
+	@GetMapping("/deleteVolta")
+	public String deleteVolta(@RequestParam int num) {
+		
+		service.deleteVoluntary(num);
+		
+		return "redirect:/Save";
+	}
 
 	// 자원봉사 신청하기 페이지로 이동
 	@GetMapping("/voluntary")
 	public String voluntary(
 			@RequestParam int num, 
-			Model model, 
+			@ModelAttribute("voltaVO") voluntaryVO vo,
 			HttpSession session) {
 		
 		String path = "";
@@ -94,7 +123,7 @@ public class SaveController {
 		MemberVO mvo = (MemberVO) session.getAttribute("account");
 		
 		if (mvo != null) {
-			service.selectVoluntary(num, model);
+			service.selectVoluntary(num, vo);
 			path = "e_voluntary";
 		} 
 		else {

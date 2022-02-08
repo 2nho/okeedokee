@@ -25,7 +25,8 @@
 						<h3>후원 / 자원봉사</h3>
 					</div>
 					<div id="saveSubTitle">
-						<a href="Save" id="focus"><h4>자원봉사</h4></a> <a href="donation"><h4>후원하기</h4></a>
+						<a href="Save" id="focus"><h4>자원봉사</h4></a> 
+						<a href="donation"><h4>후원하기</h4></a>
 					</div>
 				</div>
 			</nav>
@@ -38,9 +39,9 @@
 						<div id="btnBox">
 							<c:if test="${sessionScope.account.level eq 'A'}">
 								<a
-									href="${pageContext.request.contextPath}/reviseVol?num=${volta.num}">수정</a>
+									href="${pageContext.request.contextPath}/reviseVolta?num=${voltaVO.num}">수정</a>
 								<a
-									href="${pageContext.request.contextPath}/deleteVol?num=${volta.num}">삭제</a>
+									href="${pageContext.request.contextPath}/deleteVolta?num=${voltaVO.num}">삭제</a>
 							</c:if>
 						</div>
 
@@ -54,33 +55,31 @@
 									<tr>
 										<td>제목</td>
 										<td><input type="text" name="title" size="50"
-											maxlength="50" value="${volta.title}"></td>
+											maxlength="50" value="${voltaVO.title}"></td>
 									</tr>
 									<tr>
 										<td>보호소 이름</td>
 										<td><input type="text" name="careName" id="careName"
-											size="50" maxlength="50" value="${volta.careName}" readonly="readonly"></td>
+											size="50" maxlength="50" value="${voltaVO.careName}" readonly="readonly"></td>
 									</tr>
 									<tr>
 										<td>보호소 연락처</td>
 										<td><input type="text" name="phNum" id="phNum" size="50"
-											maxlength="12" value="${volta.phNum}" readonly="readonly"></td>
+											maxlength="12" value="${voltaVO.phNum}" readonly="readonly"></td>
 									</tr>
 									<tr>
 										<td>보호소 주소</td>
-										<td><input type="text" name="addr" id="addr" size="50"
-											maxlength="50" value="${volta.addr}" readonly="readonly"></td>
+										<td><input type="text" name="addr" id="addr" size="50" maxlength="50" value="${voltaVO.addr}" readonly="readonly"></td>
 									</tr>
 									<tr>
 										<td>상세설명</td>
-										<td><textarea name="detailText" id="detailText" rows="10"
-												cols="50" readonly="readonly">${volta.detailText}</textarea></td>
+										<td><textarea name="detailText" id="detailText" rows="10" cols="50" readonly="readonly">${voltaVO.detailText}</textarea></td>
 									</tr>
 									<tr>
 										<td>활동기간</td>
-										<td><input type="date" id="dateFrom" name="dateFrom" value="${volta.dateFrom}" readonly="readonly"> 
+										<td><input type="date" id="dateFrom" name="dateFrom" value="${voltaVO.dateFrom}" readonly="readonly"> 
 											<span> ~ </span> 
-											<input type="date" id="dateTo" name="dateTo" value="${volta.dateTo}" readonly="readonly">
+											<input type="date" id="dateTo" name="dateTo" value="${voltaVO.dateTo}" readonly="readonly">
 										</td>
 									</tr>
 								</tbody>
@@ -88,12 +87,17 @@
 
 							<div class="comment">
 								<div class="commentCreate">
-									<input type="date" name="dateFrom1" id="dateFrom1" min="${volta.dateFrom}" max="${volta.dateTo}" title="${volta.dateFrom}"/>
-									<input type="date" name="dateTo1" id="dateTo1"  min="${volta.dateFrom}" max="${volta.dateTo}" title="${volta.dateTo}"/>
-									<input type="hidden" name="phNum1" id="phNum1" value="${sessionScope.account.phNum}" />
-									<input type="hidden" name="sessionId" id="sessionId" value="${sessionScope.account.id}" />
-									<input type="hidden" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
-									<input type="hidden" name="bnum" id="bnum" value="${volta.num}" />
+									<p>* 활동 가능 기간 입력</p>
+									<div id="formBox">
+										<input type="date" name="dateFrom1" id="dateFrom1" min="${voltaVO.dateFrom}" max="${voltaVO.dateTo}" title="${volta.dateFrom}"/>
+										~
+										<input type="date" name="dateTo1" id="dateTo1"  min="${voltaVO.dateFrom}" max="${voltaVO.dateTo}" title="${volta.dateTo}"/>
+										<input type="hidden" name="phNum1" id="phNum1" value="${sessionScope.account.phNum}" />
+										<input type="hidden" name="sessionId" id="sessionId" value="${sessionScope.account.id}" />
+										<input type="hidden" name="sessionLv" id="sessionLv" value="${sessionScope.account.level}" />
+										<input type="hidden" name="mnum" id="mnum" value="${sessionScope.account.mnum}" />
+										<input type="hidden" name="bnum" id="bnum" value="${voltaVO.num}" />
+									</div>
 									<div class="cmtSubmitBox">
 										<button type="button" id="cmtSubmit">신청</button>
 									</div>

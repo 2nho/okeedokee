@@ -24,6 +24,7 @@ function getCmmt() {
 
 				//삭제버튼 보여주기 위해 세션 회원 아이디 가져오기
 				let userId = document.querySelector("#sessionId").value;
+				let userLv = document.querySelector("#sessionLv").value;
 
 				//순수JS 동적쿼리로 댓글 보여지게 하기
 				const commentList = document.querySelector("#commentList");
@@ -55,7 +56,7 @@ function getCmmt() {
 				ph.classList.add("cmtContent");
 				
 				//연락처 마스킹 처리
-				if(userId == item.id) {
+				if(userId == item.id || userLv == "A") {
 					ph.innerText = "연락처 : " + item.phNum;
 				}
 				else if(userId != item.id) {

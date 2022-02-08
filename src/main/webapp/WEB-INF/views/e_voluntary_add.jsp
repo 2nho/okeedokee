@@ -23,7 +23,8 @@
 						<h3>후원 / 자원봉사</h3>
 					</div>
 					<div id="saveSubTitle">
-						<a href="Save" id="focus"><h4>자원봉사</h4></a> <a href="donation"><h4>후원하기</h4></a>
+						<a href="Save" id="focus"><h4>자원봉사</h4></a> 
+						<a href="donation"><h4>후원하기</h4></a>
 					</div>
 				</div>
 			</nav>
@@ -32,7 +33,7 @@
 			<section>
 				<article id="arti2">
 					<div id="boardBox">
-						<h1>자원봉사 리스트 등록하기</h1>
+						<h1>자원봉사 등록하기</h1>
 
 						<form:form modelAttribute="voltaVO" action="addVolta"
 							method="post" id="adminlist">

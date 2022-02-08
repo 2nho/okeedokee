@@ -58,5 +58,27 @@
 	 	INSERT INTO voluntarytbl(id, title, careName, addr, phNum, detailText, dateFrom, dateTo)
 	 	VALUES(#{id}, #{title}, #{careName}, #{addr}, #{phNum}, #{detailText}, #{dateFrom}, #{dateTo})
 	 </insert>
+	 
+	 <!-- 모집글 수정 -->
+	 <update id="updateVolta" parameterType="voltaVO">
+	 	UPDATE voluntarytbl
+	 	<set>
+			<if test="title != null">title = #{title}</if>
+			<if test="careName != null">, careName = #{careName}</if>
+			<if test="phNum != null">, phNum = #{phNum}</if>
+			<if test="addr != null">, addr = #{addr}</if>
+			<if test="detailText != null">, detailText = #{detailText}</if>
+			<if test="dateFrom != null">, dateFrom = #{dateFrom}</if>
+			<if test="dateTo != null">, dateTo = #{dateTo}</if>
+		</set>
+		WHERE num = #{num}
+	 </update>
+	 
+	 
+	 <!-- 모집글 삭제 -->
+	 <delete id="deleteVolta" parameterType="int">
+	 	DELETE FROM voluntarytbl
+	 	WHERE num = #{num}
+	 </delete>
 
 </mapper>

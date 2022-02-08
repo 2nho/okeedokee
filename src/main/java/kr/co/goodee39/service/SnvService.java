@@ -66,14 +66,30 @@ public class SnvService {
 	}
 
 	// 봉사자 모집글 1개 가져오기
-	public void selectVoluntary(int num, Model model) {
+	public void selectVoluntary(int num, voluntaryVO vo) {
 
-		voluntaryVO vo = new voluntaryVO();
 		vo.setNum(num);
-
-		model.addAttribute("volta", sqlSessionTemplate.selectOne("volta.selectVoltaOne", vo));
+		
+		voluntaryVO vvo = new voluntaryVO();
+		vvo = sqlSessionTemplate.selectOne("volta.selectVoltaOne", vo);
+		
+		vo.setNum(vvo.getNum());
+		vo.setId(vvo.getId());
+		vo.setTitle(vvo.getTitle());
+		vo.setCareName(vvo.getCareName());
+		vo.setAddr(vvo.getAddr());
+		vo.setPhNum(vvo.getPhNum());
+		vo.setDetailText(vvo.getDetailText());
+		vo.setDateFrom(vvo.getDateFrom());
+		vo.setDateTo(vvo.getDateTo());
+		
 	}
+	
 
+	
+	
+	
+	
 	// 봉사자 모집 댓글 가져오기
 	public List<volunteerVO> selectVolteCmt(volunteerVO vo) {
 		return sqlSessionTemplate.selectList("volte.selectVolte", vo);
@@ -94,16 +110,37 @@ public class SnvService {
 		sqlSessionTemplate.delete("volte.deleteVolte", vo);
 	}
 	
+	
+	
+	
 	//마이페이지 봉사 신청 리스트 가져오기
 	public void selectVolteList(volunteerVO vo, Model model) {
 		model.addAttribute("list", sqlSessionTemplate.selectList("volte.selectVolte", vo));
 	}
 
+	
+	
+	
 	// 관리자의 봉사자 모집 리스트 등록
 	public void insertVoluntaryList(voluntaryVO vo) {
 		sqlSessionTemplate.insert("volta.insertVoltaList", vo);
 	}
 
+	//봉사자 모집글 삭제
+	public void deleteVoluntary(int num) {
+		sqlSessionTemplate.delete("volta.deleteVolta", num);
+	}
+	
+	
+	//봉사자 모집글 수정
+	public void updateVoluntary(int num, voluntaryVO vo) {
+		vo.setNum(num);
+		sqlSessionTemplate.update("volta.updateVolta", vo);
+	}
+	
+	
+	
+	
 	// 기부 테이블에 기부내역 등록하기
 	public void insertDonation(DonationVO vo) {
 		sqlSessionTemplate.insert("dona.insertDona", vo);
