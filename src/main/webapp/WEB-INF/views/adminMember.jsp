@@ -208,7 +208,7 @@
 						        dataType: "json",
 						        //성공시 결과값 매개변수로 받아서
 						        success: function(result) {						        
-						        	console.log("성공");
+						        	alert("회원등급 변경완료");
 						        },
 						        error: function(err){
 						        	console.log(err);	
