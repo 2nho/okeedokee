@@ -244,3 +244,31 @@ main{
 
 .valid { color: green; } 
 .invalid { color: red; } 
+
+
+/* 랩탑 */
+@media ( max-width : 1260px) {
+	#loginSection #arti1{
+		width: 650px;
+	}
+}
+
+/* 태블릿 */
+@media ( max-width : 1000px) {
+	#loginSection #arti1{
+		width: 480px;
+	}
+}
+
+/* 탭 */
+@media ( max-width : 780px) {
+	#loginSection #arti1{
+		width: 400px;
+	}
+}
+
+/* 모바일 */
+@media ( max-width : 500px) {
+	
+}
+

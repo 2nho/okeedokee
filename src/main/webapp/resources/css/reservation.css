@@ -4,7 +4,6 @@
 
 main {
 	display: flex;
-	flex-direction: row;
 }
 
 main section {
@@ -216,4 +215,60 @@ width:16px;height:16px;background:#f1ef79;}
 #map {
     width: 350px;
     height: 400px;
+}
+
+
+
+/* 랩탑 */
+@media ( max-width : 1260px) {
+	main section {
+		width:1100px;
+	}
+	
+	main section article #reserBoard{
+		width:1050px;
+	}
+	
+	#map {
+    width: 265px;
+    height: 380px;
+	}
+	
+	.main-content-info{
+		width: 850px;
+	}
+}
+
+/* 태블릿 */
+@media ( max-width : 1000px) {
+	main .reserBBS{
+		width:800px;
+	}
+	
+	main .reserBBS #arti1 .content #reserBBSBoard table thead tr th{
+		font-size: 0.8rem;
+	}
+	
+	main .reserBBS #arti1 .content #reserBBSBoard table tr td{
+		font-size: 0.9rem;
+	}
+	
+	table thead tr th:nth-of-type(1) {width: 13%;}
+	table thead tr th:nth-of-type(2) {width: 46%;}
+	table thead tr th:nth-of-type(3) {width: 25%;}
+	table thead tr th:nth-of-type(4) {width: 110px;}
+	
+	main section article #reserBBSBoard{
+		height: 510px;
+	}
+}
+
+/* 탭 */
+@media ( max-width : 780px) {
+
+}
+
+/* 모바일 */
+@media ( max-width : 500px) {
+	
 }

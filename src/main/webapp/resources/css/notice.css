@@ -57,27 +57,24 @@ table tr{
 	text-align: center;
 }
 
-#NoticeBBS a {
+#NoticeBBS > a {
 	font-size:1.3rem;
 	color:black;
 	transition:0.7s;
 }
 
-#NoticeBBS span {
+#NoticeBBS > span {
 	font-size:1.3rem;
 	color:#FBD157;
 	transition:0.7s;
 }
 
-#NoticeBBS a:hover {
+#NoticeBBS > a:hover {
 	transition:0.7s;
 	color: #FBD157;
 }
 
-#NoticeBBS input, select{
-	border : 1px solid #FBD157;
-	outline: none;
-}
+
 
 
 
@@ -119,7 +116,16 @@ main section #arti1 #noticeCreateBoard p{
 #noticeCreateBoard::-webkit-scrollbar-thumb {background-color:#FBD157;border-radius: 10px;}
 #noticeCreateBoard::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
 width:16px;height:16px;background:#f1ef79;} 
-
+#noticeModifyBoard::-webkit-scrollbar{width: 15px;}
+#noticeModifyBoard::-webkit-scrollbar-track {background-color:white;}
+#noticeModifyBoard::-webkit-scrollbar-thumb {background-color:#FBD157;border-radius: 10px;}
+#noticeModifyBoard::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
+width:16px;height:16px;background:#f1ef79;} 
+#noticeDetailBoard::-webkit-scrollbar{width: 15px;}
+#noticeDetailBoard::-webkit-scrollbar-track {background-color:white;}
+#noticeDetailBoard::-webkit-scrollbar-thumb {background-color:#FBD157;border-radius: 10px;}
+#noticeDetailBoard::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
+width:16px;height:16px;background:#f1ef79;} 
 
 
 /* notice_detail */
@@ -205,4 +211,75 @@ main section #arti1 #noticeModifyBoard h4{
 
 main section #arti1 #noticeModifyBoard p{
 	padding:10px;
+}
+
+/* 랩탑 */
+@media ( max-width : 1260px) {
+	main {
+		display: flex;
+		flex-direction: row;
+	}
+	
+	main section {
+		width: 1000px;
+		height: 680px;
+		margin: auto;
+	}
+}
+
+
+/* 태블릿 */
+@media ( max-width : 1000px) {
+main {
+	display: flex;
+	flex-direction: row;
+	}
+	
+	main section {
+		width: 750px;
+		height: 680px;
+		margin: auto;
+	}
+	
+	table th{font-size: 0.8rem;}
+	table td{font-size: 0.9rem;}
+	
+	main section article #noticeBoard {
+		padding: 10px;
+	}
+}
+
+
+/* 탭 */
+@media ( max-width : 780px) {
+	main {
+	display: flex;
+	flex-direction: row;
+	}
+	
+	main section {
+		width: 600px;
+		height: 680px;
+		margin: auto;
+	}
+	
+	table th{font-size: 0.7rem;}
+	
+	table thead tr th:nth-of-type(5) {
+		width: 120px;
+	}
+
+}
+/* 모바일 */
+@media ( max-width : 500px) {
+	main {
+	display: flex;
+	flex-direction: row;
+	}
+	
+	main section {
+		width: 900px;
+		height: 680px;
+		margin: auto;
+	}
 }

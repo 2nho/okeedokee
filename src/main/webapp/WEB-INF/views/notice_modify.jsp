@@ -29,7 +29,7 @@
 										font-size:1.5rem; padding:5px;" /></li>
 								<h4>${NoticeVO.name }| ${NoticeVO.date }</h4>
 								<br />
-								<li><form:textarea path="content" cols="145" rows="19" id="content" name="content"/></li>
+								<li><form:textarea path="content" cols="140" rows="19" id="content" name="content" style="word-break: break-all;" /></li>
 								<form:hidden path="num" />
 								<form:hidden path="filelist" />
 							</ul>

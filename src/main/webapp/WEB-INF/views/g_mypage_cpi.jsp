@@ -70,7 +70,7 @@
 		<section>
 			<!-- 개인정보 변경 -->
 			<article id="arti1">
-				<div class="content">
+				<div class="content" id="cpiContent">
 					<h1>${sessionScope.account.name} 님의 정보</h1>
 					<div id="cpiModify">
 						<input type="hidden" name="size" id="size" value="${sessionScope.account.size}" />

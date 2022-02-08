@@ -241,6 +241,7 @@ main section #arti1 .content .myList>table>tbody>tr>td {
 	main section #arti1 .content .myList>table>colgroup>#colStatus {
 		width: 15%;
 	}
+
 }
 
 /* 태블릿 */
@@ -270,6 +271,20 @@ main section #arti1 .content .myList>table>tbody>tr>td {
 	main nav .mypageSubTitle a h4 {
 		font-size: 90%;
 	}
+	
+	main section #arti1 .content h1 {
+    font-size: 28px;
+    margin-bottom: 70px;
+	}
+	
+	main section #arti1 #cpiContent{
+		width: 95%;
+	    height: 90%;
+	    background-color: #fff;
+	    border-radius: 15px 15px;
+	    padding: 20px;
+	    margin: 25px;
+	}
 }
 
 @media ( max-width : 780px) {
@@ -279,6 +294,10 @@ main section #arti1 .content .myList>table>tbody>tr>td {
 	}
 	main nav .mypageSubTitle a h4 {
 		font-size: 72%;
+	}
+	/* 개인 정보 변경 */
+	main section #arti1 .content #cpi{
+		width:90%;
 	}
 	/* 나의 신고 내역 */
 	main section #arti1 .content .myList>table>thead>tr>th {
@@ -317,5 +336,15 @@ main section #arti1 .content .myList>table>tbody>tr>td {
 	main section #arti1 .content .myList>table>thead>tr>th:nth-child(3),
 	main section #arti1 .content .myList>table>tbody>tr>td:nth-child(3) {
 		display: none;
+	}
+	
+}
+
+/* 모바일 */
+@media ( max-width : 500px) {
+	/* 개인 정보 변경 */
+	main section #arti1 .content #cpi{
+		min-width: 300px;
+    	width: 300px;
 	}
 }

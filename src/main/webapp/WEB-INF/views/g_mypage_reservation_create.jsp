@@ -52,7 +52,7 @@
 								<li><h3>${vo.careNm}</h3></li>
 								<li><h3>${vo.careTel}</h3></li>
 								<li><h3>상담사전정보 : </h3></li>
-								<li style="position: absolute;"><form:textarea path="content" cols="70" rows="10" id="content" name="content"
+								<li style="position: absolute;"><form:textarea path="content" id="content" name="content"
 								style="resize:none; outline:none; position: relative; bottom: 100px;}"
 								placeHolder="상담 사전 정보를 입력해주세요."/><img src="${vo.dogImg}" alt="" style="opacity: 0"></li>
 								<li>

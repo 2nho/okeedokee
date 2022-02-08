@@ -87,3 +87,39 @@ main section #arti1 {
 }
 
 
+/* 랩탑 */
+@media ( max-width : 1260px) {
+	main section #arti1{
+		width: 650px;
+	}
+}
+
+/* 태블릿 */
+@media ( max-width : 1000px) {
+	main section #arti1{
+		width: 480px;
+	}
+}
+
+/* 탭 */
+@media ( max-width : 780px) {
+	main section #arti1{
+		width: 400px;
+	}
+	
+	.signUpMain section #arti1{
+		width: 430px;
+	}
+	
+	main nav .mypageNav {
+    width: 180px;
+    font-size: 0.9rem;
+	}
+}
+
+/* 모바일 */
+@media ( max-width : 500px) {
+	signUpMain section #arti1{
+		width: 400px;
+	}
+}

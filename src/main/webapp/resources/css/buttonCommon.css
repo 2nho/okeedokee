@@ -110,3 +110,27 @@ main section #arti1 #noticeButtons{
 	text-align: end;
     margin: 5px 60px 0 0px;
 }
+
+
+
+/* 랩탑 */
+@media ( max-width : 1260px) {
+	#openInfo {
+		left:78%;
+	}
+}
+
+/* 태블릿 */
+@media ( max-width : 1000px) {
+	
+}
+
+/* 탭 */
+@media ( max-width : 780px) {
+
+}
+
+/* 모바일 */
+@media ( max-width : 500px) {
+	
+}

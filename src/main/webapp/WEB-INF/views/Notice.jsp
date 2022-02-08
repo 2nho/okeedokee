@@ -29,6 +29,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="/okeedokee/css/notice.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
+
 </head>
 <body>
 	<div class="totalContainer">
@@ -183,6 +184,16 @@
 		<!-- 푸터 불러오기 -->
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
+
 	<script type="text/javascript" src="/okeedokee/js/notice.js"></script>
+	<!-- 챗봇 코드 -->
+	<script>
+		window.dyc = {
+			chatbotUid : "9431422cef3497f7"
+		};
+	</script>
+	<script async src="https://cloudturing.chat/v1.0/chat.js"></script>
+	<!-- End CLOUDTURING -->
+	<!-- 챗봇 코드 -->
 </body>
 </html>
