@@ -87,6 +87,8 @@ body {
 					calendar.unselect();
 				},
 				eventClick : function(arg) {
+				//	console.log(arg.event.extendedProps); {num : 값}
+				//	console.log(arg.event.extendedProps.num); 값
 					var data = arg.event.extendedProps;
 					if (confirm('삭제하시겠습니까?')) {
 						$.ajax({
