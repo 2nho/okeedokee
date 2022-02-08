@@ -29,21 +29,21 @@
 			<section>
 				<div class="box">
 					<div>
-						<h1>${total}</h1>
+						<h1>${total+="명"}</h1>
 						<h2>회원수</h2>
 					</div>
 					<div>
 						<%-- <h1>${(money == null)? "0":money}</h1>  삼항도 가능하나 간단하게 연산자로 기본값 0가능--%>
-						<h1>${0+money}</h1>
+						<h1>${0+money+="원"}</h1>
 						<h2>이번달 후원금액</h2>
 					</div>
 					<div>
 						<!-- 게시글 count 더하기 -->
-						<h1>${missing+witness}</h1>
+						<h1>${missing+witness+="건"}</h1>
 						<h2>새실종/목격글</h2>
 					</div>
 					<div>
-						<h1>${nMember}</h1>
+						<h1>${nMember+="명"}</h1>
 						<h2>신규회원</h2>
 					</div>
 				</div>
