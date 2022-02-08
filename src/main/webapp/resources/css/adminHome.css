@@ -3,7 +3,7 @@
 header {
 	height: 10vh;
 	width: 100vw;
-	background-color: #27303F;
+	background-color: #FBD157;
 }
 
 main {
@@ -15,7 +15,7 @@ main {
 aside {
 	height: 90vh;
 	min-width: 108px;
-	background-color: #C4C4C4;
+	background-color: #F2EAD3;
 	/* flex-basis는 크기 flex-grow 여백 조정 */
 	flex-grow: 1;
 	padding: 15px;
@@ -35,7 +35,7 @@ section {
 	align-items: center;
 }
 .box > div {
-	background-color: #C4C4C4;
+	background-color: #F2EAD3;
 	width: 20%;
 	height: 180px;
 	margin-top: 100px;
@@ -57,5 +57,5 @@ div>h1 {
 	justify-content: center;
 }
 .red {
-	color: red;
+	color: #cb7f2b;
 }

@@ -3,7 +3,7 @@
 header {
 	height: 10vh;
 	width: 100vw;
-	background-color: #27303F;
+	background-color: #FBD157;
 }
 
 main {
@@ -15,7 +15,7 @@ main {
 aside {
 	height: 90vh;
 	min-width: 108px;
-	background-color: #C4C4C4;
+	background-color: #F2EAD3;
 	/* flex-basis는 크기 flex-grow 여백 조정 */
 	flex-grow: 1;
 	max-width: 192px;
@@ -50,7 +50,7 @@ section>div>.article1 {
 	display: flex;
 	align-items: center;
 	padding-left: 20px;
-	background-color: #D3D3D3;
+	background-color: #F2EAD3;
 }
 section>h1 {
 	margin-top: 50px;
@@ -69,7 +69,7 @@ table, th, tr, td {
 
 
 th {
-	background-color: #778899;
+	background-color: #cb7f2b;
 	min-width: 30px;
 }
 
@@ -81,5 +81,5 @@ td {
 }
 
 .red {
-	color: red;
+	color: #cb7f2b;
 }
