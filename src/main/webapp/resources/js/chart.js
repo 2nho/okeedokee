@@ -1,7 +1,7 @@
 // svg 박스를 설정하기 위한 높이 넓이 마진 설정 값
 // 이였으나 가변을 위해 x축 y축 그래프를 위한 값으로 
-const width = 1200;
-const height = 300;
+const width = 1500;
+const height = 250;
 const margin = {top: 40, left: 40, bottom: 40, right: 40};
 
 // svg 에 위에 설정한 값들을 넣고 body태그에 삽입

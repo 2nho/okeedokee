@@ -1,6 +1,7 @@
 package kr.co.goodee39.service;
 
 import java.time.LocalDate;
+import java.util.Formatter;
 import java.util.List;
 import java.util.Map;
 
@@ -41,7 +42,9 @@ public class adminSerivce {
 		LocalDate now = LocalDate.now();
 		String date = String.valueOf(now.getMonthValue());
 		vo.setDate(date);
-		model.addAttribute("money", sqlSessionTemplate.selectOne("dona.selectDona", vo));
+		int a = sqlSessionTemplate.selectOne("dona.selectDona", vo);
+		String format = String.format("%,d", a);
+		model.addAttribute("money", format);
 	}
 
 	// 관리자 메인페이지 실종 목격 게시판 합
