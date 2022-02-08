@@ -75,7 +75,7 @@ function getCmmt() {
 
 
 				//본인이 작성한 댓글의 삭제버튼만 나타나도록
-				if (userId == item.id) {
+				if (userId == item.id || userLv == "A") {
 					//삭제버튼
 					const delBtn = document.createElement("button");
 					delBtn.classList.add("cmtDelete");

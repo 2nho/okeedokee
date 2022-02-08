@@ -426,13 +426,22 @@ main section #arti2 #boardBox>h1::after {
 	font-size: 20px;
 }
 /*후원금*/
+.text1,
+#money1,
+#check_moduleBox {
+	background-color: rgba(252,252,252,.5);
+}
 #donaList {
+	height: 60vh;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content:center;
 	align-content: center;
 	margin: 50px 0;
+	background: url("../media/bg/donation1.jfif") no-repeat;
+	background-position: center !important;
+	background-size: 60vh;
 }
 
 #donaAmount {
@@ -443,7 +452,7 @@ main section #arti2 #boardBox>h1::after {
 	display: flex;
 	justify-content: center;
 	align-items: center;	
-	margin-top: 30px;
+	padding: 30px;
 }
 #check_module {
 	padding: 6px;
@@ -515,7 +524,7 @@ main section #arti2 #boardBox>h1::after {
 		padding: 3px;
 		border: 2px solid #fbd157;
 	}
-	/* 봉사 */
+	/* 후원 */
 	#money1 tbody td p select {
 		font-size: 16px;
 	}
@@ -523,8 +532,9 @@ main section #arti2 #boardBox>h1::after {
 		padding: 4px;
 		font-size: 16px;
 	}
-}
-
-/* 모바일 */
-@media ( max-width : 500px) {
+	#donaList {
+		background: url("../media/bg/donation1.jfif") no-repeat;
+		background-position: center !important;
+		background-size: 50vh;
+	}
 }
