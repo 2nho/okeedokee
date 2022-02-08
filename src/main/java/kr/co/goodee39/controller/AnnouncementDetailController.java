@@ -1,11 +1,15 @@
 package kr.co.goodee39.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 import org.json.XML;
@@ -265,7 +269,17 @@ public class AnnouncementDetailController {
 	
 	// 상담예약 페이지 이동
 	@PostMapping("/Announcement/reservationMove")
-	public String reservationMove(@ModelAttribute("rvo") ReservationVO vo, Model model) {
+	public String reservationMove(@ModelAttribute("rvo") ReservationVO vo, Model model, HttpSession session, HttpServletResponse response)throws IOException {
+		if(session.getAttribute("account") == null) {
+			// 데이터 처리 타입
+			response.setContentType("text/html; charset=UTF-8");
+			// out 인스턴스 생성
+			PrintWriter out = response.getWriter();
+			// alert 메시지 생성 및 이동 경로 설정
+			out.println("<script>alert('로그인을 해주세요.'); location.href='/okeedokee/member/loginPage';</script>");
+			// 출력
+			out.flush();
+		}
 		model.addAttribute("vo", vo);
 		return "g_mypage_reservation_create";
 	}
