@@ -104,7 +104,6 @@
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
 	
-	
 	<script type="text/javascript" src="js/reportRead.js"></script>
 
 </body>
