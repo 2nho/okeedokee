@@ -42,8 +42,7 @@ body {
 				dataType: "json",
 				success: function(result) {
 					 $.each(result, function(index, value){		
-						   console.log(index);
-						   console.log(value);
+					        // value 값만 이용
 						   datalist.push(value);
 						   openCalander(datalist);
 					 });
@@ -80,7 +79,7 @@ body {
 							 dataType: "json",
 							data : JSON.stringify({title,start:arg.startStr,end:arg.endStr}),
 							success : function(result) {
-								alert((result));
+								console.log("DB insert 성공");
 							}
 						})
 					}
@@ -88,6 +87,7 @@ body {
 				},
 				eventClick : function(arg) {
 					var num = this.num;
+					console.log(arg);
 					if (confirm('삭제하시겠습니까?')) {
 						$.ajax({
 							type:"DELETE",
