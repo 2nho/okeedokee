@@ -10,110 +10,17 @@
 <link rel="icon" href="/okeedokee/media/logo/favicon.ico">
 <link rel="stylesheet" href="/okeedokee/css/loginpage.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="/okeedokee/css/offLogin.css" />
+<link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 <script type="text/javascript" src="/okeedokee/js/validation.js"></script>
 <script type="text/javascript" src="/okeedokee/js/joinCheck.js"></script>
-
-<style type="text/css">
-/* 메인 */
-
-
-/* main */
-main{
-	margin-bottom:120px;
-}
-
-#arti1 {
-	max-width:900px;
-}
-
-#arti1 #SignupBoard{
-	width: 500px;
-	margin: 0 auto;
-    padding: 15px 25px 0 25px;;
-    min-width: 460px;
-}
-
-#arti1 #SignupBoard h1:nth-child(1)::after{
-	content: "";
-	display: block;
-	width: 100%;
-	border-bottom: 2px solid black;
-	margin-top: 10px;
-}
-
-#arti1 #SignupBoard form {
-	margin: 20px 0 0 0;
-}
-
-#arti1 #SignupBoard form input{
-	border : 1px solid #FBD157;
-	outline: none;
-}
-
-#arti1 #SignupBoard form #signupBtn{
-	position: relative;
-    left: 42%;
-    bottom: -65px;
-}
-
-#arti1 #SignupBoard form .valid,.invalid{
-	position:relative;
-	font-size: 0.8rem;
-	font-weight: bold;
-	margin-bottom: 9px;
-	left:10px;
-}
-
-.valid { color: green; } 
-.invalid { color: red; } }
-
-/* button */
-
-.button {
-  width: 180px;
-  height: 60px;
-  position: absolute;
-}
-button {
-  width: 85px;
-  height: 30px;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid #FBD157;
-  outline: none;
-  transition: 1s ease-in-out;
-}
-svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: 1s ease-in-out;
-}
-button:hover {
-  transition: 1s ease-in-out;
-  background: #FBD157;
-}
-button:hover svg {
-  stroke-dashoffset: -480;
-}
-button span {
-  color: black;
-  font-size: 15px;
-  font-weight: 500;
-}
-</style>
 </head>
 <body>
 
 <div class="totalContainer">
 	<!-- 헤더 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
-	
-	<main>
+	<main class="signUpMain">
 		<nav>
 			<div class="mypageNav">
 				<div>
@@ -121,8 +28,8 @@ button span {
 						<h3>로그인/회원가입</h3>
 					</div>
 					<div class="mypageSubTitle">
-						<a href="loginPage" id="focus"><h4>로그인</h4></a>
-						<a href="signupAuthMove" ><h4>회원가입</h4></a>
+						<a href="loginPage"><h4>로그인</h4></a>
+						<a href="signupAuthMove" id="focus"><h4>회원가입</h4></a>
 						<a href="findId" ><h4>아이디 찾기</h4></a>
 						<a href="findPw" ><h4>비밀번호 찾기</h4></a>
 					</div>
@@ -132,10 +39,9 @@ button span {
 				
 			</div>
 		</nav>
-		
 		<section>
 			<article id="arti1">
-				<div id="SignupBoard">
+				<div id="SignupInputBoard">
 					<h1>회원가입</h1>
 					<p>${email}</p>
 						<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath }/member/signupResult" method="POST">
@@ -193,55 +99,14 @@ button span {
 						         </svg>
 						         <span>가입하기</span>
 						    </form:button>
-						    
 						</form:form>
 					</div>
 			</article>
 		</section>
 	</main>
-	
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
-
-<script type="text/javascript">
-	$(function(){
-		
-		$(document).ready(function(){
-			let path = window.location.pathname;
-			let sepa = path.split('/');
-			let di = $("#LoginSubTitle").children('a');
-
-			for (var value of di) { 
-				if( window.location.pathname === value.pathname){
-					value.classList.add("thisPosition");
-				}
-			}
-		});
-		
-		
-
-
-		$("#sign").click(function(){
-			location.href = "${pageContext.request.contextPath }/member/signUp";
-		});
-		
-		$("#auth").click(function(){
-			if(confirm("메일을 보내시겠습니까?")){
-				const email = $("#email");
-				$.ajax({
-					url : '${pageContext.request.contextPath}/auth',
-					data : email,
-					type : "post",
-					datatype: "text",
-					success : function(result){
-						console.log(result);
-
-					}
-				});
-			}
-		});
-	});
-</script>
+<script type="text/javascript" src="/okeedokee/js/offLogin.js"></script>
 </body>
 </html>

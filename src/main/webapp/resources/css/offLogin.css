@@ -1,0 +1,246 @@
+@charset "UTF-8";
+/* common  */
+main{
+	margin-bottom:247px;
+}
+
+#arti1 {
+	max-width:900px;
+	min-height: 394px;
+}
+
+#arti1 #signupAuthBoard,#findIdBoard,#findPwBoard  form ul li a:hover::after{width: 15px;}
+
+#arti1 #signupAuthBoard,#findIdBoard,#findPwBoard  form ul li a{transition:0.5s;}
+/* login */
+
+
+#loginSection #arti1 {
+	max-width:900px;
+}
+
+#loginSection #arti1 #LoginBoard h1:nth-child(1)::after{
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+	margin-top: 10px;
+}
+
+#loginSection #arti1 #LoginBoard{
+	width: 500px;
+	margin: 0 auto;
+    border: 25px solid #f9f1c0;
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom:21px;
+}
+
+#loginSection #arti1 #LoginBoard input{
+	border : 1px solid #FBD157;
+	outline: none;
+}
+
+#loginSection #arti1 #LoginBoard form ul li:nth-of-type(4){
+	border: 2px solid #FBD157;
+    padding: 5px;
+    border-radius: 13px;
+}
+
+#loginSection #arti1 #LoginBoard form ul li a{
+	padding: 5px;
+	display: block;
+}
+
+#loginSection #arti1 #LoginBoard form ul li a::after{
+	content: "";
+    display: block;
+    width: 0px;
+    border-bottom: 2px solid black;
+    margin-top: 1px;
+    transition: .5s ease;
+}
+
+#loginSection #arti1 #LoginBoard form ul li a:hover::after{
+	width: 15px;
+}
+
+#loginSection #arti1 #LoginBoard form ul li a{transition:0.5s;}
+
+#loginSection #sign{width:100px;}
+
+
+
+
+/* signupAuth */
+
+#arti1 #signupAuthBoard h1:nth-child(1)::after{
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+	margin-top: 10px;
+}
+
+#arti1 #signupAuthBoard{
+	width: 300px;
+    line-height: 2;	
+}
+
+#arti1 #signupAuthBoard input{
+	border : 1px solid #FBD157;
+	outline: none;
+}
+
+#arti1 #signupAuthBoard form ul li:nth-of-type(4){
+	border: 2px solid #FBD157;
+    padding: 5px;
+    border-radius: 13px;
+}
+
+#arti1 #signupAuthBoard form ul li a{
+	padding: 5px;
+	display: block;
+}
+
+#arti1 #signupAuthBoard form ul li a::after{
+	content: "";
+    display: block;
+    width: 0px;
+    border-bottom: 2px solid black;
+    margin-top: 1px;
+    transition: .5s ease;
+}
+
+
+
+
+
+/* findId  */
+#arti1 #findIdBoard h1:nth-child(1)::after{
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+	margin-top: 10px;
+}
+
+#arti1 #findIdBoard{
+	width: 300px;
+    line-height: 2;
+}
+
+#arti1 #findIdBoard input{
+	border : 1px solid #FBD157;
+	outline: none;
+}
+
+#arti1 #findIdBoard form ul li:nth-of-type(4){
+	border: 2px solid #FBD157;
+    padding: 5px;
+    border-radius: 13px;
+}
+
+#arti1 #findIdBoard form ul li a{
+	padding: 5px;
+	display: block;
+}
+
+#arti1 #findIdBoard form ul li a::after{
+	content: "";
+    display: block;
+    width: 0px;
+    border-bottom: 2px solid black;
+    margin-top: 1px;
+    transition: .5s ease;
+}
+
+
+/* findPw */
+#arti1 #findPwBoard h1:nth-child(1)::after{
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+	margin-top: 10px;
+}
+
+#arti1 #findPwBoard{
+	width: 300px;
+    line-height: 2;
+}
+
+#arti1 #findPwBoard input{
+	border : 1px solid #FBD157;
+	outline: none;
+}
+
+#arti1 #findPwBoard form ul li:nth-of-type(4){
+	border: 2px solid #FBD157;
+    padding: 5px;
+    border-radius: 13px;
+}
+
+#arti1 #findPwBoard form ul li a{
+	padding: 5px;
+	display: block;
+}
+
+#arti1 #findPwBoard form ul li a::after{
+	content: "";
+    display: block;
+    width: 0px;
+    border-bottom: 2px solid black;
+    margin-top: 1px;
+    transition: .5s ease;
+}
+
+/* signup */
+.signUpMain{
+	margin-bottom:120px;
+}
+
+.signUpMain section #arti1 {
+	max-width:900px;
+}
+
+#arti1 #SignupInputBoard{
+	width: 500px;
+	margin: 0 auto;
+    padding: 15px 25px 0 25px;;
+    min-width: 460px;
+}
+
+#arti1 #SignupInputBoard h1:nth-child(1)::after{
+	content: "";
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid black;
+	margin-top: 10px;
+}
+
+#arti1 #SignupInputBoard form {
+	margin: 20px 0 0 0;
+}
+
+#arti1 #SignupInputBoard form input{
+	border : 1px solid #FBD157;
+	outline: none;
+}
+
+#arti1 #SignupInputBoard form #signupBtn{
+	position: relative;
+    left: 38%;
+    bottom: -65px;
+}
+
+#arti1 #SignupInputBoard form .valid,.invalid{
+	position:relative;
+	font-size: 0.8rem;
+	font-weight: bold;
+	margin-bottom: 9px;
+	left:10px;
+}
+
+.valid { color: green; } 
+.invalid { color: red; } 

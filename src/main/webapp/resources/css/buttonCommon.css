@@ -24,7 +24,7 @@ button span {
 
 #createNotice,#listMove,#createReser,#modifyReser,#deleteReser,#modifyReserResult
 ,#createNoticeMove,#modifyNotice,#deleteNotice,#modifyNoticeResult,.alldelete, #modifyBtn,
-#deleteBtn, #submitBtn {
+#deleteBtn, #submitBtn, #sign {
   width: 90px;
   height: 30px;
   cursor: pointer;
@@ -34,7 +34,7 @@ button span {
   transition: 1s ease-in-out;
 }
 
-#openInfo{
+#openInfo {
   width: 150px;
   height: 40px;
   cursor: pointer;
@@ -44,6 +44,16 @@ button span {
   transition: 1s ease-in-out;
   position: relative;
   left:74%;
+}
+
+#submitSignupAuth, #authBtn, #submitFindId, #submitFindPw,#signupBtn{
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #FBD157;
+  outline: none;
+  transition: 1s ease-in-out;
 }
 
 #openInfo,#closeInfo span {
@@ -79,7 +89,9 @@ button:hover, #createNotice:hover, #listMove:hover, #createReser:hover,
 #openInfo:hover, #closeInfo:hover, #modifyReser:hover, #deleteReser:hover,
 #modifyReserResult:hover, #createNoticeMove:hover, #modifyNotice:hover,
 #deleteNotice:hover, #modifyNoticeResult:hover, .alldelete:hover,
-#modifyBtn:hover, #deleteBtn:hover, #submitBtn:hover {
+#modifyBtn:hover, #deleteBtn:hover, #submitBtn:hover, #sign:hover,
+#submitSignupAuth:hover , #authBtn:hover, #submitFindId:hover, #submitFindPw:hover,
+#signupBtn:hover {
   transition: 1s ease-in-out;
   background: #FBD157;
 }
@@ -88,7 +100,9 @@ button:hover, #createNotice:hover, #listMove:hover, #createReser:hover,
 #openInfo:hover, #closeInfo:hover, #modifyReser:hover, #deleteReser:hover,
 #modifyReserResult:hover, #createNoticeMove:hover, #modifyNotice:hover,
 #deleteNotice:hover, #modifyNoticeResult:hover, .alldelete:hover,
-#modifyBtn:hover, #deleteBtn:hover, #submitBtn:hover svg {
+#modifyBtn:hover, #deleteBtn:hover, #submitBtn:hover, #sign:hover,
+#submitSignupAuth:hover , #authBtn:hover, #submitFindId:hover, #submitFindPw:hover,
+#signupBtn:hover svg {
    stroke-dashoffset: -480;
 }
 
