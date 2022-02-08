@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 </head>
 <body>
-
 <div class="container">
 	<!-- 헤더 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>

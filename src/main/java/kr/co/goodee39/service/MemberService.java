@@ -32,8 +32,7 @@ public class MemberService {
 			// out 인스턴스 생성
 			PrintWriter out = response.getWriter();
 			// alert 메시지 생성 및 이동 경로 설정
-			String hello = "님 반갑습니다.";
-			out.println("<script>alert('안녕하세요. OKEEDOKEE 입니다.'); location.href='/okeedokee/';</script>");
+			out.println("<script>alert('안녕하세요. OKEEDOKEE 입니다.'); location.href='/okeedokee/main';</script>");
 			// 출력
 			out.flush();
 		}else {
