@@ -162,7 +162,7 @@
 					</div>
 					<c:choose>
 						<c:when test="${sessionScope.account.level == 'U'}"></c:when>
-						<c:otherwise>
+						<c:when test="${sessionScope.account.level == 'A'}">
 							<div id="noticeButtons">
 							    <button id="createNoticeMove">
 							         <svg width="90px" height="30px" viewBox="0 0 90 30" class="border">
@@ -172,7 +172,8 @@
 							         <span>글쓰기</span>
 							    </button>
 							</div><br /> 
-						</c:otherwise>
+						</c:when>
+						<c:otherwise></c:otherwise>
 					</c:choose>
 					
 				</article>
