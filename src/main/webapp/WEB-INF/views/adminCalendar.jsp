@@ -44,7 +44,8 @@ body {
 					 $.each(result, function(index, value){		
 					        // value 값만 이용
 						   datalist.push(value);
-						   openCalander(datalist);
+						   openCalander(datalist); // 이 부분
+						   console.log(value);
 					 });
 				}
 			});	
@@ -86,8 +87,7 @@ body {
 					calendar.unselect();
 				},
 				eventClick : function(arg) {
-					var num = this.num;
-					console.log(arg);
+					var data = arg.event.extendedProps;
 					if (confirm('삭제하시겠습니까?')) {
 						$.ajax({
 							type:"DELETE",
@@ -95,9 +95,9 @@ body {
 							 contentType: "application/json; charset=utf-8",
 							 dataType: "json",
 							 // num 값 넘겨줘야함
-							data : JSON.stringify(num),
+							data : JSON.stringify(data),
 							success : function(result) {
-								console.log("삭제");
+								console.log("삭제완료");
 								arg.event.remove();
 							}
 						})

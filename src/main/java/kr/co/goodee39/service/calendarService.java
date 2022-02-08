@@ -15,6 +15,7 @@ public class calendarService {
 		// 인서트
 		public void insertC(calendarVO vo) {
 			sqlSessionTemplate.insert("calendar.insertC",vo);
+			
 		}
 		// 삭제
 		public void deleteC(calendarVO vo) {
