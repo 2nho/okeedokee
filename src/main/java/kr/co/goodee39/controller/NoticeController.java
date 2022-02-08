@@ -1,4 +1,4 @@
-package kr.co.goodee39.controller;
+ package kr.co.goodee39.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,23 +43,8 @@ public class NoticeController {
 	public String getNoticeList(Model model, @RequestParam(defaultValue = "1") int num,
 											@RequestParam(defaultValue = "") String title,
 											@RequestParam(defaultValue = "") String content,
-											HttpSession session,
-											// PrintWirter 사용을 위해 HttpServletResponse 상속 및 예외처리 해야함.
-											HttpServletResponse response) throws IOException {
-											
-		if(session.getAttribute("account") != null){
+											HttpSession session) {
 			service.selectNoticeList(model, num, title, content);
-		}else {
-			// 데이터 처리 타입
-			response.setContentType("text/html; charset=UTF-8");
-			// out 인스턴스 생성
-			PrintWriter out = response.getWriter();
-			// alert 메시지 생성 및 이동 경로 설정
-			out.println("<script>alert('로그인을 해주세요.'); location.href='/okeedokee/member/loginPage';</script>");
-			// 출력
-			out.flush();
-		}
-		
 		return "Notice"; 
 	}
 	
