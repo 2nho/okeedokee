@@ -85,6 +85,7 @@ main section #arti1 {
 	align-items: center;
 	border-radius: 15px 15px;
 }
+
 main section #arti1 .content {
 	width: 95%;
 	height: 90%;
@@ -92,10 +93,12 @@ main section #arti1 .content {
 	border-radius: 15px 15px;
 	padding: 20px;
 }
+
 main section #arti1 .content h1 {
 	font-size: 28px;
 	margin-bottom: 100px;
 }
+
 main section #arti1 .content>h1::after {
 	content: "";
 	display: block;
@@ -103,55 +106,54 @@ main section #arti1 .content>h1::after {
 	border-bottom: 2px solid black;
 }
 
-
 /* 개인정보 변경 */
-main section #arti1 .content #cpi{
+main section #arti1 .content #cpi {
 	margin: 0 auto;
-    width: 500px;
-    border: 20px solid #f9f1c0;
-    padding: 30px;
-    border-radius: 15px 15px;
-    line-height: 2.5;
-    background-color: #f9f1c0;
+	width: 500px;
+	border: 20px solid #f9f1c0;
+	padding: 30px;
+	border-radius: 15px 15px;
+	line-height: 2.5;
+	background-color: #f9f1c0;
 }
 
-main section #arti1 .content #cpi form{
+main section #arti1 .content #cpi form {
 	margin: 0 auto;
-    width: 240px;
+	width: 240px;
 }
 
-main section #arti1 .content #cpi input{
-	border : 1px solid #FBD157;
+main section #arti1 .content #cpi input {
+	border: 1px solid #FBD157;
 	outline: none;
 }
 
-main section #arti1 .content #cpiModify{
+main section #arti1 .content #cpiModify {
 	margin: 0 auto;
-    width: 600px;
-    border: 20px solid #f9f1c0;
-    padding: 30px;
-    border-radius: 15px 15px;
-    background-color: #f9f1c0;
-    line-height: 25px;
+	width: 600px;
+	border: 20px solid #f9f1c0;
+	padding: 30px;
+	border-radius: 15px 15px;
+	background-color: #f9f1c0;
+	line-height: 25px;
 }
 
-main section #arti1 .content #cpiModifyBtns{
+main section #arti1 .content #cpiModifyBtns {
 	margin: 50px 0 0 300px;
 }
 
-main section #arti1 .content #cpiModifyBtns{
+main section #arti1 .content #cpiModifyBtns {
 	margin: 20px 0 0 42%;
 }
 
-main section #arti1 .content #cpiModify input{
-	border : 1px solid #FBD157;
+main section #arti1 .content #cpiModify input {
+	border: 1px solid #FBD157;
 	outline: none;
 }
 
 /* 나의 실종, 목격 */
 /* 페이징 css */
-main section #arti1 .content .myList>#pagingBox,
-main section #arti1 .content .myList>.searchBox {
+main section #arti1 .content .myList>#pagingBox, main section #arti1 .content .myList>.searchBox
+	{
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -162,8 +164,8 @@ main section #arti1 .content .myList>#pagingBox .paging {
 	color: #fbd157;
 }
 
-main section #arti1 .content .myList>.searchBox #searchType, 
-main section #arti1 .content .myList>.searchBox #search {
+main section #arti1 .content .myList>.searchBox #searchType, main section #arti1 .content .myList>.searchBox #search
+	{
 	margin-right: 10px;
 }
 
@@ -187,11 +189,12 @@ main section #arti1 .content .myList>.searchBox #searchBtn:hover {
 main section #arti1 .content #donaAmount {
 	width: 100%;
 	display: flex;
-	flex-direction:column;
+	flex-direction: column;
 	justify-content: right;
 	align-items: flex-end;
 	text-align: right;
 }
+
 main section #arti1 .content #donaAmount #amount {
 	width: 60%;
 	background-color: #FBD157;
@@ -201,10 +204,16 @@ main section #arti1 .content #donaAmount #amount {
 	border-radius: 15px 15px;
 }
 
+/* 봉사활동 내역 */
+main section #arti1 .content .myList>table>tbody>tr>td:nth-child(3) {
+	white-space: pre-line;
+}
+
 /* 나의 신고 내역 */
 main section #arti1 .content .myList {
 	width: 100%;
 }
+
 main section #arti1 .content .myList>table {
 	width: 100%;
 	text-align: center;
@@ -215,16 +224,16 @@ main section #arti1 .content .myList>table {
 main section #arti1 .content .myList>table>thead>tr>th {
 	border-bottom: 2px solid #323232;
 }
-main section #arti1 .content .myList>table>tbody>tr>td {
-	border-bottom: 1px solid rgba(0,0,0,.2);
-}
 
+main section #arti1 .content .myList>table>tbody>tr>td {
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
 
 /* 반응형 */
 /* 데스크탑 */
 @media ( max-width : 1260px) {
 	main section #arti1 .content .myList>table>tbody>tr>td {
-	    font-size: 85%;
+		font-size: 85%;
 	}
 	main section #arti1 .content .myList>table>colgroup>#colDate {
 		width: 18%;
@@ -232,12 +241,14 @@ main section #arti1 .content .myList>table>tbody>tr>td {
 	main section #arti1 .content .myList>table>colgroup>#colStatus {
 		width: 15%;
 	}
-	
 }
 
 /* 태블릿 */
 @media ( max-width : 1000px) {
 	/* 마이페이지 메뉴 */
+	body {
+		overflow-x: hidden; 
+	}
 	main {
 		flex-direction: column;
 		margin: auto 0;
@@ -246,8 +257,8 @@ main section #arti1 .content .myList>table>tbody>tr>td {
 		margin-bottom: 30px;
 	}
 	main nav .mypageNav {
-	    width: 100%;
-	    display: flex;
+		width: 100%;
+		display: flex;
 		justify-content: space-between;
 	}
 	main nav .mypageNav .mypageTitle {
@@ -268,13 +279,13 @@ main section #arti1 .content .myList>table>tbody>tr>td {
 	}
 	main nav .mypageSubTitle a h4 {
 		font-size: 72%;
-	}	
+	}
 	/* 나의 신고 내역 */
 	main section #arti1 .content .myList>table>thead>tr>th {
-	    font-size: 80%;
+		font-size: 80%;
 	}
 	main section #arti1 .content .myList>table>tbody>tr>td {
-	    font-size: 80%;
+		font-size: 80%;
 	}
 	main section #arti1 .content .myList>table>colgroup>#colDate {
 		width: 22%;
@@ -283,13 +294,28 @@ main section #arti1 .content .myList>table>tbody>tr>td {
 	main section #arti1 .content .myList>table>colgroup>#colStatus {
 		width: 17%;
 	}
-		main section #arti1 .content .myList>.searchBox #searchBtn {
-	    padding: 5px;
+	main section #arti1 .content .myList>.searchBox #searchBtn {
+		padding: 5px;
 	}
 	main section #arti1 .content .myList>.searchBox #searchBtn:hover {
 		padding: 3px;
 		border: 2px solid #fbd157;
-	}	
-	
+	}
+	/* 기부금 총액 */
+	main section #arti1 .content #donaAmount {
+		align-items: center;
+		text-align: center;
+	}
+	main section #arti1 .content #donaAmount #amount {
+		width: 50%;
+		font-size: 30px;
+	}
+	/* 봉사활동 내역 */
+	main section #arti1 .content .myList>table {
+		width: 120%;
+	}
+	main section #arti1 .content .myList>table>thead>tr>th:nth-child(3),
+	main section #arti1 .content .myList>table>tbody>tr>td:nth-child(3) {
+		display: none;
+	}
 }
-

@@ -95,7 +95,9 @@
 										<tr>
 											<td>${i}</td>
 											<td><a href="voluntary?num=${vt.num}">${vt.careName}</a></td>
-											<td>${vt.dateFrom} ~ ${vt.dateTo}</td>
+											<td>${vt.dateFrom}
+											 ~ 
+											 ${vt.dateTo}</td>
 											<td>${vt.createdate}</td>
 										</tr>
 									</c:forEach>
