@@ -204,3 +204,16 @@ main section #arti1 #reserButtons{
 #reserBoard::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
 width:16px;height:16px;background:#f1ef79;} 
 
+/* map */
+.main-content-map {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    bottom: 122px;
+    left: 612px;
+}
+
+#map {
+    width: 350px;
+    height: 400px;
+}

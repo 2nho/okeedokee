@@ -11,6 +11,7 @@
 <script type="text/javascript" src="/okeedokee/smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <link rel="stylesheet" href="/okeedokee/css/reservation.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	d038fe03dc6e4e500c465865653e5635&libraries=services"></script>
 </head>
 <body>
 
@@ -32,8 +33,8 @@
 							<form:hidden path="noticeSdt" value="${vo.noticeSdt}"/>
 							<form:hidden path="happenPlace" value="${vo.happenPlace}"/>
 							<form:hidden path="dogImg" value="${vo.dogImg}"/>
-							<form:hidden path="careNm" value="${vo.careNm}"/>
-							<form:hidden path="careAddr" value="${vo.careAddr}"/>
+							<form:hidden path="careNm" id="shelterName" value="${vo.careNm}"/>
+							<form:hidden path="careAddr" id="shelterDetail" value="${vo.careAddr}"/>
 							<form:hidden path="careTel" value="${vo.careTel}"/>
 							<form:hidden path="chargeNm" value="${vo.chargeNm}"/>
 							<ul>
@@ -53,9 +54,14 @@
 								<li><h3>상담사전정보 : </h3></li>
 								<li style="position: absolute;"><form:textarea path="content" cols="70" rows="10" id="content" name="content"
 								style="resize:none; outline:none; position: relative; bottom: 100px;}"
-								placeHolder="상담 사전 정보를 입력해주세요."/><img src="${vo.dogImg}" alt=""></li>
-								
-								
+								placeHolder="상담 사전 정보를 입력해주세요."/><img src="${vo.dogImg}" alt="" style="opacity: 0"></li>
+								<li>
+									<div class="main-content-map">
+				                        <div class="map-api" id="map">
+				                            
+				                        </div>
+				                    </div>
+				              	</li>
 							</ul>
 						</form:form>
 						<div class="main-content-info">
@@ -100,6 +106,7 @@
 											         <span>강아지정보 접기</span>
 											    </button>
 	                                        </li>
+	                                        
 	                                    </ul>
 	                                </div>
 	                            </div>
@@ -125,7 +132,6 @@
 				</article>
 			</section>
 		</main>
-
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>

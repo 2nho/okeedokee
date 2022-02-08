@@ -79,14 +79,18 @@ $(function() {
 	
     $("#openInfo").click(function(){
 		$('.main-content-info').fadeIn( 1000 );
+		$('#map').fadeOut( 500 );
 		$(".main-content-info").css("display","flex");
+		
 	});
 	
 	$("#closeInfo").click(function(){
 		$('.main-content-info').fadeOut(1000);
+		$('#map').fadeIn( 500 );
 	});
 });
 
+/* 텍스트에디터 */
 function textEdit() {
 	let oEditors = [];
 	smartEditor = function() {
@@ -112,3 +116,45 @@ function textEdit() {
 	}
 	
 }textEdit();
+
+/* map */
+var init_Announcement_detail = function () {
+	var mapContainer = document.getElementById('map'),
+	    mapOption = {
+	        center: new kakao.maps.LatLng(33.450701, 126.570667),
+	        level: 9
+	    };  
+
+	var map = new kakao.maps.Map(mapContainer, mapOption); 
+	
+	var geocoder = new kakao.maps.services.Geocoder();
+	
+	var dogId = $("#shelterDetail").attr("value");
+	var splitDogId = dogId.split(':');
+	
+	var shelterId = $("#shelterName").attr("value");
+	var splitshelterId = shelterId.split(':');
+	
+	geocoder.addressSearch("'" + splitDogId[1] + "'", function(result, status) {
+
+	     if (status === kakao.maps.services.Status.OK) {
+	
+	        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+	        var marker = new kakao.maps.Marker({
+	            map: map,
+	            position: coords
+	        });
+			
+	        var infowindow = new kakao.maps.InfoWindow({
+	            content: '<div style="width:150px;text-align:center;padding:6px 0;">' + splitshelterId[1] + '</div>'
+	        });
+	        infowindow.open(map, marker);
+			
+	        map.setCenter(coords);
+	    } 
+	}); 
+}
+
+$(document).ready(function() {
+    init_Announcement_detail();
+});

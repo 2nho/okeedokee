@@ -11,7 +11,7 @@
 <script type="text/javascript" src="/okeedokee/smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <link rel="stylesheet" href="/okeedokee/css/reservation.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	d038fe03dc6e4e500c465865653e5635&libraries=services"></script>
 </head>
 <body>
 
@@ -26,6 +26,8 @@
 						<form:form modelAttribute="rvo" action="/okeedokee/reservationModify" type="POST" id="submitModify">
 							<form:hidden path="rnum" id="modifyRnum" value="${rvo.rnum}"/>
 							<form:hidden path="mnum" id="deleteMnum" value="${rvo.mnum}"/>
+							<form:hidden path="careNm" id="shelterName" value="${rvo.careNm}"/>
+							<form:hidden path="careAddr" id="shelterDetail" value="${rvo.careAddr}"/>
 							<ul>
 								<li>
 									<button type="button" id="openInfo">
@@ -43,7 +45,14 @@
 								<li><h3>상담사전정보 : </h3></li>
 								<li style="position: absolute;"><textarea path="content" cols="70" rows="10" readonly id="content" name="content" 
 				     			>${rvo.content}</textarea>
-				     			<img src="${rvo.dogImg}" alt=""></li>
+				     			<img src="${rvo.dogImg}" alt="" style="opacity: 0"></li>
+				     			<li>
+				     				<div class="main-content-map">
+				                        <div class="map-api" id="map">
+				                            
+				                        </div>
+				                    </div>
+				     			</li>
 							</ul>
 						</form:form>
 						<div class="main-content-info">
