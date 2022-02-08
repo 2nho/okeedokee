@@ -33,7 +33,7 @@ public class MypageService {
 			// out 인스턴스 생성
 			PrintWriter out = response.getWriter();
 			// alert 메시지 생성 및 이동 경로 설정
-			out.println("<script>alert('비밀번호를 확인해주세요.'); location.href='/okeedokee/mypage';</script>");
+			out.println("<script>alert('계정 정보를 다시 확인해주세요.'); location.href='/okeedokee/mypage';</script>");
 			// 출력
 			out.flush();
 			path = "redirect:/mypage";
