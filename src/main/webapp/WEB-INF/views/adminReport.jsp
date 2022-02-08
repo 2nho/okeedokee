@@ -15,16 +15,20 @@
 </head>
 <body>
 	<div id="container">
-		<header> </header>
+		<header>
+		<div class="head"><p>OKEEDOKEE - 관리자페이지</p></div>
+		</header>
 		<main>
 			<aside>
 				<ul>
-					<li><h2>관리자모드</h2></li>
-					<li><h3><a href="adminHome">Home</a></h3></li>
-					<li><h3><a href="adminMember">회원관리</a></h3></li>
-					<li><h3 class="red">신고관리</h3></li>
-					<li><h3><a href="adminCalendar">일정관리</a></h3></li>
+					<li><h1>관리자모드</h1></li>
+					<li><h2><a href="adminHome">Home</a></h2></li>
+					<li><h2><a href="adminMember">회원관리</a></h2></li>
+					<li><h2 class="red">신고관리</h2></li>
+					<li><h2><a href="adminCalendar">일정관리</a></h2></li>
 				</ul>
+				<br />
+				<span><a href="${pageContext.request.contextPath}/main">메인으로</a></span>
 			</aside>
 			<section>
 				<div>
@@ -72,6 +76,7 @@
 							</tbody>
 						</table>
 						<hr />
+						<div class="page">
 						<c:choose>
 							<c:when test="${(minBlock-1) < 1 }">
 								<span>◀◀</span>
@@ -123,6 +128,7 @@
 									href="${pageContext.request.contextPath}/admin/adminReport?num=${maxBlock+1}${query}">▶▶</a>
 							</c:otherwise>
 						</c:choose>
+						</div>
 					</article>
 				</div>
 			</section>
