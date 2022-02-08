@@ -7,46 +7,9 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <link rel="icon" href="media/logo/favicon.ico">
-<link rel="stylesheet" href="css/mypage.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<style>
-.button {
-  width: 180px;
-  height: 60px;
-  position: absolute;
-}
-button {
-  width: 90px;
-  height: 25px;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid #FBD157;
-  outline: none;
-  transition: 1s ease-in-out;
-}
-svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: 1s ease-in-out;
-}
-button:hover {
-  transition: 1s ease-in-out;
-  background: #FBD157;
-}
-button:hover svg {
-  stroke-dashoffset: -480;
-}
-button span {
-  color: black;
-  font-size: 15px;
-  font-weight: 500;
-}
-</style>
+<link rel="stylesheet" href="css/mypage.css" />
+<link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 </head>
 <body>
 
@@ -138,24 +101,6 @@ button span {
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
-<script>
-	$(function(){
-		
-		
-		$("#submitBtn").click(function(){
-			if($("#id").val() == "${sessionScope.account.id}"){
-				if($("#id").val() == ""){
-					alert("아이디를 입력하세요.");
-				}else if($("#pw").val() == ""){
-					alert("비밀번호를 입력하세요.");
-				}else{ $("#submit").submit();}
-			}else{
-				alert("아이디를 다시 확인해주십시오.");
-			}
-				
-		});
-	
-	});
-</script>
+<script type="text/javascript" src="/okeedokee/js/cpi.js"></script>
 </body>
 </html>

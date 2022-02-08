@@ -9,9 +9,8 @@
 <title>OKEEDOKEE</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="/okeedokee/smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
-<link rel="stylesheet" href="/okeedokee/css/reservation.css?eargaerg" />
+<link rel="stylesheet" href="/okeedokee/css/reservation.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
-
 </head>
 <body>
 
@@ -130,6 +129,6 @@
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
-<script type="text/javascript" src="/okeedokee/js/reservation.js?sdfwesdfsdfrf"></script>
+<script type="text/javascript" src="/okeedokee/js/reservation.js"></script>
 </body>
 </html>

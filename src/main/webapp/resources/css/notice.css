@@ -13,6 +13,7 @@ main section {
 
 /* notice */
 main section article #noticeBoard {
+	height:613px;
 	margin: 20px 25px 0 25px;
 	padding: 25px;
 	border: 25px solid #f9f1c0;

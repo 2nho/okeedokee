@@ -7,46 +7,9 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <link rel="icon" href="/okeedokee/media/logo/favicon.ico">
-<link rel="stylesheet" href="/okeedokee/css/mypage.css?sdsdsd" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<style>
-.button {
-  width: 180px;
-  height: 60px;
-  position: absolute;
-}
-button {
-  width: 90px;
-  height: 25px;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid #FBD157;
-  outline: none;
-  transition: 1s ease-in-out;
-}
-svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: 1s ease-in-out;
-}
-button:hover {
-  transition: 1s ease-in-out;
-  background: #FBD157;
-}
-button:hover svg {
-  stroke-dashoffset: -480;
-}
-button span {
-  color: black;
-  font-size: 15px;
-  font-weight: 500;
-}
-</style>
+<link rel="stylesheet" href="css/mypage.css" />
+<link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 </head>
 <body>
 
@@ -111,8 +74,8 @@ button span {
 				<div class="content">
 					<h1>${sessionScope.account.name} 님의 정보</h1>
 					<div id="cpiModify">
+						<input type="hidden" name="size" id="size" value="${sessionScope.account.size}" />
 						<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath }/member/cpiUpdate" method="POST" id="submit">
-							
 								성명  <form:input path="name" class="chk" value="${sessionScope.account.name}"/><br />
 
 								아이디  <form:input path="id" id="id" class="chk" value="${sessionScope.account.id}" />
@@ -164,66 +127,6 @@ button span {
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
-	<script>
-	$(function(){
-		$("#id").attr("readonly",true);
-
-		($("#pet1").val()=="Y")? $("#pet1").prop('checked', true) : $("#pet2").prop('checked', true);
-		
-		if("${sessionScope.account.size}" == "b"){
-			$("#size1").prop('checked', true);
-		}else if("${sessionScope.account.size}" == "m"){
-			$("#size2").prop('checked', true);
-		}else if("${sessionScope.account.size}" == "s"){
-			$("#size3").prop('checked', true);
-		}else{
-			$("#size4").prop('checked', true);
-		}
-		
-		$("#modifyBtn").click(function(){
-			let $id = $('[name=id]'); 
-			let $pw = $('[name=pw]');
-			let $chkpw = $('[name=chkpw]');
-			if(($pw.val() != "") &&($pw.val()==$chkpw.val())){
-				$.ajax({ 
-					type: 'post', 
-					url: '${pageContext.request.contextPath}/member/findCpi', 
-					data: {id: $id.val(),pw: $pw.val()}, 
-					success: function(data) { 
-						alert("정보가 변경되었습니다.");
-						$("#submit").submit();
-					}, 
-					error: function() { 
-						alert("존재하지 않는 아이디입니다.");
-					}
-				});
-			}else{
-				alert("비밀번호를 확인해주세요.");
-			}
-		});
-		
-		$("#deleteBtn").click(function(){
-			let $id = $('[name=id]'); 
-			let $pw = $('[name=pw]');
-			let $chkpw = $('[name=chkpw]');
-			if(($pw.val() != "") &&($pw.val()==$chkpw.val())){
-				$.ajax({ 
-					type: 'post', 
-					url: '${pageContext.request.contextPath}/member/findCpi', 
-					data: {id: $id.val(),pw: $pw.val()}, 
-					success: function(data) { 
-						alert("탈퇴가 완료되었습니다.");
-						location.href="${pageContext.request.contextPath}/member/cpiDelete?id="+data.id;
-					}, 
-					error: function() { 
-						alert("존재하지 않는 아이디입니다."); 
-					}
-				});
-			}else{
-				alert("비밀번호를 확인해주세요.");
-			}
-		});
-	});
-	</script>
+<script type="text/javascript" src="/okeedokee/js/cpi.js"></script>
 </body>
 </html>

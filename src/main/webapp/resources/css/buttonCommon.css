@@ -23,7 +23,8 @@ button span {
 }
 
 #createNotice,#listMove,#createReser,#modifyReser,#deleteReser,#modifyReserResult
-,#createNoticeMove,#modifyNotice,#deleteNotice,#modifyNoticeResult,.alldelete {
+,#createNoticeMove,#modifyNotice,#deleteNotice,#modifyNoticeResult,.alldelete, #cpiModifyBtns,
+#deleteBtn {
   width: 90px;
   height: 30px;
   cursor: pointer;
@@ -77,7 +78,8 @@ svg {
 button:hover, #createNotice:hover, #listMove:hover, #createReser:hover,
 #openInfo:hover, #closeInfo:hover, #modifyReser:hover, #deleteReser:hover,
 #modifyReserResult:hover, #createNoticeMove:hover, #modifyNotice:hover,
-#deleteNotice:hover, #modifyNoticeResult:hover, .alldelete:hover {
+#deleteNotice:hover, #modifyNoticeResult:hover, .alldelete:hover,
+#cpiModifyBtns:hover, #deleteBtn:hover {
   transition: 1s ease-in-out;
   background: #FBD157;
 }
@@ -85,7 +87,8 @@ button:hover, #createNotice:hover, #listMove:hover, #createReser:hover,
 button:hover, #createNotice:hover, #listMove:hover, #createReser:hover,
 #openInfo:hover, #closeInfo:hover, #modifyReser:hover, #deleteReser:hover,
 #modifyReserResult:hover, #createNoticeMove:hover, #modifyNotice:hover,
-#deleteNotice:hover, #modifyNoticeResult:hover, .alldelete:hover svg {
+#deleteNotice:hover, #modifyNoticeResult:hover, .alldelete:hover,
+#cpiModifyBtns:hover, #deleteBtn:hover svg {
    stroke-dashoffset: -480;
 }
 
