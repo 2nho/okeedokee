@@ -36,11 +36,8 @@ public class MainController {
 	
 	
 	@GetMapping("/main")
-	public String Main(HttpServletRequest request, Model model,
-						@RequestParam(defaultValue = "1") int num,
-						@RequestParam(defaultValue = "") String id,
-						@RequestParam(defaultValue = "") String title,
-						@RequestParam(defaultValue = "") String content) {
+	public String Main(HttpServletRequest request, Model model
+						) {
 
         
         List<HashMap<String, Object>> resultSightingList = MainService.selectSighting("4");
@@ -51,7 +48,6 @@ public class MainController {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("Missing", resultMissingList);
 		resultMap.put("Sighting", resultSightingList);
-
 		
 
 		try {
@@ -222,7 +218,7 @@ public class MainController {
             //model.addAttribute("result", resultMap);
 
             model.addAttribute("result", resultMap);
-
+            System.out.println(resultMap.get(resultMissingList));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

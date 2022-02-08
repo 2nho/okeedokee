@@ -41,9 +41,7 @@ public class MainService {
 		
 		mnwVO vo = new mnwVO();
 		
-		//이미지 가져가기
-		vo.setBdiv(bdiv);
-		selectImg(vo, model);
+
 	}
 	
 	//새로추가 함수
@@ -61,24 +59,26 @@ public class MainService {
 	}
 	
 	
-	//게시판 리스트 이미지 가져오기
-	public void selectImg(mnwVO vo, Model model) {
-
-		//uploadfile 테이블에 저장한 게시글 num 가져와서 추가
-		ImageVO ivo = new ImageVO();
-		ivo.setBdiv(vo.getBdiv());
-		
-				
-		//게시글 num으로 해당하는 파일들 긁어오기
-		List<ImageVO> filelist = sqlSessionTemplate.selectList("img.selectImg", ivo);
-		
-		if(filelist.isEmpty()) {
-			model.addAttribute("filelist", "none");
-			System.out.println("비었다");
-		}
-		else {
-			//view로 가져가자
-			model.addAttribute("filelist", filelist);
-		}
-	}
+	
+//	
+//	//게시판 리스트 이미지 가져오기
+//	public void selectImg(mnwVO vo, Model model) {
+//
+//		//uploadfile 테이블에 저장한 게시글 num 가져와서 추가
+//		ImageVO ivo = new ImageVO();
+//		ivo.setBdiv(vo.getBdiv());
+//		
+//				
+//		//게시글 num으로 해당하는 파일들 긁어오기
+//		List<ImageVO> filelist = sqlSessionTemplate.selectList("img.selectImg", ivo);
+//		
+//		if(filelist.isEmpty()) {
+//			model.addAttribute("filelist", "none");
+//			System.out.println("비었다");
+//		}
+//		else {
+//			//view로 가져가자
+//			model.addAttribute("filelist", filelist);
+//		}
+//	}
 }

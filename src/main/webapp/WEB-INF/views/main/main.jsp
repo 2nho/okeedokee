@@ -117,20 +117,17 @@
 	                        <div class="find-dog-info">
 	                            <div class="find-info-img">
 	                               <a href="${pageContext.request.contextPath}/read?bdiv=3&num=${Missing.num}">
-										<!-- 저장된 파일 가져오기 -->
 										<c:set var="loop_flag" value="false" />
-										<c:forEach var="file" items="${filelist}">
-											<c:if test="${not loop_flag }">
-											<c:if test="${(Missing.hasimg eq 'Y') and (file.bnum == Missing.num)}">
-												<img src="media/img/${file.localName}" alt=""/>
+										<c:if test="${not loop_flag }">
+											<c:if test="${Missing.hasimg eq 'Y'}">
+												<img src="media/img/${Missing.localName}" alt=""/>
 												  <c:set var="loop_flag" value="true" />
 											</c:if>
 											<c:if test="${Missing.hasimg ne 'Y'}">
 												<img src="media/logo/mainLogo.png" alt=""/>
 												  <c:set var="loop_flag" value="true" />
 											</c:if>
-											</c:if>
-										</c:forEach>
+										</c:if>
 									</a>
 	                            </div>
 	                            <a href="${pageContext.request.contextPath}/read?bdiv=3&num=${Missing.num}" class="acontent">
@@ -157,18 +154,16 @@
                      			<a href="${pageContext.request.contextPath}/read?bdiv=4&num=${Sighting.num}">
 									<!-- 저장된 파일 가져오기 -->
 									<c:set var="loop_flag" value="false" />
-									<c:forEach var="file" items="${filelist}">
-										<c:if test="${not loop_flag }">
-										<c:if test="${(Sighting.hasimg eq 'Y') and (file.bnum == Sighting.num)}">
-											<img src="media/img/${file.localName}" alt=""/>
+									<c:if test="${not loop_flag }">
+										<c:if test="${Sighting.hasimg eq 'Y'}">
+											<img src="media/img/${Sighting.localName}" alt=""/>
 											  <c:set var="loop_flag" value="true" />
 										</c:if>
 										<c:if test="${Sighting.hasimg ne 'Y'}">
 											<img src="media/logo/mainLogo.png" alt=""/>
 											  <c:set var="loop_flag" value="true" />
 										</c:if>
-										 </c:if>
-									</c:forEach>
+									</c:if>
 								</a>
                      		</div>
                      		<div class="sighting-info-content">
