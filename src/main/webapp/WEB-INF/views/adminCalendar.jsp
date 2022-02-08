@@ -8,8 +8,10 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/ko.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/ko.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
 <style type="text/css">
 body {
 	margin: 40px 10px;
@@ -27,9 +29,29 @@ body {
 <body>
 	<div id='calendar'></div>
 	<script>
+		var calendarEl = document.getElementById('calendar');
+	
 		document.addEventListener('DOMContentLoaded', function() {
-			var calendarEl = document.getElementById('calendar');
-
+			const datalist = [];
+			// 콜백함수 event에 직접적으로 ajax넣게되면 데이터가 넘어오기전에 
+			// 실행이 되므로 값이 안나타날수있다
+			$.ajax({
+				url: '${pageContext.request.contextPath}/admin/select',
+				type:"Get",
+				//contentType: "application/json; charset=utf-8", 넘기는 데이터 없으니 필요없음
+				dataType: "json",
+				success: function(result) {
+					 $.each(result, function(index, value){		
+						   console.log(index);
+						   console.log(value);
+						   datalist.push(value);
+						   openCalander(datalist);
+					 });
+				}
+			});	
+		});
+		
+		function openCalander(datalist){
 			var calendar = new FullCalendar.Calendar(calendarEl, {
 				locale : 'ko',
 				headerToolbar : {
@@ -65,36 +87,28 @@ body {
 					calendar.unselect();
 				},
 				eventClick : function(arg) {
+					var num = this.num;
 					if (confirm('삭제하시겠습니까?')) {
-						arg.event.remove()
+						$.ajax({
+							type:"DELETE",
+							url:'${pageContext.request.contextPath}/admin/delete',
+							 contentType: "application/json; charset=utf-8",
+							 dataType: "json",
+							 // num 값 넘겨줘야함
+							data : JSON.stringify(num),
+							success : function(result) {
+								console.log("삭제");
+								arg.event.remove();
+							}
+						})
 					}
 				},
 				editable : true, // 날짜조정 스크롤바로 가능
 				dayMaxEvents : true, // true시 이벤트가 많을 경우 more
-				events :[
-					$.ajax({
-						url: '${pageContext.request.contextPath}/admin/select',
-						type:"Get",
-						//contentType: "application/json; charset=utf-8", 넘기는 데이터 없으니 필요없음
-						dataType: "json",
-						success: function(result) {
-							 $.each(result, function(index, value){
-								 
-								JSON.stringify(value);
-								
-								
-								   console.log(index);
-								   console.log(value);
-							  });
-						 },
-						 error: function(err){
-					        	console.log(err);	
-					        }
-					})
-				]	
+				events : datalist
 			});
 			calendar.render();
-		});
+		}
 	</script>
 </body>
 </html>
