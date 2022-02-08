@@ -208,7 +208,14 @@
 						        dataType: "json",
 						        //성공시 결과값 매개변수로 받아서
 						        success: function(result) {						        
-						        	alert("회원등급 변경완료");
+						        	//alert("회원등급 변경완료");
+						        	//console.log(result);
+						        	if(result.level=="A") {
+						        		alert("일반회원에서 관리자로 변경")
+						        	} else {
+						        		alert("관리자에서 일반회원으로 변경")
+						        	}
+						        	
 						        },
 						        error: function(err){
 						        	console.log(err);	
