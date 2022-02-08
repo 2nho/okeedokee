@@ -79,8 +79,9 @@ body {
 						dataType: "json",
 						success: function(result) {
 							 $.each(result, function(index, value){
-								   console.log(index);
-								   console.log(value);
+								 
+								JSON.stringify(value);
+								
 							  });
 						 },
 						 error: function(err){
