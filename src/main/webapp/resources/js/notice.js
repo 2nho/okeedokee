@@ -148,3 +148,29 @@ $(function(){
 	});
 	
 });
+
+function textEdit() {
+	let oEditors = [];
+	smartEditor = function() {
+		nhn.husky.EZCreator.createInIFrame({
+			oAppRef: oEditors,
+			elPlaceHolder: "content",
+			sSkinURI: "/okeedokee/smartEditor/SmartEditor2Skin.html",
+			fCreator: "createSEditor2",
+			htParams: {
+				bUseToolbar: true,
+				bUseVerticalResizer: false,
+				bUseModeChanger: false,
+			}
+		});
+	}
+	
+	$(document).ready(function() {
+		smartEditor();
+	});
+	
+	submitPost = function()  {	
+		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
+	}
+	
+}textEdit();

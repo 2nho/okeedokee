@@ -20,16 +20,24 @@
                 
                 <div class="main-advertisement" id="main_advertisement">
                     <div class="slidershow fade">
-                            <img src="media/main/advertisement_img1.jpg" alt="">
+                    	<a href="/okeedokee/Save">
+	                   		<img src="media/main/advertisement_img1.jpg" alt="">
+                    	</a>
                     </div>
                     <div class="slidershow fade">
-                            <img src="media/main/advertisement_img2.jpg" alt="">
+                    	<a href="/okeedokee/Announcement">
+                         	<img src="media/main/advertisement_img2.jpg" alt="">
+                    	</a>
                     </div>
                     <div class="slidershow fade">
-                            <img src="media/main/advertisement_img3.jpg" alt="">
+                    	<a href="/okeedokee/Notice/main">
+	                        <img src="media/main/advertisement_img3.jpg" alt="">
+                    	</a>
                     </div>
                     <div class="slidershow fade">
-                            <img src="media/main/advertisement_img4.jpg" alt="">
+                    	<a href="/okeedokee/Introduction">
+	                   		<img src="media/main/advertisement_img4.jpg" alt="">
+                    	</a>
                     </div>
                 </div>
                 <div class="slider-dot">
@@ -46,7 +54,7 @@
                     	</a>
                     </div>
                     <div class="main-link-img2">
-                        <a href="">
+                        <a href="/okeedokee/Save">
 	                        <img src="media/main/main-link2.jpg" alt="">
                         </a>
                     </div>
@@ -61,28 +69,33 @@
                         <h1>내 근처 아이 알아보기</h1>
                     </div>
                     <div class="nearby-dog-content">
-                    	<c:forEach var="dog" items="${result.item}" begin="0" end="19" varStatus="status">                   		
+                    	<c:forEach var="dog" items="${result.item}" begin="0" end="19" varStatus="status">
+	                    	<c:if test="${fn:length(result.item) ne 0}">                   		
                     			<div class="nearby-dog-div" id="nearby_${dog.desertionNo}">                    			
-		                        <div class="nearby-dog-img">
-		                            <img alt="" src="${dog.popfile}" id="dog_img_${dog.desertionNo}" class="profilePhoto">
-		                        </div> 
-		                        <div class="hover-div" id="${dog.desertionNo}">
-		                        	<ul>
-		                        		<li id="dog_age_${dog.desertionNo}">나이 : ${dog.age}</li>
-										<li id="dog_sexCd_${dog.desertionNo}">성별 : ${dog.sexCd}</li>
-										<li id="dog_kindCd_${dog.desertionNo}">견종 : ${dog.kindCd}</li>
-										<li id="dog_processState_${dog.desertionNo}">${(dog.processState=="보호중")? dog.processState:"종료"}</li>
-										<li class="dog-hidden" id="dog_orgNm_${dog.desertionNo}">지역 : ${dog.orgNm}</li>
-										<li class="dog-hidden" id="dog_noticeSdt_${dog.desertionNo}">등록일 : ${dog.noticeSdt}</li>
-										<li class="dog-hidden" id="dog_careNm_${dog.desertionNo}">보호소 : ${dog.careNm}</li>
-										<li class="dog-hidden" id="dog_happenPlace_${dog.desertionNo}">구조지역 : ${dog.happenPlace}</li>
-										<li class="dog-hidden" id="dog_specialMark_${dog.desertionNo}">특징 : ${dog.specialMark}</li>
-										<li class="dog-hidden" id="dog_careTel_${dog.desertionNo}">보호소 번호 : ${dog.careTel}</li>
-										<li class="dog-hidden" id="dog_chargeNm_${dog.desertionNo}">담당자 : ${dog.chargeNm}</li>
-										<li class="dog-hidden" id="dog_careAddr_${dog.desertionNo}">보호소 주소 : ${dog.careAddr}</li>
-		                        	</ul>
-		                        </div>
-                    			</div>       					   
+			                        <div class="nearby-dog-img">
+			                            <img alt="" src="${dog.popfile}" id="dog_img_${dog.desertionNo}" class="profilePhoto">
+			                        </div> 
+			                        <div class="hover-div" id="${dog.desertionNo}">
+			                        	<ul>
+			                        		<li id="dog_age_${dog.desertionNo}">나이 : ${dog.age}</li>
+											<li id="dog_sexCd_${dog.desertionNo}">성별 : ${dog.sexCd}</li>
+											<li id="dog_kindCd_${dog.desertionNo}">견종 : ${dog.kindCd}</li>
+											<li id="dog_processState_${dog.desertionNo}">${(dog.processState=="보호중")? dog.processState:"종료"}</li>
+											<li class="dog-hidden" id="dog_orgNm_${dog.desertionNo}">지역 : ${dog.orgNm}</li>
+											<li class="dog-hidden" id="dog_noticeSdt_${dog.desertionNo}">등록일 : ${dog.noticeSdt}</li>
+											<li class="dog-hidden" id="dog_careNm_${dog.desertionNo}">보호소 : ${dog.careNm}</li>
+											<li class="dog-hidden" id="dog_happenPlace_${dog.desertionNo}">구조지역 : ${dog.happenPlace}</li>
+											<li class="dog-hidden" id="dog_specialMark_${dog.desertionNo}">특징 : ${dog.specialMark}</li>
+											<li class="dog-hidden" id="dog_careTel_${dog.desertionNo}">보호소 번호 : ${dog.careTel}</li>
+											<li class="dog-hidden" id="dog_chargeNm_${dog.desertionNo}">담당자 : ${dog.chargeNm}</li>
+											<li class="dog-hidden" id="dog_careAddr_${dog.desertionNo}">보호소 주소 : ${dog.careAddr}</li>
+			                        	</ul>
+			                        </div>
+                    			</div>
+                    		</c:if>
+                    		<c:if test="${fn:length(result.item) eq 0}">
+                   				<h1>데이터가 없습니다</h1>
+                   			</c:if>      					   
                     	</c:forEach>
                     </div>
                 </div>
@@ -100,6 +113,7 @@
                     </div>
                     <div class="find-dog-content" id="find_dog_content">
                     	<c:forEach var="Missing" items="${result.Missing}" begin="0" end="5" varStatus="status">
+                    	<c:if test="${fn:length(result.Missing) ne 0}">
 	                        <div class="find-dog-info">
 	                            <div class="find-info-img">
 	                               <a href="${pageContext.request.contextPath}/read?bdiv=3&num=${Missing.num}">
@@ -130,6 +144,10 @@
 		                           </div>
 		                         </a>
 	                        </div>
+                    	</c:if>
+                    	<c:if test="${fn:length(result.Missing) eq 0}">
+                    		<h1>데이터가 없습니다</h1>
+                    	</c:if>
                     	</c:forEach>
                     </div>
                     <div class="sighting-dog-content" id="sighting_dog_content">

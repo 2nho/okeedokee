@@ -160,15 +160,21 @@
 							</div>
 						</div>
 					</div>
-					<div id="noticeButtons">
-					    <button id="createNoticeMove">
-					         <svg width="90px" height="30px" viewBox="0 0 90 30" class="border">
-					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-					         </svg>
-					         <span>글쓰기</span>
-					    </button>
-					</div><br /> 
+					<c:choose>
+						<c:when test="${sessionScope.account.level == 'U'}"></c:when>
+						<c:otherwise>
+							<div id="noticeButtons">
+							    <button id="createNoticeMove">
+							         <svg width="90px" height="30px" viewBox="0 0 90 30" class="border">
+							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+							         </svg>
+							         <span>글쓰기</span>
+							    </button>
+							</div><br /> 
+						</c:otherwise>
+					</c:choose>
+					
 				</article>
 			</section>
 		</main>

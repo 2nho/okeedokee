@@ -1,5 +1,8 @@
 package kr.co.goodee39.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +31,8 @@ public class MemberController {
 	}
 	
 	@PostMapping("/login")
-	public String isLogin(MemberVO vo, HttpSession session) {
-		return memberService.getMember(vo, session);
+	public String isLogin(MemberVO vo, HttpSession session, HttpServletResponse response) throws IOException{
+		return memberService.getMember(vo, session, response);
 	}
 	
 	@GetMapping("/logout")

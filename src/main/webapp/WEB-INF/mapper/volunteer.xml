@@ -3,13 +3,26 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="memVol">
-
-	<!-- 회원 자원봉사 리스트 가져오기 -->
-	<select id="selectVolunTeer" parameterType="VolunteerVO" resultType="VolunteerVO">
-		SELECT title, mnum, perid 
+  <mapper namespace="volte">
+  
+	<!-- 회원 자원봉사 리스트 / 댓글 가져오기 -->
+	<select id="selectVolte" parameterType="volteVO" resultType="volteVO">
+		SELECT num, mnum, id, bnum, careName, dateFrom, dateTo, createdate, phNum
 		FROM volunteer
-		WHERE mnum = #{mnum}
+		<where>
+			<if test="mnum != 0">mnum = #{mnum}</if>
+		</where>
 	</select>
 	
+	<!-- 회원 자원봉사 리스트 추가 / 댓글 추가 -->
+	<insert id="insertVolte" parameterType="volteVO" useGeneratedKeys="true" keyProperty="num">
+		INSERT INTO volunteer(mnum, id, bnum, careName, dateFrom, dateTo, createdate, phNum)
+		VALUES(#{mnum}, #{id}, #{bnum}, #{careName}, #{dateFrom}, #{dateTo}, #{createdate}, #{phNum})
+	</insert>
+	
+	<!-- 리스트 삭제 / 댓글 삭제 -->
+	<delete id="deleteVolte" parameterType="volteVO">
+		DELETE FROM volunteer
+		WHERE num = #{num} AND mnum = #{mnum}
+	</delete>
 </mapper>

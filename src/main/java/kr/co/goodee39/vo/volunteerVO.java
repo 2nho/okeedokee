@@ -1,20 +1,20 @@
 package kr.co.goodee39.vo;
 
-public class voluntaryVO {
-	
+public class volunteerVO {
+
 	private int num;
+	private int mnum;
 	private String id;
-	private String title;
+	private int bnum;
 	private String careName;
-	private String addr;
-	private String phNum;
-	private String detailText;
 	private String dateFrom;
 	private String dateTo;
+	private String createdate;
+	private String phNum;
 	private int start;
 	private int count;
 	
-	public voluntaryVO() {
+	public volunteerVO() {
 		this.start = 0;
 		this.count = 5;
 	}
@@ -27,6 +27,14 @@ public class voluntaryVO {
 		this.num = num;
 	}
 
+	public int getMnum() {
+		return mnum;
+	}
+
+	public void setMnum(int mnum) {
+		this.mnum = mnum;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -35,12 +43,12 @@ public class voluntaryVO {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
+	public int getBnum() {
+		return bnum;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setBnum(int bnum) {
+		this.bnum = bnum;
 	}
 
 	public String getCareName() {
@@ -49,30 +57,6 @@ public class voluntaryVO {
 
 	public void setCareName(String careName) {
 		this.careName = careName;
-	}
-
-	public String getAddr() {
-		return addr;
-	}
-
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
-
-	public String getPhNum() {
-		return phNum;
-	}
-
-	public void setPhNum(String phNum) {
-		this.phNum = phNum;
-	}
-
-	public String getDetailText() {
-		return detailText;
-	}
-
-	public void setDetailText(String detailText) {
-		this.detailText = detailText;
 	}
 
 	public String getDateFrom() {
@@ -89,6 +73,23 @@ public class voluntaryVO {
 
 	public void setDateTo(String dateTo) {
 		this.dateTo = dateTo;
+	}
+	
+
+	public String getCreatedate() {
+		return createdate;
+	}
+
+	public void setCreatedate(String createdate) {
+		this.createdate = createdate;
+	}
+
+	public String getPhNum() {
+		return phNum;
+	}
+
+	public void setPhNum(String phNum) {
+		this.phNum = phNum;
 	}
 
 	public int getStart() {
@@ -108,5 +109,4 @@ public class voluntaryVO {
 	}
 	
 	
-
 }

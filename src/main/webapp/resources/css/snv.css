@@ -1,17 +1,21 @@
 @charset "UTF-8";
 
 /* 네비 */
+main {
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+}
 main nav {
 	flex: 1;
 }
 
 main nav #saveNav {
 	width: 250px;
-	height: 200px;
+	height: 160px;
 	background-color: #f9f1c0;
 	padding: 10px;
 	border-radius: 15px 15px;
-	margin: 20px auto;
 }
 
 main nav #saveNav #saveTitle {
@@ -61,18 +65,35 @@ main nav #saveSubTitle a:hover>h4 {
 /* 게시판 영역 */
 main section {
 	flex: 9;
-	width: 100%;
 	height: 100%;
+	width: 100%;
 	padding: 0 30px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+}
+main section #arti2 {
+	background-color: #f9f1c0;
+	border-radius: 15px 15px;
+	padding: 15px;
 }
 
-.in {
+main section #arti2 #boardBox {
+	width: 93%;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 15px 15px;
+}
+main section #arti2 #boardBox h1 {
+	font-size: 30px;
+	margin-bottom: 30px;
+	padding: 10px;
+}
+
+main section #arti2 #boardBox>h1::after {
+	content: "";
+	display: block;
+	width: 100%;
 	border-bottom: 2px solid black;
-	text-align: center;
+	margin-top: 10px;
 }
 /* 지역명 */
 #selectcity {
@@ -101,6 +122,7 @@ main section {
 }
 /* 버튼 색상 */
 .ClickBtn {
+	margin: 10px;
 	padding: 6px;
 	background-color: #fbd157;
 	border: none;
@@ -111,7 +133,7 @@ main section {
 
 .ClickBtn:hover {
 	background-color: #f9f1c0;
-	padding: 5px;
+	padding: 4px;
 	border: 2px solid #fbd157;
 }
 
@@ -211,10 +233,10 @@ main section {
 /*자원봉사 등록*/
 #adminlist {
 	width: 100%;
-	margin-bottom: 50px;
 }
 #adminlist table {
 	margin: 0 auto;
+	padding: 100px 0;
 }
 #adminlist table tr {
 	height: 20px;
@@ -223,15 +245,166 @@ main section {
 	width: 100%;
 	resize: none;
 }
+#admin3 {
+	padding-top: 100px;
+}
+#admin3 #addVsmt {
+	background-color: #fbd157;
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+#admin3 #addVsmt:hover {
+	background-color: #f9f1c0;
+	padding: 8px;
+	border: 2px solid #fbd157;
+}
 
-#admin3 button {
+/* 자원봉사 참가신청 */
+#btnBox {
+	padding: 10px;
+	width: 100%;
+	text-align: right;
+}
+
+#btnBox a {
+	padding: 10px;
+	background-color: #fbd157;
+	margin: 5px;
+	font-weight: bold;
+}
+
+#btnBox a:hover {
+	padding: 8px;
+	background-color: #f9f1c0;
+	border: 2px solid #fbd157;
+}
+
+/* 댓글  */
+.comment {
+	width: 100%;
+	height: 100%;
+}
+
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate #commentCreator {
+	resize: none;
+	width: 100%;
+	height: 100%;
+	font-size: 20px;
+}
+
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox {
+	width: 100%;
+	display: flex;
+	justify-content: right;
+}
+
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit {
+	padding: 8px 10px;
 	background-color: #fbd157;
 	border: none;
 	outline: none;
 	font-weight: bold;
+	font-size: 15px;
 	cursor: pointer;
 }
 
+main section #arti2 #boardBox #board #boardContent #informBox #inform .comment .commentCreate .cmtSubmitBox #cmtSubmit:hover {
+	padding: 6px 8px;
+	background-color: #f9f1c0;
+	border: 2px solid #fbd157;
+}
+/* 댓글 리스트 및 삭제, 수정 */
+.comment #commentList {
+	width: 100%;
+}
+
+.comment #commentList .cmt::before {
+	content: "";
+	display: block;
+	border-bottom: 1px solid #fbd157;
+	width: 100%;
+}
+
+.comment #commentList .cmt .cmtInform {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.comment #commentList .cmt .cmtEditor {
+	width: 100%;
+	resize: none;
+}
+.comment #commentList .cmt  .cmtInform .cmtWriter {
+	display: inline;
+	background-color: #fbd157;
+}
+.comment #commentList .cmt  .cmtInform .cmtBtns {
+	display: inline;
+}
+.comment #commentList .cmt .cmtInform .cmtDelete,
+.comment #commentList .cmt .cmtInform .editModify {
+	margin-right: 5px;
+}
+.comment #commentList .cmt .cmtInform .cmtDelete,
+.comment #commentList .cmt .cmtInform .cmtModify,
+.comment #commentList .cmt .cmtInform .cmtReport,
+.comment #commentList .cmt .cmtInform .editModify,
+.comment #commentList .cmt .cmtInform .editCancel {
+	padding: 6px;
+	background-color: #fbd157;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	font-size: 10px;
+	cursor: pointer;
+}
+.comment #commentList .cmt .cmtInform .cmtDelete:hover,
+.comment #commentList .cmt .cmtInform .cmtModify:hover,
+.comment #commentList .cmt .cmtInform .cmtReport:hover,
+.comment #commentList .cmt .cmtInform .editModify:hover,
+.comment #commentList .cmt .cmtInform .editCancel:hover {
+	padding: 4px;
+	background-color: #f9f1c0;
+	border: 2px solid #fbd157;
+}
+.comment #commentList .cmt .cmtDate
+	{
+	font-size: 12px;
+	padding-bottom: 8px;
+}
+.comment #commentList .cmt .cmtContent
+	{
+	margin-bottom: 10px;
+}
+.comment .commentCreate .cmtSubmitBox {
+	width: 100%;
+	display: flex;
+	justify-content: right;
+}
+.comment .commentCreate .cmtSubmitBox #cmtSubmit {
+	padding: 8px 10px;
+	background-color: #fbd157;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	font-size: 15px;
+	cursor: pointer;
+}
+.comment .commentCreate .cmtSubmitBox #cmtSubmit:hover {
+	padding: 6px 8px;
+	background-color: #f9f1c0;
+	border: 2px solid #fbd157;
+}
+.comment .commentCreate #commentCreator {
+	resize: none;
+	width: 100%;
+	height: 100%;
+	font-size: 20px;
+}
 /*후원금*/
 #donaList {
 	width: 100%;

@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="/okeedokee/smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <link rel="stylesheet" href="/okeedokee/css/notice.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 </head>
@@ -27,7 +28,7 @@
 										border-top:1px solid black; border-bottom:1px solid black;
 										font-size:1.5rem; padding:5px;" placeholder="제목"/></li>
 								<h4>작성자 : ${sessionScope.account.name}</h4><br />
-								<li><form:textarea path="content" cols="145" rows="19" 
+								<li><form:textarea path="content" cols="145" rows="19" id="content" name="content"
 													style="resize:none; outline:none;"/></li>
 								<form:hidden path="num"/>
 								<form:hidden path="filelist"/>
@@ -46,7 +47,7 @@
 					         </svg>
 					         <span>목록</span>
 					    </button>
-				    	<button id="createNotice">
+				    	<button id="createNotice" onclick="submitPost()">
 				         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 				           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 				           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />

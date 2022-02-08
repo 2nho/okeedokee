@@ -20,7 +20,8 @@
 						<h1>게시글</h1></h1><br /><br /><br />
 						<h2>${NoticeVO.title }</h2>
 						<h4>${NoticeVO.name } | ${NoticeVO.date }</h4><br /><br />
-						<p>${NoticeVO.content }</p>
+						<form:textarea path="content" cols="145" rows="19" id="content" name="content"
+						style="resize:none; outline:none;">${NoticeVO.content}</form:textarea>
 						<input type="hidden" value="${NoticeVO.num}" id="detailNum"/>
 						<div id="noticeDetailBoardFiles">
 							<h3>첨부 파일 : </h3>

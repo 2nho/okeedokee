@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>OKEEDOKEE</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="/okeedokee/smartEditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <link rel="stylesheet" href="/okeedokee/css/notice.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 </head>
@@ -29,7 +29,7 @@
 										font-size:1.5rem; padding:5px;" /></li>
 								<h4>${NoticeVO.name }| ${NoticeVO.date }</h4>
 								<br />
-								<li><form:textarea path="content" cols="145" rows="19" /></li>
+								<li><form:textarea path="content" cols="145" rows="19" id="content" name="content"/></li>
 								<form:hidden path="num" />
 								<form:hidden path="filelist" />
 							</ul>
@@ -56,7 +56,7 @@
 					         </svg>
 							<span>삭제</span>
 						</button>
-						<button id="modifyNoticeResult">
+						<button id="modifyNoticeResult" onclick="submitPost()">
 							<svg width="60px" height="25px" viewBox="0 0 180 60"
 								class="border">
 					           <polyline points="179,1 179,59 1,59 1,1 179,1"
@@ -82,6 +82,6 @@
 		</main>
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp" />
 	</div>
-	<script type="text/javascript" src="/okeedokee/js/notice.js"></script>
+	<script type="text/javascript" src="/okeedokee/js/notice.js?Ergergerg"></script>
 </body>
 </html>

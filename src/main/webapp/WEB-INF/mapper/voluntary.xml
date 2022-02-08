@@ -51,5 +51,12 @@
 			<if test="num != 0">num = #{num}</if>
 		</where>
 	</select>
+	
+	
+	<!-- 봉사자 모집글 등록 -->
+	 <insert id="insertVoltaList" parameterType="voltaVO">
+	 	INSERT INTO voluntarytbl(id, title, careName, addr, phNum, detailText, dateFrom, dateTo)
+	 	VALUES(#{id}, #{title}, #{careName}, #{addr}, #{phNum}, #{detailText}, #{dateFrom}, #{dateTo})
+	 </insert>
 
 </mapper>

@@ -73,6 +73,103 @@
 				<div class="content">
 					<h1>자원봉사 현황</h1>
 					<!-- 여기서부터 작업 시작하세요 -->
+						<div class="myList">
+							<table>
+								<colgroup>
+									<col width="5%">
+									<col width="auto">
+									<col width="15%" id="colDate">
+									<col width="10%" id="colStatus">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>순번</th>
+										<th>보호소</th>
+										<th>봉사기간</th>
+										<th>신청일</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="vt" items="${list}">
+										<c:set var="i" value="${i+1}" />
+										<tr>
+											<td>${i}</td>
+											<td><a href="voluntary?num=${vt.num}">${vt.careName}</a></td>
+											<td>${vt.dateFrom} ~ ${vt.dateTo}</td>
+											<td>${vt.createdate}</td>
+										</tr>
+									</c:forEach>
+
+								</tbody>
+							</table>
+							<%-- <div id="pagingBox">
+								<!-- 왼쪽 페이지 블럭 이동 -->
+								<c:choose>
+									<c:when test="${(minBlock - 1 ) < 1}"></c:when>
+									<c:otherwise>
+										<a
+											href="${pageContext.request.contextPath}/missingList?num=${minBlock-1}${query}"
+											class="paging">◀◀</a>
+									</c:otherwise>
+								</c:choose>
+								&nbsp;&nbsp;&nbsp;
+								<!-- 왼쪽 페이지 이동 -->
+								<c:choose>
+									<c:when test="${num == 1}"></c:when>
+									<c:otherwise>
+										<a
+											href="${pageContext.request.contextPath }/missingList?num=${num-1}${query}"
+											class="paging">◀</a>
+									</c:otherwise>
+								</c:choose>
+								&nbsp;&nbsp;
+								<!-- 페이지별 선택 이동 -->
+								<c:forEach begin="${minBlock}"
+									end="${(total < maxBlock)? total:maxBlock }" step="1" var="i">
+									<c:choose>
+										<c:when test="${num == i}">
+											<span class="paging"><strong>&nbsp;${i}&nbsp;</strong></span>
+										</c:when>
+										<c:otherwise>
+											<a
+												href="${pageContext.request.contextPath}/missingList?num=${i}${query}">&nbsp;${i}&nbsp;</a>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+								&nbsp;&nbsp;
+								<!-- 오른쪽 페이지 이동 -->
+								<c:choose>
+									<c:when test="${num == total}"></c:when>
+									<c:otherwise>
+										<a
+											href="${pageContext.request.contextPath }/missingList?num=${num+1}${query}"
+											class="paging">▶</a>
+									</c:otherwise>
+								</c:choose>
+								&nbsp;&nbsp;&nbsp;
+								<!-- 오른쪽 페이지 블럭 이동 -->
+								<c:choose>
+									<c:when test="${maxBlock >= total }"></c:when>
+									<c:otherwise>
+										<a
+											href="${pageContext.request.contextPath}/missingList?num=${maxBlock+1}${query}"
+											class="paging">▶▶</a>
+									</c:otherwise>
+								</c:choose>
+							</div>
+							<!-- 검색 -->
+							<div class="searchBox">
+								<!-- 게시판 구분용 -->
+								<input type="hidden" name="bdiv" id="bdiv" value="3" /> 
+								<select name="searchType" id="searchType">
+									<option value="title">제목</option>
+									<option value="content">내용</option>
+									<option value="both">제목+내용</option>
+								</select> 
+								<input type="text" id="search" name="search" placeholder="검색어를 입력해주세요" />
+								<button type="button" id="searchBtn">검색</button>
+							</div>
+						</div> --%>
 					
 				</div>
 			</article>

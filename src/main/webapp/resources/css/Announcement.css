@@ -22,6 +22,7 @@ a {
 }
 
 .main-content-search {
+	position : relative;
     flex: 1;
     background-color: RGB(249, 241, 192);
     display: flex;
@@ -35,6 +36,15 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom : 50px;
+}
+
+.search-contents-div {
+	display : flex;
+	align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top : 15%
 }
 
 .date-search-title, .kind-search-title, .location-search-title, .shelter-search-title {
@@ -44,7 +54,7 @@ a {
 .search-data {
     width: 400px;
     height: 80px;
-    border: 1px solid #FBD157;
+    border: 2px solid #FBD157;
     margin-bottom: 30px;
     background-color: #ffffff;
     display: flex;
@@ -109,9 +119,21 @@ svg {
 }
 
 .statistics-contents {
-    width: 400px;
+	margin : 30px 0;
+    display : flex;
+    flex-direction : column;
+    align-items: center;
+}
+
+.statistics-title {
+	margin-bottom : 10px;
+}
+
+.statistics-info {
+	width: 400px;
     height: 150px;
     background-color: #ffffff;
+    border: 2px solid #FBD157;
 }
 
 .main-content-profile {
@@ -167,6 +189,7 @@ svg {
 }
 
 .profile-photo img {
+	margin-left : 10px;
     width: 200px;
     height: 200px;
 }
@@ -186,13 +209,20 @@ svg {
         width: 600px;
         height : 160px;
     }
+    
+    .statistics-info {
+		width: 600px;
+	    height: 300px;
+	    background-color: #ffffff;
+	    border: 2px solid #FBD157;
+}
 
     .date-search {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
     .date-search input {
-        width: 200px;
+        width: 250px;
         height: 42px;
         font-size: 1.2rem;
     }
@@ -223,14 +253,11 @@ svg {
 	.btn span {
 	    font-size: 1.2rem;
 	}
-	
-	.border {
-		width : 100px;
-		height : 42px;
-	}
     
     
 }
+
+
 
 @media (min-width : 2500px) {
 	
@@ -238,4 +265,77 @@ svg {
     	flex : 1.5;
         grid-template-columns : repeat(6, 220px);
     }
+    
+    .main-container {
+    	height : 1000px;
+    }
+}
+
+@media (min-width : 3800px) {
+	
+	.main-content-profile {
+    	flex : 2.5;
+        grid-template-columns : repeat(9, 1fr);
+    }
+    
+    .main-container {
+    	height : 1400px;
+    }
+    
+    .search-data {
+        width: 800px;
+        height : 240px;
+    }
+    
+    .statistics-info {
+		width: 800px;
+	    height: 400px;
+	    background-color: #ffffff;
+	    border: 2px solid #FBD157;
+}
+
+    .date-search {
+        margin-bottom: 30px;
+    }
+
+    .date-search input {
+        width: 400px;
+        height: 52px;
+        font-size: 1.2rem;
+    }
+
+    #search_category {
+    	width : 150px;
+        font-size : 1.2rem;
+        padding : 10px;
+    }
+    
+    #search {
+    	font-size : 1.2rem;
+    	width : 350px;
+    	padding : 10px;
+    }
+    
+    .button {
+	    width: 150px;
+	    height: 52px;
+	}
+	  
+	.btn {
+	     width: 150px;
+	    height: 52px;
+	    cursor: pointer;
+	}
+	  
+	.btn span {
+	    font-size: 1.2rem;
+	}
+}
+
+@media (min-width : 5100px) {
+	
+	.main-container {
+    	height : 2000px;
+    }
+	
 }

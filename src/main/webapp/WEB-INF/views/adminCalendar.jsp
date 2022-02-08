@@ -79,9 +79,15 @@ body {
 						dataType: "json",
 						success: function(result) {
 							 $.each(result, function(index, value){
+<<<<<<< HEAD
 								 
 								JSON.stringify(value);
 								
+=======
+								
+								   console.log(index);
+								   console.log(value);
+>>>>>>> branch 'develop' of https://github.com/2nho/okeedokee.git
 							  });
 						 },
 						 error: function(err){
