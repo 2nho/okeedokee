@@ -32,7 +32,7 @@
 			</aside>
 			<section>
 				<div>
-					<h1>회원관리</h1>
+					<h1>신고관리</h1>
 					<article class="article3">
 						<label for="search"><i class="fas fa-search"></i></label> <select
 							name="category" id="category">
