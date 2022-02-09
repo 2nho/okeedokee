@@ -99,7 +99,7 @@
 								<input type="text" id="jibunAddress" readonly placeholder="지번주소"/>
 								<span id="guide" style="color:#999;display:none"></span>
 								<input type="text" id="detailAddress" placeholder="상세주소"/>
-								<input type="text" id="extraAddress" readonly placeholder="참고항목"/>
+								<input type="text" id="extraAddress" readonly placeholder="참고항목"/><br />
 		
 								이메일  <form:input path="email" value="${sessionScope.account.email}" /><br />
 
