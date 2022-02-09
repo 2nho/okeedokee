@@ -1,6 +1,7 @@
 package kr.co.goodee39.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -38,9 +39,16 @@ public class MemberController {
 	}
 	
 	@GetMapping("/logout")
-	public String isLogout(HttpSession session) {
+	public void isLogout(HttpSession session, HttpServletResponse response) throws IOException{
 		session.invalidate();
-		return "redirect:/";
+		// 동일한 id와 password가 있으면 아래 영역으로 보내라.
+		response.setContentType("text/html; charset=UTF-8");
+		// out 인스턴스 생성
+		PrintWriter out = response.getWriter();
+		// alert 메시지 생성 및 이동 경로 설정
+		out.println("<script>alert('방문 감사드립니다. 안녕히가세요.'); location.href='/okeedokee/main';</script>");
+		// 출력
+		out.flush();
 	}
 	
 	@GetMapping("/signUp")
