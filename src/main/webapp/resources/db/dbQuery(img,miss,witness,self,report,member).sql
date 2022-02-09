@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `member` (
   `id` varchar(30) DEFAULT NULL,
   `name` varchar(10) DEFAULT NULL,
   `pw` varchar(40) DEFAULT NULL,
-  `address` varchar(50) NOT NULL,
+  `address` varchar(255) NOT NULL,
   `email` varchar(30) DEFAULT NULL,
   `phNum` varchar(11) DEFAULT NULL,
   `petown` varchar(1) DEFAULT NULL COMMENT 'Y/N',
