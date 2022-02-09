@@ -1,9 +1,10 @@
 @charset "UTF-8";
 
 header {
-	height: 90px;
+	height: 10vh;
 	width: 100vw;
 	background-color: #FBD157;
+	min-height: 80px;
 }
 .head {
 	width: 100%;
@@ -21,11 +22,12 @@ main {
 	display: flex;
 	height: 90vh;
 	width: 100vw;
+	
 }
 
 aside {
 	height: 90vh;
-	min-width: 108px;
+	min-width: 150px;
 	background-color: #F2EAD3;
 	/* flex-basis는 크기 flex-grow 여백 조정 */
 	width : 200px;
@@ -44,9 +46,13 @@ aside h2 {
 }
 
 section {
+	display : flex;
+	flex-direction:column;
+	justify-content: space-around;
 	flex-grow: 1;	
 	background: url("/okeedokee/media/logo/logo_opacity.jpg") no-repeat center fixed;
 	background-size: 26%;
+	min-height: 660px;
 }
 .box {
 	display: flex;
@@ -57,8 +63,8 @@ section {
 	background-color: #F2EAD3;
 	width: 20%;
 	height: 180px;
-	margin-top: 100px;
-	margin-bottom: 50px; 
+	/* margin-top: 100px; */
+	/* margin-bottom: 50px;  */
 	margin-left : 10px;
 	padding-top: 50px;
 	text-align: center;
@@ -73,8 +79,8 @@ div>h1 {
 }
 .chart {
 	width : 100%;
-	display: flex;
-	justify-content: center;
+	/* display: flex;
+	justify-content: center; */
 }
 .red {
 	color: #cb7f2b;

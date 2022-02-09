@@ -25,7 +25,7 @@ main {
 
 aside {
 	height: 90vh;
-	min-width: 108px;
+	min-width: 150px;
 	background-color: #F2EAD3;
 	/* flex-basis는 크기 flex-grow 여백 조정 */
 	width : 200px;
