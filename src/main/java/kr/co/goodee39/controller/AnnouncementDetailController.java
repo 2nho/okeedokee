@@ -279,6 +279,7 @@ public class AnnouncementDetailController {
 			out.println("<script>alert('로그인을 해주세요.'); location.href='/okeedokee/member/loginPage';</script>");
 			// 출력
 			out.flush();
+			return null;
 		}
 		model.addAttribute("vo", vo);
 		return "g_mypage_reservation_create";
