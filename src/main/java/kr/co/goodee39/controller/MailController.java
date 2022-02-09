@@ -120,7 +120,7 @@ public class MailController {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+        System.out.println(dice);
         return new ResponseEntity<Integer>(dice, HttpStatus.OK);
     }
 

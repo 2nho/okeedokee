@@ -92,7 +92,6 @@ public class MemberService {
 	}
 
 	public void memberUpdateCpi(MemberVO vo, HttpSession session) {
-
 		sqlSessionTemplate.update("member.updateMember", vo);
 		MemberVO vo1 = sqlSessionTemplate.selectOne("member.selectMember", vo);
 		session.setAttribute("account", vo1);

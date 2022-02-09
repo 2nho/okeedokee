@@ -13,7 +13,6 @@ $(function(){
 			if($id.hasClass('chkid')) return;
 			 
 			let data = join.tag_status($id); 
-			console.log(data);
 		
 			if(data.code != 'valid') { 
 				alert('아이디 중복 확인 불필요\n' + data.desc); 

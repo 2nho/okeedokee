@@ -10,6 +10,7 @@
 <link rel="icon" href="/okeedokee/media/logo/favicon.ico">
 <link rel="stylesheet" href="/okeedokee/css/loginpage.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="/okeedokee/css/offLogin.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 <script type="text/javascript" src="/okeedokee/js/validation.js"></script>
@@ -67,10 +68,23 @@
 								<div class="invalid">비밀번호를 동일하게 입력하세요.</div>
 							</div>
 							
-							
-							<!-- 주소 api 추가 예정 -->
-							주소  <form:input path="address" /><br />
-							<div class="valid">주소를 입력하세요.</div>
+							<div>
+								<form:hidden path="address"/>
+								주소 <input type="text" id="postcode" readonly placeholder="우편번호"/>
+								<button type="button" id="findPostcode" onclick="execDaumPostcode()">
+							         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
+							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+							         </svg>
+							         <span>우편번호 찾기</span>
+							    </button>
+								<input type="text" id="roadAddress" readonly placeholder="도로명주소"/>
+								<input type="text" id="jibunAddress" readonly placeholder="지번주소"/>
+								<span id="guide" style="color:#999;display:none"></span>
+								<input type="text" id="detailAddress" placeholder="상세주소"/>
+								<input type="text" id="extraAddress" readonly placeholder="참고항목"/>
+								<div class="invalid">주소를 입력하세요.</div>
+							</div>
 							
 							<form:input path="email" style="display:none;"/>
 							<div>
@@ -107,6 +121,6 @@
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
-<script type="text/javascript" src="/okeedokee/js/offLogin.js"></script>
+<script type="text/javascript" src="/okeedokee/js/offLogin.js?sdfgafg"></script>
 </body>
 </html>

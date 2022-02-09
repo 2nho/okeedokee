@@ -14,6 +14,7 @@ button {
   border: 1px solid #FBD157;
   outline: none;
   transition: 1s ease-in-out;
+  border-radius: 5px 5px;
 }
 
 button span {
@@ -32,6 +33,17 @@ button span {
   border: 1px solid #FBD157;
   outline: none;
   transition: 1s ease-in-out;
+}
+
+#findPostcode{
+  width: 90px;
+  height: 23px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #FBD157;
+  outline: none;
+  transition: 1s ease-in-out;
+  line-height: 1;
 }
 
 #openInfo {
@@ -91,7 +103,7 @@ button:hover, #createNotice:hover, #listMove:hover, #createReser:hover,
 #deleteNotice:hover, #modifyNoticeResult:hover, .alldelete:hover,
 #modifyBtn:hover, #deleteBtn:hover, #submitBtn:hover, #sign:hover,
 #submitSignupAuth:hover , #authBtn:hover, #submitFindId:hover, #submitFindPw:hover,
-#signupBtn:hover {
+#signupBtn:hover, #findPostcode:hover {
   transition: 1s ease-in-out;
   background: #FBD157;
 }
@@ -102,7 +114,7 @@ button:hover, #createNotice:hover, #listMove:hover, #createReser:hover,
 #deleteNotice:hover, #modifyNoticeResult:hover, .alldelete:hover,
 #modifyBtn:hover, #deleteBtn:hover, #submitBtn:hover, #sign:hover,
 #submitSignupAuth:hover , #authBtn:hover, #submitFindId:hover, #submitFindPw:hover,
-#signupBtn:hover svg {
+#signupBtn:hover, #findPostcode:hover svg {
    stroke-dashoffset: -480;
 }
 

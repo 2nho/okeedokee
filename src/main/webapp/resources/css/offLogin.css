@@ -226,6 +226,7 @@ main{
 #arti1 #SignupInputBoard form input{
 	border : 1px solid #FBD157;
 	outline: none;
+	box-shadow: 1px 1px 1px 1px #f1f1f1;
 }
 
 #arti1 #SignupInputBoard form #signupBtn{

@@ -99,6 +99,18 @@ let join = {
 		else return this.na.valid; 
 	},
 	
+	address: { 
+		valid: { code: 'valid', desc: '주소를 입력하셨습니다.' }, 
+		notComplete: { code: 'invalid', desc: '상세주소를 입력해 주십시오.' },
+		invalid: { code: 'invalid', desc: '주소를 입력해 주십시오.' } 
+	}, 
+	
+	address_status: function(address) { 
+		if(postcode == "") return this.address.notComplete;
+		else if(address == "") return this.address.invalid;
+		else return this.address.valid; 
+	},
+	
 	tag_status: function(tag) { 
 		let data = tag.val(); 
 		tag = tag.attr('name');
@@ -108,6 +120,7 @@ let join = {
 		else if(tag == 'email') { data = this.email_status(data); } 
 		else if(tag == 'phNum') { data = this.phNum_status(data); } 
 		else if(tag == 'name') { data = this.na_status(data); }
+		else if(tag == 'address') { data = this.address_status(data); }
 		return data; 
 	} 
 }

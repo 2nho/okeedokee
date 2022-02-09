@@ -8,7 +8,8 @@
 <title>OKEEDOKEE</title>
 <link rel="icon" href="/okeedokee/media/logo/favicon.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="css/mypage.css" />
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<link rel="stylesheet" href="css/mypage.css?edrgerg " />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 </head>
 <body>
@@ -74,7 +75,7 @@
 					<h1>${sessionScope.account.name} 님의 정보</h1>
 					<div id="cpiModify">
 						<input type="hidden" name="size" id="size" value="${sessionScope.account.size}" />
-						<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath }/member/cpiUpdate" method="POST" id="submit">
+						<form:form modelAttribute="memberVO" action="/okeedokee/member/cpiUpdate" method="POST" id="submitUpdate">
 								성명  <form:input path="name" class="chk" value="${sessionScope.account.name}"/><br />
 
 								아이디  <form:input path="id" id="id" class="chk" value="${sessionScope.account.id}" />
@@ -84,8 +85,21 @@
 
 								비밀번호 확인  <form:password path="chkpw" class="chk"/><br />
 							
-								<!-- 주소 api 추가 예정 -->
-								주소  <form:input path="address" value="${sessionScope.account.address}" /><br />
+								<input type="hidden" id="addressBefore" value="${sessionScope.account.address}"/>
+								<form:input path="address" style="display:none;"/>
+								주소 <input type="text" id="postcode" readonly placeholder="우편번호"/>
+								<button type="button" id="findPostcode" onclick="execDaumPostcode()">
+							         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
+							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+							           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+							         </svg>
+							         <span>우편번호 찾기</span>
+							    </button><br />
+								<input type="text" id="roadAddress" readonly placeholder="도로명주소"/>
+								<input type="text" id="jibunAddress" readonly placeholder="지번주소"/>
+								<span id="guide" style="color:#999;display:none"></span>
+								<input type="text" id="detailAddress" placeholder="상세주소"/>
+								<input type="text" id="extraAddress" readonly placeholder="참고항목"/>
 		
 								이메일  <form:input path="email" value="${sessionScope.account.email}" /><br />
 
@@ -126,6 +140,6 @@
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
-<script type="text/javascript" src="/okeedokee/js/cpi.js"></script>
+<script type="text/javascript" src="/okeedokee/js/cpi.js?Eergerggergeg"></script>
 </body>
 </html>

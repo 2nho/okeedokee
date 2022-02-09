@@ -107,6 +107,15 @@ main section #arti1 .content>h1::after {
 }
 
 /* 개인정보 변경 */
+main section #arti1 #cpiContent{
+	width: 95%;
+    height: 93%;
+    background-color: #fff;
+    border-radius: 15px 15px;
+    padding: 20px;
+    margin: 21px;
+}
+
 main section #arti1 .content #cpi {
 	margin: 0 auto;
 	width: 500px;

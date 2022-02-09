@@ -31,7 +31,10 @@
 						</div>
 					</div>
 					<div id="noticeButtons">
-						<button id="deleteNotice">
+						<c:choose>
+						<c:when test="${sessionScope.account.level == 'U'}"></c:when>
+						<c:when test="${sessionScope.account.level == 'A'}">
+							<button id="deleteNotice">
 					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
@@ -45,6 +48,9 @@
 					         </svg>
 					         <span>수정</span>
 					    </button>
+						</c:when>
+						<c:otherwise></c:otherwise>
+					</c:choose>
 					    <button id="listMove">
 					         <svg width="60px" height="25px" viewBox="0 0 180 60" class="border">
 					           <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
