@@ -1,5 +1,4 @@
 var init_Announcement_detail = function () {
-	
 		
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = {
@@ -119,6 +118,9 @@ var init_Announcement_detail = function () {
 	
 	        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 			
+			console.log(splitshelterId[1]);
+			console.log(result[0].y);
+			console.log(result[0].x);
 			$("#road_search").on("click", function(){
 				location.href = "https://map.kakao.com/link/to/" + splitshelterId[1] + "," + result[0].y + "," + result[0].x;
 			}); 

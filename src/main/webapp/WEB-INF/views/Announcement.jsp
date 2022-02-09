@@ -51,14 +51,14 @@
 		                        </div>
 	                        </div>
                     	</div>
-                    	<div class="statistics-contents">
+                    	<!-- <div class="statistics-contents">
                     		<div class="statistics-title">
                     			<h1>유기견 통계</h1>
                     		</div>
                     		<div class="statistics-info">
                     			
                     		</div>
-                    	</div>
+                    	</div> -->
                     </div>
                 </div>
                 <div class="main-content-profile" id="div_dogContentMain">
