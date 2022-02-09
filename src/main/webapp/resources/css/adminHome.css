@@ -21,8 +21,7 @@ header {
 main {
 	display: flex;
 	height: 90vh;
-	width: 100vw;
-	
+	width: 100vw;	
 }
 
 aside {
@@ -50,8 +49,8 @@ section {
 	flex-direction:column;
 	justify-content: space-around;
 	flex-grow: 1;	
-	background: url("/okeedokee/media/logo/logo_opacity.jpg") no-repeat center fixed;
-	background-size: 26%;
+	background: url("/okeedokee/media/logo/logo_opacity.jpg") no-repeat 56.5% 50% fixed;
+	background-size: 24%;
 	min-height: 660px;
 }
 .box {
