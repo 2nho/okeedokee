@@ -48,6 +48,7 @@ a {
 .dog-profile {
     display: flex;
     flex-direction: row nowrap;
+    border-bottom : 2px solid black;
 }
 
 .profile-img {

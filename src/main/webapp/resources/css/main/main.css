@@ -229,7 +229,7 @@ a {
     width: 460px;
     height: 250px;
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid #FBD157;
     margin: 20px 50px;
     display: flex;
     flex-direction: row nowrap;
@@ -240,7 +240,7 @@ a {
 	 width: 460px;
     height: 250px;
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid #FBD157;
     margin: 20px 50px;
     display: flex;
     flex-direction: row nowrap;
@@ -285,3 +285,10 @@ a {
 .sighting-info-content p {
     padding: 3px 0;
 }
+
+/* @media (min-width : 2500px) {
+	
+	.nearby-dog-content {
+	    grid-template-columns: repeat(6, 240px);
+	}
+} */

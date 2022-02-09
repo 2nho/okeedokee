@@ -66,7 +66,7 @@
                 </div>
                 <div class="nearby-dog">
                     <div class="nearby-dog-title">
-                        <h1>내 근처 아이 알아보기</h1>
+                        <h1>아이 알아보기</h1>
                     </div>
                     <div class="nearby-dog-content">
                     	<c:forEach var="dog" items="${result.item}" begin="0" end="19" varStatus="status">
