@@ -47,7 +47,29 @@ $(document).ready(function() {
 $(function() {
 	const modifyRnum = $("#modifyRnum").val();
 	const deleteMnum = $("#deleteMnum").val();
-	console.log(deleteMnum);
+	
+	$("#reserDate").on("change",function(){
+		const reserDate = $(this);
+		let fullDate = new Date();
+		let year = fullDate.getFullYear(); // 년도
+		let month = fullDate.getMonth() + 1;  // 월
+		let date = fullDate.getDate();  // 날짜
+		
+		if(month.toString.length == "1"){
+			month = "0" + month;
+			if(date.toString.length == "1"){
+				date = "0" + date;
+			}
+		}
+		
+		let today = year+"-"+month+"-"+date;
+
+		if(reserDate.val() < today){
+			alert("날짜를 확인해주세요.");
+			reserDate.val(today);
+		}
+		
+	});
 	
 	$("#listMove").click(function(){
 		location.href = "/okeedokee/reservation";

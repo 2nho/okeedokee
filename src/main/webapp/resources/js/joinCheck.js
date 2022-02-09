@@ -101,14 +101,14 @@ let join = {
 	
 	address: { 
 		valid: { code: 'valid', desc: '주소를 입력하셨습니다.' }, 
-		notComplete: { code: 'invalid', desc: '상세주소를 입력해 주십시오.' },
+		notComplete: { code: 'invalid', desc: '주소 검색을 해주세요.' },
 		invalid: { code: 'invalid', desc: '주소를 입력해 주십시오.' } 
 	}, 
 	
 	address_status: function(address) { 
-		if(postcode == "") return this.address.notComplete;
+		if($("#postcode").val() == "") return this.address.notComplete;
 		else if(address == "") return this.address.invalid;
-		else return this.address.valid; 
+		else return this.address.valid;
 	},
 	
 	tag_status: function(tag) { 
@@ -120,7 +120,7 @@ let join = {
 		else if(tag == 'email') { data = this.email_status(data); } 
 		else if(tag == 'phNum') { data = this.phNum_status(data); } 
 		else if(tag == 'name') { data = this.na_status(data); }
-		else if(tag == 'address') { data = this.address_status(data); }
+		else if(tag == 'detailAddress') { data = this.address_status(data); }
 		return data; 
 	} 
 }

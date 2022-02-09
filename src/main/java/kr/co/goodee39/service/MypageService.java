@@ -36,7 +36,7 @@ public class MypageService {
 			out.println("<script>alert('계정 정보를 다시 확인해주세요.'); location.href='/okeedokee/mypage';</script>");
 			// 출력
 			out.flush();
-			path = "redirect:/mypage";
+			return null;
 		}
 		return path;
 	}

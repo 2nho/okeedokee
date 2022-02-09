@@ -48,6 +48,12 @@ $(function(){
 			} 
 		});
 		
+		$('#findPostcode').on('click', function(){
+			let data = { code: 'invalid', desc: '상세주소를 입력해 주십시오.' };		
+			display_status($(this).siblings('div'), data);
+		});
+		
+		
 		$('.chkra').on('focus', function(){		
  			let tag = $(this).attr("name");
  			const div = $(this);

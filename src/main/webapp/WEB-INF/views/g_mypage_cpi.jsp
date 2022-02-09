@@ -9,7 +9,7 @@
 <link rel="icon" href="/okeedokee/media/logo/favicon.ico">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<link rel="stylesheet" href="css/mypage.css?edrgerg " />
+<link rel="stylesheet" href="css/mypage.css" />
 <link rel="stylesheet" href="/okeedokee/css/buttonCommon.css" />
 </head>
 <body>
@@ -140,6 +140,6 @@
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
-<script type="text/javascript" src="/okeedokee/js/cpi.js?Eergerggergeg"></script>
+<script type="text/javascript" src="/okeedokee/js/cpi.js"></script>
 </body>
 </html>

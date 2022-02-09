@@ -79,7 +79,8 @@ public class MailController {
 	}
     
     @RequestMapping( value = "/mail/signupAuth" , method=RequestMethod.POST )
-    public @ResponseBody ResponseEntity<Integer> signupMailSending(HttpServletRequest request, String email, String hidden, HttpServletResponse response_email) throws IOException {
+    public @ResponseBody ResponseEntity<Integer> signupMailSending(HttpServletRequest request, 
+    			String email, String hidden, HttpServletResponse response_email) throws IOException {
         Random r = new Random();
         int dice = r.nextInt(4589362) + 49311; //이메일로 받는 인증코드 부분 (난수)
         
@@ -123,5 +124,4 @@ public class MailController {
         System.out.println(dice);
         return new ResponseEntity<Integer>(dice, HttpStatus.OK);
     }
-
 }

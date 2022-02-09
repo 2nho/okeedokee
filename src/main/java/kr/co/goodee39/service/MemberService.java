@@ -45,7 +45,7 @@ public class MemberService {
 			// 출력
 			out.flush();
 		}
-		return path;
+		return null;
 	}
 	
 	public void setMember(MemberVO vo) {

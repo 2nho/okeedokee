@@ -135,6 +135,6 @@
 	<!-- 푸터 불러오기 -->
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </div>
-<script type="text/javascript" src="/okeedokee/js/reservation.js"></script>
+<script type="text/javascript" src="/okeedokee/js/reservation.js?dfgdfg"></script>
 </body>
 </html>

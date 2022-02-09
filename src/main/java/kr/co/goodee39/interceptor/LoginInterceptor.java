@@ -12,7 +12,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		
 		// account가 null이면 session을 초기화
 		if(session.getAttribute("account") == null) {
 			session.invalidate();	// 세션 초기화
