@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `member` (
   `pw` varchar(40) DEFAULT NULL,
   `address` varchar(255) NOT NULL,
   `email` varchar(30) DEFAULT NULL,
-  `phNum` varchar(11) DEFAULT NULL,
+  `phNum` varchar(13) DEFAULT NULL,
   `petown` varchar(1) DEFAULT NULL COMMENT 'Y/N',
   `size` varchar(5) DEFAULT NULL COMMENT 'B(대형), M(중형), S(소형), E(전부)',
   `level` varchar(10) DEFAULT 'U' COMMENT 'A(관리자), U(회원)',
