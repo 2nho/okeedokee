@@ -205,16 +205,14 @@
 	          console.log(mnum);
 	          //FormData 랑 변수명 동일시 금지! 에러남
 	          // formdata로는 데이터가 안넘어감
-	          var formData = new FormData();
+	         /*  var formData = new FormData();
 
 	          formData.set("mnum", mnum);
 	          formData.append("level", level);
-
-	          // 값이빔..
-	          console.log(JSON.stringify(formData));
+	          console.log(JSON.stringify(formData)); */
+	        
 	          // 구조분해할당
 	          var data1 = { mnum, level };
-
 	          $.ajax({
 	            //요청을 보낼 주소
 	            url: "${pageContext.request.contextPath}/admin/updateLevel",
