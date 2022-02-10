@@ -37,7 +37,7 @@ public class adminSerivce {
 		// new class static 변수 사용 불가능
 		model.addAttribute("nMember", sqlSessionTemplate.selectOne("member.newMember", vo));
 	}
-
+	// 이번달 모금액
 	public void selectMoney(Model model) {
 		DonationVO vo = new DonationVO();
 		LocalDate now = LocalDate.now();
@@ -110,6 +110,7 @@ public class adminSerivce {
 		}
 		model.addAttribute("list", sqlSessionTemplate.selectList("member.allMember", vo));
 	}
+	// 회원게시판 삭제 버튼 시 N값을 Y값으로 변경
 	public void updateM(MemberVO vo) {
 		sqlSessionTemplate.update("member.updateM",vo);
 	}
@@ -168,7 +169,7 @@ public class adminSerivce {
 	public List<Map<String,String>> monthMember() {
 		return sqlSessionTemplate.selectList("member.monthMember");
 	}
-	
+	// 회원게시판 level 구분 업데이트
 	public void updateLevel(MemberVO vo) {
 		 sqlSessionTemplate.update("member.updateLevel",vo);
 	}

@@ -62,7 +62,7 @@ public class adminController {
 	@PatchMapping("/updateMember")
 	public @ResponseBody ResponseEntity<String> deleteMember(@RequestBody MemberVO vo) {
 		service.updateM(vo);
-		ResponseEntity<String> entity = new ResponseEntity<String>("성공", HttpStatus.OK);
+		ResponseEntity<String> entity = new ResponseEntity<String>("Done", HttpStatus.OK);
 	return entity;
 	}
 	
