@@ -57,8 +57,14 @@ public class adminController {
 	   // System.out.println(vo.getMnum());
 	   // System.out.println(vo.getLevel());
 		ResponseEntity<MemberVO> entity = new ResponseEntity<MemberVO>(vo, HttpStatus.OK);
-		return entity;}
-	 
+		return entity;
+		}
+	@PatchMapping("/updateMember")
+	public @ResponseBody ResponseEntity<String> deleteMember(@RequestBody MemberVO vo) {
+		service.updateM(vo);
+		ResponseEntity<String> entity = new ResponseEntity<String>("성공", HttpStatus.OK);
+	return entity;
+	}
 	
 	@GetMapping("/adminMember")
 	public String adminMember(Model model, @RequestParam(defaultValue = "1") int num,

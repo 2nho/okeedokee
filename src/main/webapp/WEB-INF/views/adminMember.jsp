@@ -146,6 +146,7 @@
 										href="${pageContext.request.contextPath}/admin/adminMember?num=${maxBlock+1}${query}">▶▶</a>
 								</c:otherwise>
 							</c:choose>
+							<button class="submit">삭제</button>
 						</div>
 					</article>
 				</div>
@@ -181,13 +182,45 @@
 	        });
 
 	        // 4개 전부 체크시 전체 선택 체크 / 하나라도 체크 해제시 전체 선택 해제
-	        $(".checkbox").click(function () {
-	          if ($(".checkbox:checked").length == $(".checkbox").length) {
+	        $(".checkbox").click(function () {      	
+	           if ($(".checkbox:checked").length == $(".checkbox").length) {
 	            $(".checkboxAll").prop("checked", true);
 	          } else {
 	            $(".checkboxAll").prop("checked", false);
-	          }
+	          } 
 	        });
+	        // 체크박스 클릭후 전송시 이벤트
+	        $(function(){
+	        	// var index = $(".checkbox:checked").index();
+	        	// var mnum = $("[name=mnum]").eq(index).text();
+	        	$(".submit").click(function(){
+	        		 $(".checkbox:checked").each(function(index,value){	       
+	        			let idx = $(value).index(".checkbox");
+	        			var mnum = $("[name=mnum]").eq(idx).text();
+	        			var data = {mnum};
+	        			$.ajax({
+		        			 //요청을 보낼 주소
+		    	            url: "${pageContext.request.contextPath}/admin/updateMember",
+		    	            // 보낼 데이터 (mnum값 보내기)
+		    	            data: JSON.stringify(data),
+		    	            // 데이터 전송 방법
+		    	            type: "PATCH",
+		    	            // 전송할 데이터 타입
+		    	            contentType: "application/json; charset=utf-8",
+		    	            // 서버에서 받아올 데이터 형태
+		    	            dataType: "json",
+		    	            //성공시 결과값 매개변수로 받아서
+		    	            success: function (result) {
+		    	            	alert("회원삭제완료");
+		    	            } 
+		        		})
+	        			 
+	        		 });	        
+		       
+	        	
+	        	})
+	        	
+	        })
 	      });
 	// 레벨 변경 
 	      $(function () {

@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 
 import kr.co.goodee39.vo.DonationVO;
 import kr.co.goodee39.vo.MemberVO;
+import kr.co.goodee39.vo.calendarVO;
 import kr.co.goodee39.vo.mnwVO;
 import kr.co.goodee39.vo.reportVO;
 
@@ -108,6 +109,9 @@ public class adminSerivce {
 			model.addAttribute("level", level);
 		}
 		model.addAttribute("list", sqlSessionTemplate.selectList("member.allMember", vo));
+	}
+	public void updateM(MemberVO vo) {
+		sqlSessionTemplate.update("member.updateM",vo);
 	}
 		// 신고 게시판 
 	public void selectReportBBS(Model model, int num, String title, String content, String status) {

@@ -68,6 +68,11 @@
 		Set level = #{level}
 		WHERE mnum = #{mnum}
 	</update>
+	<update id="updateM" parameterType="memberVO">
+		UPDATE member 
+		Set del = "Y"
+		WHERE mnum = #{mnum}
+	</update>
 </mapper>
 
 
