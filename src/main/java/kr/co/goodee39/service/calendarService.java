@@ -23,7 +23,6 @@ public class calendarService {
 		}
 		// 데이터 가져오기
 		public List<calendarVO> selectC() {
-			System.out.println(sqlSessionTemplate.selectList("calendar.selectC"));
 			return sqlSessionTemplate.selectList("calendar.selectC");
 		}
 }

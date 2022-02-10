@@ -178,10 +178,10 @@
 		    	$(function() {		
 		    		$("[name=choiceLevel]").change(function(){
 						let level = $(this).val();
-				 		console.log(level);			 		
+				 		//console.log(level);			 		
 				 		
 				 		var index = $("[name=choiceLevel]").index(this);
-				 		console.log(index);
+				 		//console.log(index);
 				 		// 위랑 같음 제이쿼리 홈페이지 index() 참고 
 				 		/* var index1 = $(this).index("[name=choiceLevel]");
 				 		console.log(index1); */
