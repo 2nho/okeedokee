@@ -16,19 +16,27 @@
 <body>
 	<div id="container">
 		<header>
-		<div class="head"><p>OKEEDOKEE - 관리자페이지</p></div>
+			<div class="head">
+				<p>OKEEDOKEE - 관리자페이지</p>
+			</div>
 		</header>
 		<main>
 			<aside>
 				<ul>
 					<li><h1>관리자모드</h1></li>
-					<li><h2><a href="adminHome">Home</a></h2></li>
+					<li><h2>
+							<a href="adminHome">Home</a>
+						</h2></li>
 					<li><h2 class="red">회원관리</h2></li>
-					<li><h2><a href="adminReport">신고관리</a></h2></li>
-					<li><h2><a href="adminCalendar">일정관리</a></h2></li>
+					<li><h2>
+							<a href="adminReport">신고관리</a>
+						</h2></li>
+					<li><h2>
+							<a href="adminCalendar">일정관리</a>
+						</h2></li>
 				</ul>
-				<br />
-				<span><a href="${pageContext.request.contextPath}/main">메인으로</a></span>
+				<br /> <span><a
+					href="${pageContext.request.contextPath}/main">메인으로</a></span>
 			</aside>
 			<section>
 				<div>
@@ -87,57 +95,57 @@
 							</tbody>
 						</table>
 						<div class="page">
-						<c:choose>
-							<c:when test="${(minBlock-1) < 1 }">
-								<span>◀◀</span>
-							</c:when>
-							<c:otherwise>
-								<a
-									href="${pageContext.request.contextPath}/admin/adminMember?num=${minBlock-1}${query}">◀◀</a>
-							</c:otherwise>
-						</c:choose>
-						&nbsp;&nbsp;
-						<c:choose>
-							<c:when test="${num==1 }">
-								<span>◀</span>
-							</c:when>
-							<c:otherwise>
-								<a
-									href="${pageContext.request.contextPath}/admin/adminMember?num=${num-1}${query}">◀</a>
-							</c:otherwise>
-						</c:choose>
-						<c:forEach begin="${minBlock}"
-							end="${(total<maxBlock)?total:maxBlock}" step="1" var="i">
 							<c:choose>
-								<c:when test="${num == i}">
-									<span>${i}</span>
+								<c:when test="${(minBlock-1) < 1 }">
+									<span>◀◀</span>
 								</c:when>
 								<c:otherwise>
 									<a
-										href="${pageContext.request.contextPath}/admin/adminMember?num=${i}${query}">${i}</a>
+										href="${pageContext.request.contextPath}/admin/adminMember?num=${minBlock-1}${query}">◀◀</a>
 								</c:otherwise>
 							</c:choose>
+							&nbsp;&nbsp;
+							<c:choose>
+								<c:when test="${num==1 }">
+									<span>◀</span>
+								</c:when>
+								<c:otherwise>
+									<a
+										href="${pageContext.request.contextPath}/admin/adminMember?num=${num-1}${query}">◀</a>
+								</c:otherwise>
+							</c:choose>
+							<c:forEach begin="${minBlock}"
+								end="${(total<maxBlock)?total:maxBlock}" step="1" var="i">
+								<c:choose>
+									<c:when test="${num == i}">
+										<span>${i}</span>
+									</c:when>
+									<c:otherwise>
+										<a
+											href="${pageContext.request.contextPath}/admin/adminMember?num=${i}${query}">${i}</a>
+									</c:otherwise>
+								</c:choose>
 
-						</c:forEach>
-						<c:choose>
-							<c:when test="${num == total }">
-								<span>▶</span>
-							</c:when>
-							<c:otherwise>
-								<a
-									href="${pageContext.request.contextPath}/admin/adminMember?num=${num+1}${query}">▶</a>
-							</c:otherwise>
-						</c:choose>
-						&nbsp;&nbsp;
-						<c:choose>
-							<c:when test="${maxBlock > total }">
-								<span>▶▶</span>
-							</c:when>
-							<c:otherwise>
-								<a
-									href="${pageContext.request.contextPath}/admin/adminMember?num=${maxBlock+1}${query}">▶▶</a>
-							</c:otherwise>
-						</c:choose>
+							</c:forEach>
+							<c:choose>
+								<c:when test="${num == total }">
+									<span>▶</span>
+								</c:when>
+								<c:otherwise>
+									<a
+										href="${pageContext.request.contextPath}/admin/adminMember?num=${num+1}${query}">▶</a>
+								</c:otherwise>
+							</c:choose>
+							&nbsp;&nbsp;
+							<c:choose>
+								<c:when test="${maxBlock > total }">
+									<span>▶▶</span>
+								</c:when>
+								<c:otherwise>
+									<a
+										href="${pageContext.request.contextPath}/admin/adminMember?num=${maxBlock+1}${query}">▶▶</a>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</article>
 				</div>
@@ -145,90 +153,96 @@
 		</main>
 	</div>
 	<script type="text/javascript">
-		      	$(function() {		
-					$("#search").click(function(){
-						let category = $("#choice").val();
-						let text = $("#text").val();
-						
-						if(category == "id"){
-				      		location.href = "${pageContext.request.contextPath}/admin/adminMember?id="+text;
-				      	}else if(category == "email"){
-				      		location.href = "${pageContext.request.contextPath}/admin/adminMember?email="+text;
-				      	}else if(category == "level"){
-				      		location.href = "${pageContext.request.contextPath}/admin/adminMember?level="+text;
-						}
-					});
-				});
-		      	$(function() {
-		    		// 전체 선택 클릭시 전부 선택 / 해제
-		    		$(".checkboxAll").change(function() {
-		    			$(".checkbox").prop("checked", $(this).prop("checked"));
-		    		});
+	// 검색 
+	   $(function () {
+	        $("#search").click(function () {
+	          let category = $("#choice").val();
+	          let text = $("#text").val();
 
-		    		// 4개 전부 체크시 전체 선택 체크 / 하나라도 체크 해제시 전체 선택 해제
-		    		$(".checkbox").click(function() {
-		    			if ($(".checkbox:checked").length == $(".checkbox").length) {
-		    				$(".checkboxAll").prop("checked", true);
-		    			} else {
-		    				$(".checkboxAll").prop("checked", false);
-		    			}
-		    		});
-		    	});
-		      	
-		    	$(function() {		
-		    		$("[name=choiceLevel]").change(function(){
-						let level = $(this).val();
-				 		//console.log(level);			 		
-				 		
-				 		var index = $("[name=choiceLevel]").index(this);
-				 		//console.log(index);
-				 		// 위랑 같음 제이쿼리 홈페이지 index() 참고 
-				 		/* var index1 = $(this).index("[name=choiceLevel]");
-				 		console.log(index1); */
-				 		
-				 		var mnum = $("[name=mnum]").eq(index).text();
-				 		console.log(mnum);
-				 		//FormData 랑 변수명 동일시 금지! 에러남
-				 		// formdata로는 데이터가 안넘어감
-				 		var formData = new FormData();
-				 		
-				 		formData.set('mnum',mnum);
-				 		formData.append('level',level);
-				 		
-				 		// 값이빔..
-				 		console.log(JSON.stringify(formData));
-				 		// 구조분해할당
-						var data1 =	{mnum ,level};
-				 		
-							$.ajax({
-								//요청을 보낼 주소
-								url : '${pageContext.request.contextPath}/admin/updateLevel',
-								// 전송할 데이터 level값하고 mnum값을 보내야함
-								data: JSON.stringify(data1),
-								// 데이터 전송 방법
-								type: "PATCH",
-								// 전송할 데이터 타입
-						        contentType: "application/json; charset=utf-8",
-						        // 서버에서 받아올 데이터 형태
-						        dataType: "json",
-						        //성공시 결과값 매개변수로 받아서
-						        success: function(result) {						        
-						        	//alert("회원등급 변경완료");
-						        	//console.log(result);
-						        	if(result.level=="A") {
-						        		alert("일반회원에서 관리자로 변경")
-						        	} else {
-						        		alert("관리자에서 일반회원으로 변경")
-						        	}
-						        	//sweatalert 필요시 사용
-						        },
-						        error: function(err){
-						        	console.log(err);	
-						        }
-						        }); 
-					});
-		});
-	
+	          if (category == "id") {
+	            location.href =
+	              "${pageContext.request.contextPath}/admin/adminMember?id=" + text;
+	          } else if (category == "email") {
+	            location.href =
+	              "${pageContext.request.contextPath}/admin/adminMember?email=" +
+	              text;
+	          } else if (category == "level") {
+	            location.href =
+	              "${pageContext.request.contextPath}/admin/adminMember?level=" +
+	              text;
+	          }
+	        });
+	      });
+	// 체크박스 
+	      $(function () {
+	        // 전체 선택 클릭시 전부 선택 / 해제
+	        $(".checkboxAll").change(function () {
+	          $(".checkbox").prop("checked", $(this).prop("checked"));
+	        });
+
+	        // 4개 전부 체크시 전체 선택 체크 / 하나라도 체크 해제시 전체 선택 해제
+	        $(".checkbox").click(function () {
+	          if ($(".checkbox:checked").length == $(".checkbox").length) {
+	            $(".checkboxAll").prop("checked", true);
+	          } else {
+	            $(".checkboxAll").prop("checked", false);
+	          }
+	        });
+	      });
+	// 레벨 변경 
+	      $(function () {
+	        $("[name=choiceLevel]").change(function () {
+	          let level = $(this).val();
+	          //console.log(level);
+
+	          var index = $("[name=choiceLevel]").index(this);
+	          //console.log(index);
+	          // 위랑 같음 제이쿼리 홈페이지 index() 참고
+	          /* var index1 = $(this).index("[name=choiceLevel]");
+					 		console.log(index1); */
+
+	          var mnum = $("[name=mnum]").eq(index).text();
+	          console.log(mnum);
+	          //FormData 랑 변수명 동일시 금지! 에러남
+	          // formdata로는 데이터가 안넘어감
+	          var formData = new FormData();
+
+	          formData.set("mnum", mnum);
+	          formData.append("level", level);
+
+	          // 값이빔..
+	          console.log(JSON.stringify(formData));
+	          // 구조분해할당
+	          var data1 = { mnum, level };
+
+	          $.ajax({
+	            //요청을 보낼 주소
+	            url: "${pageContext.request.contextPath}/admin/updateLevel",
+	            // 전송할 데이터 level값하고 mnum값을 보내야함
+	            data: JSON.stringify(data1),
+	            // 데이터 전송 방법
+	            type: "PATCH",
+	            // 전송할 데이터 타입
+	            contentType: "application/json; charset=utf-8",
+	            // 서버에서 받아올 데이터 형태
+	            dataType: "json",
+	            //성공시 결과값 매개변수로 받아서
+	            success: function (result) {
+	              //alert("회원등급 변경완료");
+	              //console.log(result);
+	              if (result.level == "A") {
+	                alert("일반회원에서 관리자로 변경");
+	              } else {
+	                alert("관리자에서 일반회원으로 변경");
+	              }
+	              //sweatalert 필요시 사용
+	            },
+	            error: function (err) {
+	              console.log(err);
+	            },
+	          });
+	        });
+	      });
 	</script>
 </body>
 </html>
