@@ -146,7 +146,7 @@
 										href="${pageContext.request.contextPath}/admin/adminMember?num=${maxBlock+1}${query}">▶▶</a>
 								</c:otherwise>
 							</c:choose>
-							<button class="submit">삭제</button>
+							<button class="submit">선택삭제</button>
 						</div>
 					</article>
 				</div>

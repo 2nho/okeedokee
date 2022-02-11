@@ -102,4 +102,11 @@ td {
 .page {
 	width : 100%;
 	text-align: center;
+	margin-top: 5px;
+}
+.submit {
+	position: absolute;
+	right: 5.35%;
+	padding: 2px;
+	width: 70px;
 }
