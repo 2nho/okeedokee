@@ -44,7 +44,7 @@
 						<div id="board">
 							<table>
 								<thead>
-									<tr>
+									<tr> 
 										<th>순번</th>
 										<th>제목</th>
 										<th>작성일</th>
