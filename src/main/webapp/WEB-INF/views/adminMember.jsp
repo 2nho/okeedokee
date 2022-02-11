@@ -210,7 +210,7 @@
 		    	            dataType: "text",
 		    	            //성공시 결과값 매개변수로 받아서
 		    	            success: function (result) {
-		    	            	console.log(result);
+								location.href="${pageContext.request.contextPath}/admin/adminMember"
 		    	            } 
 		        		})  	
 	        		 });
