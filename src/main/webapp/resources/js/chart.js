@@ -35,7 +35,7 @@ function makeGraph(result){
         	svg.append('g').call(yAxis);
         	svg.append('g')
         	  .selectAll('rect').data(data).enter().append('rect')
-        	  .attr('fill', 'steelblue')
+        	  .attr('fill', '#cb7f2b')
         	  .attr('x', d => x(d.name))
         	  .attr('y', d => y(d.value))
         	  .attr('height', d => y(0) - y(d.value))
