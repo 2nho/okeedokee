@@ -53,7 +53,7 @@ public class MemberController {
 	
 	@GetMapping("/signUp")
 	public String signUp(MemberVO vo) {
-		
+		 
 		return "signup";
 	}
 	
