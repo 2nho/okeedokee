@@ -5,10 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>adminCalendar</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/ko.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/ko.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
 <style type="text/css">
 body {
 	margin: 40px 10px;
@@ -21,46 +24,29 @@ body {
 	max-width: 1100px;
 	margin: 0 auto;
 }
-.fc .fc-button-primary{
+
+.fc .fc-button-primary {
 	background-color: #cb7f2b;
-	}
-.fc .fc-button-primary:not(:disabled).fc-button-active{
-background-color: #cb7f2b;
 }
+
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+	background-color: #cb7f2b;
+}
+
 .fc .fc-button-primary:hover {
-background-color:#f2b75b;
+	background-color: #f2b75b;
 }
-.fc .fc-button-primary:not(:disabled):active{
-background-color:#f2b75b;
+
+.fc .fc-button-primary:not(:disabled):active {
+	background-color: #f2b75b;
 }
 </style>
 </head>
 <body>
 	<div id='calendar'></div>
-	 <script>
-      var calendarEl = document.getElementById("calendar");
-
+ <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var datalist = [];
-        // 콜백함수 event에 직접적으로 ajax넣게되면 데이터가 넘어오기전에
-        // 실행이 되므로 값이 안나타날수있다
-        $.ajax({
-          url: "${pageContext.request.contextPath}/admin/select",
-          type: "Get",
-          //contentType: "application/json; charset=utf-8", 넘기는 데이터 없으니 필요없음
-          dataType: "json",
-          success: function (result) {
-            $.each(result, function (index, value) {
-              // value 값만 이용
-              datalist.push(value);
-              console.log(value);
-            });
-            openCalander(datalist); // each문 안에 값이 없어도 실행될 수 있도록 이곳에 설정
-          },
-        });
-      });
-
-      function openCalander(datalist) {
+        var calendarEl = document.getElementById("calendar");
         var calendar = new FullCalendar.Calendar(calendarEl, {
           locale: "ko",
           headerToolbar: {
@@ -68,9 +54,9 @@ background-color:#f2b75b;
             center: "title",
             right: "dayGridMonth", // ,timeGridWeek,timeGridDay 는 사용안함
           },
-          //initialDate:  초기 보여줄 날짜 값 지정 X
+          //initialDate:  초기 보여줄 날짜 값
           navLinks: true,
-          selectable: true, // 드래그로 날짜설정가능
+          selectable: true,
           selectMirror: true,
           select: function (arg) {
             var title = prompt("일정을 입력해주세요");
@@ -100,8 +86,8 @@ background-color:#f2b75b;
             calendar.unselect();
           },
           eventClick: function (arg) {
-            //  console.log(arg.event.extendedProps); {num : 값}
-            //  console.log(arg.event.extendedProps.num); 값
+            //	console.log(arg.event.extendedProps); {num : 값}
+            //	console.log(arg.event.extendedProps.num); 값
             var data = arg.event.extendedProps;
             if (confirm("삭제하시겠습니까?")) {
               $.ajax({
@@ -118,12 +104,23 @@ background-color:#f2b75b;
               });
             }
           },
-          editable: true, // 날짜조정 스크롤바로 가능
-          dayMaxEvents: true, // true시 이벤트가 많을 경우 more
-          events: datalist,
+          editable: true,
+          dayMaxEvents: true, // 이벤트 화면 가득할 시 처리
+          events: function (info, successCallback) {
+            const arr = [];
+            $.ajax({
+              url: "${pageContext.request.contextPath}/admin/select",
+              type: "GET",
+              dataType: "json",
+              success: function (result) {
+                successCallback(result); // 성공시 콜백함수에 result값 넘겨주면 화면에 나타남
+              }
+            });
+          },
+          eventColor: '#f2b75b' // 이벤트 색상
         });
         calendar.render();
-      }
+      });
     </script>
 </body>
 </html>
