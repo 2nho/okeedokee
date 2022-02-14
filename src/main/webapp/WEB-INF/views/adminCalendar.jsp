@@ -48,11 +48,11 @@ body {
       document.addEventListener("DOMContentLoaded", function () {
         var calendarEl = document.getElementById("calendar");
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          locale: "ko",
-          headerToolbar: {
-            left: "prev next",
-            center: "title",
-            right: "dayGridMonth", // ,timeGridWeek,timeGridDay 는 사용안함
+          locale: "ko", // 지역한국 설정
+          headerToolbar: {    // 최상단 헤더 
+            left: "prev next", // 좌측
+            center: "title", // 가운데
+            right: "dayGridMonth", // ,timeGridWeek,timeGridDay 는 사용안함   // 우측
           },
           //initialDate:  초기 보여줄 날짜 값
           navLinks: true,
@@ -62,13 +62,13 @@ body {
             var title = prompt("일정을 입력해주세요");
             if (title) {
               calendar.addEvent({
-                title: title,
-                start: arg.start,
-                end: arg.end,
+                title: title, // 제목
+                start: arg.start, // 시작날짜
+                end: arg.end, /// 끝날짜
                 allDay: arg.allDay, // Boolean (true or false), arg안에 allDay 기본값 true 내장(다른 내장값 써도 boolean이라 true)
               });
-              console.log({ title, start: arg.startStr, end: arg.endStr });
-              $.ajax({
+            //  console.log({ title, start: arg.startStr, end: arg.endStr }); console확인결과 String값이 존재하여 이를 이용 따로 변환하지 않음 
+              $.ajax({ // 비동기통신으로 db와 연결하여 실시간으로 일정추가 
                 type: "PATCH",
                 url: "${pageContext.request.contextPath}/admin/insert",
                 contentType: "application/json; charset=utf-8",
@@ -85,9 +85,8 @@ body {
             }
             calendar.unselect();
           },
-          eventClick: function (arg) {
-            //	console.log(arg.event.extendedProps); {num : 값}
-            //	console.log(arg.event.extendedProps.num); 값
+          eventClick: function (arg) { // 비동기통신으로 db와 연결하여 실시간으로 일정삭제 
+            //	console.log(arg.event.extendedProps); {num : 값} , console.log(arg.event.extendedProps.num); num의 값	
             var data = arg.event.extendedProps;
             if (confirm("삭제하시겠습니까?")) {
               $.ajax({
@@ -95,8 +94,7 @@ body {
                 url: "${pageContext.request.contextPath}/admin/delete",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                // num 값 넘겨줘야함
-                data: JSON.stringify(data),
+                data: JSON.stringify(data), // num 값을 넘겨줌
                 success: function (result) {
                   console.log("삭제완료");
                   arg.event.remove();
@@ -104,10 +102,9 @@ body {
               });
             }
           },
-          editable: true,
-          dayMaxEvents: true, // 이벤트 화면 가득할 시 처리
+          editable: true, // 일정 크기 조절 가능여부 
+          dayMaxEvents: true, // 이벤트 가득 찰 시 처리 여부 more... 형태
           events: function (info, successCallback) {
-            const arr = [];
             $.ajax({
               url: "${pageContext.request.contextPath}/admin/select",
               type: "GET",
@@ -119,7 +116,7 @@ body {
           },
           eventColor: '#f2b75b' // 이벤트 색상
         });
-        calendar.render();
+        calendar.render(); // 캘린더 렌더링
       });
     </script>
 </body>

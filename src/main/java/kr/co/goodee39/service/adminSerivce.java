@@ -1,7 +1,6 @@
 package kr.co.goodee39.service;
 
 import java.time.LocalDate;
-import java.util.Formatter;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +11,6 @@ import org.springframework.ui.Model;
 
 import kr.co.goodee39.vo.DonationVO;
 import kr.co.goodee39.vo.MemberVO;
-import kr.co.goodee39.vo.calendarVO;
 import kr.co.goodee39.vo.mnwVO;
 import kr.co.goodee39.vo.reportVO;
 
@@ -47,6 +45,10 @@ public class adminSerivce {
 		String format = String.format("%,d", a);
 		model.addAttribute("money", format);
 	}
+	// 각 달 가입한 멤버 
+		public List<Map<String,String>> monthMember() {
+			return sqlSessionTemplate.selectList("member.monthMember");
+		}
 
 	// 관리자 메인페이지 실종 목격 게시판 합
 	public void sumBBS(Model model) {
@@ -81,18 +83,15 @@ public class adminSerivce {
 		model.addAttribute("maxBlock", maxBlock);
 		
 		String query = "";
-
 		if (id != null) {
 			query += "&id=" + id;
 		}
-
 		if (email != null) {
 			query += "&email=" + email;
 		}
 		if (level != null) {
 			query += "&level=" + level;
 		}
-
 		model.addAttribute("query", query);
 		
 		vo.setStart((num - 1) * vo.getCount());
@@ -164,10 +163,6 @@ public class adminSerivce {
 			model.addAttribute("status", status);
 		}
 		model.addAttribute("report", sqlSessionTemplate.selectList("reporttbl.selectReport", vo));
-	}
-	// 각 달 가입한 멤버 
-	public List<Map<String,String>> monthMember() {
-		return sqlSessionTemplate.selectList("member.monthMember");
 	}
 	// 회원게시판 level 구분 업데이트
 	public void updateLevel(MemberVO vo) {

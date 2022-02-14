@@ -80,7 +80,7 @@
 												<option value="${item.level}" id="mainLevel">${item.level}</option>
 												<c:set var="level" value="${item.level}" scope="page" />
 												<%-- <c:if test="${level eq 'member'}"><option value="dbp1">admin</option></c:if>
-										<c:if test="${level eq 'admin'}"><option value="dbp1">member</option></c:if> --%>
+										<c:if test="${level eq 'admin'}"><option value="dbp1">member</option></c:if>   위의 방법과 주석처리된 두가지 방법이 가능하다--%> 
 												<c:choose>
 													<c:when test="${level eq 'U'}">
 														<option value="A">A</option>
@@ -159,7 +159,7 @@
 	        $("#search").click(function () {
 	          let category = $("#choice").val();
 	          let text = $("#text").val();
-
+	          
 	          if (category == "id") {
 	            location.href =
 	              "${pageContext.request.contextPath}/admin/adminMember?id=" + text;
@@ -180,7 +180,6 @@
 	        $(".checkboxAll").change(function () {
 	          $(".checkbox").prop("checked", $(this).prop("checked"));
 	        });
-
 	        // 4개 전부 체크시 전체 선택 체크 / 하나라도 체크 해제시 전체 선택 해제
 	        $(".checkbox").click(function () {      	
 	           if ($(".checkbox:checked").length == $(".checkbox").length) {
@@ -221,47 +220,27 @@
 	      $(function () {
 	        $("[name=choiceLevel]").change(function () {
 	          let level = $(this).val();
-	          //console.log(level);
-
 	          var index = $("[name=choiceLevel]").index(this);
-	          //console.log(index);
-	          // 위랑 같음 제이쿼리 홈페이지 index() 참고
-	          /* var index1 = $(this).index("[name=choiceLevel]");
+	         위랑 같음 제이쿼리 홈페이지 index() 참고
+	       /*  var index1 = $(this).index("[name=choiceLevel]");
 					 		console.log(index1); */
-
 	          var mnum = $("[name=mnum]").eq(index).text();
 	          console.log(mnum);
-	          //FormData 랑 변수명 동일시 금지! 에러남
-	          // formdata로는 데이터가 안넘어감
-	         /*  var formData = new FormData();
-
-	          formData.set("mnum", mnum);
-	          formData.append("level", level);
-	          console.log(JSON.stringify(formData)); */
-	        
 	          // 구조분해할당
 	          var data1 = { mnum, level };
 	          $.ajax({
-	            //요청을 보낼 주소
 	            url: "${pageContext.request.contextPath}/admin/updateLevel",
 	            // 전송할 데이터 level값하고 mnum값을 보내야함
 	            data: JSON.stringify(data1),
-	            // 데이터 전송 방법
 	            type: "PATCH",
-	            // 전송할 데이터 타입
 	            contentType: "application/json; charset=utf-8",
-	            // 서버에서 받아올 데이터 형태
 	            dataType: "json",
-	            //성공시 결과값 매개변수로 받아서
 	            success: function (result) {
-	              //alert("회원등급 변경완료");
-	              //console.log(result);
 	              if (result.level == "A") {
 	                alert("일반회원에서 관리자로 변경");
 	              } else {
 	                alert("관리자에서 일반회원으로 변경");
 	              }
-	              //sweatalert 필요시 사용
 	            },
 	            error: function (err) {
 	              console.log(err);
